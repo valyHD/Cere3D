@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Consent Mode v2 (default denied) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+
+    gtag('js', new Date());
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FY3LRNBF2"></script>
+
+  <!-- Consent UI + loader logic -->
+  <script type="module" src="/consent.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Decoratiuni Camera Copil Printare 3D | Nume, Stele, Nori Si Decor Personalizat - Cere3D</title>
+  <meta name="description" content="Cauti decoratiuni printate 3D pentru camera copilului? Pe Cere3D poti cere nume personalizate, stele, nori, personaje stilizate si decor de perete sau raft, adaptat culorilor si stilului camerei." />
+  <link rel="canonical" href="https://cere3d.ro/decoratiuni-camera-copil-printare-3d.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Decoratiuni Camera Copil Printare 3D | Cere3D" />
+  <meta property="og:description" content="Decoratiuni printate 3D pentru camera copilului: nume, stele, nori, personaje stilizate si piese decorative pentru perete sau raft." />
+  <meta property="og:url" content="https://cere3d.ro/decoratiuni-camera-copil-printare-3d.html" />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/seo-hub.css" />
+
+  <style>
+    .crumbs{
+      padding:18px 0 0;
+      font-size:13px;
+      color:rgba(11,19,38,.64);
+    }
+    .crumbs a{
+      color:rgba(11,19,38,.84);
+      text-decoration:none;
+      font-weight:700;
+    }
+    .crumbs span{
+      margin:0 8px;
+      opacity:.46;
+    }
+
+    .mood-grid,
+    .decor-grid,
+    .room-grid,
+    .related-grid,
+    .steps-grid,
+    .theme-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+      gap:16px;
+      margin-top:28px;
+    }
+
+    .mood-card,
+    .decor-card,
+    .room-card,
+    .related-card,
+    .step-card,
+    .theme-card,
+    .panel-box,
+    .note-box{
+      background:rgba(255,255,255,.90);
+      border:1px solid rgba(11,19,38,.08);
+      border-radius:20px;
+      box-shadow:var(--hub-shadow);
+      padding:24px;
+    }
+
+    .mood-card h3,
+    .decor-card h3,
+    .room-card h3,
+    .related-card h3,
+    .step-card h3,
+    .theme-card h3,
+    .panel-box h3,
+    .note-box h3{
+      font-family:Manrope, system-ui, sans-serif;
+      font-size:20px;
+      line-height:1.25;
+      color:#122a55;
+      font-weight:950;
+      margin-bottom:10px;
+    }
+
+    .mood-card p,
+    .decor-card p,
+    .room-card p,
+    .related-card p,
+    .step-card p,
+    .theme-card p,
+    .panel-box p,
+    .panel-box li,
+    .note-box p,
+    .note-box li{
+      color:rgba(11,19,38,.76);
+      font-size:15px;
+      line-height:1.72;
+    }
+
+    .panel-box ul,
+    .note-box ul{
+      padding-left:18px;
+      margin-top:10px;
+    }
+
+    .panel-box li + li,
+    .note-box li + li{
+      margin-top:8px;
+    }
+
+    .split-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+      margin-top:28px;
+      align-items:start;
+    }
+
+    .pill-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .soft-pill{
+      display:inline-flex;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(11,19,38,.05);
+      border:1px solid rgba(11,19,38,.08);
+      color:#122a55;
+      font-size:14px;
+      font-weight:800;
+      text-decoration:none;
+    }
+
+    .note-band{
+      margin-top:18px;
+      padding:18px 20px;
+      border-radius:18px;
+      background:rgba(91,124,250,.08);
+      border:1px solid rgba(91,124,250,.16);
+      color:#122a55;
+      font-weight:600;
+      line-height:1.72;
+    }
+
+    .warn-band{
+      margin-top:18px;
+      padding:18px 20px;
+      border-radius:18px;
+      background:rgba(255,122,42,.08);
+      border:1px solid rgba(255,122,42,.18);
+      color:#122a55;
+      font-weight:600;
+      line-height:1.72;
+    }
+
+    .related-card a{
+      text-decoration:none;
+      color:#122a55;
+      font-weight:900;
+    }
+
+    @media (max-width: 900px){
+      .split-grid{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {
+        "@type":"ListItem",
+        "position":1,
+        "name":"Cere3D",
+        "item":"https://cere3d.ro/"
+      },
+      {
+        "@type":"ListItem",
+        "position":2,
+        "name":"Printare 3D cadouri personalizate",
+        "item":"https://cere3d.ro/printare-3d-cadouri-personalizate.html"
+      },
+      {
+        "@type":"ListItem",
+        "position":3,
+        "name":"Decoratiuni personalizate printare 3D",
+        "item":"https://cere3d.ro/decoratiuni-personalizate-printare-3d.html"
+      },
+      {
+        "@type":"ListItem",
+        "position":4,
+        "name":"Decoratiuni camera copil printare 3D",
+        "item":"https://cere3d.ro/decoratiuni-camera-copil-printare-3d.html"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Decoratiuni camera copil printare 3D cu nume, stele, nori si elemente personalizate",
+    "description":"Pagina dedicata decoratiunilor printate 3D pentru camera copilului, cu accent pe nume, personaje stilizate, stele, nori, culori si decor de perete sau raft.",
+    "mainEntityOfPage":"https://cere3d.ro/decoratiuni-camera-copil-printare-3d.html",
+    "author":{"@type":"Organization","name":"Cere3D"},
+    "publisher":{"@type":"Organization","name":"Cere3D"},
+    "datePublished":"2026-03-07",
+    "dateModified":"2026-03-07"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Ce fel de decoratiuni printate 3D merg bine in camera copilului?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Merg foarte bine numele personalizate, stelele, norii, lunile, personajele stilizate, simbolurile simple, decorul de raft si piesele de perete adaptate culorilor camerei."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Pot cere decoratiuni pentru perete si pentru raft in aceeasi tema?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Da. Este chiar util sa mentionezi daca vrei o mica familie de piese care sa arate coerent impreuna, de exemplu nume + stele pentru perete si un element decorativ pentru raft."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Ce trebuie sa includ in cerere pentru decoratiuni camera copilului?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Ajuta numele copilului, culorile camerei, stilul dorit, locul unde vor sta piesele, dimensiunea aproximativa si una sau doua poze de inspiratie."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Se potriveste aceasta pagina mai mult pentru cadou sau pentru amenajare?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Mai ales pentru amenajare si decor de camera, chiar daca unele cereri pot fi si cadou. Accentul principal este pe ambientul copilului si pe obiecte decorative blinde vizual."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body data-page="seo-hub">
+  <header class="topbar">
+    <a href="/index.html" class="logo" aria-label="Cere3D">
+      <img src="/assets/logo-cere3d.svg" alt="Cere3D" class="logo-img" />
+    </a>
+    <a href="/cere.html" class="topbar-cta">Posteaza cererea →</a>
+  </header>
+
+  <div class="container">
+    <div class="crumbs">
+      <a href="/index.html">Acasa</a><span>›</span>
+      <a href="/decoratiuni-personalizate-printare-3d.html">Decoratiuni personalizate printare 3D</a><span>›</span>
+      <strong>Decoratiuni camera copil printare 3D</strong>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-badge">Subcategorie: decor personalizat pentru camera copilului</div>
+    <h1>Decoratiuni camera copil <em>printare 3D</em></h1>
+    <p class="hero-sub">
+      Daca vrei sa personalizezi camera copilului cu piese blinde vizual, vesele si usor de integrat in decor, pagina aceasta este pentru tine. Aici intra nume, stele, nori, personaje stilizate si alte obiecte decorative pentru perete sau raft, nu cadouri generale si nici obiecte tehnice.
+    </p>
+
+    <div class="hero-cta-wrap">
+      <a href="/cere.html" class="btn-primary">
+        <span>Posteaza ideea decorului</span>
+        <span>→</span>
+      </a>
+      <a href="#tipuri-decor" class="btn-secondary">Vezi idei potrivite</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">Nume + tema</span>
+        <span class="stat-label">Decor mai personal</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Perete / raft</span>
+        <span class="stat-label">Doua moduri diferite de folosire</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Culori blinde</span>
+        <span class="stat-label">Important pentru camera copilului</span>
+      </div>
+    </div>
+
+    <div class="pill-row">
+      <a href="/nume-personalizat-printat-3d.html" class="soft-pill">Nume personalizat printat 3D</a>
+      <a href="/rama-foto-personalizata-3d.html" class="soft-pill">Rama foto personalizata</a>
+      <a href="/figurina-personalizata-3d.html" class="soft-pill">Figurina personalizata 3D</a>
+      <a href="/cere.html" class="soft-pill">Trimite cererea</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm" id="tipuri-decor">
+    <div class="container">
+      <div class="section-tag">Elemente care merg bine</div>
+      <h2 class="section-title">In camera copilului, decorul bun nu trebuie sa fie incarcat ca sa aiba efect</h2>
+      <p class="section-lead">
+        Pagina aceasta este construita pentru cautari legate de ambient si amenajare, nu pentru cadouri aniversare sau figurine dupa fotografii. Accentul este pe piese decorative care creeaza o atmosfera coerenta.
+      </p>
+
+      <div class="decor-grid">
+        <div class="decor-card">
+          <h3>Nume decorative</h3>
+          <p>Unul dintre cele mai cautate elemente pentru perete, usa, raft sau zona deasupra patutului.</p>
+        </div>
+        <div class="decor-card">
+          <h3>Stele, nori, luna</h3>
+          <p>Forme simple care completeaza bine o tema de camera si pot fi combinate usor intre ele.</p>
+        </div>
+        <div class="decor-card">
+          <h3>Personaje stilizate</h3>
+          <p>Elemente jucause si blinde vizual, mai apropiate de tema camerei decit de ideea de figurina-cadou.</p>
+        </div>
+        <div class="decor-card">
+          <h3>Seturi pentru raft</h3>
+          <p>Piese mici care se completeaza intre ele si dau personalitate raftului fara sa incarce spatiul.</p>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Atmosfera camerei</div>
+      <h2 class="section-title">Decorul reusit porneste mai mult de la starea dorita decit de la o singura piesa</h2>
+
+      <div class="mood-grid">
+        <div class="mood-card">
+          <h3>Calm si aerisit</h3>
+          <p>Decor cu forme simple, putine elemente, culori blinde si piese care lasa camera sa respire vizual.</p>
+        </div>
+        <div class="mood-card">
+          <h3>Jucaus si cald</h3>
+          <p>Nume, simboluri si personaje stilizate care aduc energie, dar fara sa transforme camera intr-un spatiu aglomerat.</p>
+        </div>
+        <div class="mood-card">
+          <h3>Tematic</h3>
+          <p>O tema coerenta poate lega numele, formele si culorile intr-un decor care pare gindit unitar.</p>
+        </div>
+        <div class="mood-card">
+          <h3>Personal si memorabil</h3>
+          <p>Detaliile care tin de copil si de familie fac diferenta intre o decoratiune frumoasa si una care chiar are sens in camera respectiva.</p>
+        </div>
+      </div>
+
+      <div class="warn-band">
+        Aici conteaza foarte mult tonul vizual al camerei. Nu este o pagina despre cadou de ocazie, ci despre decor permanent sau semi-permanent intr-un spatiu real de copil.
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-tag">Perete vs raft</div>
+      <h2 class="section-title">Unele decoratiuni merg mai bine pe perete, altele pe raft</h2>
+
+      <div class="room-grid">
+        <div class="room-card">
+          <h3>Decor de perete</h3>
+          <p>Bun pentru nume, forme simple, stele, nori sau compozitii care trebuie sa se citeasca usor din fata.</p>
+        </div>
+        <div class="room-card">
+          <h3>Decor de raft</h3>
+          <p>Mai potrivit pentru piese mici, personaje stilizate, simboluri sau seturi decorative care se vad si din lateral.</p>
+        </div>
+        <div class="room-card">
+          <h3>Combinatie de piese</h3>
+          <p>Un nume pe perete si citeva elemente tematice pe raft pot crea un decor mai coerent decit o singura piesa mare.</p>
+        </div>
+        <div class="room-card">
+          <h3>Dimensiune potrivita</h3>
+          <p>Camera copilului nu cere mereu piese foarte mari. De multe ori, proportia buna face mai mult decit volumul.</p>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Teme care functioneaza bine</div>
+      <h2 class="section-title">Citeva directii decorative care merg foarte bine in camera copilului</h2>
+
+      <div class="theme-grid">
+        <div class="theme-card">
+          <h3>Stele si nori</h3>
+          <p>Una dintre cele mai sigure directii, fiind usor de integrat si de combinat cu numele copilului.</p>
+        </div>
+        <div class="theme-card">
+          <h3>Animale sau personaje stilizate</h3>
+          <p>Bune pentru o camera mai jucausa, dar in forma simplificata, nu ca figurine realiste sau cadouri de tip portret.</p>
+        </div>
+        <div class="theme-card">
+          <h3>Nume + simbol</h3>
+          <p>O varianta foarte eficienta pentru decor: numele copilului legat de o tema usoara si coerenta.</p>
+        </div>
+        <div class="theme-card">
+          <h3>Seturi mici coordonate</h3>
+          <p>Mai multe piese simple care arata bine impreuna si lasa camera echilibrata vizual.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-tag">Cum postezi bine cererea</div>
+      <h2 class="section-title">Pentru decoratiuni de camera copil, contextul vizual conteaza foarte mult</h2>
+
+      <div class="split-grid">
+        <div class="panel-box">
+          <h3>Ce sa trimiti in cerere</h3>
+          <ul>
+            <li>numele copilului, daca vrei sa fie inclus</li>
+            <li>culorile camerei sau ale decorului existent</li>
+            <li>daca piesele vor sta pe perete sau pe raft</li>
+            <li>tema dorita: stele, nori, personaje, simplu, jucaus</li>
+            <li>dimensiunea aproximativa</li>
+            <li>una sau doua poze cu stilul camerei, daca ai</li>
+          </ul>
+        </div>
+
+        <div class="note-box">
+          <h3>Ce merita clarificat</h3>
+          <ul>
+            <li>vrei o singura piesa sau un set mic de decoratiuni</li>
+            <li>vrei un decor mai discret sau unul care sa devina punct focal</li>
+            <li>camera este pentru bebe, copil mic sau copil mai mare</li>
+            <li>accentul cade pe nume, pe simboluri sau pe tema generala</li>
+          </ul>
+          <div class="warn-band">
+            O poza rapida a camerei sau a coltului unde vor sta piesele poate ajuta mai mult decit o descriere lunga, pentru ca decorul trebuie sa se potriveasca real cu spatiul.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Exemple de intentie</div>
+      <h2 class="section-title">Exemple de cereri potrivite pentru aceasta pagina</h2>
+      <p class="section-lead">Exemple orientative pentru tipul de decor care se potriveste bine cu aceasta cautare.</p>
+
+      <div class="examples-grid">
+        <div class="example-card">
+          <span class="example-status status-done">Decor perete</span>
+          <h3>Nume copil + stele si nori</h3>
+          <p>Compozitie simpla pentru perete, cu accent pe nume si citeva elemente usor de integrat in camera.</p>
+          <div class="example-meta">
+            <span><strong>Tip:</strong> perete</span>
+            <span><strong>Accent:</strong> nume + tema</span>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <span class="example-status status-done">Decor raft</span>
+          <h3>Set mic cu personaje stilizate si simboluri</h3>
+          <p>Piese gindite sa stea pe raft si sa aduca un ton jucaus, fara sa para prea incarcate.</p>
+          <div class="example-meta">
+            <span><strong>Tip:</strong> raft</span>
+            <span><strong>Accent:</strong> personaje</span>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <span class="example-status status-open">Tema camera</span>
+          <h3>Decor coordonat pentru un colt al camerei</h3>
+          <p>Parintele vrea mai multe piese simple in aceeasi directie vizuala, nu un singur obiect mare.</p>
+          <div class="example-meta">
+            <span><strong>Tip:</strong> set</span>
+            <span><strong>Accent:</strong> ambient</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <h3>1. Alegi zona</h3>
+          <p>Perete, raft sau colt decorativ. Asta schimba tot: dimensiune, tip de piesa si cit de vizibila trebuie sa fie.</p>
+        </div>
+        <div class="step-card">
+          <h3>2. Alegi tema</h3>
+          <p>Stele, nori, nume, personaje blinde vizual sau un mix mic si coerent intre ele.</p>
+        </div>
+        <div class="step-card">
+          <h3>3. Alegi tonul culorilor</h3>
+          <p>Culorile trebuie sa completeze camera, nu sa concureze inutil cu restul decorului.</p>
+        </div>
+        <div class="step-card">
+          <h3>4. Clarifici accentul</h3>
+          <p>Numele copilului, tema sau setul complet. Asta face cererea mult mai usor de inteles si executat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Pagini inrudite</div>
+      <h2 class="section-title">Vezi si alte pagini similare</h2>
+      <p class="section-lead">Linkuri interne relevante pentru acelasi cluster, dar cu intentii diferite.</p>
+
+      <div class="related-grid">
+        <article class="related-card">
+          <h3>Nume personalizat printat 3D</h3>
+          <p>Pentru cereri mai specifice centrate pe numele copilului ca piesa principala de decor.</p>
+          <a href="/nume-personalizat-printat-3d.html">Vezi pagina →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Rama foto personalizata 3D</h3>
+          <p>Pentru decor cu componenta de amintire si fotografie, nu doar pentru ambientul camerei.</p>
+          <a href="/rama-foto-personalizata-3d.html">Vezi pagina →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Figurina personalizata 3D</h3>
+          <p>Pentru obiecte decorative individuale sau cadouri, nu pentru decor de camera ca familie de piese.</p>
+          <a href="/figurina-personalizata-3d.html">Vezi pagina →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Decoratiuni personalizate printare 3D</h3>
+          <p>Pagina parinte pentru decoratiuni mai largi de casa, raft, birou si cadou.</p>
+          <a href="/decoratiuni-personalizate-printare-3d.html">Vezi pagina →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Vrei un decor mai personal si mai cald pentru camera copilului?</h2>
+        <p>Posteaza cererea cu numele copilului, culorile camerei, tema dorita si locul unde vor sta piesele. Asa primesti oferte mai bune pentru decoratiuni printate 3D care chiar se potrivesc in camera, nu doar arata bine separat.</p>
+        <a href="/cere.html" class="btn-primary" style="font-size:18px; padding:18px 44px;">
+          Posteaza cererea gratuit →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-tag">Intrebari frecvente</div>
+      <h2 class="section-title">FAQ – decoratiuni camera copil printare 3D</h2>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">
+            Ce fel de decoratiuni printate 3D merg bine in camera copilului?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Merg foarte bine numele personalizate, stelele, norii, lunile, personajele stilizate, simbolurile simple, decorul de raft si piesele de perete adaptate culorilor camerei.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Pot cere decoratiuni pentru perete si pentru raft in aceeasi tema?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Da. Este chiar util sa mentionezi daca vrei o mica familie de piese care sa arate coerent impreuna, de exemplu nume + stele pentru perete si un element decorativ pentru raft.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Ce trebuie sa includ in cerere pentru decoratiuni camera copilului?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Ajuta numele copilului, culorile camerei, stilul dorit, locul unde vor sta piesele, dimensiunea aproximativa si una sau doua poze de inspiratie.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Se potriveste aceasta pagina mai mult pentru cadou sau pentru amenajare?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Mai ales pentru amenajare si decor de camera, chiar daca unele cereri pot fi si cadou. Accentul principal este pe ambientul copilului si pe obiecte decorative blinde vizual.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="/index.html" class="footer-logo">Cere<span>3D</span></a>
+      <a href="/decoratiuni-personalizate-printare-3d.html" class="footer-seo-link">Decoratiuni personalizate</a>
+      <a href="/nume-personalizat-printat-3d.html" class="footer-seo-link">Nume personalizat printat 3D</a>
+      <a href="/rama-foto-personalizata-3d.html" class="footer-seo-link">Rama foto personalizata 3D</a>
+      <span class="footer-copy">
+        © <span id="an-curent"></span> Cere3D. Decoratiuni pentru camera copilului realizate prin printare 3D.
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-q').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i){
+          i.classList.remove('open');
+        });
+        if(!isOpen) item.classList.add('open');
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function(){
+      const yearSpan = document.getElementById('an-curent');
+      if(yearSpan){
+        yearSpan.textContent = new Date().getFullYear();
+      }
+    });
+  </script>
+
+  <!-- SEO Internal Links: printare 3D -->
+  <nav class="seo-internal-links" aria-label="Pagini principale printare 3D" style="display:none;">
+    <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+    <a href="/">Printare 3D Romania - Cere3D</a>
+    <a href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a>
+    <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a>
+    <a href="/cat-costa-un-obiect-printat-3d.html">Cat costa printare 3D</a>
+    <a href="/ce-material-sa-aleg-pentru-printare-3d.html">Materiale printare 3D</a>
+  </nav>
+</body>
+</html>

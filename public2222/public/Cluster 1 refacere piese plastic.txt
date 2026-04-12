@@ -1,0 +1,1152 @@
+Deja facute
+AUTO
+
+piese-plastic-auto.html
+
+clipuri-tapiterie-auto.html
+
+suport-cotiera-auto.html
+
+gura-ventilatie-auto.html
+
+maner-usa-interior-auto.html
+
+grila-bara-fata-rupt.html
+
+ELECTROCASNICE
+
+piese-plastic-electrocasnice.html
+
+clapeta-hublou-masina-spalat.html
+
+sertar-detergent-masina-spalat.html
+
+maner-frigider-plastic.html
+
+=========================================================
+Ca lista scurta pentru lucru in continuare, eu as merge in ordinea asta:
+
+facut - capac-tablou-bord.html
+
+facut - sertar-frigider-rupt.html
+
+facut - buton-aragaz-rupt.html
+
+facut - picior-masina-spalat-frigider.html
+
+facut - support-oglinda-retrovizoare.html
+
+Trimite-mi doar numele uneia din lista si iti dau direct HTML-ul complet, gata de pus.
+===========================================================
+===========================================================
+===========================================================
+===========================================================
+
+AUTO
+capac-tablou-bord.html
+
+Parinte: /piese-plastic-auto.html
+
+Pagini similare: /gura-ventilatie-auto.html, /maner-usa-interior-auto.html, /suport-cotiera-auto.html
+
+Intentie principala: om care cauta solutie pentru capac de bord fisurat, decolorat sau rupt la prinderi
+
+Observatii speciale: accent pe crapaturi de la soare, deformare, clipsuri ascunse, potrivire vizuala in bord
+
+De evitat sa semene cu: gura-ventilatie-auto.html, maner-usa-interior-auto.html, support-oglinda-retrovizoare.html
+===========================================================
+support-oglinda-retrovizoare.html
+
+Parinte: /piese-plastic-auto.html
+
+Pagini similare: /gura-ventilatie-auto.html, /grila-bara-fata-rupt.html, /capac-tablou-bord.html
+
+Intentie principala: om care cauta refacere pentru suportul sau baza oglinzii retrovizoare interioare
+
+Observatii speciale: accent pe baza de fixare, unghi, prinderi, compatibilitate cu suportul existent si delimitare clara fata de piese de siguranta
+
+De evitat sa semene cu: suport-cotiera-auto.html, maner-usa-interior-auto.html, grila-bara-fata-rupt.html
+===========================================================
+capac-protectie-motor-plastic.html
+
+Parinte: /piese-plastic-auto.html
+
+Pagini similare: /grila-bara-fata-rupt.html, /support-oglinda-retrovizoare.html, /capac-tablou-bord.html
+
+Intentie principala: om care cauta inlocuire sau refacere pentru capacul de plastic decorativ/protector din compartimentul motor
+
+Observatii speciale: accent pe temperatura, vibratii, puncte de prindere, clipsuri si rezistenta in compartiment motor
+
+De evitat sa semene cu: grila-bara-fata-rupt.html, gura-ventilatie-auto.html, suport-cotiera-auto.html
+===========================================================
+tava-portbagaj-plastic.html
+
+Parinte: /piese-plastic-auto.html
+
+Pagini similare: /clipuri-tapiterie-auto.html, /maner-usa-interior-auto.html, /capac-tablou-bord.html
+
+Intentie principala: om care cauta refacere pentru piese de plastic din portbagaj: capace, carlige, suporti, rame sau tavite
+
+Observatii speciale: accent pe ornamente portbagaj, piese lipsa, prinderi, carlige si compatibilitate cu interiorul masinii
+
+De evitat sa semene cu: clipuri-tapiterie-auto.html, grila-bara-fata-rupt.html, gura-ventilatie-auto.html
+===========================================================
+ELECTROCASNICE
+picior-masina-spalat-frigider.html
+
+Parinte: /piese-plastic-electrocasnice.html
+
+Pagini similare: /sertar-detergent-masina-spalat.html, /maner-frigider-plastic.html, /sertar-frigider-rupt.html
+
+Intentie principala: om care cauta refacere pentru picior reglabil de masina de spalat sau frigider
+
+Observatii speciale: accent pe filet, reglaj pe inaltime, stabilitate, greutate si contact cu podeaua
+
+De evitat sa semene cu: sertar-detergent-masina-spalat.html, clapeta-hublou-masina-spalat.html, maner-frigider-plastic.html
+===========================================================
+sertar-frigider-rupt.html
+
+Parinte: /piese-plastic-electrocasnice.html
+
+Pagini similare: /maner-frigider-plastic.html, /sertar-detergent-masina-spalat.html, /picior-masina-spalat-frigider.html
+
+Intentie principala: om care cauta solutie pentru sertar frigider fisurat, rupt la colturi sau cu opritoare lipsa
+
+Observatii speciale: accent pe colturi, ghidaje, opritoare, culisare si decizia intre refacere partiala si completa
+
+De evitat sa semene cu: sertar-detergent-masina-spalat.html, clapeta-hublou-masina-spalat.html, buton-aragaz-rupt.html
+===========================================================
+buton-aragaz-rupt.html
+
+Parinte: /piese-plastic-electrocasnice.html
+
+Pagini similare: /capac-masina-cafea-plastic.html, /paleta-robot-bucatarie.html, /maner-frigider-plastic.html
+
+Intentie principala: om care cauta refacere pentru buton de aragaz sau cuptor rupt, care nu mai sta pe ax
+
+Observatii speciale: accent pe gaura interioara, ax, inel, marcaj si apropiere de sursa de caldura
+
+De evitat sa semene cu: clapeta-hublou-masina-spalat.html, sertar-detergent-masina-spalat.html, sertar-frigider-rupt.html
+===========================================================
+paleta-robot-bucatarie.html
+
+Parinte: /piese-plastic-electrocasnice.html
+
+Pagini similare: /buton-aragaz-rupt.html, /capac-masina-cafea-plastic.html, /perie-aspirator-piesa-rupta.html
+
+Intentie principala: om care cauta refacere pentru paleta, angrenaj sau cupla de robot bucatarie
+
+Observatii speciale: accent pe antrenare, imbinare pe ax, uzura, forma functionala si contact alimentar mentionat clar ca trebuie evaluat separat
+
+De evitat sa semene cu: buton-aragaz-rupt.html, clapeta-hublou-masina-spalat.html, sertar-frigider-rupt.html
+===========================================================
+perie-aspirator-piesa-rupta.html
+
+Parinte: /piese-plastic-electrocasnice.html
+
+Pagini similare: /paleta-robot-bucatarie.html, /capac-masina-cafea-plastic.html, /sertar-detergent-masina-spalat.html
+
+Intentie principala: om care cauta refacere pentru capac, rola, clips sau piesa de prindere la aspirator
+
+Observatii speciale: accent pe capete de perie, capace, roti, cleme, articulatii si compatibilitate cu corpul aspiratorului
+
+De evitat sa semene cu: clapeta-hublou-masina-spalat.html, buton-aragaz-rupt.html, maner-frigider-plastic.html
+===========================================================
+capac-masina-cafea-plastic.html
+
+Parinte: /piese-plastic-electrocasnice.html
+
+Pagini similare: /buton-aragaz-rupt.html, /paleta-robot-bucatarie.html, /maner-frigider-plastic.html
+
+Intentie principala: om care cauta refacere pentru capac, clapeta, suport cana sau piesa de ghidaj la masina de cafea
+
+Observatii speciale: accent pe balamale mici, clipsuri, abur, temperaturi moderate si potrivire estetica buna
+
+De evitat sa semene cu: sertar-detergent-masina-spalat.html, clapeta-hublou-masina-spalat.html, sertar-frigider-rupt.html
+===========================================================
+UNELTE SI SCULE
+piese-plastic-unelte.html
+
+Parinte: /refacere-piese-plastic.html
+
+Pagini similare: /piese-plastic-auto.html, /piese-plastic-electrocasnice.html, /piese-plastic-mobila.html
+
+Intentie principala: om care cauta daca se pot reface piese din plastic la unelte si scule electrice
+
+Observatii speciale: pagina categorie; accent pe carcase, capace, manere, protectii si delimitare fata de piese critice de siguranta
+
+De evitat sa semene cu: piese-plastic-auto.html, piese-plastic-electrocasnice.html, piese-plastic-mobila.html
+===========================================================
+maner-polizor-plastic-rupt.html
+
+Parinte: /piese-plastic-unelte.html
+
+Pagini similare: /capac-protectie-fierastrau.html, /piese-plastic-masina-gaurit.html, /suport-plastic-aparat-sudura.html
+
+Intentie principala: om care cauta refacere pentru maner auxiliar, carcasa sau prindere de la polizor/flex
+
+Observatii speciale: accent pe vibratii, forta in mana, filet, prindere si cand merita varianta intarita
+
+De evitat sa semene cu: suport-cotiera-auto.html, maner-mobila-plastic-rupt.html, piese-plastic-masina-gaurit.html
+===========================================================
+capac-protectie-fierastrau.html
+
+Parinte: /piese-plastic-unelte.html
+
+Pagini similare: /maner-polizor-plastic-rupt.html, /piese-plastic-masina-gaurit.html, /suport-plastic-aparat-sudura.html
+
+Intentie principala: om care cauta refacere pentru aparatoare, capac sau protectie de plastic la fierastrau
+
+Observatii speciale: accent pe forma de protectie, puncte de montaj si delimitare clara fata de componente de siguranta active
+
+De evitat sa semene cu: grila-bara-fata-rupt.html, capac-protectie-motor-plastic.html, piese-plastic-masina-gaurit.html
+===========================================================
+piese-plastic-masina-gaurit.html
+
+Parinte: /piese-plastic-unelte.html
+
+Pagini similare: /maner-polizor-plastic-rupt.html, /capac-protectie-fierastrau.html, /suport-plastic-aparat-sudura.html
+
+Intentie principala: om care cauta refacere pentru carcasa, maner, ghidaj sau piese de plastic la bormasina
+
+Observatii speciale: accent pe jumatati de carcasa, clipsuri, ghidaje de cablu, zone de strangere si compatibilitate la inchidere
+
+De evitat sa semene cu: maner-polizor-plastic-rupt.html, piese-plastic-auto.html, piese-plastic-electrocasnice.html
+===========================================================
+suport-plastic-aparat-sudura.html
+
+Parinte: /piese-plastic-unelte.html
+
+Pagini similare: /piese-plastic-masina-gaurit.html, /maner-polizor-plastic-rupt.html, /capac-protectie-fierastrau.html
+
+Intentie principala: om care cauta refacere pentru suport, colt, capac sau piesa de plastic la aparat de sudura
+
+Observatii speciale: accent pe caldura, prinderi, distantiere si piese exterioare/non-critice
+
+De evitat sa semene cu: buton-aragaz-rupt.html, capac-protectie-motor-plastic.html, piese-plastic-masina-gaurit.html
+===========================================================
+MOBILA SI CASA
+piese-plastic-mobila.html
+
+Parinte: /refacere-piese-plastic.html
+
+Pagini similare: /piese-plastic-electrocasnice.html, /piese-plastic-bicicleta.html, /piese-plastic-la-comanda.html
+
+Intentie principala: om care cauta daca se pot reface piese de plastic pentru mobila si casa
+
+Observatii speciale: pagina categorie; accent pe manere, capace, picioare, ghidaje, jaluzele si accesorii de interior
+
+De evitat sa semene cu: piese-plastic-auto.html, piese-plastic-electrocasnice.html, piese-plastic-la-comanda.html
+===========================================================
+maner-mobila-plastic-rupt.html
+
+Parinte: /piese-plastic-mobila.html
+
+Pagini similare: /picior-scaun-plastic-rupt.html, /rola-jaluzea-rupt.html, /capac-priza-intrerupator-plastic.html
+
+Intentie principala: om care cauta refacere pentru maner de sertar, dulap sau usa de mobilier
+
+Observatii speciale: accent pe distanta dintre suruburi, ergonomie, culoare si aspect vizual
+
+De evitat sa semene cu: maner-frigider-plastic.html, maner-usa-interior-auto.html, suport-cotiera-auto.html
+===========================================================
+picior-scaun-plastic-rupt.html
+
+Parinte: /piese-plastic-mobila.html
+
+Pagini similare: /maner-mobila-plastic-rupt.html, /rola-jaluzea-rupt.html, /capac-priza-intrerupator-plastic.html
+
+Intentie principala: om care cauta refacere pentru picior, talpa sau capac de plastic la scaun
+
+Observatii speciale: accent pe stabilitate, greutate, contact cu podeaua si diferenta intre capac si element portant
+
+De evitat sa semene cu: picior-masina-spalat-frigider.html, maner-mobila-plastic-rupt.html, piese-scaun-rotile-plastic.html
+===========================================================
+rola-jaluzea-rupt.html
+
+Parinte: /piese-plastic-mobila.html
+
+Pagini similare: /capac-priza-intrerupator-plastic.html, /maner-mobila-plastic-rupt.html, /picior-scaun-plastic-rupt.html
+
+Intentie principala: om care cauta refacere pentru rola, clichet, capat sau ghidaj de jaluzea
+
+Observatii speciale: accent pe ax, sens de rotire, clipsuri de montaj si compatibilitate cu mecanismul existent
+
+De evitat sa semene cu: buton-aragaz-rupt.html, adaptor-plastic-la-comanda.html, suport-personalizat-plastic.html
+===========================================================
+capac-priza-intrerupator-plastic.html
+
+Parinte: /piese-plastic-mobila.html
+
+Pagini similare: /rola-jaluzea-rupt.html, /maner-mobila-plastic-rupt.html, /carcasa-plastic-aparat-electronic.html
+
+Intentie principala: om care cauta refacere pentru capac, rama sau piesa de plastic de la priza/intrerupator
+
+Observatii speciale: accent pe partea estetica si de montaj, nu pe componente electrice interne
+
+De evitat sa semene cu: carcasa-plastic-aparat-electronic.html, capac-baterie-plastic-rupt.html, maner-mobila-plastic-rupt.html
+===========================================================
+BICICLETA SI SPORT
+piese-plastic-bicicleta.html
+
+Parinte: /refacere-piese-plastic.html
+
+Pagini similare: /piese-trotineta-electrica-plastic.html, /piese-echipament-sport-rupt.html, /piese-plastic-mobila.html
+
+Intentie principala: om care cauta daca se pot reface piese de plastic pentru bicicleta
+
+Observatii speciale: pagina categorie; accent pe capace, ghidaje, suporti, carcase si accesorii non-critice
+
+De evitat sa semene cu: piese-plastic-auto.html, piese-trotineta-electrica-plastic.html, piese-plastic-la-comanda.html
+===========================================================
+piese-trotineta-electrica-plastic.html
+
+Parinte: /piese-plastic-bicicleta.html
+
+Pagini similare: /piese-echipament-sport-rupt.html, /suport-personalizat-plastic.html, /carcasa-plastic-aparat-electronic.html
+
+Intentie principala: om care cauta refacere pentru carcase, capace sau suporti din plastic la trotineta electrica
+
+Observatii speciale: accent pe carcase exterioare, capac baterie, prinderi si piese de protectie
+
+De evitat sa semene cu: piese-plastic-bicicleta.html, carcasa-plastic-aparat-electronic.html, suport-monitor-plastic-rupt.html
+===========================================================
+piese-echipament-sport-rupt.html
+
+Parinte: /piese-plastic-bicicleta.html
+
+Pagini similare: /piese-trotineta-electrica-plastic.html, /piese-plastic-bicicleta.html, /suport-personalizat-plastic.html
+
+Intentie principala: om care cauta refacere pentru clipsuri, suporti sau piese de plastic de la echipamente sportive
+
+Observatii speciale: accent pe accesorii, reglaje, capace, piese mici si contexte foarte variate
+
+De evitat sa semene cu: piese-plastic-la-comanda.html, piese-plastic-bicicleta.html, maner-carja-plastic-rupt.html
+===========================================================
+ELECTRONICE SI IT
+carcasa-plastic-aparat-electronic.html
+
+Parinte: /refacere-piese-plastic.html
+
+Pagini similare: /capac-baterie-plastic-rupt.html, /suport-monitor-plastic-rupt.html, /piese-plastic-imprimanta.html
+
+Intentie principala: om care cauta refacere pentru carcasa sparta sau lipsa la un aparat electronic
+
+Observatii speciale: accent pe inchidere, clipsuri, suruburi, fante, butoane si aspect exterior
+
+De evitat sa semene cu: capac-baterie-plastic-rupt.html, carcase proiect personalizate, suport-monitor-plastic-rupt.html
+===========================================================
+capac-baterie-plastic-rupt.html
+
+Parinte: /carcasa-plastic-aparat-electronic.html
+
+Pagini similare: /carcasa-plastic-aparat-electronic.html, /piese-plastic-imprimanta.html, /suport-monitor-plastic-rupt.html
+
+Intentie principala: om care cauta refacere pentru capac de baterie pierdut sau rupt
+
+Observatii speciale: accent pe clipsuri mici, usita, grosime, inchidere precisa si acces repetat
+
+De evitat sa semene cu: carcasa-plastic-aparat-electronic.html, buton-aragaz-rupt.html, capac-priza-intrerupator-plastic.html
+===========================================================
+suport-monitor-plastic-rupt.html
+
+Parinte: /carcasa-plastic-aparat-electronic.html
+
+Pagini similare: /piese-plastic-imprimanta.html, /carcasa-plastic-aparat-electronic.html, /suport-personalizat-plastic.html
+
+Intentie principala: om care cauta refacere pentru picior, carcasa suport sau prindere de plastic la monitor/TV
+
+Observatii speciale: accent pe greutate, unghi, baza si piese de sprijin, nu pe electronica
+
+De evitat sa semene cu: suport-cotiera-auto.html, suport-monitor-plastic-rupt.html, suport-senzor-industrial-plastic.html
+===========================================================
+piese-plastic-imprimanta.html
+
+Parinte: /carcasa-plastic-aparat-electronic.html
+
+Pagini similare: /carcasa-plastic-aparat-electronic.html, /capac-baterie-plastic-rupt.html, /suport-monitor-plastic-rupt.html
+
+Intentie principala: om care cauta refacere pentru capace, ghidaje, roti sau piese de plastic la imprimanta
+
+Observatii speciale: accent pe tavi, ghidaje hartie, capace si piese care trebuie sa alinieze bine miscarea
+
+De evitat sa semene cu: paleta-robot-bucatarie.html, perie-aspirator-piesa-rupta.html, carcasa-plastic-aparat-electronic.html
+===========================================================
+MEDICAL SI INGRIJIRE
+piese-plastic-aparat-medical-casnic.html
+
+Parinte: /refacere-piese-plastic.html
+
+Pagini similare: /piese-scaun-rotile-plastic.html, /maner-carja-plastic-rupt.html, /carcasa-plastic-aparat-electronic.html
+
+Intentie principala: om care cauta refacere pentru piese de plastic la aparate medicale casnice
+
+Observatii speciale: accent pe capace, clipsuri, suporti si piese exterioare; limbaj prudent si clar
+
+De evitat sa semene cu: carcasa-plastic-aparat-electronic.html, piese-plastic-electrocasnice.html, piese-scaun-rotile-plastic.html
+===========================================================
+piese-scaun-rotile-plastic.html
+
+Parinte: /piese-plastic-aparat-medical-casnic.html
+
+Pagini similare: /maner-carja-plastic-rupt.html, /picior-scaun-plastic-rupt.html, /suport-monitor-plastic-rupt.html
+
+Intentie principala: om care cauta refacere pentru suporti, clipsuri, capace sau piese de plastic la scaun cu rotile
+
+Observatii speciale: accent pe piese auxiliare, suporti, manere, capace si accesorii non-critice
+
+De evitat sa semene cu: picior-scaun-plastic-rupt.html, suport-cotiera-auto.html, maner-carja-plastic-rupt.html
+===========================================================
+maner-carja-plastic-rupt.html
+
+Parinte: /piese-plastic-aparat-medical-casnic.html
+
+Pagini similare: /piese-scaun-rotile-plastic.html, /maner-mobila-plastic-rupt.html, /picior-scaun-plastic-rupt.html
+
+Intentie principala: om care cauta refacere pentru maner, capac sau piesa de plastic la carja/cadru de mers
+
+Observatii speciale: accent pe ergonomie, contact cu mana, fixare si piese auxiliare non-critice
+
+De evitat sa semene cu: maner-mobila-plastic-rupt.html, maner-frigider-plastic.html, piese-scaun-rotile-plastic.html
+===========================================================
+INDUSTRIE SI PROFESIONAL
+piese-plastic-echipament-industrial.html
+
+Parinte: /refacere-piese-plastic.html
+
+Pagini similare: /roti-angrenaje-plastic-industrial.html, /suport-senzor-industrial-plastic.html, /piese-plastic-unelte.html
+
+Intentie principala: om care cauta refacere pentru piese de plastic la echipamente industriale sau profesionale
+
+Observatii speciale: pagina categorie; accent pe ghidaje, suporti, capace, distantiere si piese greu de gasit
+
+De evitat sa semene cu: piese-plastic-unelte.html, piese-plastic-electrocasnice.html, piese-plastic-la-comanda.html
+===========================================================
+roti-angrenaje-plastic-industrial.html
+
+Parinte: /piese-plastic-echipament-industrial.html
+
+Pagini similare: /suport-senzor-industrial-plastic.html, /paleta-robot-bucatarie.html, /adaptor-plastic-la-comanda.html
+
+Intentie principala: om care cauta refacere pentru roti dintate, angrenaje sau pinioane din plastic
+
+Observatii speciale: accent pe numar de dinti, ax, diametre, uzura si tolerante functionale
+
+De evitat sa semene cu: paleta-robot-bucatarie.html, buton-aragaz-rupt.html, piese-plastic-imprimanta.html
+===========================================================
+suport-senzor-industrial-plastic.html
+
+Parinte: /piese-plastic-echipament-industrial.html
+
+Pagini similare: /roti-angrenaje-plastic-industrial.html, /suport-monitor-plastic-rupt.html, /adaptor-plastic-la-comanda.html
+
+Intentie principala: om care cauta refacere pentru suport, adaptor sau carcasa de senzor/camera industriala
+
+Observatii speciale: accent pe gauri de montaj, unghi, fixare si repozitionare precisa
+
+De evitat sa semene cu: suport-monitor-plastic-rupt.html, suport-personalizat-plastic.html, piese-plastic-echipament-industrial.html
+===========================================================
+PERSONALIZARE SI CREARE
+piese-plastic-la-comanda.html
+
+Parinte: /refacere-piese-plastic.html
+
+Pagini similare: /suport-personalizat-plastic.html, /adaptor-plastic-la-comanda.html, /carcasa-proiect-plastic-personalizata.html
+
+Intentie principala: om care nu gaseste piesa in comert si vrea sa o creeze de la zero
+
+Observatii speciale: pagina hub de comanda custom; accent pe idee, schita, model, functionalitate si validare
+
+De evitat sa semene cu: piesa-plastic-nu-se-mai-gaseste.html, prototip-piesa-plastic-rapid.html, piese-plastic-electrocasnice.html
+===========================================================
+suport-personalizat-plastic.html
+
+Parinte: /piese-plastic-la-comanda.html
+
+Pagini similare: /adaptor-plastic-la-comanda.html, /carcasa-proiect-plastic-personalizata.html, /suport-senzor-industrial-plastic.html
+
+Intentie principala: om care vrea un suport custom pentru telefon, camera, unealta sau obiect specific
+
+Observatii speciale: accent pe puncte de fixare, unghi, greutate sustinuta si context de utilizare
+
+De evitat sa semene cu: adaptor-plastic-la-comanda.html, suport-monitor-plastic-rupt.html, suport-senzor-industrial-plastic.html
+===========================================================
+adaptor-plastic-la-comanda.html
+
+Parinte: /piese-plastic-la-comanda.html
+
+Pagini similare: /suport-personalizat-plastic.html, /carcasa-proiect-plastic-personalizata.html, /roti-angrenaje-plastic-industrial.html
+
+Intentie principala: om care vrea adaptor, reductie sau conector din plastic facut la comanda
+
+Observatii speciale: accent pe diametre, interfete, compatibilitate intre doua piese si etansare aproximativa daca e cazul
+
+De evitat sa semene cu: suport-personalizat-plastic.html, carcasa-proiect-plastic-personalizata.html, prototip-piesa-plastic-rapid.html
+===========================================================
+carcasa-proiect-plastic-personalizata.html
+
+Parinte: /piese-plastic-la-comanda.html
+
+Pagini similare: /adaptor-plastic-la-comanda.html, /suport-personalizat-plastic.html, /carcasa-plastic-aparat-electronic.html
+
+Intentie principala: om care vrea carcasa custom pentru proiect electronic sau dispozitiv
+
+Observatii speciale: accent pe decupaje, prinderi, ventilatie, suruburi, butoane si acces la conectori
+
+De evitat sa semene cu: carcasa-plastic-aparat-electronic.html, suport-personalizat-plastic.html, piese-plastic-la-comanda.html
+===========================================================
+prototip-piesa-plastic-rapid.html
+
+Parinte: /piese-plastic-la-comanda.html
+
+Pagini similare: /adaptor-plastic-la-comanda.html, /carcasa-proiect-plastic-personalizata.html, /piese-plastic-la-comanda.html
+
+Intentie principala: om care vrea sa testeze rapid o piesa sau o idee inainte de varianta finala
+
+Observatii speciale: accent pe test, iteratie, verificare de forma si functie, nu pe piesa finala perfect finisata
+
+De evitat sa semene cu: piesa-plastic-nu-se-mai-gaseste.html, suport-personalizat-plastic.html, carcasa-proiect-plastic-personalizata.html
+===========================================================
+SITUATIA “NU SE MAI GASESTE”
+piesa-plastic-nu-se-mai-gaseste.html
+
+Parinte: /refacere-piese-plastic.html
+
+Pagini similare: /piesa-aparat-vechi-nu-se-mai-face.html, /alternativa-piesa-originala-plastic.html, /piesa-import-greu-de-gasit.html
+
+Intentie principala: om care cauta o solutie generala cind piesa de plastic nu se mai gaseste deloc
+
+Observatii speciale: pagina problema, nu categorie de obiect; accent pe scenariu, decizie si pasi de urmat
+
+De evitat sa semene cu: piese-plastic-la-comanda.html, refacere-piese-plastic.html, piesa-aparat-vechi-nu-se-mai-face.html
+===========================================================
+piesa-aparat-vechi-nu-se-mai-face.html
+
+Parinte: /piesa-plastic-nu-se-mai-gaseste.html
+
+Pagini similare: /alternativa-piesa-originala-plastic.html, /piesa-import-greu-de-gasit.html, /piese-plastic-electrocasnice.html
+
+Intentie principala: om care are un aparat vechi, functional, dar fara piese de schimb
+
+Observatii speciale: accent pe modele iesite din productie, valoarea aparatului si folosirea piesei vechi ca model
+
+De evitat sa semene cu: piesa-plastic-nu-se-mai-gaseste.html, alternativa-piesa-originala-plastic.html, piese-plastic-electrocasnice.html
+===========================================================
+piesa-import-greu-de-gasit.html
+
+Parinte: /piesa-plastic-nu-se-mai-gaseste.html
+
+Pagini similare: /alternativa-piesa-originala-plastic.html, /piesa-aparat-vechi-nu-se-mai-face.html, /piese-plastic-auto.html
+
+Intentie principala: om care nu vrea sa astepte importul unei piese rare si cauta alternativa locala
+
+Observatii speciale: accent pe timp de asteptare, cost, incertitudine si reproducere locala dupa model
+
+De evitat sa semene cu: piesa-plastic-nu-se-mai-gaseste.html, alternativa-piesa-originala-plastic.html, piese-plastic-la-comanda.html
+===========================================================
+alternativa-piesa-originala-plastic.html
+
+Parinte: /piesa-plastic-nu-se-mai-gaseste.html
+
+Pagini similare: /piesa-import-greu-de-gasit.html, /piesa-aparat-vechi-nu-se-mai-face.html, /piese-plastic-la-comanda.html
+
+Intentie principala: om care gaseste originalul prea scump sau indisponibil si cauta o piesa functionala alternativa
+
+Observatii speciale: accent pe comparatie intre original si refacut, utilitate, potrivire si cost total
+
+De evitat sa semene cu: piesa-plastic-nu-se-mai-gaseste.html, piesa-import-greu-de-gasit.html, prototip-piesa-plastic-rapid.html
+===========================================================
+===========================================================
+===========================================================
+===========================================================
+===========================================================
+===========================================================
+===========================================================
+===========================================================
+Daca vrei, in pasul urmator ti le pot ordona si mai bine intr-o lista de productie, adica:
+
+ce merita facut prima data pentru trafic mai mare,
+
+ce pagini sint bune pentru "printare 3d la comanda",
+
+ce pagini sint bune pentru "cadouri personalizate",
+
+ce pagini sint bune pentru interlinking cu ce ai deja.
+===========================================================
+===========================================================
+===========================================================
+===========================================================
+===========================================================
+===========================================================
+===========================================================
+
+CADOURI SI DECOR PERSONALIZAT
+printare-3d-cadouri-personalizate.html
+
+Parinte: /refacere-piese-plastic.html
+
+Pagini similare: /obiecte-personalizate-printare-3d.html, /figurina-personalizata-3d.html, /rama-foto-personalizata-3d.html
+
+Intentie principala: om care cauta cadouri personalizate realizate prin printare 3D
+
+Observatii speciale: pagina categorie/hub; accent pe cadouri unice, nume, mesaje, aniversari, evenimente, obiecte decorative si utile
+
+De evitat sa semene cu: /piese-plastic-la-comanda.html, /prototip-piesa-plastic-rapid.html, /refacere-piese-plastic.html
+
+===========================================================
+
+obiecte-personalizate-printare-3d.html
+
+Parinte: /printare-3d-cadouri-personalizate.html
+
+Pagini similare: /suport-personalizat-plastic.html, /decoratiuni-personalizate-printare-3d.html, /printare-3d-cadouri-personalizate.html
+
+Intentie principala: om care cauta obiecte personalizate printate 3D pentru casa, birou sau cadou
+
+Observatii speciale: accent pe obiecte unicat, personalizare cu text/logo, functie + estetica, serii mici
+
+De evitat sa semene cu: /piese-plastic-la-comanda.html, /suport-personalizat-plastic.html, /carcasa-proiect-plastic-personalizata.html
+
+===========================================================
+
+rama-foto-personalizata-3d.html
+
+Parinte: /printare-3d-cadouri-personalizate.html
+
+Pagini similare: /decoratiuni-personalizate-printare-3d.html, /litere-3d-personalizate.html, /obiecte-personalizate-printare-3d.html
+
+Intentie principala: om care cauta rama foto personalizata realizata prin printare 3D
+
+Observatii speciale: accent pe nume, data, mesaj, format foto, suport de birou/perete si valoare de cadou
+
+De evitat sa semene cu: /figurina-personalizata-3d.html, /suport-poza-polaroid-3d.html, /printare-3d-cadouri-personalizate.html
+
+===========================================================
+
+figurina-personalizata-3d.html
+
+Parinte: /printare-3d-cadouri-personalizate.html
+
+Pagini similare: /figurina-dupa-poza-3d.html, /cadou-aniversare-printare-3d.html, /decoratiuni-personalizate-printare-3d.html
+
+Intentie principala: om care cauta figurina personalizata sau figurina printata 3D pentru cadou
+
+Observatii speciale: accent pe figurine custom, stilizare, baza personalizata, mesaj, scop decorativ
+
+De evitat sa semene cu: /prototip-piesa-plastic-rapid.html, /obiecte-personalizate-printare-3d.html, /piese-plastic-la-comanda.html
+
+===========================================================
+
+figurina-dupa-poza-3d.html
+
+Parinte: /figurina-personalizata-3d.html
+
+Pagini similare: /figurina-personalizata-3d.html, /cadou-cuplu-personalizat-3d.html, /bust-personalizat-printare-3d.html
+
+Intentie principala: om care cauta figurina 3D dupa poza pentru cadou sau decor
+
+Observatii speciale: accent pe referinte foto, stilizare, nivel de detaliu, asteptari realiste, baza decorativa
+
+De evitat sa semene cu: /figurina-personalizata-3d.html, /scaneaza-si-printeaza-obiect-3d.html, /bust-personalizat-printare-3d.html
+
+===========================================================
+
+bust-personalizat-printare-3d.html
+
+Parinte: /figurina-personalizata-3d.html
+
+Pagini similare: /figurina-dupa-poza-3d.html, /decoratiuni-personalizate-printare-3d.html, /cadou-aniversare-printare-3d.html
+
+Intentie principala: om care cauta bust personalizat printat 3D dupa fotografie sau model
+
+Observatii speciale: accent pe obiect decorativ, baza stabila, dimensiune, nivel de detaliu si finisaj
+
+De evitat sa semene cu: /figurina-dupa-poza-3d.html, /obiecte-personalizate-printare-3d.html, /prototip-piesa-plastic-rapid.html
+
+===========================================================
+
+litere-3d-personalizate.html
+
+Parinte: /printare-3d-cadouri-personalizate.html
+
+Pagini similare: /nume-personalizat-printat-3d.html, /decoratiuni-personalizate-printare-3d.html, /rama-foto-personalizata-3d.html
+
+Intentie principala: om care cauta litere 3D personalizate pentru decor, nume sau eveniment
+
+Observatii speciale: accent pe text, grosime, suport de perete/birou, culori, nume copii, logo-uri simple
+
+De evitat sa semene cu: /obiecte-personalizate-printare-3d.html, /suport-personalizat-plastic.html, /cadou-aniversare-printare-3d.html
+
+===========================================================
+
+nume-personalizat-printat-3d.html
+
+Parinte: /litere-3d-personalizate.html
+
+Pagini similare: /litere-3d-personalizate.html, /rama-foto-personalizata-3d.html, /decoratiuni-camera-copil-printare-3d.html
+
+Intentie principala: om care cauta nume personalizat printat 3D pentru camera, birou sau cadou
+
+Observatii speciale: accent pe nume decorative, suport, montaj, font, dimensiune si context de utilizare
+
+De evitat sa semene cu: /litere-3d-personalizate.html, /cadou-cuplu-personalizat-3d.html, /suport-poza-polaroid-3d.html
+
+===========================================================
+
+decoratiuni-personalizate-printare-3d.html
+
+Parinte: /printare-3d-cadouri-personalizate.html
+
+Pagini similare: /obiecte-personalizate-printare-3d.html, /litere-3d-personalizate.html, /suport-lumanare-printat-3d.html
+
+Intentie principala: om care cauta decoratiuni personalizate realizate prin printare 3D
+
+Observatii speciale: accent pe decor de casa, birou, raft, cadouri, texte, simboluri si obiecte tematice
+
+De evitat sa semene cu: /piese-plastic-mobila.html, /carcasa-proiect-plastic-personalizata.html, /printare-3d-cadouri-personalizate.html
+
+===========================================================
+
+decoratiuni-camera-copil-printare-3d.html
+
+Parinte: /decoratiuni-personalizate-printare-3d.html
+
+Pagini similare: /nume-personalizat-printat-3d.html, /rama-foto-personalizata-3d.html, /figurina-personalizata-3d.html
+
+Intentie principala: parinte care cauta decoratiuni printate 3D pentru camera copilului
+
+Observatii speciale: accent pe nume, personaje stilizate, stele, nori, culori, decor de perete sau raft
+
+De evitat sa semene cu: /cadou-aniversare-printare-3d.html, /figurina-dupa-poza-3d.html, /obiecte-personalizate-printare-3d.html
+
+===========================================================
+
+suport-lumanare-printat-3d.html
+
+Parinte: /decoratiuni-personalizate-printare-3d.html
+
+Pagini similare: /decoratiuni-personalizate-printare-3d.html, /obiecte-personalizate-printare-3d.html, /suport-bijuterii-printat-3d.html
+
+Intentie principala: om care cauta suport decorativ printat 3D pentru lumanari sau tealight
+
+Observatii speciale: accent pe forma decorativa, stabilitate, rol estetic si mentiune prudenta privind sursele de caldura
+
+De evitat sa semene cu: /buton-aragaz-rupt.html, /capac-masina-cafea-plastic.html, /suport-personalizat-plastic.html
+
+CADOURI PERSONALIZATE PE OCAZII
+cadou-aniversare-printare-3d.html
+
+Parinte: /printare-3d-cadouri-personalizate.html
+
+Pagini similare: /cadou-cuplu-personalizat-3d.html, /figurina-personalizata-3d.html, /rama-foto-personalizata-3d.html
+
+Intentie principala: om care cauta cadou aniversare personalizat realizat prin printare 3D
+
+Observatii speciale: accent pe aniversari, varsta, nume, data, obiect memorabil si mesaj personalizat
+
+De evitat sa semene cu: /printare-3d-cadouri-personalizate.html, /cadou-corporate-printare-3d.html, /prototip-piesa-plastic-rapid.html
+
+===========================================================
+
+cadou-cuplu-personalizat-3d.html
+
+Parinte: /printare-3d-cadouri-personalizate.html
+
+Pagini similare: /cadou-aniversare-printare-3d.html, /figurina-dupa-poza-3d.html, /rama-foto-personalizata-3d.html
+
+Intentie principala: om care cauta cadou personalizat pentru cuplu printat 3D
+
+Observatii speciale: accent pe nume, initiale, figurine stilizate, date importante si obiecte decorative pentru relatie
+
+De evitat sa semene cu: /cadou-aniversare-printare-3d.html, /nume-personalizat-printat-3d.html, /figurina-personalizata-3d.html
+
+===========================================================
+
+cadou-corporate-printare-3d.html
+
+Parinte: /printare-3d-cadouri-personalizate.html
+
+Pagini similare: /obiecte-personalizate-printare-3d.html, /litere-3d-personalizate.html, /suport-carti-vizita-printat-3d.html
+
+Intentie principala: firma sau persoana care cauta cadouri corporate personalizate prin printare 3D
+
+Observatii speciale: accent pe serii mici, logo, branding, suport birou, obiect promotional si personalizare rapida
+
+De evitat sa semene cu: /cadou-aniversare-printare-3d.html, /piese-plastic-la-comanda.html, /carcasa-proiect-plastic-personalizata.html
+
+SUPORTURI, ACCESORII SI ORGANIZARE
+suport-telefon-birou-printat-3d.html
+
+Parinte: /obiecte-personalizate-printare-3d.html
+
+Pagini similare: /suport-personalizat-plastic.html, /organizatoare-birou-printare-3d.html, /suport-casti-birou-printat-3d.html
+
+Intentie principala: om care cauta suport de telefon printat 3D pentru birou sau cadou
+
+Observatii speciale: accent pe unghi, stabilitate, incarcare, cablu, latime telefon si utilitate pe birou
+
+De evitat sa semene cu: /suport-personalizat-plastic.html, /suport-monitor-plastic-rupt.html, /suport-senzor-industrial-plastic.html
+
+===========================================================
+
+suport-tableta-printat-3d.html
+
+Parinte: /obiecte-personalizate-printare-3d.html
+
+Pagini similare: /suport-telefon-birou-printat-3d.html, /suport-carte-retete-printat-3d.html, /organizatoare-birou-printare-3d.html
+
+Intentie principala: om care cauta suport printat 3D pentru tableta, citit sau video call
+
+Observatii speciale: accent pe unghi, latime, stabilitate si context de utilizare acasa sau la birou
+
+De evitat sa semene cu: /suport-telefon-birou-printat-3d.html, /suport-monitor-plastic-rupt.html, /suport-personalizat-plastic.html
+
+===========================================================
+
+suport-casti-birou-printat-3d.html
+
+Parinte: /obiecte-personalizate-printare-3d.html
+
+Pagini similare: /organizatoare-birou-printare-3d.html, /suport-controller-gaming-printat-3d.html, /suport-telefon-birou-printat-3d.html
+
+Intentie principala: om care cauta suport pentru casti realizat prin printare 3D
+
+Observatii speciale: accent pe baza, stabilitate, agatare, design clean si utilizare la birou/gaming
+
+De evitat sa semene cu: /suport-monitor-plastic-rupt.html, /suport-personalizat-plastic.html, /organizatoare-birou-printare-3d.html
+
+===========================================================
+
+organizatoare-birou-printare-3d.html
+
+Parinte: /obiecte-personalizate-printare-3d.html
+
+Pagini similare: /suport-telefon-birou-printat-3d.html, /suport-carti-vizita-printat-3d.html, /suport-casti-birou-printat-3d.html
+
+Intentie principala: om care cauta organizatoare de birou personalizate printate 3D
+
+Observatii speciale: accent pe compartimente, pixuri, cabluri, telefon, carti de vizita si personalizare cu nume/logo
+
+De evitat sa semene cu: /piese-plastic-mobila.html, /obiecte-personalizate-printare-3d.html, /suport-personalizat-plastic.html
+
+===========================================================
+
+suport-carti-vizita-printat-3d.html
+
+Parinte: /organizatoare-birou-printare-3d.html
+
+Pagini similare: /organizatoare-birou-printare-3d.html, /cadou-corporate-printare-3d.html, /litere-3d-personalizate.html
+
+Intentie principala: firma sau freelancer care cauta suport carti de vizita personalizat printat 3D
+
+Observatii speciale: accent pe logo, branding, birou, receptie si obiect promotional util
+
+De evitat sa semene cu: /cadou-corporate-printare-3d.html, /organizatoare-birou-printare-3d.html, /obiecte-personalizate-printare-3d.html
+
+===========================================================
+
+suport-cablu-birou-printat-3d.html
+
+Parinte: /organizatoare-birou-printare-3d.html
+
+Pagini similare: /organizatoare-birou-printare-3d.html, /suport-telefon-birou-printat-3d.html, /carcasa-proiect-plastic-personalizata.html
+
+Intentie principala: om care cauta suport sau organizer pentru cabluri printat 3D
+
+Observatii speciale: accent pe ordonare cabluri, birou, clipsuri, trecere cablu si acces rapid
+
+De evitat sa semene cu: /capac-baterie-plastic-rupt.html, /piese-plastic-imprimanta.html, /adaptor-plastic-la-comanda.html
+
+===========================================================
+
+suport-carte-retete-printat-3d.html
+
+Parinte: /obiecte-personalizate-printare-3d.html
+
+Pagini similare: /suport-tableta-printat-3d.html, /suport-telefon-birou-printat-3d.html, /decoratiuni-personalizate-printare-3d.html
+
+Intentie principala: om care cauta suport pentru carte de retete sau tableta in bucatarie, realizat prin printare 3D
+
+Observatii speciale: accent pe unghi, stabilitate, curatare usoara, design util si personalizare discreta
+
+De evitat sa semene cu: /capac-masina-cafea-plastic.html, /suport-personalizat-plastic.html, /organizatoare-birou-printare-3d.html
+
+===========================================================
+
+suport-bijuterii-printat-3d.html
+
+Parinte: /obiecte-personalizate-printare-3d.html
+
+Pagini similare: /decoratiuni-personalizate-printare-3d.html, /rama-foto-personalizata-3d.html, /suport-lumanare-printat-3d.html
+
+Intentie principala: om care cauta suport decorativ pentru bijuterii printat 3D
+
+Observatii speciale: accent pe coliere, cercei, inele, design decorativ si cadou personalizat
+
+De evitat sa semene cu: /organizatoare-birou-printare-3d.html, /suport-casti-birou-printat-3d.html, /suport-personalizat-plastic.html
+
+GAMING SI HOBBY
+accesorii-gaming-printate-3d.html
+
+Parinte: /obiecte-personalizate-printare-3d.html
+
+Pagini similare: /suport-controller-gaming-printat-3d.html, /suport-casti-birou-printat-3d.html, /figurina-personalizata-3d.html
+
+Intentie principala: om care cauta accesorii gaming printate 3D pentru birou sau setup
+
+Observatii speciale: pagina categorie; accent pe suporturi, standuri, clipsuri, decor si personalizare setup
+
+De evitat sa semene cu: /piese-echipament-sport-rupt.html, /suport-monitor-plastic-rupt.html, /obiecte-personalizate-printare-3d.html
+
+===========================================================
+
+suport-controller-gaming-printat-3d.html
+
+Parinte: /accesorii-gaming-printate-3d.html
+
+Pagini similare: /suport-casti-birou-printat-3d.html, /accesorii-gaming-printate-3d.html, /organizatoare-birou-printare-3d.html
+
+Intentie principala: om care cauta suport controller gaming printat 3D
+
+Observatii speciale: accent pe forma controllerului, pozitionare, stabilitate, organizare setup si personalizare
+
+De evitat sa semene cu: /suport-casti-birou-printat-3d.html, /suport-telefon-birou-printat-3d.html, /suport-personalizat-plastic.html
+
+===========================================================
+
+stand-console-joc-printat-3d.html
+
+Parinte: /accesorii-gaming-printate-3d.html
+
+Pagini similare: /suport-controller-gaming-printat-3d.html, /organizatoare-birou-printare-3d.html, /carcasa-proiect-plastic-personalizata.html
+
+Intentie principala: om care cauta stand sau suport printat 3D pentru consola, dock sau accesorii gaming
+
+Observatii speciale: accent pe ventilatie, stabilitate, cabluri si organizare setup
+
+De evitat sa semene cu: /carcasa-proiect-plastic-personalizata.html, /suport-monitor-plastic-rupt.html, /suport-personalizat-plastic.html
+
+FOTO, DISPLAY SI EVENIMENTE
+suport-poza-polaroid-3d.html
+
+Parinte: /printare-3d-cadouri-personalizate.html
+
+Pagini similare: /rama-foto-personalizata-3d.html, /decoratiuni-personalizate-printare-3d.html, /nume-personalizat-printat-3d.html
+
+Intentie principala: om care cauta suport foto tip polaroid sau display pentru poze printat 3D
+
+Observatii speciale: accent pe decor masa, birou, eveniment, nume/date si valoare sentimentala
+
+De evitat sa semene cu: /rama-foto-personalizata-3d.html, /cadou-cuplu-personalizat-3d.html, /organizatoare-birou-printare-3d.html
+
+===========================================================
+
+suport-meniu-eveniment-printat-3d.html
+
+Parinte: /printare-3d-cadouri-personalizate.html
+
+Pagini similare: /suport-poza-polaroid-3d.html, /cadou-corporate-printare-3d.html, /litere-3d-personalizate.html
+
+Intentie principala: organizator sau client care cauta suporturi printate 3D pentru meniuri, numere de masa sau semnalistica de eveniment
+
+Observatii speciale: accent pe nunti, botezuri, mese, numere, branding si serii mici personalizate
+
+De evitat sa semene cu: /cadou-corporate-printare-3d.html, /organizatoare-birou-printare-3d.html, /decoratiuni-personalizate-printare-3d.html
+
+HUB NOU PE KEYWORD DIRECT
+printare-3d-la-comanda-obiecte-personalizate.html
+
+Parinte: /refacere-piese-plastic.html
+
+Pagini similare: /printare-3d-cadouri-personalizate.html, /obiecte-personalizate-printare-3d.html, /piese-plastic-la-comanda.html
+
+Intentie principala: om care cauta direct "printare 3d la comanda" pentru obiecte personalizate, nu pentru piese rupte
+
+Observatii speciale: pagina de intentie comerciala directa; accent pe comanda custom, idei, obiecte utile, decor si cadouri
+
+De evitat sa semene cu: /piese-plastic-la-comanda.html, /refacere-piese-plastic.html, /prototip-piesa-plastic-rapid.html
+
+
+
+
+
+
+Deci ce faci acum
+Da, incarca sitemapul nou
+Indexeaza manual doar paginile mari
+
+Fa manual request indexing pentru astea:
+
+cele mai importante 10
+https://cere3d.ro/refacere-piese-plastic.html
+https://cere3d.ro/piese-plastic-auto.html
+https://cere3d.ro/piese-plastic-electrocasnice.html
+https://cere3d.ro/piese-plastic-unelte.html
+https://cere3d.ro/piese-plastic-mobila.html
+https://cere3d.ro/piese-plastic-bicicleta.html
+https://cere3d.ro/piese-plastic-la-comanda.html
+https://cere3d.ro/piesa-plastic-nu-se-mai-gaseste.html
+https://cere3d.ro/printare-3d-cadouri-personalizate.html
+https://cere3d.ro/printare-3d-la-comanda-obiecte-personalizate.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

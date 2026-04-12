@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Consent Mode v2 (default denied) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+
+    gtag('js', new Date());
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FY3LRNBF2"></script>
+
+  <!-- Consent UI + loader logic -->
+  <script type="module" src="/consent.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Piese Plastic Mobila si Casa | Refacere Manere, Capace, Ghidaje - Cere3D</title>
+  <meta name="description" content="Ti s-a rupt o piesa de plastic la mobila sau in casa? Pe Cere3D poti obtine oferte pentru refacere sau printare 3D la comanda pentru manere, capace, picioare, ghidaje, mecanisme de jaluzele si alte accesorii de interior." />
+  <link rel="canonical" href="https://cere3d.ro/piese-plastic-mobila.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Piese Plastic Mobila si Casa | Cere3D" />
+  <meta property="og:description" content="Refacere pentru piese de plastic de la mobila si accesorii de casa: manere, capace, ghidaje, picioare si mecanisme de interior." />
+  <meta property="og:url" content="https://cere3d.ro/piese-plastic-mobila.html" />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/seo-hub.css" />
+
+  <style>
+    .crumbs{
+      padding:18px 0 0;
+      font-size:13px;
+      color:rgba(11,19,38,.66);
+    }
+    .crumbs a{
+      color:rgba(11,19,38,.82);
+      text-decoration:none;
+      font-weight:700;
+    }
+    .crumbs span{
+      margin:0 8px;
+      opacity:.45;
+    }
+
+    .room-nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:center;
+      margin-top:20px;
+    }
+    .room-nav a{
+      display:inline-flex;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(11,19,38,.05);
+      border:1px solid rgba(11,19,38,.08);
+      color:#122a55;
+      font-weight:850;
+      font-size:14px;
+      text-decoration:none;
+      transition:transform .14s ease, background .14s ease;
+    }
+    .room-nav a:hover{
+      transform:translateY(-1px);
+      background:rgba(11,19,38,.08);
+    }
+
+    .zone-grid,
+    .items-grid,
+    .mistake-grid,
+    .related-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+      gap:16px;
+      margin-top:26px;
+    }
+
+    .zone-card,
+    .item-card,
+    .mistake-card,
+    .related-card,
+    .note-box,
+    .how-box,
+    .material-box{
+      background:rgba(255,255,255,.88);
+      border:1px solid rgba(11,19,38,.08);
+      border-radius:20px;
+      box-shadow:var(--hub-shadow);
+      padding:24px;
+    }
+
+    .zone-card h3,
+    .item-card h3,
+    .mistake-card h3,
+    .related-card h3,
+    .note-box h3,
+    .how-box h3,
+    .material-box h3{
+      font-family:Manrope, system-ui, sans-serif;
+      font-size:20px;
+      color:#122a55;
+      font-weight:950;
+      line-height:1.25;
+      margin-bottom:10px;
+    }
+
+    .zone-card p,
+    .item-card p,
+    .mistake-card p,
+    .related-card p,
+    .note-box p,
+    .note-box li,
+    .how-box p,
+    .how-box li,
+    .material-box p,
+    .material-box li{
+      color:rgba(11,19,38,.76);
+      font-size:15px;
+      line-height:1.72;
+    }
+
+    .double-layout{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:22px;
+      margin-top:28px;
+      align-items:start;
+    }
+
+    .note-box ul,
+    .how-box ul,
+    .material-box ul{
+      padding-left:18px;
+      margin-top:10px;
+    }
+    .note-box li + li,
+    .how-box li + li,
+    .material-box li + li{
+      margin-top:8px;
+    }
+
+    .mini-points{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+      gap:14px;
+      margin-top:16px;
+    }
+
+    .mini-point{
+      background:rgba(11,19,38,.04);
+      border:1px solid rgba(11,19,38,.08);
+      border-radius:16px;
+      padding:16px;
+    }
+    .mini-point strong{
+      display:block;
+      color:#122a55;
+      font-weight:900;
+      margin-bottom:6px;
+    }
+    .mini-point span{
+      color:rgba(11,19,38,.72);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .soft-alert{
+      margin-top:18px;
+      padding:18px 20px;
+      border-radius:18px;
+      background:rgba(43,212,164,.08);
+      border:1px solid rgba(43,212,164,.20);
+      color:#122a55;
+      font-weight:600;
+      line-height:1.7;
+    }
+
+    .warn-alert{
+      margin-top:18px;
+      padding:18px 20px;
+      border-radius:18px;
+      background:rgba(255,122,42,.08);
+      border:1px solid rgba(255,122,42,.18);
+      color:#122a55;
+      font-weight:600;
+      line-height:1.7;
+    }
+
+    .related-card a{
+      text-decoration:none;
+      color:#122a55;
+      font-weight:900;
+    }
+
+    @media (max-width: 920px){
+      .double-layout{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {
+        "@type":"ListItem",
+        "position":1,
+        "name":"Cere3D",
+        "item":"https://cere3d.ro/"
+      },
+      {
+        "@type":"ListItem",
+        "position":2,
+        "name":"Refacere piese din plastic",
+        "item":"https://cere3d.ro/refacere-piese-plastic.html"
+      },
+      {
+        "@type":"ListItem",
+        "position":3,
+        "name":"Piese plastic mobila si casa",
+        "item":"https://cere3d.ro/piese-plastic-mobila.html"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Piese plastic mobila si casa: refacere pentru manere, capace, picioare, ghidaje si accesorii de interior",
+    "description":"Pagina categorie pentru utilizatori care cauta refacere sau printare 3D la comanda pentru piese de plastic de la mobila si accesorii de casa, cu accent pe manere, capace, ghidaje, picioare si mecanisme de interior.",
+    "mainEntityOfPage":"https://cere3d.ro/piese-plastic-mobila.html",
+    "author":{"@type":"Organization","name":"Cere3D"},
+    "publisher":{"@type":"Organization","name":"Cere3D"},
+    "datePublished":"2026-03-07",
+    "dateModified":"2026-03-07"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Ce piese de plastic de la mobila si casa merita refacute cel mai des?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Cel mai des merita refacute manere, capace, picioare, ghidaje, opritoare, piese de jaluzele, clipsuri, role si alte accesorii de interior care nu se mai gasesc separat, dar blocheaza folosirea normala a obiectului."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Ce trebuie sa pun in cerere pentru o piesa de mobila?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Sint utile poze clare din mai multe unghiuri, o poza cu locul unde vine piesa, citeva masuratori de baza si explicatia simpla a problemei: lipseste, s-a fisurat, nu mai culiseaza sau nu mai fixeaza corect."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Se pot reface si piese mici de jaluzele sau ghidaje de sertar?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Da, tocmai aceste componente mici sint adesea potrivite pentru refacere, mai ales cind nu se mai gasesc in comert sau nu merita schimbat tot ansamblul pentru o piesa de plastic ieftina, dar importanta."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Pagina aceasta este pentru piese de interior sau si pentru lucrari custom?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Accentul este pe piese de interior pentru mobila si casa. Pentru suporturi si obiecte create complet de la zero exista o categorie separata pentru piese la comanda si personalizare."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body data-page="seo-hub">
+  <header class="topbar">
+    <a href="/index.html" class="logo" aria-label="Cere3D">
+      <img src="/assets/logo-cere3d.svg" alt="Cere3D" class="logo-img" />
+    </a>
+    <a href="/cere.html" class="topbar-cta">Posteaza cererea →</a>
+  </header>
+
+  <div class="container">
+    <div class="crumbs">
+      <a href="/index.html">Acasa</a><span>›</span>
+      <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a><span>›</span>
+      <strong>Piese plastic mobila si casa</strong>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-badge">Categorie: mobila si casa</div>
+    <h1>Piese de plastic pentru <em>mobila si casa</em> care nu se mai gasesc usor</h1>
+    <p class="hero-sub">
+      Pentru manere, capace, picioare, ghidaje, mecanisme de jaluzele si alte accesorii de interior, problema reala este aproape mereu aceeasi: piesa mica s-a rupt, obiectul inca este bun, dar nu mai poate fi folosit normal. Pagina asta te ajuta sa identifici corect categoria si sa postezi o cerere buna.
+    </p>
+
+    <div class="hero-cta-wrap">
+      <a href="/cere.html" class="btn-primary">
+        <span>Posteaza cererea gratuit</span>
+        <span>→</span>
+      </a>
+      <a href="#zone" class="btn-secondary">Vezi ce intra aici</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">Interior</span>
+        <span class="stat-label">Accent pe piese pentru casa si mobila</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Ghidaje</span>
+        <span class="stat-label">Un tip de cerere foarte frecvent</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Accesorii</span>
+        <span class="stat-label">Mici, dar esentiale la utilizare</span>
+      </div>
+    </div>
+
+    <div class="room-nav">
+      <a href="#zone">Tipuri de piese</a>
+      <a href="#cum-postezi">Cum postezi corect</a>
+      <a href="#greseli">Greseli frecvente</a>
+      <a href="#pagini-similare">Piese similare</a>
+      <a href="/refacere-piese-plastic.html">Hub principal</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="zone">
+    <div class="container">
+      <div class="section-tag">Ce cauta utilizatorul aici</div>
+      <h2 class="section-title">Tipuri de piese de plastic pentru casa care intra natural in categoria asta</h2>
+      <p class="section-lead">
+        Spre deosebire de paginile de auto sau electrocasnice, aici accentul este pe uz zilnic, estetic, compatibilitate de interior si potrivirea cu mobilierul existent.
+      </p>
+
+      <div class="zone-grid">
+        <div class="zone-card">
+          <h3>Manere de mobila</h3>
+          <p>Manere pentru sertare, usi de dulap, noptiere sau mobilier usor, mai ales cind modelul original nu se mai gaseste.</p>
+        </div>
+        <div class="zone-card">
+          <h3>Picioare si capace</h3>
+          <p>Picioare reglabile, picioruse mici, capace de protectie, dopuri si elemente de sprijin pentru mobila sau obiecte de interior.</p>
+        </div>
+        <div class="zone-card">
+          <h3>Ghidaje si opritoare</h3>
+          <p>Piese care ajuta la culisare, limitare de cursa, fixare sau pozitionare corecta la sertare si panouri.</p>
+        </div>
+        <div class="zone-card">
+          <h3>Mecanisme de jaluzele</h3>
+          <p>Role, ghidaje, clichet, prinderi si alte piese mici care opresc functionarea jaluzelelor sau rulourilor interioare.</p>
+        </div>
+        <div class="zone-card">
+          <h3>Accesorii de interior</h3>
+          <p>Clipsuri, rame, piese de mascare, adaptoare simple si componente mici care nu merita schimbarea intregului ansamblu.</p>
+        </div>
+        <div class="zone-card">
+          <h3>Piese greu de gasit</h3>
+          <p>Exact acele componente care nu se mai vind separat, dar fara de care obiectul ramane incomplet sau incomod.</p>
+        </div>
+      </div>
+
+      <div class="soft-alert">
+        Cea mai buna intentie pentru pagina asta nu este "vreau imprimare 3D", ci "vreau sa folosesc din nou normal un obiect din casa fara sa schimb tot pentru o piesa mica". Asta trebuie sa se simta clar in continutul categoriei.
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm" id="cum-postezi">
+    <div class="container">
+      <div class="section-tag">Cerere mai buna, raspunsuri mai bune</div>
+      <h2 class="section-title">Cum postezi corect o cerere pentru o piesa de mobila sau de interior</h2>
+
+      <div class="double-layout">
+        <div class="how-box">
+          <h3>Ce ajuta cel mai mult</h3>
+          <ul>
+            <li>poze clare din fata, spate si lateral</li>
+            <li>o poza cu locul unde vine piesa montata</li>
+            <li>masuratori simple: lungime, latime, grosime, distanta intre gauri</li>
+            <li>explicatia problemei: lipseste, s-a rupt, nu mai culiseaza, nu mai fixeaza</li>
+            <li>daca vrei doar copie apropiata sau si o varianta mai rezistenta</li>
+          </ul>
+        </div>
+
+        <div class="how-box">
+          <h3>Detalii utile in functie de piesa</h3>
+          <div class="mini-points">
+            <div class="mini-point">
+              <strong>La manere</strong>
+              <span>Conteaza prinderile si distanta dintre gauri.</span>
+            </div>
+            <div class="mini-point">
+              <strong>La picioare</strong>
+              <span>Conteaza inaltimea si punctul de sprijin.</span>
+            </div>
+            <div class="mini-point">
+              <strong>La ghidaje</strong>
+              <span>Conteaza pozitia si sensul de culisare.</span>
+            </div>
+            <div class="mini-point">
+              <strong>La jaluzele</strong>
+              <span>Conteaza axul, rola si punctele de fixare.</span>
+            </div>
+            <div class="mini-point">
+              <strong>La capace</strong>
+              <span>Conteaza clipsurile si forma de inchidere.</span>
+            </div>
+            <div class="mini-point">
+              <strong>La piese lipsa</strong>
+              <span>Ajuta mult o piesa similara sau o urma de montaj.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="note-box" style="margin-top:18px;">
+        <h3>De ce e important contextul de interior</h3>
+        <p>
+          Pentru piesele de casa conteaza mai mult decit la alte categorii si potrivirea vizuala, finisajul, culoarea apropiata si felul in care piesa se vede in decor. De aceea categoria trebuie sa aiba alta logica fata de auto, unelte sau electrocasnice.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Materiale si utilitate</div>
+      <h2 class="section-title">Ce trebuie evaluat la piesele de interior, dincolo de forma</h2>
+      <p class="section-lead">
+        La mobilier si accesorii de casa, problema nu este doar daca piesa intra la locul ei. Conteaza si cum se simte la folosire, cum arata si cit de bine rezista la uz zilnic.
+      </p>
+
+      <div class="double-layout">
+        <div class="material-box">
+          <h3>Ce verifici inainte sa merite refacerea</h3>
+          <ul>
+            <li>obiectul este bun si merita pastrat</li>
+            <li>piesa lipsa este mica sau medie si nu se mai gaseste separat</li>
+            <li>ai piesa veche sau macar locul clar unde venea montata</li>
+            <li>problema este la o piesa de plastic, nu la intreg mecanismul metalic</li>
+            <li>vrei compatibilitate buna cu interiorul si utilizarea curenta</li>
+          </ul>
+        </div>
+
+        <div class="material-box">
+          <h3>Ce trebuie precizat clar in oferta</h3>
+          <ul>
+            <li>daca piesa va ramine vizibila sau este ascunsa</li>
+            <li>daca vrei forma apropiata de original sau doar functie corecta</li>
+            <li>daca piesa este supusa la frecare, culisare sau lovituri repetate</li>
+            <li>daca exista zone subtiri la clipsuri, manere sau opritoare</li>
+            <li>daca ai nevoie de una singura sau de mai multe bucati</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="warn-alert">
+        Categoria aceasta este pentru piese de interior si accesorii practice. Pentru suporturi inventate de la zero, adaptoare speciale sau carcase personalizate, directia corecta este categoria separata de piese la comanda si personalizare.
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="greseli">
+    <div class="container">
+      <div class="section-tag">Ce incurca cel mai des</div>
+      <h2 class="section-title">Greseli frecvente cind cineva posteaza o cerere pentru mobila si casa</h2>
+      <p class="section-lead">
+        Tocmai aici se face diferenta intre o categorie buna si una generica. Pagina trebuie sa ajute utilizatorul sa evite descrierile prea vagi.
+      </p>
+
+      <div class="mistake-grid">
+        <div class="mistake-card">
+          <h3>"Vreau piesa asta"</h3>
+          <p>Fara poze, fara masuratori si fara context, cererea este greu de evaluat. La interior conteaza mult unde vine piesa.</p>
+        </div>
+        <div class="mistake-card">
+          <h3>Nu se mentioneaza obiectul</h3>
+          <p>Este pentru dulap, jaluzea, sertar, scaun sau masa? Categoria trebuie sa porneasca din utilizare, nu doar din forma.</p>
+        </div>
+        <div class="mistake-card">
+          <h3>Nu se vede prinderea</h3>
+          <p>Exact la clipsuri, ghidaje si manere, partea din spate este adesea mai importanta decit fata.</p>
+        </div>
+        <div class="mistake-card">
+          <h3>Se ignora partea estetica</h3>
+          <p>Pentru piese de interior, utilizatorul vrea si potrivire vizuala buna, nu doar o functie aproximativa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Exemple variate</div>
+      <h2 class="section-title">Situatii tipice pentru care oamenii cauta refacere de piese de plastic la mobila</h2>
+      <p class="section-lead">Exemplele sint orientative si arata gama reala de intentii de cautare din aceasta categorie.</p>
+
+      <div class="examples-grid">
+        <div class="example-card">
+          <span class="example-status status-done">Caz frecvent</span>
+          <h3>Maner de sertar rupt la comoda</h3>
+          <p>Mobila este buna, dar manerul nu se mai gaseste in acelasi model si utilizatorul vrea o piesa compatibila vizual.</p>
+          <div class="example-meta">
+            <span><strong>Tip:</strong> maner</span>
+            <span><strong>Zona:</strong> mobila</span>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <span class="example-status status-done">Caz frecvent</span>
+          <h3>Ghidaj sau opritor de sertar</h3>
+          <p>Sertarul nu mai intra corect pentru ca piesa mica de limitare s-a rupt si nu se gaseste separat.</p>
+          <div class="example-meta">
+            <span><strong>Tip:</strong> ghidaj</span>
+            <span><strong>Zona:</strong> interior</span>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <span class="example-status status-open">Analiza necesara</span>
+          <h3>Mecanism mic de jaluzea</h3>
+          <p>Roleta sau jaluzeaua nu mai functioneaza din cauza unei piese de plastic, iar utilizatorul are nevoie de compatibilitate buna cu sistemul existent.</p>
+          <div class="example-meta">
+            <span><strong>Tip:</strong> mecanism</span>
+            <span><strong>Zona:</strong> casa</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Ai o piesa mica de interior care iti incurca tot obiectul?</h2>
+        <p>Posteaza cererea si explica simplu unde vine piesa, cum se foloseste si ce s-a rupt. Pentru mobila si casa, contextul real este mai important decit denumirea perfecta.</p>
+        <a href="/cere.html" class="btn-primary" style="font-size:18px; padding:18px 44px;">
+          Posteaza cererea gratuit →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="pagini-similare">
+    <div class="container">
+      <div class="section-tag">Vezi si alte piese similare</div>
+      <h2 class="section-title">Legaturi utile din cluster, alese diferit fata de celelalte categorii</h2>
+      <p class="section-lead">Linkurile de mai jos mentin clusterul logic, fara sa repete aceleasi combinatii peste tot.</p>
+
+      <div class="related-grid">
+        <article class="related-card">
+          <h3>Hub principal refacere piese</h3>
+          <p>Punctul central al clusterului, cu toate categoriile mari de piese din plastic care se pot reface.</p>
+          <a href="/refacere-piese-plastic.html">Vezi hub-ul →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Piese plastic electrocasnice</h3>
+          <p>Pentru componente de aparate casnice unde accentul cade pe functionare si compatibilitate tehnica.</p>
+          <a href="/piese-plastic-electrocasnice.html">Vezi categoria →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Piese plastic bicicleta</h3>
+          <p>Pentru piese unde uzura, exteriorul si solicitarile sint diferite fata de accesoriile de interior.</p>
+          <a href="/piese-plastic-bicicleta.html">Vezi pagina →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Piese plastic la comanda</h3>
+          <p>Pentru situatiile in care piesa nu exista deloc si trebuie creata de la zero, nu doar refacuta dupa model.</p>
+          <a href="/piese-plastic-la-comanda.html">Vezi pagina →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-tag">Intrebari frecvente</div>
+      <h2 class="section-title">FAQ pentru piese de plastic de la mobila si casa</h2>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">
+            Ce piese de plastic de la mobila si casa merita refacute cel mai des?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Cel mai des merita refacute manere, capace, picioare, ghidaje, opritoare, piese de jaluzele, clipsuri, role si alte accesorii de interior care nu se mai gasesc separat, dar blocheaza folosirea normala a obiectului.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Ce trebuie sa pun in cerere pentru o piesa de mobila?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Sint utile poze clare din mai multe unghiuri, o poza cu locul unde vine piesa, citeva masuratori de baza si explicatia simpla a problemei: lipseste, s-a fisurat, nu mai culiseaza sau nu mai fixeaza corect.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Se pot reface si piese mici de jaluzele sau ghidaje de sertar?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Da, tocmai aceste componente mici sint adesea potrivite pentru refacere, mai ales cind nu se mai gasesc in comert sau nu merita schimbat tot ansamblul pentru o piesa de plastic ieftina, dar importanta.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Pagina aceasta este pentru piese de interior sau si pentru lucrari custom?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Accentul este pe piese de interior pentru mobila si casa. Pentru suporturi si obiecte create complet de la zero exista o categorie separata pentru piese la comanda si personalizare.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="/index.html" class="footer-logo">Cere<span>3D</span></a>
+      <a href="/refacere-piese-plastic.html" class="footer-seo-link">Refacere piese din plastic</a>
+      <a href="/piese-plastic-electrocasnice.html" class="footer-seo-link">Piese plastic electrocasnice</a>
+      <a href="/piese-plastic-la-comanda.html" class="footer-seo-link">Piese la comanda</a>
+      <span class="footer-copy">
+        © <span id="an-curent"></span> Cere3D. Piese de plastic pentru mobila si casa refacute la comanda.
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-q').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i){
+          i.classList.remove('open');
+        });
+        if(!isOpen) item.classList.add('open');
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function(){
+      const yearSpan = document.getElementById('an-curent');
+      if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+    });
+  </script>
+
+  <!-- SEO Internal Links: printare 3D -->
+  <nav class="seo-internal-links" aria-label="Pagini principale printare 3D" style="display:none;">
+    <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+    <a href="/">Printare 3D Romania - Cere3D</a>
+    <a href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a>
+    <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a>
+    <a href="/cat-costa-un-obiect-printat-3d.html">Cat costa printare 3D</a>
+    <a href="/ce-material-sa-aleg-pentru-printare-3d.html">Materiale printare 3D</a>
+  </nav>
+</body>
+</html>

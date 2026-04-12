@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Consent Mode v2 (default denied) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+
+    gtag('js', new Date());
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FY3LRNBF2"></script>
+
+  <!-- Consent UI + loader logic -->
+  <script type="module" src="/consent.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Piese Plastic Imprimanta | Refacere Capace, Ghidaje Si Tavi - Cere3D</title>
+  <meta name="description" content="Ai o imprimanta blocata de o piesa din plastic rupta? Pe Cere3D poti obtine oferte pentru refacere sau printare 3D la comanda pentru capace, ghidaje hartie, tavi, roti, cleme si alte piese de plastic la imprimanta." />
+  <link rel="canonical" href="https://cere3d.ro/piese-plastic-imprimanta.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Piese Plastic Imprimanta | Cere3D" />
+  <meta property="og:description" content="Refacere pentru capace, ghidaje, tavi, roti si alte piese de plastic la imprimanta. Accent pe aliniere, culisare si compatibilitate." />
+  <meta property="og:url" content="https://cere3d.ro/piese-plastic-imprimanta.html" />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/seo-hub.css" />
+
+  <style>
+    .crumbs{
+      padding:18px 0 0;
+      font-size:13px;
+      color:rgba(11,19,38,.66);
+    }
+    .crumbs a{
+      color:rgba(11,19,38,.82);
+      text-decoration:none;
+      font-weight:700;
+    }
+    .crumbs span{
+      margin:0 8px;
+      opacity:.45;
+    }
+
+    .chip-nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:center;
+      margin-top:18px;
+    }
+    .chip-nav a{
+      display:inline-flex;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(11,19,38,.05);
+      border:1px solid rgba(11,19,38,.08);
+      color:#122a55;
+      font-weight:800;
+      font-size:14px;
+      text-decoration:none;
+      transition:transform .14s ease, background .14s ease;
+    }
+    .chip-nav a:hover{
+      transform:translateY(-1px);
+      background:rgba(11,19,38,.08);
+    }
+
+    .flow-grid,
+    .part-grid,
+    .mistake-grid,
+    .related-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+      gap:16px;
+      margin-top:28px;
+    }
+
+    .flow-card,
+    .part-card,
+    .mistake-card,
+    .related-card,
+    .detail-panel,
+    .measure-band{
+      background:rgba(255,255,255,.88);
+      border:1px solid rgba(11,19,38,.08);
+      border-radius:20px;
+      box-shadow:var(--hub-shadow);
+      padding:24px;
+    }
+
+    .flow-card h3,
+    .part-card h3,
+    .mistake-card h3,
+    .related-card h3,
+    .detail-panel h3,
+    .measure-band h3{
+      font-family:Manrope, system-ui, sans-serif;
+      font-size:20px;
+      color:#122a55;
+      font-weight:950;
+      line-height:1.25;
+      margin-bottom:10px;
+    }
+
+    .flow-card p,
+    .part-card p,
+    .mistake-card p,
+    .related-card p,
+    .detail-panel p,
+    .detail-panel li,
+    .measure-band p,
+    .measure-band li{
+      color:rgba(11,19,38,.76);
+      font-size:15px;
+      line-height:1.72;
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+      margin-top:28px;
+      align-items:start;
+    }
+
+    .detail-panel ul,
+    .measure-band ul{
+      padding-left:18px;
+      margin-top:10px;
+    }
+
+    .detail-panel li + li,
+    .measure-band li + li{
+      margin-top:8px;
+    }
+
+    .focus-note,
+    .warn-note{
+      margin-top:18px;
+      padding:18px 20px;
+      border-radius:18px;
+      color:#122a55;
+      font-weight:600;
+      line-height:1.7;
+    }
+
+    .focus-note{
+      background:rgba(91,124,250,.08);
+      border:1px solid rgba(91,124,250,.18);
+    }
+
+    .warn-note{
+      background:rgba(255,122,42,.08);
+      border:1px solid rgba(255,122,42,.18);
+    }
+
+    .step-list{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:14px;
+      margin-top:24px;
+    }
+
+    .step-mini{
+      background:rgba(11,19,38,.04);
+      border:1px solid rgba(11,19,38,.08);
+      border-radius:16px;
+      padding:16px;
+    }
+
+    .step-mini strong{
+      display:block;
+      color:#122a55;
+      font-weight:900;
+      margin-bottom:6px;
+    }
+
+    .step-mini span{
+      color:rgba(11,19,38,.72);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .related-card a{
+      text-decoration:none;
+      color:#122a55;
+      font-weight:900;
+    }
+
+    @media (max-width: 900px){
+      .two-col{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {
+        "@type":"ListItem",
+        "position":1,
+        "name":"Cere3D",
+        "item":"https://cere3d.ro/"
+      },
+      {
+        "@type":"ListItem",
+        "position":2,
+        "name":"Refacere piese din plastic",
+        "item":"https://cere3d.ro/refacere-piese-plastic.html"
+      },
+      {
+        "@type":"ListItem",
+        "position":3,
+        "name":"Carcasa plastic aparat electronic",
+        "item":"https://cere3d.ro/carcasa-plastic-aparat-electronic.html"
+      },
+      {
+        "@type":"ListItem",
+        "position":4,
+        "name":"Piese plastic imprimanta",
+        "item":"https://cere3d.ro/piese-plastic-imprimanta.html"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Piese plastic imprimanta: refacere pentru capace, ghidaje hartie, tavi, roti si alte componente de aliniere",
+    "description":"Pagina dedicata pentru utilizatori care cauta refacere sau printare 3D la comanda pentru piese de plastic la imprimanta, cu accent pe tavi, ghidaje, capace si componente care trebuie sa alinieze corect miscarea.",
+    "mainEntityOfPage":"https://cere3d.ro/piese-plastic-imprimanta.html",
+    "author":{"@type":"Organization","name":"Cere3D"},
+    "publisher":{"@type":"Organization","name":"Cere3D"},
+    "datePublished":"2026-03-07",
+    "dateModified":"2026-03-07"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Ce piese de plastic la imprimanta se pot reface cel mai des?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Cele mai frecvente sint capacele, ghidajele pentru hartie, tavile, opritoarele, roti sau piese mici de culisare si clemele de inchidere. Sint piese care se rup des si blocheaza functionarea normala a imprimantei."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"De ce conteaza atit de mult alinierea la o piesa de imprimanta?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Pentru ca multe piese de imprimanta nu trebuie doar sa stea la locul lor, ci sa ghideze corect miscarea hartiei sau inchiderea capacelor. O mica abatere poate duce la agatari, joc sau alimentare gresita."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Ce poze sint cele mai utile pentru o astfel de cerere?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Ajuta poze de ansamblu cu imprimanta, poze detaliate cu piesa rupta, poze cu locul unde vine montata si orice imagine in care se vede traseul hartiei, pozitia tavii sau punctele de sprijin ale piesei."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Pagina aceasta este pentru cartuse sau pentru mecanica imprimantei?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Nu. Pagina este pentru piese din plastic precum tavi, ghidaje, capace, cleme, roti sau componente de sprijin. Nu este despre cartuse, toner sau defecte electronice interne."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body data-page="seo-hub">
+  <header class="topbar">
+    <a href="/index.html" class="logo" aria-label="Cere3D">
+      <img src="/assets/logo-cere3d.svg" alt="Cere3D" class="logo-img" />
+    </a>
+    <a href="/cere.html" class="topbar-cta">Posteaza cererea →</a>
+  </header>
+
+  <div class="container">
+    <div class="crumbs">
+      <a href="/index.html">Acasa</a><span>›</span>
+      <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a><span>›</span>
+      <a href="/carcasa-plastic-aparat-electronic.html">Carcasa plastic aparat electronic</a><span>›</span>
+      <strong>Piese plastic imprimanta</strong>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-badge">Subcategorie electronice</div>
+    <h1>Piese de plastic la imprimanta <em>rupte, lipsa sau deformate</em></h1>
+    <p class="hero-sub">
+      La imprimante, o piesa mica poate schimba complet felul in care intra hartia, cum sta tava sau cum se inchide un capac. Pagina aceasta este pentru capace, ghidaje, tavi, roti si alte componente din plastic care trebuie sa pastreze miscarea aliniata si stabila.
+    </p>
+
+    <div class="hero-cta-wrap">
+      <a href="/cere.html" class="btn-primary">
+        <span>Posteaza cererea gratuit</span>
+        <span>→</span>
+      </a>
+      <a href="#ce-intra-aici" class="btn-secondary">Vezi ce intra aici</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">Tavi</span>
+        <span class="stat-label">Trebuie sa culiseze corect</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Ghidaje</span>
+        <span class="stat-label">Conteaza milimetric la aliniere</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Capace</span>
+        <span class="stat-label">Inchidere buna si clipsuri functionale</span>
+      </div>
+    </div>
+
+    <div class="chip-nav">
+      <a href="/carcasa-plastic-aparat-electronic.html">Categoria parinte</a>
+      <a href="#ce-intra-aici">Piese frecvente</a>
+      <a href="#ce-verifici">Ce verifici</a>
+      <a href="#pagini-inrudite">Pagini inrudite</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="ce-intra-aici">
+    <div class="container">
+      <div class="section-tag">Ce piese intra aici</div>
+      <h2 class="section-title">Nu este o pagina despre carcase in general, ci despre piese care ghideaza miscarea in imprimanta</h2>
+      <p class="section-lead">
+        Diferenta fata de alte pagini este clara: aici accentul nu este doar pe aspectul exterior, ci pe felul in care piesa aliniază hartia, sustine tava sau inchide corect o zona de acces.
+      </p>
+
+      <div class="part-grid">
+        <div class="part-card">
+          <h3>Tava de alimentare sau de iesire</h3>
+          <p>Se fisureaza, se rupe la balama sau nu mai sta la pozitia corecta. Daca nu sustine bine hartia, alimentarea devine instabila.</p>
+        </div>
+
+        <div class="part-card">
+          <h3>Ghidaje laterale pentru hartie</h3>
+          <p>Se rup, se blocheaza sau nu mai culiseaza drept. O piesa mica aici poate cauza alimentare strimba sau agatari.</p>
+        </div>
+
+        <div class="part-card">
+          <h3>Capace de acces</h3>
+          <p>Capacele pentru hartie, toner sau zone de service se rup la clipsuri, la balamale sau la marginile de inchidere.</p>
+        </div>
+
+        <div class="part-card">
+          <h3>Roti, role sau piese de ghidaj</h3>
+          <p>Unele componente din plastic nu sint motoare sau mecanica grea, dar ajuta miscarea hartiei sau pozitionarea unor piese mobile.</p>
+        </div>
+
+        <div class="part-card">
+          <h3>Cleme si opritoare</h3>
+          <p>Capacele si tavile nu mai stau inchise daca o clema mica lipseste sau s-a tocit in timp.</p>
+        </div>
+
+        <div class="part-card">
+          <h3>Elemente de sprijin si aliniere</h3>
+          <p>Distantieri, piese de colt, ghidaje de cursa sau suporti mici care tin ansamblul pe pozitie.</p>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm" id="ce-verifici">
+    <div class="container">
+      <div class="section-tag">Ce trebuie verificat</div>
+      <h2 class="section-title">Inainte sa postezi cererea, verifica unde influenteaza piesa traseul hartiei sau inchiderea</h2>
+
+      <div class="two-col">
+        <div class="detail-panel">
+          <h3>Semne ca piesa chiar merita refacuta</h3>
+          <ul>
+            <li>imprimanta functioneaza, dar tava nu mai sta bine</li>
+            <li>ghidajul pentru hartie nu mai aliniaza foile corect</li>
+            <li>capacului ii lipseste o balama, un clips sau un opritor</li>
+            <li>o piesa mica din plastic blocheaza alimentarea normala</li>
+            <li>restul aparatului este bun si problema este localizata clar</li>
+          </ul>
+        </div>
+
+        <div class="detail-panel">
+          <h3>Ce trebuie descris clar in cerere</h3>
+          <ul>
+            <li>modelul exact al imprimantei</li>
+            <li>daca piesa apartine tavii, capacului sau ghidajului</li>
+            <li>daca hartia intra strimb, agata sau nu mai este sustinuta</li>
+            <li>daca piesa are clipsuri, balama, ax sau culisare</li>
+            <li>daca vrei refacere apropiata de original sau doar functie buna</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step-list">
+        <div class="step-mini">
+          <strong>Poza de ansamblu</strong>
+          <span>Arata imprimanta si zona unde sta piesa.</span>
+        </div>
+        <div class="step-mini">
+          <strong>Poza cu piesa scoasa</strong>
+          <span>Fata, spate si lateral, daca se poate.</span>
+        </div>
+        <div class="step-mini">
+          <strong>Poza cu traseul hartiei</strong>
+          <span>Foarte utila la tavi si ghidaje.</span>
+        </div>
+        <div class="step-mini">
+          <strong>Poza la clipsuri sau balama</strong>
+          <span>Ajuta la potrivire si inchidere corecta.</span>
+        </div>
+      </div>
+
+      <div class="warn-note">
+        La imprimante, o piesa aparent simpla poate cere tolerante mai bune decit la alte obiecte. Daca piesa ghideaza hartia, trebuie mentionat asta explicit, pentru ca aici alinierea conteaza mai mult decit simpla forma.
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Greseli frecvente</div>
+      <h2 class="section-title">Ce incurca cel mai des o cerere pentru piese de imprimanta</h2>
+
+      <div class="mistake-grid">
+        <div class="mistake-card">
+          <h3>Se trimite doar o poza generala</h3>
+          <p>Fara detaliu la clips, ghidaj sau punct de sprijin, este greu de inteles cum lucreaza piesa in realitate.</p>
+        </div>
+
+        <div class="mistake-card">
+          <h3>Nu se spune daca piesa culiseaza</h3>
+          <p>O tava fixa si un ghidaj mobil nu se evalueaza la fel. Miscarea trebuie mentionata clar.</p>
+        </div>
+
+        <div class="mistake-card">
+          <h3>Se ignora rolul in alimentarea hartiei</h3>
+          <p>Daca piesa aliniaza hartia, orice mica abatere poate conta. Aceasta informatie trebuie scrisa in cerere.</p>
+        </div>
+
+        <div class="mistake-card">
+          <h3>Se amesteca problema cu defecte electronice</h3>
+          <p>Pagina este pentru capace, tavi, ghidaje, roti sau alte piese de plastic, nu pentru erori de printare sau placi electronice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-tag">Exemple orientative</div>
+      <h2 class="section-title">Situatii tipice pentru care utilizatorii cauta aceasta pagina</h2>
+
+      <div class="examples-grid">
+        <div class="example-card">
+          <span class="example-status status-done">Caz frecvent</span>
+          <h3>Ghidaj lateral rupt la tava de hartie</h3>
+          <p>Hartia nu mai sta dreapta, iar foile intra usor oblic. Problema nu este electronica, ci alinierea piesei de plastic.</p>
+          <div class="example-meta">
+            <span><strong>Tip:</strong> ghidaj</span>
+            <span><strong>Rol:</strong> aliniere</span>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <span class="example-status status-done">Caz frecvent</span>
+          <h3>Capac de acces cu clipsuri rupte</h3>
+          <p>Capacul se deschide singur sau nu mai sta inchis bine, desi restul imprimantei este perfect functional.</p>
+          <div class="example-meta">
+            <span><strong>Tip:</strong> capac</span>
+            <span><strong>Rol:</strong> inchidere</span>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <span class="example-status status-open">Analiza necesara</span>
+          <h3>Tava fisurata in zona de culisare</h3>
+          <p>Piesa se misca greu si are joc. Utilizatorul trebuie sa arate clar zona care ghideaza cursa.</p>
+          <div class="example-meta">
+            <span><strong>Tip:</strong> tava</span>
+            <span><strong>Rol:</strong> culisare</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Ai o imprimanta buna, dar o piesa de plastic o incurca?</h2>
+        <p>Posteaza cererea si spune clar daca piesa este la tava, ghidaj sau capac. La imprimante conteaza mai ales alinierea corecta a miscarii.</p>
+        <a href="/cere.html" class="btn-primary" style="font-size:18px; padding:18px 44px;">
+          Posteaza cererea gratuit →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="pagini-inrudite">
+    <div class="container">
+      <div class="section-tag">Vezi si alte piese similare</div>
+      <h2 class="section-title">Linkuri interne relevante pentru clusterul electronice</h2>
+      <p class="section-lead">Am pastrat legaturi logice, nu o lista artificiala repetata.</p>
+
+      <div class="related-grid">
+        <article class="related-card">
+          <h3>Carcasa plastic aparat electronic</h3>
+          <p>Pagina parinte pentru carcase si alte piese exterioare din plastic la aparate electronice.</p>
+          <a href="/carcasa-plastic-aparat-electronic.html">Vezi categoria →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Capac baterie plastic rupt</h3>
+          <p>Pentru usite, clipsuri mici si inchideri precise la compartimente de baterie.</p>
+          <a href="/capac-baterie-plastic-rupt.html">Vezi pagina →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Suport monitor plastic rupt</h3>
+          <p>Pentru piese care tin greutatea si unghiul unui ecran, diferite de piesele de culisare din imprimante.</p>
+          <a href="/suport-monitor-plastic-rupt.html">Vezi pagina →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Hub principal refacere piese</h3>
+          <p>Daca vrei sa vezi toate categoriile deja create si alte tipuri de piese din plastic, pleaca din hub-ul principal.</p>
+          <a href="/refacere-piese-plastic.html">Vezi hub-ul →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-tag">Intrebari frecvente</div>
+      <h2 class="section-title">FAQ pentru piese plastic imprimanta</h2>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">
+            Ce piese de plastic la imprimanta se pot reface cel mai des?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Cele mai frecvente sint capacele, ghidajele pentru hartie, tavile, opritoarele, roti sau piese mici de culisare si clemele de inchidere. Sint piese care se rup des si blocheaza functionarea normala a imprimantei.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            De ce conteaza atit de mult alinierea la o piesa de imprimanta?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Pentru ca multe piese de imprimanta nu trebuie doar sa stea la locul lor, ci sa ghideze corect miscarea hartiei sau inchiderea capacelor. O mica abatere poate duce la agatari, joc sau alimentare gresita.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Ce poze sint cele mai utile pentru o astfel de cerere?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Ajuta poze de ansamblu cu imprimanta, poze detaliate cu piesa rupta, poze cu locul unde vine montata si orice imagine in care se vede traseul hartiei, pozitia tavii sau punctele de sprijin ale piesei.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Pagina aceasta este pentru cartuse sau pentru mecanica imprimantei?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Nu. Pagina este pentru piese din plastic precum tavi, ghidaje, capace, cleme, roti sau componente de sprijin. Nu este despre cartuse, toner sau defecte electronice interne.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="/index.html" class="footer-logo">Cere<span>3D</span></a>
+      <a href="/carcasa-plastic-aparat-electronic.html" class="footer-seo-link">Carcasa plastic aparat electronic</a>
+      <a href="/capac-baterie-plastic-rupt.html" class="footer-seo-link">Capac baterie plastic rupt</a>
+      <a href="/suport-monitor-plastic-rupt.html" class="footer-seo-link">Suport monitor plastic rupt</a>
+      <span class="footer-copy">
+        © <span id="an-curent"></span> Cere3D. Piese din plastic pentru imprimanta refacute la comanda.
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-q').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i){
+          i.classList.remove('open');
+        });
+        if(!isOpen) item.classList.add('open');
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function(){
+      const yearSpan = document.getElementById('an-curent');
+      if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+    });
+  </script>
+
+  <!-- SEO Internal Links: printare 3D -->
+  <nav class="seo-internal-links" aria-label="Pagini principale printare 3D" style="display:none;">
+    <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+    <a href="/">Printare 3D Romania - Cere3D</a>
+    <a href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a>
+    <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a>
+    <a href="/cat-costa-un-obiect-printat-3d.html">Cat costa printare 3D</a>
+    <a href="/ce-material-sa-aleg-pentru-printare-3d.html">Materiale printare 3D</a>
+  </nav>
+</body>
+</html>

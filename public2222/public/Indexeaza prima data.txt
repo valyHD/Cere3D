@@ -1,0 +1,96 @@
+Indexeaza prima data
+Nivel 1 — cele mai importante
+
+Acestea au cea mai mare valoare SEO si distribuie autoritate in cluster:
+
+/printare-3d-la-comanda.html
+
+/servicii-printare-3d-romania.html
+
+/printare-3d-la-comanda-romania.html
+
+/printare-3d-online.html
+
+/printare-3d-rapid.html
+
+/printare-3d-obiecte-personalizate.html
+
+/printare-3d-cadouri.html
+
+/printare-3d-prototip.html
+
+/printare-3d-piese.html
+
+/printare-3d-inginerie.html
+=================================================================== FACUTE
+Nivel 2 — foarte bune si cautate
+
+Dupa ce le bagi pe cele de sus, astea merita urmatoarele:
+
+/printare-3d-decoratiuni.html
+
+/printare-3d-accesorii.html
+=================================================================== FACUTE
+/printare-3d-arhitectura.html
+
+/printare-3d-proiecte-studenti.html
+
+/printare-3d-piese-mecanice.html
+
+/obiecte-personalizate-printare-3d.html
+
+/printare-3d-la-comanda-obiecte-personalizate.html
+
+/obiecte-3d-la-comanda.html
+
+/serviciu-printare-3d-obiecte.html
+=================================================================== FACUTE
+/printare-3d-piese-plastic.html
+
+Nivel 3 — bune pentru conversie long-tail
+
+Astea sunt mai nisate, dar pot prinde trafic bun daca ai deja huburile indexate:
+
+/cadou-aniversare-printare-3d.html
+
+/figurina-personalizata-3d.html
+
+/rama-foto-personalizata-3d.html
+=================================================================== FACUTE
+/litere-3d-personalizate.html
+
+/nume-personalizat-printat-3d.html
+
+/organizatoare-birou-printare-3d.html
+
+/suport-telefon-birou-printat-3d.html
+
+/printare-3d-serii-mici.html
+
+/roti-dintate-printate-3d.html
+
+/carcasa-proiect-plastic-personalizata.html
+
+Ce as indexa manual cel mai intai, daca vrei doar 10
+
+Fix astea:
+
+/printare-3d-la-comanda.html
+
+/servicii-printare-3d-romania.html
+
+/printare-3d-la-comanda-romania.html
+
+/printare-3d-online.html
+
+/printare-3d-rapid.html
+
+/printare-3d-obiecte-personalizate.html
+
+/printare-3d-cadouri.html
+
+/printare-3d-prototip.html
+
+/printare-3d-piese.html
+
+/printare-3d-inginerie.html

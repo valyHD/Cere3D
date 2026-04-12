@@ -1,0 +1,996 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <!-- Consent Mode v2 (default denied) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  // default: blocat pana la consimtamant
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    analytics_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied'
+  });
+
+  gtag('js', new Date());
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1FY3LRNBF2"></script>
+
+<!-- Consent UI + loader logic -->
+<script type="module" src="/consent.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cere3D - Ghid informativ printare 3D</title>
+  <meta name="description" content="Ghid complet: cum se face un obiect 3D, materiale (PLA, PETG, ABS, ASA, TPU), Fusion 360, Bambu Studio, timp real 40 min / 2 ore / 12 ore, preturi si exemple." />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <style>
+    /* ===== Ghid layout (light additions; nu iti strica styles.css) ===== */
+    .guide-hero{ padding:18px 0 6px; }
+    .guide-hero-grid{ display:grid; grid-template-columns: 1.2fr .8fr; gap:16px; align-items:start; }
+    .guide-title{ font-size: clamp(26px, 3.2vw, 44px); line-height:1.05; margin:0; }
+    .guide-sub{ margin:10px 0 0; opacity:.9; max-width:60ch; }
+    .guide-hero-actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+    .guide-bullets{ margin-top:14px; display:grid; gap:8px; }
+    .guide-bullets .hint-pill{ display:inline-flex; width:max-content; }
+
+    .video-frame{
+      position:relative; width:100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 16px;
+      overflow:hidden;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 10px 28px rgba(0,0,0,.35);
+    }
+    .video-frame iframe, .video-frame video{
+      position:absolute; inset:0; width:100%; height:100%; border:0;
+    }
+
+    .guide-toc{ margin:14px 0 18px; }
+    .toc-card{ padding:14px; }
+    .toc-grid{ display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:10px; }
+    .toc-grid a{
+      display:block;
+      padding:10px 12px;
+      border-radius:12px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      text-decoration:none;
+      color: inherit;
+      font-weight:800;
+      font-size: 13px;
+      transition: transform .12s ease, background .12s ease;
+    }
+    .toc-grid a:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.05); }
+
+    .guide-sec{ margin:18px 0; }
+    .guide-sec .card{ padding:16px; }
+    .sec-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin-bottom:10px; }
+    .sec-title{ margin:0; font-size:22px; }
+    .sec-sub{ margin:0; opacity:.85; max-width:70ch; }
+
+    .sec-grid-2{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
+    .sec-grid-3{ display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:12px; }
+    .media-grid{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:10px; }
+    .media-ph{
+      border-radius:14px;
+      overflow:hidden;
+      background: rgba(255,255,255,0.03);
+      border: 1px dashed rgba(255,255,255,0.14);
+      min-height: 110px;
+      display:flex; align-items:center; justify-content:center;
+      opacity:.85;
+      font-weight:800;
+      font-size: 12px;
+    }
+
+    .guide-kpis{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:10px; margin-top:12px; }
+    .kpi{ padding:12px; border-radius:14px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); }
+    .kpi .k{ font-size:12px; opacity:.8; }
+    .kpi .v{ font-size:18px; font-weight:900; margin-top:4px; }
+
+    .steps{ display:grid; gap:10px; margin-top:10px; }
+    .step{ display:flex; gap:12px; padding:12px; border-radius:14px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); }
+    .step .n{ width:34px; height:34px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-weight:900; background: rgba(255,255,255,0.06); }
+    .step .t{ font-weight:900; margin:0; }
+    .step .p{ margin:4px 0 0; opacity:.85; }
+
+    .compare-grid{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:12px; }
+    .compare-card{ padding:14px; border-radius:16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); }
+    .compare-card h4{ margin:0; }
+    .pillrow{ display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+    .mini-pill{ font-size:12px; font-weight:900; padding:6px 10px; border-radius:999px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); }
+
+    .simple-table{ width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border-radius:14px; border: 1px solid rgba(255,255,255,0.08); }
+    .simple-table th, .simple-table td{ padding:10px 12px; border-bottom:1px solid rgba(255,255,255,0.06); }
+    .simple-table th{ text-align:left; font-weight:900; background: rgba(255,255,255,0.03); }
+    .simple-table tr:last-child td{ border-bottom:0; }
+
+    details.faq{ border-radius:14px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding:12px 14px; }
+    details.faq + details.faq{ margin-top:10px; }
+    details.faq summary{ cursor:pointer; font-weight:900; }
+
+    .guide-end{ text-align:center; padding:18px 0 26px; }
+
+    @media (max-width: 920px){
+      .guide-hero-grid{ grid-template-columns: 1fr; }
+      .toc-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .sec-grid-2{ grid-template-columns: 1fr; }
+      .sec-grid-3{ grid-template-columns: 1fr; }
+      .media-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .compare-grid{ grid-template-columns: 1fr; }
+      .guide-kpis{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body class="auth-loading">
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="logo" href="/">
+        <img loading="lazy" decoding="async" class="logo-img" src="/assets/logo-cere3d.svg" alt="Cere 3D" />
+      </a>
+<button class="nav-burger" id="navBurger" type="button" aria-label="Meniu" aria-expanded="false"></button>
+
+
+      <nav class="nav">
+        <a class="nav-link" href="./ghid.html">Ghid</a>
+        <a class="nav-link" href="./cereri.html">Cereri</a>
+        <a class="nav-link" href="./cere.html">Cere un Obiect 3D</a>
+        <a class="nav-link nav-printatori-new" href="/printatori.html">
+          🔥 Printatori
+          <span class="nav-badge-new">NOU</span>
+        </a>
+        <a class="nav-link nav-auth" id="navAuthLink" href="/auth.html">Autentificare</a>
+        <div class="nav-userwrap" id="navUserWrap" style="display:none;">
+          <a class="nav-user" id="navUser" href="/cont.html" title="Contul meu">
+            <span class="nav-avatar-wrap">
+              <img loading="lazy" decoding="async" id="navAvatar" class="nav-avatar" src="/assets/avatar-placeholder.svg" alt="" />
+              <span id="navDmDot" class="nav-dot" style="display:none;"></span>
+            </span>
+            <span id="navName" class="nav-name"></span>
+          </a>
+          <a class="nav-link nav-messages" id="navMessages" href="/mesaje.html">Mesaje</a>
+          <button class="nav-logout" id="navLogout" type="button">Logout</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+<div class="nav-overlay" id="navOverlay" hidden></div>
+  <main class="wrap">
+
+    <!-- 0) HERO -->
+    <section class="guide-hero" id="top">
+      <div class="guide-hero-grid">
+        <div class="card">
+          <h1 class="guide-title">Ghid informativ printare 3D</h1>
+          <p class="guide-sub">
+            Afla cum se transforma o idee intr-un obiect real: modelare, Bambu Studio, materiale, timpi reali (40 min / 2 ore / 12 ore) si exemple de preturi.
+          </p>
+
+          <div class="guide-hero-actions">
+            <a class="btn btn-orange" href="./cere.html">Posteaza o cerere</a>
+            <a class="btn btn-blue btn-soft" href="./cereri.html">Vezi cereri</a>
+          </div>
+
+          <div class="guide-bullets">
+            <span class="hint-pill">✔ Intelegi rapid materialele (PLA, PETG, ABS, ASA, TPU)</span>
+            <span class="hint-pill">✔ Vezi video reale cu piese si timpi diferiti</span>
+            <span class="hint-pill">✔ Stii ce sa scrii intr-o cerere ca sa primesti oferte bune</span>
+          </div>
+
+          <div class="guide-kpis">
+            <div class="kpi"><div class="k">Timp completare cerere</div><div class="v">1–2 minute</div></div>
+            <div class="kpi"><div class="k">Fara plati in platforma</div><div class="v">Discutie directa</div></div>
+            <div class="kpi"><div class="k">Scop</div><div class="v">Clar + rapid</div></div>
+          </div>
+        </div>
+
+<div class="card">
+  <div class="video-frame">
+    <iframe
+      src="https://www.youtube-nocookie.com/embed/aKQ1ZBGOyog?rel=0&modestbranding=1"
+      title="3D print workflow: Fusion 360 -> Bambu Studio -> Print"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <p class="video-caption" style="margin-top:12px;">
+    In afara de modelare/proiectare, acest breloc/obiect dureaza 1h:21m sa se printeze, un singur obiect.
+    Dureaza asa mult deoarece schimba culorile de 15 ori, altfel ar dura 40 minute aproximativ.
+    Bambu Slicer ofera un cost estimativ pentru filamentul consumat de 0.61 euro.
+  </p>
+</div>
+
+      </div>
+    </section>
+
+    <!-- 1) TOC -->
+    <section class="guide-toc">
+      <div class="card toc-card">
+        <div class="sec-head">
+          <h2 class="sec-title">Cuprins</h2>
+          <p class="sec-sub">Sari rapid la ce te intereseaza.</p>
+        </div>
+
+        <div class="toc-grid">
+          <a href="#ce-este">Ce este printarea 3D</a>
+          <a href="#flux">De la idee la obiect</a>
+          <a href="#modelare">Modelare 3D (Fusion 360)</a>
+          <a href="#slicer">Bambu Studio (slicer)</a>
+          <a href="#timpi">40 min vs 2 ore vs 12 ore</a>
+          <a href="#materiale">Materiale (filamente)</a>
+          <a href="#calitate">Calitate si finisaj</a>
+          <a href="#pret">Cat costa (exemple)</a>
+          <a href="#cerere-buna">Cum scrii o cerere buna</a>
+          <a href="#exemple">Exemple de produse</a>
+          <a href="#faq">Intrebari frecvente</a>
+          <a href="#final">Final</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2) Ce este -->
+    <section class="guide-sec" id="ce-este">
+      <div class="card">
+        <div class="sec-head">
+          <h2 class="sec-title">Ce este printarea 3D</h2>
+          <p class="sec-sub">Pe scurt: un obiect construit strat cu strat din material topit (filament).</p>
+        </div>
+
+        <div class="sec-grid-2">
+          <div>
+            <p class="p">
+              Printarea 3D este ideala pentru piese unice, adaptari, prototipuri, suporturi, capace, organizatoare si multe lucruri care nu se gasesc in comert.
+            </p>
+            <div class="steps">
+              <div class="step">
+                <div class="n">1</div>
+                <div>
+                  <p class="t">Ai o nevoie reala</p>
+                  <p class="p">Piesa lipsa/rupta, un adaptor, un suport, un prototip.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="n">2</div>
+                <div>
+                  <p class="t">O descrii clar</p>
+                  <p class="p">Dimensiuni, unde se foloseste, rezistenta, termen si buget.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="n">3</div>
+                <div>
+                  <p class="t">Primesti oferte</p>
+                  <p class="p">Printatorii estimeaza materialul, timpul si pretul.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="video-frame">
+<iframe
+  src="https://www.youtube-nocookie.com/embed/Is10iN43UjI?rel=0&modestbranding=1"
+  title="3D printing timelapse - explicatie"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen>
+</iframe>
+
+
+            </div>
+
+<div class="media-grid" style="margin-top:10px;">
+  <figure class="media-item">
+    <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/suport.png" alt="Suport printat 3D" loading="lazy">
+    <figcaption class="media-cap">Suport (ex: telefon / adaptor)</figcaption>
+  </figure>
+
+  <figure class="media-item">
+    <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/piesa-auto.jpg" alt="Piesa auto printata 3D" loading="lazy">
+    <figcaption class="media-cap">Piesa auto (clips, suport, capac)</figcaption>
+  </figure>
+
+  <figure class="media-item">
+    <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/capac.jpg" alt="Capac printat 3D" loading="lazy">
+    <figcaption class="media-cap">Capac / piesa de inlocuire</figcaption>
+  </figure>
+
+  <figure class="media-item">
+    <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/organizator.jpg" alt="Organizator printat 3D" loading="lazy">
+    <figcaption class="media-cap">Organizator (sertar / birou)</figcaption>
+  </figure>
+
+  <figure class="media-item">
+    <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/prototip.png" alt="Prototip functional printat 3D" loading="lazy">
+    <figcaption class="media-cap">Prototip (test rapid)</figcaption>
+  </figure>
+
+  <figure class="media-item">
+    <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/decor.jpg" alt="Decor printat 3D" loading="lazy">
+    <figcaption class="media-cap">Decor (obiecte estetice)</figcaption>
+  </figure>
+</div>
+
+            <p class="small-muted" style="margin-top:10px;">
+  Exemple reale de obiecte printate 3D: suporturi, piese auto,
+  capace de inlocuire, organizatoare, prototipuri functionale si obiecte decorative.
+  Fiecare este realizat strat cu strat, personalizat exact pe nevoie.
+</p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3) Flux complet -->
+    <section class="guide-sec" id="flux">
+      <div class="card">
+        <div class="sec-head">
+          <h2 class="sec-title">De la idee la obiect: flux complet</h2>
+          <p class="sec-sub">Asta se intampla in realitate, de la cerere pana la piesa finala.</p>
+        </div>
+
+        <div class="sec-grid-2">
+          <div>
+            <div class="steps">
+              <div class="step"><div class="n">1</div><div><p class="t">Idee / problema</p><p class="p">Ce piesa vrei si de ce ai nevoie de ea.</p></div></div>
+              <div class="step"><div class="n">2</div><div><p class="t">Masuratori + poze</p><p class="p">Poze clare + poza cu rigla; tolerante daca e piesa “fix”.</p></div></div>
+              <div class="step"><div class="n">3</div><div><p class="t">Model 3D</p><p class="p">Fusion 360 / FreeCAD / Blender / Tinkercad (in functie de piesa).</p></div></div>
+              <div class="step"><div class="n">4</div><div><p class="t">Slicer (Bambu Studio)</p><p class="p">Straturi, suporturi, infill, timp estimat, consum material.</p></div></div>
+              <div class="step"><div class="n">5</div><div><p class="t">Printare + finisaj</p><p class="p">Curatare suporturi, slefuire, ajustari, insertii filet.</p></div></div>
+              <div class="step"><div class="n">6</div><div><p class="t">Ridicare / livrare</p><p class="p">Detalii stabilite direct cu printatorul.</p></div></div>
+            </div>
+          </div>
+
+          <div>
+<div class="video-frame">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JllVotEWslQ?si=5q6cG8j8tVfBieQ7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+
+<div class="media-grid" style="margin-top:10px;">
+  <figure class="media-item">
+    <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/masurare.jpg" alt="Masurare piesa (rigla / subler)" loading="lazy">
+    <figcaption class="media-cap">Masurare (rigla / subler)</figcaption>
+  </figure>
+
+  <figure class="media-item">
+    <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/suporturi.jpg" alt="Suporturi la printare 3D" loading="lazy">
+    <figcaption class="media-cap">Suporturi (inainte/dupa)</figcaption>
+  </figure>
+
+  <figure class="media-item">
+    <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/finisaj.jpg" alt="Finisaj: curatare / slefuire" loading="lazy">
+    <figcaption class="media-cap">Finisaj (curatare / slefuire)</figcaption>
+  </figure>
+</div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4) Modelare -->
+    <section class="guide-sec" id="modelare">
+      <div class="card">
+        <div class="sec-head">
+          <h2 class="sec-title">Modelare 3D: Fusion 360 si alternative</h2>
+          <p class="sec-sub">Daca nu ai fisier, se poate modela pe baza de poze, masuratori sau piesa veche.</p>
+        </div>
+
+        <div class="sec-grid-2">
+          <div>
+            <table class="simple-table">
+              <thead>
+                <tr><th>Program</th><th>Cand e bun</th><th>Observatie</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><b>Fusion 360</b></td><td>Piese functionale, dimensiuni, tolerante</td><td>Parametric, foarte folosit</td></tr>
+                <tr><td><b>FreeCAD</b></td><td>Alternativa gratuita (piese tehnice)</td><td>Curba de invatare</td></tr>
+                <tr><td><b>Blender</b></td><td>Forme organice, decor, figurine</td><td>Nu e “tehnic” ca Fusion</td></tr>
+                <tr><td><b>Tinkercad</b></td><td>Incepatori, forme simple</td><td>Rapid, in browser</td></tr>
+                <tr><td><b>Onshape</b></td><td>Browser, colaborare</td><td>Util pentru echipe</td></tr>
+              </tbody>
+            </table>
+
+            <div class="small-muted" style="margin-top:10px;">
+              Formate utile: <b>STEP</b> (precizie pentru piesa tehnica) / <b>STL</b> sau <b>3MF</b> (pentru printare).
+            </div>
+          </div>
+
+          <div>
+            <div class="video-frame"><iframe width="560" height="315" src="https://www.youtube.com/embed/7lKpzGtoQX0?si=XzoID0Mtsw39NgPC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+            <div class="video-frame" style="margin-top:10px;"><iframe width="560" height="315" src="https://www.youtube.com/embed/KZXXpeYVYS4?si=IZK2k5p4qqsOGWmd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5) Slicer -->
+    <section class="guide-sec" id="slicer">
+      <div class="card">
+        <div class="sec-head">
+          <h2 class="sec-title">Bambu Studio: cum lucreaza slicer-ul</h2>
+          <p class="sec-sub">Aici se decide timpul, calitatea, suporturile si costul estimat.</p>
+        </div>
+
+        <div class="sec-grid-2">
+          <div>
+            <div class="steps">
+              <div class="step"><div class="n">A</div><div><p class="t">Straturi (layer height)</p><p class="p">0.28 = rapid / 0.20 = standard / 0.12 = calitate.</p></div></div>
+              <div class="step"><div class="n">B</div><div><p class="t">Infill + pereti</p><p class="p">Mai multi pereti/infill = mai rezistent, dar mai mult timp.</p></div></div>
+              <div class="step"><div class="n">C</div><div><p class="t">Suporturi</p><p class="p">Unele forme necesita suporturi, care cresc timpul si post-procesarea.</p></div></div>
+              <div class="step"><div class="n">D</div><div><p class="t">Estimare cost/timp</p><p class="p">Consum filament (g) + timp (ore) + setari (calitate).</p></div></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="video-frame"><iframe width="560" height="315" src="https://www.youtube.com/embed/8TQCRVS72Us?si=S3qV9x-AQdx1swai" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<div class="media-grid" style="margin-top:10px;">
+  <figure class="media-item">
+    <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/preview-layers.jpg" alt="Preview straturi in slicer" loading="lazy">
+    <figcaption class="media-cap">Preview straturi (layer by layer)</figcaption>
+  </figure>
+
+  <figure class="media-item">
+    <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/suporturi2.jpg" alt="Suporturi generate automat" loading="lazy">
+    <figcaption class="media-cap">Suporturi necesare pentru forme complexe</figcaption>
+  </figure>
+
+  <figure class="media-item">
+    <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/timp-cost.jpg" alt="Estimare timp si cost filament" loading="lazy">
+    <figcaption class="media-cap">Estimare timp si consum filament</figcaption>
+  </figure>
+</div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6) Timpi -->
+    <section class="guide-sec" id="timpi">
+      <div class="card">
+        <div class="sec-head">
+          <h2 class="sec-title">Timp real: 40 minute vs 2 ore vs 12 ore</h2>
+          <p class="sec-sub">Aceeasi imprimanta, dar alt volum, alte setari, alte suporturi.</p>
+        </div>
+
+        <div class="compare-grid">
+
+  <div class="compare-card">
+    <h4>40 minute (piesa mica)</h4>
+    <div class="pillrow">
+      <span class="mini-pill">layer: rapid</span>
+      <span class="mini-pill">suport: minim</span>
+      <span class="mini-pill">infill: mic</span>
+    </div>
+
+    <div class="compare-media">
+      <img loading="lazy" decoding="async" src="/assets/piesa-mica.jpg" alt="Piesa mica: clema/suport cablu (aprox 40 min)" loading="lazy">
+    </div>
+
+    <p class="small-muted" style="margin-top:10px;">
+      Ex: clema cablu, clips, adaptor mic. Pret orientativ: mic.
+    </p>
+  </div>
+
+  <div class="compare-card">
+    <h4>2 ore (piesa medie)</h4>
+    <div class="pillrow">
+      <span class="mini-pill">layer: standard</span>
+      <span class="mini-pill">suport: mediu</span>
+      <span class="mini-pill">pereti: 3+</span>
+    </div>
+
+    <div class="compare-media">
+      <img loading="lazy" decoding="async" src="/assets/suport-2h.jpg" alt="Piesa medie: suport mic de telefon (aprox 2 ore)" loading="lazy">
+    </div>
+
+    <p class="small-muted" style="margin-top:10px;">
+      Ex: suport telefon, organizator mic. Pret orientativ: mediu.
+    </p>
+  </div>
+
+  <div class="compare-card">
+    <h4>12 ore (piesa mare/complexa)</h4>
+    <div class="pillrow">
+      <span class="mini-pill">layer: calitate</span>
+      <span class="mini-pill">suport: mult</span>
+      <span class="mini-pill">detalii: multe</span>
+    </div>
+
+    <div class="compare-media">
+      <img loading="lazy" decoding="async" src="/assets/suport-12h.jpg" alt="Piesa mare: organizator birou (aprox 12 ore)" loading="lazy">
+    </div>
+
+    <p class="small-muted" style="margin-top:10px;">
+      Ex: organizator birou mare, cutii multiple, compartimente. Pret orientativ: mai mare.
+    </p>
+  </div>
+
+</div>
+
+      </div>
+    </section>
+
+    <!-- 7) Materiale -->
+    <section class="guide-sec" id="materiale">
+      <div class="card">
+        <div class="sec-head">
+          <h2 class="sec-title">Materiale (filamente) explicate simplu</h2>
+          <p class="sec-sub">Alegerea materialului depinde de unde folosesti piesa: interior, apa, soare, caldura, flexibilitate.</p>
+        </div>
+
+        <div class="sec-grid-2">
+          <div>
+            <table class="simple-table">
+              <thead><tr><th>Material</th><th>Cand il alegi</th><th>Observatie</th></tr></thead>
+              <tbody>
+                <tr><td><b>PLA</b></td><td>Interior, decor, prototip</td><td>Usor de printat</td></tr>
+                <tr><td><b>PETG</b></td><td>Umed, rezistenta mai buna</td><td>Mai “tough” decat PLA</td></tr>
+                <tr><td><b>ABS</b></td><td>Rezistenta, dar pretentios</td><td>Necesita conditii bune</td></tr>
+                <tr><td><b>ASA</b></td><td>Exterior, soare/UV, auto</td><td>Foarte bun la UV</td></tr>
+                <tr><td><b>TPU</b></td><td>Flexibil (garnituri, amortizare)</td><td>Mai lent la printare</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+ <div class="media-grid" style="margin-top:12px;">
+
+    <figure class="media-item">
+      <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/filamentpla.jpg" alt="PLA print 3D">
+      <figcaption class="media-cap">PLA – interior, decor</figcaption>
+    </figure>
+
+    <figure class="media-item">
+      <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/filamentpetg.jpg" alt="PETG print 3D">
+      <figcaption class="media-cap">PETG – rezistent la umezeala</figcaption>
+    </figure>
+
+    <figure class="media-item">
+      <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/filamentasa.jpg" alt="ASA print 3D">
+      <figcaption class="media-cap">ASA – exterior / UV</figcaption>
+    </figure>
+
+    <figure class="media-item">
+      <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/filamenttpu.jpg" alt="TPU print 3D">
+      <figcaption class="media-cap">TPU – flexibil</figcaption>
+    </figure>
+
+    <figure class="media-item">
+      <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/filamentabs.jpg" alt="ABS print 3D">
+      <figcaption class="media-cap">ABS – rezistenta mecanica</figcaption>
+    </figure>
+
+    <figure class="media-item">
+      <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/mostre.jpg" alt="Mostre filament 3D">
+      <figcaption class="media-cap">Mostre materiale</figcaption>
+    </figure>
+
+  </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8) Calitate/finisaj -->
+    <section class="guide-sec" id="calitate">
+      <div class="card">
+        <div class="sec-head">
+          <h2 class="sec-title">Calitate si finisaj</h2>
+          <p class="sec-sub">Ce inseamna “standard”, “fina”, si cum arata dupa curatare/slefuire.</p>
+        </div>
+
+        <div class="sec-grid-2">
+          <div>
+            <div class="steps">
+              <div class="step"><div class="n">1</div><div><p class="t">Layer lines</p><p class="p">Sunt normale la printarea FDM; la calitate mai buna se vad mai putin.</p></div></div>
+              <div class="step"><div class="n">2</div><div><p class="t">Curatare suporturi</p><p class="p">Poate lasa urme; de asta unele forme costa mai mult.</p></div></div>
+              <div class="step"><div class="n">3</div><div><p class="t">Slefuire / vopsire</p><p class="p">Optional, pentru aspect premium.</p></div></div>
+              <div class="step"><div class="n">4</div><div><p class="t">Tolerante</p><p class="p">“Strans” vs “lejer” conteaza mult la piese care se imbina.</p></div></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="media-grid" style="margin-top:10px;">
+              <figure class="media-item">
+  <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/layers.jpg" alt="Layer lines printare 3D FDM">
+  <figcaption class="media-cap">
+    Layer lines – straturi vizibile la printarea FDM (normale)
+  </figcaption>
+</figure>
+              <figure class="media-item">
+  <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/suportiinlaturare.jpg" alt="Layer lines printare 3D FDM">
+  <figcaption class="media-cap">
+    Layer lines – straturi vizibile la printarea FDM (normale)
+  </figcaption>
+</figure>
+              <figure class="media-item">
+  <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/toleranta.jpg" alt="Layer lines printare 3D FDM">
+  <figcaption class="media-cap">
+    Layer lines – straturi vizibile la printarea FDM (normale)
+  </figcaption>
+</figure>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9) Pret -->
+    <section class="guide-sec" id="pret">
+      <div class="card">
+        <div class="sec-head">
+          <h2 class="sec-title">Cat costa (exemple orientative)</h2>
+          <p class="sec-sub">Pretul se formeaza din material (g), timp (ore), setari, suporturi, finisaj si eventual modelare.</p>
+        </div>
+
+        <table class="simple-table">
+          <thead>
+            <tr><th>Exemplu</th><th>Timp</th><th>Material</th><th>Range orientativ</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Piesa mica (capac/adaptor)</td><td>30–60 min</td><td>PLA/PETG</td><td>mic</td></tr>
+            <tr><td>Piesa medie (suport/organizator)</td><td>1–3 ore</td><td>PLA/PETG</td><td>mediu</td></tr>
+            <tr><td>Piesa mare/complexa</td><td>6–14 ore</td><td>PLA/PETG/ASA</td><td>mai mare</td></tr>
+            <tr><td>Set 10 bucati</td><td>depinde</td><td>bulk</td><td>mai bun per bucata</td></tr>
+            <tr><td>Modelare inclusa</td><td>+ timp design</td><td>-</td><td>se discuta separat</td></tr>
+          </tbody>
+        </table>
+
+        <div class="small-muted" style="margin-top:10px;">
+          Nota: aici punem cifre reale dupa ce stabilim exemplele tale (cat dai tu/printatorii).
+        </div>
+      </div>
+    </section>
+
+    <!-- 10) Cerere buna -->
+    <section class="guide-sec" id="cerere-buna">
+      <div class="card">
+        <div class="sec-head">
+          <h2 class="sec-title">Cum scrii o cerere buna (ca sa primesti oferte bune)</h2>
+          <p class="sec-sub">Daca lipsesc detalii, printatorii ghicesc si raspund mai greu.</p>
+        </div>
+
+        <div class="sec-grid-2">
+          <div>
+            <div class="steps">
+              <div class="step"><div class="n">✔</div><div><p class="t">Titlu clar</p><p class="p">Ce este piesa + unde se foloseste.</p></div></div>
+              <div class="step"><div class="n">✔</div><div><p class="t">Poze + rigla</p><p class="p">2–3 poze clare + 1 poza cu rigla la dimensiuni.</p></div></div>
+              <div class="step"><div class="n">✔</div><div><p class="t">Conditii de folosire</p><p class="p">Interior/exterior, apa, soare/UV, caldura, rezistenta.</p></div></div>
+              <div class="step"><div class="n">✔</div><div><p class="t">Buget si termen</p><p class="p">Ajuta sa primesti raspunsuri relevante.</p></div></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="media-grid">
+                            <figure class="media-item">
+  <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/exbun.png" alt="Layer lines printare 3D FDM">
+  <figcaption class="media-cap">
+    exemplu cerere buna
+  </figcaption>
+</figure>
+                           <figure class="media-item">
+  <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/bad.png" alt="Layer lines printare 3D FDM">
+  <figcaption class="media-cap">
+    exemplu cerere slaba
+  </figcaption>
+</figure>
+                            <figure class="media-item">
+  <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/rigla.jpg" alt="Layer lines printare 3D FDM">
+  <figcaption class="media-cap">
+    poza cu rigla
+  </figcaption>
+</figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11) Exemple -->
+    <section class="guide-sec" id="exemple">
+      <div class="card">
+        <div class="sec-head">
+          <h2 class="sec-title">Exemple de produse / piese (inspiratie)</h2>
+          <p class="sec-sub">Grid mare pregatit: aici pui multe imagini + scurte explicatii.</p>
+        </div>
+
+        <div class="media-grid">
+                            <figure class="media-item">
+  <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/suport1.jpg" alt="Layer lines printare 3D FDM">
+  <figcaption class="media-cap">
+    Suport tableta
+  </figcaption>
+</figure>                            <figure class="media-item">
+  <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/suport2.jpg" alt="Layer lines printare 3D FDM">
+  <figcaption class="media-cap">
+    Suport Vin
+  </figcaption>
+</figure>                            <figure class="media-item">
+  <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/capac.jpg" alt="Layer lines printare 3D FDM">
+  <figcaption class="media-cap">
+    Capac
+  </figcaption>
+</figure>                            <figure class="media-item">
+  <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/piesaauto.jpg" alt="Layer lines printare 3D FDM">
+  <figcaption class="media-cap">
+    Piesa auto
+  </figcaption>
+</figure>                            <figure class="media-item">
+  <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/organizator.jpg" alt="Layer lines printare 3D FDM">
+  <figcaption class="media-cap">
+    Organizator
+  </figcaption>
+</figure>                            <figure class="media-item">
+  <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/prototip.jpg" alt="Layer lines printare 3D FDM">
+  <figcaption class="media-cap">
+    Prototip
+  </figcaption>
+</figure>                            <figure class="media-item">
+  <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/decor.jpg" alt="Layer lines printare 3D FDM">
+  <figcaption class="media-cap">
+    Decor
+  </figcaption>
+</figure>                            <figure class="media-item">
+  <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/gadget.jpg" alt="Layer lines printare 3D FDM">
+  <figcaption class="media-cap">
+    Gadgets
+  </figcaption>
+</figure>                            <figure class="media-item">
+  <img loading="lazy" decoding="async" class="media-img js-lightbox" src="/assets/suportcabluri.jpg" alt="Layer lines printare 3D FDM">
+  <figcaption class="media-cap">
+    Suport cabluri
+  </figcaption>
+</figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12) FAQ -->
+    <section class="guide-sec" id="faq">
+      <div class="card">
+        <div class="sec-head">
+          <h2 class="sec-title">Intrebari frecvente</h2>
+          <p class="sec-sub">Raspunsuri rapide la ce intreaba lumea cel mai des.</p>
+        </div>
+
+        <details class="faq">
+          <summary>Am nevoie de fisier 3D ca sa postez?</summary>
+          <div class="small-muted" style="margin-top:8px;">
+            Nu. Poti posta cu poze si masuratori. Cineva poate modela piesa (se discuta separat).
+          </div>
+        </details>
+
+        <details class="faq">
+          <summary>Cat rezista o piesa printata?</summary>
+          <div class="small-muted" style="margin-top:8px;">
+            Depinde de material, design, pereti/infill si unde se foloseste (caliura/soare/apa/soc).
+          </div>
+        </details>
+
+        <details class="faq">
+          <summary>Pot face piese pentru exterior / auto?</summary>
+          <div class="small-muted" style="margin-top:8px;">
+            Da, de obicei cu materiale potrivite (de exemplu ASA) si design corect.
+          </div>
+        </details>
+
+        <details class="faq">
+          <summary>De ce unele piese necesita suporturi?</summary>
+          <div class="small-muted" style="margin-top:8px;">
+            Pentru “surplombe” (overhang). Suporturile cresc timpul si munca de curatare.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 13) Final -->
+    <section class="guide-end" id="final">
+      <div class="card" style="padding:18px;">
+        <h2 class="sec-title" style="margin:0;">Gata. Acum stii baza.</h2>
+        <p class="sec-sub" style="margin-top:8px;">
+          Urmatorul pas: posteaza o cerere cat mai clara si vei primi raspunsuri relevante.
+        </p>
+
+        <div class="guide-hero-actions" style="justify-content:center;">
+          <a class="btn btn-orange" href="./cere.html">Posteaza o cerere</a>
+          <a class="btn btn-blue btn-soft" href="./cereri.html">Vezi cereri</a>
+          <a class="btn btn-blue btn-soft" href="#top">Sus ↑</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+  <button class="lightbox-close" aria-label="Inchide">✕</button>
+  <img loading="lazy" decoding="async" id="lightboxImg" alt="">
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© <span id="year"></span> Cere3D</span>
+    <span class="footer-links">
+      <a href="/legal.html">Legal · Privacy · Terms · Cookies</a>
+      <a class="footer-seo-link" href="/refacere-piese-plastic.html">
+        Refacere piese din plastic
+      </a>
+      <a class="footer-seo-link" href="/printare-3d-la-comanda.html">
+        Printare 3D la comanda
+      </a>
+      <a class="footer-seo-link" href="/servicii-printare-3d-romania.html">
+        Servicii printare 3d Romania
+      </a>
+      <a class="footer-seo-link" href="/comenzi-si-ofertare-printare-3d.html">
+        Comanda printare 3D
+      </a>
+      <a class="footer-seo-link" href="/aplicatii-printare-3d-utile.html">
+        Aplicatii printare 3D
+      </a>
+      <a class="footer-seo-link" href="/idei-si-utilizari-printare-3d.html">
+        Idei si Utilizari Printare 3D
+      </a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+  <script type="module">
+    import { initNavAuth } from "./nav-auth.js";
+    initNavAuth();
+  </script>
+
+  <script>
+    setTimeout(() => document.body.classList.remove("auth-loading"), 2000);
+  </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  // 1) asigura lightbox-ul (daca nu exista il cream)
+  let lightbox = document.getElementById("lightbox");
+  if (!lightbox) {
+    lightbox = document.createElement("div");
+    lightbox.id = "lightbox";
+    lightbox.className = "lightbox";
+    lightbox.setAttribute("aria-hidden", "true");
+    lightbox.innerHTML = `
+      <button type="button" class="lightbox-close" aria-label="Inchide">✕</button>
+      <img loading="lazy" decoding="async" id="lightboxImg" alt="">
+    `;
+    document.body.appendChild(lightbox);
+  }
+
+  const lightboxImg = lightbox.querySelector("#lightboxImg");
+  const closeBtn = lightbox.querySelector(".lightbox-close");
+
+  if (!lightboxImg || !closeBtn) {
+    console.error("[lightbox] lipseste #lightboxImg sau .lightbox-close");
+    return;
+  }
+
+  function openLightbox(src, alt) {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || "";
+    lightbox.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("open");
+    lightboxImg.src = "";
+    document.body.style.overflow = "";
+  }
+
+  // 2) click pe orice imagine cu clasa js-lightbox
+  document.addEventListener("click", (e) => {
+    const img = e.target.closest(".js-lightbox");
+    if (!img) return;
+
+    e.preventDefault();
+    openLightbox(img.currentSrc || img.src, img.alt || "");
+  });
+
+  // 3) buton close
+  closeBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    closeLightbox();
+  });
+
+  // 4) click pe fundal inchide
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  // 5) ESC inchide
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeLightbox();
+  });
+
+});
+</script>
+<script>
+  (function initMobileNav(){
+    const burger = document.getElementById("navBurger");
+    const overlay = document.getElementById("navOverlay");
+    const nav = document.querySelector(".topbar .nav");
+    if (!burger || !overlay || !nav) return;
+
+    function openNav(){
+      document.body.classList.add("nav-open");
+      overlay.hidden = false;
+      burger.setAttribute("aria-expanded", "true");
+    }
+    function closeNav(){
+      document.body.classList.remove("nav-open");
+      overlay.hidden = true;
+      burger.setAttribute("aria-expanded", "false");
+    }
+
+    burger.addEventListener("click", () => {
+      document.body.classList.contains("nav-open") ? closeNav() : openNav();
+    });
+
+    overlay.addEventListener("click", closeNav);
+
+    nav.addEventListener("click", (e) => {
+      const a = e.target.closest("a");
+      if (!a) return;
+      if (window.matchMedia("(max-width: 900px)").matches) closeNav();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeNav();
+    });
+
+    window.addEventListener("resize", () => {
+      if (!window.matchMedia("(max-width: 900px)").matches) closeNav();
+    });
+  })();
+</script>
+
+
+<button id="floatingBackBtn" class="floating-back-btn" aria-label="Inapoi">
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5">
+    <path d="M15 18l-6-6 6-6"/>
+  </svg>
+</button>
+
+<script>
+(function initFloatingBack(){
+  const btn = document.getElementById("floatingBackBtn");
+  if (!btn) return;
+
+  btn.addEventListener("click", () => {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.href = "/";
+    }
+  });
+})();
+</script>
+
+  <!-- SEO Internal Links: printare 3D -->
+  <nav class="seo-internal-links" aria-label="Pagini principale printare 3D" style="display:none;">
+    <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+    <a href="/">Printare 3D Romania - Cere3D</a>
+    <a href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a>
+    <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a>
+    <a href="/cat-costa-un-obiect-printat-3d.html">Cat costa printare 3D</a>
+    <a href="/ce-material-sa-aleg-pentru-printare-3d.html">Materiale printare 3D</a>
+  </nav>
+</body>
+</html>

@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+
+    gtag('js', new Date());
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FY3LRNBF2"></script>
+  <script type="module" src="/consent.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Materiale Printare 3D | PLA, PETG, ABS, TPU si cum alegi corect - Cere3D</title>
+  <meta name="description" content="Intelege materialele pentru printare 3D: PLA, PETG, ABS, TPU si alte variante utile. Afla ce sa alegi pentru piese, prototipuri, obiecte personalizate sau proiecte functionale si posteaza gratuit cererea pe Cere3D." />
+  <link rel="canonical" href="https://cere3d.ro/materiale-printare-3d.html" />
+
+  <meta property="og:title" content="Materiale Printare 3D | Cere3D" />
+  <meta property="og:description" content="Hub informational-comercial despre materialele folosite in printare 3D si cum postezi o cerere mai clara pe Cere3D." />
+  <meta property="og:url" content="https://cere3d.ro/materiale-printare-3d.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://cere3d.ro/assets/og-cere3d2.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Materiale Printare 3D | Cere3D" />
+  <meta name="twitter:description" content="Vezi diferentele dintre PLA, PETG, ABS si TPU si afla cum sa postezi o cerere mai buna pentru proiectul tau." />
+  <meta name="twitter:image" content="https://cere3d.ro/assets/og-cere3d2.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/seo-hub.css" />
+
+  <style>
+    :root{
+      --page-bg:#f4f8ff;
+      --panel:#ffffff;
+      --panel-soft:#f7faff;
+      --panel-blue:#edf4ff;
+      --panel-orange:#fff2e8;
+      --line:rgba(18,42,85,.10);
+      --line-strong:rgba(18,42,85,.18);
+      --ink:#122a55;
+      --muted:rgba(18,42,85,.78);
+      --dim:rgba(18,42,85,.62);
+      --blue:#1f4f9e;
+      --orange:#f27a2a;
+      --shadow:0 16px 40px rgba(18,42,85,.10);
+      --shadow-lg:0 26px 62px rgba(18,42,85,.12);
+    }
+
+    body{
+      background:
+        radial-gradient(860px 380px at 8% -12%, rgba(31,79,158,.10), transparent 56%),
+        radial-gradient(720px 340px at 96% 2%, rgba(242,122,42,.10), transparent 52%),
+        linear-gradient(180deg, #f9fbff 0%, var(--page-bg) 100%);
+      color:var(--ink);
+    }
+
+    a{
+      color:var(--blue);
+      transition:color .16s ease, transform .16s ease, box-shadow .16s ease, background .16s ease;
+    }
+    a:hover{
+      color:var(--orange);
+    }
+
+    .topbar{
+      background:rgba(255,255,255,.84);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .topbar-nav{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .topbar-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:42px;
+      padding:0 14px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.92);
+      color:var(--blue);
+      font-family:Manrope, system-ui, sans-serif;
+      font-size:14px;
+      font-weight:800;
+      text-decoration:none;
+    }
+    .topbar-link:hover{
+      color:var(--orange);
+      transform:translateY(-1px);
+      box-shadow:var(--shadow);
+    }
+
+    .topbar-cta{
+      color:var(--blue);
+      border:1px solid rgba(242,122,42,.20);
+      background:linear-gradient(135deg, #fff0e5, #ffe0ca);
+      font-family:Manrope, system-ui, sans-serif;
+      font-weight:900;
+      text-decoration:none;
+    }
+
+    .breadcrumbs{
+      max-width:1180px;
+      margin:0 auto 18px;
+      color:var(--dim);
+      font-size:14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      padding:0 24px;
+    }
+
+    .breadcrumbs a{
+      color:var(--dim);
+      text-decoration:none;
+    }
+
+    .breadcrumbs a:hover{
+      color:var(--orange);
+    }
+
+    .hero{
+      padding:88px 0 44px;
+    }
+
+    .hero-wrap{
+      max-width:1180px;
+      margin:0 auto;
+      padding:0 24px;
+      display:grid;
+      grid-template-columns:1.04fr .96fr;
+      gap:18px;
+      align-items:start;
+    }
+
+    .hero-main,
+    .hero-side,
+    .material-card,
+    .decision-card,
+    .usage-card,
+    .faq-card,
+    .cta-final{
+      background:rgba(255,255,255,.94);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+
+    .hero-main{
+      border-radius:32px;
+      padding:34px;
+      box-shadow:var(--shadow-lg);
+      background:
+        radial-gradient(320px 180px at 100% 0%, rgba(31,79,158,.10), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.96), rgba(248,251,255,.92));
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-main::after{
+      content:"";
+      position:absolute;
+      right:-60px;
+      bottom:-60px;
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(242,122,42,.12), transparent 68%);
+      pointer-events:none;
+    }
+
+    .hero-side{
+      border-radius:26px;
+      padding:24px;
+      display:grid;
+      gap:12px;
+    }
+
+    .hero-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:9px 14px;
+      border-radius:999px;
+      background:var(--panel-blue);
+      border:1px solid rgba(31,79,158,.16);
+      color:var(--blue);
+      font-size:12px;
+      font-family:Manrope, system-ui, sans-serif;
+      font-weight:900;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:18px;
+    }
+
+    .hero h1{
+      font-family:Syne, Manrope, system-ui, sans-serif;
+      font-size:clamp(38px,5vw,60px);
+      line-height:1.01;
+      letter-spacing:-.045em;
+      color:var(--ink);
+      margin-bottom:16px;
+      max-width:780px;
+    }
+
+    .hero-sub{
+      max-width:780px;
+      color:var(--muted);
+      font-family:Inter, system-ui, sans-serif;
+      font-size:18px;
+      line-height:1.8;
+      margin-bottom:20px;
+    }
+
+    .hero-note{
+      background:var(--panel-orange);
+      border:1px solid rgba(242,122,42,.18);
+      border-radius:18px;
+      padding:18px;
+      margin-bottom:20px;
+    }
+
+    .hero-note strong{
+      display:block;
+      color:var(--ink);
+      font-family:Manrope, system-ui, sans-serif;
+      font-size:16px;
+      font-weight:900;
+      margin-bottom:8px;
+    }
+
+    .hero-note p{
+      color:var(--muted);
+      font-family:Inter, system-ui, sans-serif;
+      font-size:15px;
+      line-height:1.72;
+      margin:0;
+    }
+
+    .hero-cta-wrap{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-bottom:18px;
+    }
+
+    .btn-primary,
+    .btn-secondary{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:52px;
+      padding:0 20px;
+      border-radius:14px;
+      font-family:Manrope, system-ui, sans-serif;
+      font-weight:900;
+      text-decoration:none;
+      letter-spacing:-.01em;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg, #ffe9d8, #ffd8bf);
+      border:1px solid rgba(242,122,42,.24);
+      color:var(--blue);
+      box-shadow:var(--shadow);
+    }
+
+    .btn-secondary{
+      background:rgba(255,255,255,.92);
+      border:1px solid var(--line-strong);
+      color:var(--blue);
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover{
+      color:var(--orange);
+      transform:translateY(-1px);
+    }
+
+    .hero-pills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .hero-pill{
+      display:inline-flex;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:999px;
+      background:var(--panel-soft);
+      border:1px solid var(--line);
+      color:var(--blue);
+      font-size:14px;
+      font-family:Manrope, system-ui, sans-serif;
+      font-weight:800;
+    }
+
+    .side-head h2{
+      color:var(--ink);
+      font-family:Manrope, system-ui, sans-serif;
+      font-size:24px;
+      font-weight:900;
+      margin-bottom:8px;
+    }
+
+    .side-head p{
+      color:var(--muted);
+      font-family:Inter, system-ui, sans-serif;
+      font-size:15px;
+      line-height:1.72;
+    }
+
+    .side-item{
+      background:var(--panel-soft);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px;
+    }
+
+    .side-item strong{
+      display:block;
+      color:var(--ink);
+      font-family:Manrope, system-ui, sans-serif;
+      font-size:15px;
+      margin-bottom:6px;
+    }
+
+    .side-item span{
+      color:var(--muted);
+      font-family:Inter, system-ui, sans-serif;
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .section{
+      padding:72px 0;
+    }
+
+    .container{
+      max-width:1180px;
+      margin:0 auto;
+      padding:0 24px;
+    }
+
+    .section-tag{
+      display:inline-block;
+      margin-bottom:12px;
+      color:var(--blue);
+      font-size:12px;
+      letter-spacing:.09em;
+      text-transform:uppercase;
+      font-family:Manrope, system-ui, sans-serif;
+      font-weight:900;
+    }
+
+    .section-title{
+      max-width:960px;
+      color:var(--ink);
+      font-family:Syne, Manrope, system-ui, sans-serif;
+      font-size:clamp(30px,4vw,46px);
+      line-height:1.08;
+      letter-spacing:-.04em;
+      margin-bottom:16px;
+    }
+
+    .section-lead{
+      max-width:880px;
+      color:var(--muted);
+      font-family:Inter, system-ui, sans-serif;
+      font-size:18px;
+      line-height:1.78;
+    }
+
+    .materials{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+      margin-top:34px;
+    }
+
+    .material-card{
+      border-radius:22px;
+      padding:22px;
+    }
+
+    .material-card .tag{
+      display:inline-block;
+      margin-bottom:10px;
+      color:var(--orange);
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-family:Manrope, system-ui, sans-serif;
+      font-weight:900;
+    }
+
+    .material-card h3{
+      color:var(--ink);
+      font-family:Manrope, system-ui, sans-serif;
+      font-size:20px;
+      font-weight:900;
+      margin-bottom:10px;
+    }
+
+    .material-card p{
+      color:var(--muted);
+      font-family:Inter, system-ui, sans-serif;
+      font-size:15px;
+      line-height:1.7;
+      margin-bottom:12px;
+    }
+
+    .material-card ul{
+      display:grid;
+      gap:8px;
+      padding-left:18px;
+      margin-bottom:12px;
+    }
+
+    .material-card li{
+      color:var(--muted);
+      font-family:Inter, system-ui, sans-serif;
+      font-size:14px;
+      line-height:1.62;
+    }
+
+    .material-card a{
+      font-family:Manrope, system-ui, sans-serif;
+      font-weight:900;
+      text-decoration:none;
+    }
+
+    .decision-layout{
+      display:grid;
+      grid-template-columns:.96fr 1.04fr;
+      gap:18px;
+      margin-top:34px;
+      align-items:start;
+    }
+
+    .decision-card{
+      border-radius:24px;
+      padding:26px;
+    }
+
+    .decision-card h3,
+    .usage-card h3,
+    .faq-card h3,
+    .cta-final h2{
+      color:var(--ink);
+      font-family:Manrope, system-ui, sans-serif;
+      font-weight:900;
+    }
+
+    .decision-card h3,
+    .usage-card h3{
+      font-size:22px;
+      margin-bottom:12px;
+    }
+
+    .decision-card p,
+    .usage-card p{
+      color:var(--muted);
+      font-family:Inter, system-ui, sans-serif;
+      font-size:16px;
+      line-height:1.76;
+      margin-bottom:14px;
+    }
+
+    .check-list{
+      display:grid;
+      gap:12px;
+      margin-top:14px;
+    }
+
+    .check-item{
+      background:var(--panel-soft);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px;
+    }
+
+    .check-item strong{
+      display:block;
+      color:var(--ink);
+      font-family:Manrope, system-ui, sans-serif;
+      font-size:15px;
+      margin-bottom:6px;
+    }
+
+    .check-item span{
+      color:var(--muted);
+      font-family:Inter, system-ui, sans-serif;
+      font-size:14px;
+      line-height:1.58;
+    }
+
+    .usage-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:16px;
+      margin-top:34px;
+    }
+
+    .usage-card{
+      border-radius:22px;
+      padding:24px;
+    }
+
+    .usage-card .tag{
+      display:inline-block;
+      margin-bottom:10px;
+      color:var(--orange);
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-family:Manrope, system-ui, sans-serif;
+      font-weight:900;
+    }
+
+    .usage-card ul{
+      display:grid;
+      gap:8px;
+      padding-left:18px;
+    }
+
+    .usage-card li{
+      color:var(--muted);
+      font-family:Inter, system-ui, sans-serif;
+      font-size:14px;
+      line-height:1.62;
+    }
+
+    .faq-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+      margin-top:34px;
+    }
+
+    .faq-card{
+      border-radius:22px;
+      padding:24px;
+    }
+
+    .faq-card h3{
+      font-size:19px;
+      margin-bottom:8px;
+    }
+
+    .faq-card p{
+      color:var(--muted);
+      font-family:Inter, system-ui, sans-serif;
+      font-size:15px;
+      line-height:1.72;
+      margin-bottom:0;
+    }
+
+    .cta-final{
+      border-radius:28px;
+      padding:30px;
+      box-shadow:var(--shadow-lg);
+      display:grid;
+      grid-template-columns:1.04fr .96fr;
+      gap:20px;
+      align-items:center;
+      background:
+        radial-gradient(480px 220px at 8% 0%, rgba(31,79,158,.10), transparent 55%),
+        radial-gradient(420px 220px at 100% 100%, rgba(242,122,42,.10), transparent 55%),
+        rgba(255,255,255,.94);
+    }
+
+    .cta-final h2{
+      font-family:Syne, Manrope, system-ui, sans-serif;
+      font-size:clamp(30px,4vw,44px);
+      line-height:1.06;
+      letter-spacing:-.04em;
+      margin-bottom:14px;
+      color:var(--ink);
+    }
+
+    .cta-final p{
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.78;
+      font-family:Inter, system-ui, sans-serif;
+      margin-bottom:16px;
+    }
+
+    .cta-side{
+      background:rgba(255,255,255,.82);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:22px;
+    }
+
+    .cta-side h3{
+      color:var(--ink);
+      font-family:Manrope, system-ui, sans-serif;
+      font-size:20px;
+      font-weight:900;
+      margin-bottom:12px;
+    }
+
+    .cta-side ul{
+      display:grid;
+      gap:8px;
+      padding-left:18px;
+    }
+
+    .cta-side li{
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.66;
+      font-family:Inter, system-ui, sans-serif;
+    }
+
+    footer{
+      background:rgba(255,255,255,.78);
+      border-top:1px solid var(--line);
+    }
+
+    .footer-logo{
+      color:var(--ink);
+      font-family:Syne, Manrope, system-ui, sans-serif;
+    }
+
+    .footer-logo span{
+      color:var(--orange);
+    }
+
+    .footer-seo-link{
+      color:var(--blue);
+      font-family:Manrope, system-ui, sans-serif;
+      font-weight:900;
+    }
+
+    .footer-seo-link:hover,
+    .footer-links a:hover{
+      color:var(--orange);
+    }
+
+    .footer-copy{
+      color:var(--muted);
+    }
+
+    .footer-links{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin-top:12px;
+    }
+
+    .footer-links a{
+      color:var(--muted);
+      font-size:14px;
+      text-decoration:none;
+    }
+
+    @media (max-width:1080px){
+      .hero-wrap,
+      .decision-layout,
+      .cta-final{
+        grid-template-columns:1fr;
+      }
+      .materials,
+      .usage-grid,
+      .faq-grid{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
+    @media (max-width:760px){
+      .topbar{
+        height:auto;
+        padding:14px 18px;
+        align-items:flex-start;
+        gap:12px;
+      }
+      .hero{
+        padding:82px 0 48px;
+      }
+      .hero-wrap,
+      .materials,
+      .usage-grid,
+      .faq-grid{
+        grid-template-columns:1fr;
+      }
+      .container,
+      .breadcrumbs,
+      .hero-wrap{
+        padding-left:18px;
+        padding-right:18px;
+      }
+      .hero-main,
+      .hero-side,
+      .decision-card{
+        padding:22px 18px;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {
+        "@type":"ListItem",
+        "position":1,
+        "name":"Cere3D",
+        "item":"https://cere3d.ro/"
+      },
+      {
+        "@type":"ListItem",
+        "position":2,
+        "name":"Printare 3D la comanda",
+        "item":"https://cere3d.ro/printare-3d-la-comanda.html"
+      },
+      {
+        "@type":"ListItem",
+        "position":3,
+        "name":"Materiale printare 3D",
+        "item":"https://cere3d.ro/materiale-printare-3d.html"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"CollectionPage",
+    "name":"Materiale printare 3D",
+    "headline":"Hub informational-comercial despre materiale de printare 3D si cum alegi corect pentru proiectul tau",
+    "description":"Hub dedicat materialelor folosite in printare 3D, foarte util pentru clientii care vor sa inteleaga PLA, PETG, ABS si TPU si sa posteze o cerere mai clara pe Cere3D.",
+    "url":"https://cere3d.ro/materiale-printare-3d.html",
+    "isPartOf":{
+      "@type":"WebSite",
+      "name":"Cere3D",
+      "url":"https://cere3d.ro/"
+    },
+    "about":[
+      "materiale printare 3d",
+      "pla printare 3d",
+      "petg printare 3d",
+      "abs printare 3d",
+      "tpu printare 3d",
+      "cum aleg materialul pentru printare 3d"
+    ],
+    "publisher":{
+      "@type":"Organization",
+      "name":"Cere3D",
+      "url":"https://cere3d.ro/"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Cum aleg materialul potrivit pentru printare 3D?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Alegerea materialului depinde de scopul obiectului, mediul in care va fi folosit, daca ai nevoie de rigiditate, flexibilitate, rezistenta sau doar de un obiect de prezentare."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Trebuie sa stiu deja ce material vreau inainte sa postez cererea?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Nu. Poti posta cererea si daca nu stii materialul exact. Este suficient sa explici cum va fi folosita piesa sau obiectul."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Care sunt materialele despre care se intreaba cel mai des clientii?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Cele mai cautate sunt de obicei PLA, PETG, ABS si TPU, pentru ca acopera multe scenarii de la obiecte simple la piese mai functionale sau flexibile."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Care este urmatorul pas dupa ce citesc despre materiale?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Cel mai bun pas este sa postezi cererea pe Cere3D si sa explici obiectul, piesa sau prototipul dorit. Daca nu stii materialul, descrii utilizarea si contextul."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body data-page="seo-hub">
+  <header class="topbar">
+    <a href="/index.html" class="logo" aria-label="Cere3D">
+      <img src="/assets/logo-cere3d.svg" alt="Cere3D" class="logo-img" />
+    </a>
+
+    <nav class="topbar-nav" aria-label="Navigatie principala">
+      <a href="/cereri.html" class="topbar-link">Cereri</a>
+      <a href="/cere.html" class="topbar-link">Cere Un Obiect 3D</a>
+      <a href="/cere.html" class="topbar-link topbar-cta">Posteaza cererea →</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="breadcrumbs">
+      <a href="/index.html">Acasa</a>
+      <span>•</span>
+      <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+      <span>•</span>
+      <span>Materiale printare 3D</span>
+    </div>
+
+    <div class="hero-wrap">
+      <div class="hero-main">
+        <div class="hero-badge">hub materiale • informational + comercial</div>
+        <h1>Materialele pentru printare 3D nu se aleg dupa nume. Se aleg dupa ce vrei sa faci.</h1>
+        <p class="hero-sub">
+          Pagina aceasta te ajuta sa intelegi mai clar materialele folosite in printarea 3D si sa postezi o cerere mai buna.
+          Daca vrei o piesa, un prototip, un obiect personalizat sau un proiect functional, alegerea materialului conteaza,
+          dar nu trebuie sa o stii perfect din prima. Este suficient sa intelegi diferentele mari si sa explici proiectul tau.
+        </p>
+
+        <div class="hero-note">
+          <strong>Ce face platforma Cere3D pentru tine</strong>
+          <p>
+            Cere3D este platforma unde postezi gratuit cererea ta de printare 3D. Daca nu stii exact ce material sa alegi,
+            descrii simplu la ce va folosi piesa sau obiectul, iar cererea ta porneste mult mai clar decat daca ramai blocat doar la termenii tehnici.
+          </p>
+        </div>
+
+        <div class="hero-cta-wrap">
+          <a href="/cere.html" class="btn-primary">Posteaza cererea gratuit →</a>
+          <a href="/cereri.html" class="btn-secondary">Vezi cereri existente</a>
+        </div>
+
+        <div class="hero-pills">
+          <span class="hero-pill">PLA</span>
+          <span class="hero-pill">PETG</span>
+          <span class="hero-pill">ABS</span>
+          <span class="hero-pill">TPU</span>
+          <span class="hero-pill">piese si prototipuri</span>
+        </div>
+      </div>
+
+      <aside class="hero-side">
+        <div class="side-head">
+          <h2>Ce trebuie sa stii inainte sa alegi materialul</h2>
+          <p>
+            Clientii cauta deseori direct materialul, dar decizia buna porneste de la utilizare, nu de la numele filamentului.
+          </p>
+        </div>
+
+        <div class="side-item">
+          <strong>Este pentru prezentare sau folosire reala?</strong>
+          <span>Un obiect de birou si o piesa functionala nu au aceeasi logica de alegere.</span>
+        </div>
+
+        <div class="side-item">
+          <strong>Este pentru interior sau exterior?</strong>
+          <span>Mediul de utilizare schimba modul in care privesti rezistenta si stabilitatea.</span>
+        </div>
+
+        <div class="side-item">
+          <strong>Ai nevoie de rigiditate sau flexibilitate?</strong>
+          <span>Unele materiale sunt mai bune pentru obiecte ferme, altele pentru piese care trebuie sa cedeze controlat.</span>
+        </div>
+
+        <div class="side-item">
+          <strong>Nu stii materialul exact?</strong>
+          <span>Nu este o problema. Postezi cererea si explici proiectul in limbaj simplu.</span>
+        </div>
+
+        <div class="hero-cta-wrap" style="margin-bottom:0;">
+          <a href="/cere.html" class="btn-primary">Cere Un Obiect 3D</a>
+          <a href="/servicii-printare-3d-romania.html" class="btn-secondary">Vezi si servicii printare 3D</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">materiale principale</div>
+      <h2 class="section-title">Cele mai importante materiale pe care clientii vor sa le inteleaga</h2>
+      <p class="section-lead">
+        Acest hub este facut sa trimita natural si spre pagini mai specifice. Aici vezi diferentele mari, apoi poti cobori spre materialul potrivit.
+      </p>
+
+      <div class="materials">
+        <article class="material-card">
+          <span class="tag">popular</span>
+          <h3>PLA</h3>
+          <p>
+            Foarte bun pentru multe obiecte de prezentare, proiecte simple, piese necritice si idei care trebuie transformate rapid intr-un obiect real.
+          </p>
+          <ul>
+            <li>util pentru obiecte vizuale si prototipuri de baza</li>
+            <li>bun pentru proiecte de inceput</li>
+            <li>foarte potrivit pentru cereri simple si rapide</li>
+          </ul>
+          <a href="/pla-printare-3d.html">Vezi pagina dedicata PLA →</a>
+        </article>
+
+        <article class="material-card">
+          <span class="tag">echilibru</span>
+          <h3>PETG</h3>
+          <p>
+            Varianta buna cand proiectul tau cere un echilibru mai bun intre utilizare practica, rezistenta si versatilitate pentru obiecte functionale.
+          </p>
+          <ul>
+            <li>potrivit pentru multe piese utile</li>
+            <li>bun cand obiectul trebuie folosit real</li>
+            <li>foarte bun pentru multe cereri functionale</li>
+          </ul>
+          <a href="/petg-printare-3d.html">Vezi pagina dedicata PETG →</a>
+        </article>
+
+        <article class="material-card">
+          <span class="tag">mai tehnic</span>
+          <h3>ABS</h3>
+          <p>
+            Material cautat de clientii care vin mai aproape de zona tehnica si se gandesc la piese mai serioase sau proiecte mai exigente.
+          </p>
+          <ul>
+            <li>bun pentru cereri mai tehnice</li>
+            <li>interesant pentru proiecte functionale specifice</li>
+            <li>nu este mereu prima alegere pentru incepatori</li>
+          </ul>
+          <a href="/abs-printare-3d.html">Vezi pagina dedicata ABS →</a>
+        </article>
+
+        <article class="material-card">
+          <span class="tag">flexibil</span>
+          <h3>TPU</h3>
+          <p>
+            Material relevant cand obiectul trebuie sa aiba elasticitate, flexibilitate sau sa se comporte diferit fata de o piesa rigida.
+          </p>
+          <ul>
+            <li>util pentru piese flexibile</li>
+            <li>bun pentru idei unde rigiditatea nu este dorita</li>
+            <li>important pentru cereri speciale</li>
+          </ul>
+          <a href="/tpu-printare-3d.html">Vezi pagina dedicata TPU →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">cum alegi fara sa te blochezi</div>
+      <h2 class="section-title">Daca nu stii materialul exact, poti totusi sa postezi o cerere foarte buna</h2>
+      <p class="section-lead">
+        Multi clienti cred ca trebuie sa vina cu raspunsul final despre material. In realitate, cererea buna porneste de la utilizare, nu de la jargon.
+      </p>
+
+      <div class="decision-layout">
+        <article class="decision-card">
+          <h3>Ce trebuie sa spui in loc sa ghicesti materialul</h3>
+          <div class="check-list">
+            <div class="check-item">
+              <strong>Unde va fi folosit obiectul</strong>
+              <span>Interior, exterior, birou, atelier, masina, casa sau proiect de prezentare.</span>
+            </div>
+            <div class="check-item">
+              <strong>Ce trebuie sa faca piesa</strong>
+              <span>Sa sustina, sa fixeze, sa protejeze, sa arate bine sau sa fie flexibila.</span>
+            </div>
+            <div class="check-item">
+              <strong>Cat de importanta este rezistenta</strong>
+              <span>Unele proiecte sunt decorative, altele sunt functionale si au nevoie de alt tip de abordare.</span>
+            </div>
+            <div class="check-item">
+              <strong>Daca obiectul este pentru test sau pentru uz real</strong>
+              <span>Prototipul de verificare si piesa finala nu se judeca la fel.</span>
+            </div>
+          </div>
+        </article>
+
+        <aside class="decision-card">
+          <h3>De ce hubul acesta este bun pentru interlinking</h3>
+          <p>
+            Pagina aceasta trebuie sa lege natural intentia informationala de intentia comerciala. Clientul cauta materiale, dar obiectivul final ramane cererea.
+          </p>
+          <p>
+            De aici poti trimite spre pagini pe PLA, PETG, ABS si TPU, dar si spre huburile mai comerciale precum
+            <a href="/printare-3d-piese.html">printare 3D piese</a>,
+            <a href="/printare-3d-piese-plastic.html">printare 3D piese plastic</a> sau
+            <a href="/servicii-printare-3d-romania.html">servicii printare 3D Romania</a>.
+          </p>
+
+          <div class="hero-cta-wrap" style="margin-bottom:0;">
+            <a href="/cere.html" class="btn-primary">Posteaza cererea gratuit</a>
+            <a href="/printare-3d-piese.html" class="btn-secondary">Vezi printare 3D piese</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">scenarii de utilizare</div>
+      <h2 class="section-title">Clientul nu alege materialul in gol. Il alege dupa proiect.</h2>
+
+      <div class="usage-grid">
+        <article class="usage-card">
+          <span class="tag">obiect simplu</span>
+          <h3>Pentru obiecte de prezentare sau proiecte vizuale</h3>
+          <p>
+            Cand obiectul trebuie sa arate bine, sa existe fizic si sa clarifice ideea, nu cauti acelasi lucru ca la o piesa solicitata real.
+          </p>
+          <ul>
+            <li>bun pentru proiecte de inceput</li>
+            <li>util pentru mockup si prezentare</li>
+            <li>interesant pentru obiecte personalizate</li>
+          </ul>
+        </article>
+
+        <article class="usage-card">
+          <span class="tag">piesa practica</span>
+          <h3>Pentru piese si obiecte functionale</h3>
+          <p>
+            Aici intentia este mai concreta: obiectul trebuie sa faca ceva, nu doar sa fie vazut. Cererea trebuie sa descrie bine utilizarea.
+          </p>
+          <ul>
+            <li>bun pentru suporturi, adaptoare si piese utile</li>
+            <li>important pentru compatibilitate si folosire reala</li>
+            <li>util pentru cereri mai clare si mai serioase</li>
+          </ul>
+        </article>
+
+        <article class="usage-card">
+          <span class="tag">cerinta speciala</span>
+          <h3>Pentru proiecte care cer alta comportare a materialului</h3>
+          <p>
+            Cand ai nevoie de flexibilitate sau de o reactie diferita a piesei, materialul devine parte importanta din cerere.
+          </p>
+          <ul>
+            <li>bun pentru proiecte mai specifice</li>
+            <li>important sa explici clar contextul</li>
+            <li>foarte util daca vrei recomandare mai buna</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">intrebari frecvente</div>
+      <h2 class="section-title">Raspunsuri rapide despre materiale si despre cum postezi cererea</h2>
+
+      <div class="faq-grid">
+        <article class="faq-card">
+          <h3>Cum aleg materialul potrivit pentru printare 3D?</h3>
+          <p>Alegerea materialului depinde de scopul obiectului, mediul in care va fi folosit, daca ai nevoie de rigiditate, flexibilitate, rezistenta sau doar de un obiect de prezentare.</p>
+        </article>
+
+        <article class="faq-card">
+          <h3>Trebuie sa stiu deja ce material vreau?</h3>
+          <p>Nu. Poti posta cererea si daca nu stii materialul exact. Este suficient sa explici cum va fi folosita piesa sau obiectul.</p>
+        </article>
+
+        <article class="faq-card">
+          <h3>Care sunt materialele despre care intreaba cel mai des clientii?</h3>
+          <p>Cele mai cautate sunt de obicei PLA, PETG, ABS si TPU, pentru ca acopera multe scenarii de la obiecte simple la piese mai functionale sau flexibile.</p>
+        </article>
+
+        <article class="faq-card">
+          <h3>Care este urmatorul pas dupa ce citesc despre materiale?</h3>
+          <p>Cel mai bun pas este sa postezi cererea pe <a href="/cere.html">Cere Un Obiect 3D</a> si sa explici obiectul, piesa sau prototipul dorit. Daca nu stii materialul, descrii utilizarea si contextul.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-bottom:90px;">
+    <div class="container">
+      <div class="cta-final">
+        <div>
+          <div class="section-tag">de la informatie la cerere</div>
+          <h2>Ai inteles materialele de baza. Acum pasul bun este sa postezi proiectul tau.</h2>
+          <p>
+            Pagina aceasta te ajuta sa nu mai alegi materialul la intamplare. Dar scopul ei nu este sa te lase doar cu informatie.
+            Scopul este sa te ajute sa faci o cerere mai buna, mai clara si mai usor de inteles pe Cere3D.
+          </p>
+          <div class="hero-cta-wrap" style="margin-bottom:0;">
+            <a href="/cere.html" class="btn-primary">Posteaza o cerere gratuit →</a>
+            <a href="/cereri.html" class="btn-secondary">Vezi cereri si exemple</a>
+          </div>
+        </div>
+
+        <aside class="cta-side">
+          <h3>Ce castigi daca postezi acum</h3>
+          <ul>
+            <li>nu mai ramai blocat intre termeni tehnici</li>
+            <li>explici proiectul prin utilizare, nu prin presupuneri</li>
+            <li>alegi mai usor directia materialului</li>
+            <li>transformi informatia in actiune</li>
+            <li>pornesti mai repede spre piesa sau obiectul dorit</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="/index.html" class="footer-logo">Cere<span>3D</span></a>
+      <a href="/printare-3d-la-comanda.html" class="footer-seo-link">Printare 3D la comanda</a>
+      <a href="/servicii-printare-3d-romania.html" class="footer-seo-link">Servicii printare 3D Romania</a>
+      <span class="footer-copy">
+        © <span id="an-curent"></span> Cere3D. Hub pentru materiale, piese, prototipuri si obiecte printate 3D.
+      </span>
+
+      <div class="footer-links">
+        <a href="/pla-printare-3d.html">PLA</a>
+        <a href="/petg-printare-3d.html">PETG</a>
+        <a href="/abs-printare-3d.html">ABS</a>
+        <a href="/tpu-printare-3d.html">TPU</a>
+        <a href="/printare-3d-piese.html">Printare 3D piese</a>
+        <a href="/printare-3d-piese-plastic.html">Printare 3D piese plastic</a>
+        <a href="/cereri.html">Cereri</a>
+        <a href="/cere.html">Cere Un Obiect 3D</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      var yearSpan = document.getElementById('an-curent');
+      if(yearSpan){
+        yearSpan.textContent = new Date().getFullYear();
+      }
+    });
+  </script>
+
+  <!-- SEO Internal Links: printare 3D -->
+  <nav class="seo-internal-links" aria-label="Pagini principale printare 3D" style="display:none;">
+    <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+    <a href="/">Printare 3D Romania - Cere3D</a>
+    <a href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a>
+    <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a>
+    <a href="/cat-costa-un-obiect-printat-3d.html">Cat costa printare 3D</a>
+    <a href="/ce-material-sa-aleg-pentru-printare-3d.html">Materiale printare 3D</a>
+  </nav>
+</body>
+</html>

@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Consent Mode v2 (default denied) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+
+    gtag('js', new Date());
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FY3LRNBF2"></script>
+
+  <!-- Consent UI + loader logic -->
+  <script type="module" src="/consent.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Suport Telefon Birou Printat 3D | Suport Personalizat Pentru Telefon, Cablu Si Incarcare - Cere3D</title>
+  <meta name="description" content="Cauti suport de telefon printat 3D pentru birou sau cadou? Pe Cere3D poti cere un suport personalizat cu unghi bun de vizualizare, stabilitate, loc pentru cablu si compatibilitate cu latimea telefonului tau." />
+  <link rel="canonical" href="https://cere3d.ro/suport-telefon-birou-printat-3d.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Suport Telefon Birou Printat 3D | Cere3D" />
+  <meta property="og:description" content="Suport de telefon printat 3D pentru birou, cu accent pe unghi, stabilitate, cablu, incarcare si compatibilitate cu telefonul." />
+  <meta property="og:url" content="https://cere3d.ro/suport-telefon-birou-printat-3d.html" />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/seo-hub.css" />
+
+  <style>
+    .crumbs{
+      padding:18px 0 0;
+      font-size:13px;
+      color:rgba(11,19,38,.64);
+    }
+    .crumbs a{
+      color:rgba(11,19,38,.84);
+      text-decoration:none;
+      font-weight:700;
+    }
+    .crumbs span{
+      margin:0 8px;
+      opacity:.46;
+    }
+
+    .angle-grid,
+    .desk-grid,
+    .fit-grid,
+    .related-grid,
+    .brief-grid,
+    .usage-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:16px;
+      margin-top:28px;
+    }
+
+    .angle-card,
+    .desk-card,
+    .fit-card,
+    .related-card,
+    .brief-card,
+    .usage-card,
+    .panel-box,
+    .note-box{
+      background:rgba(255,255,255,.90);
+      border:1px solid rgba(11,19,38,.08);
+      border-radius:20px;
+      box-shadow:var(--hub-shadow);
+      padding:24px;
+    }
+
+    .angle-card h3,
+    .desk-card h3,
+    .fit-card h3,
+    .related-card h3,
+    .brief-card h3,
+    .usage-card h3,
+    .panel-box h3,
+    .note-box h3{
+      font-family:Manrope,system-ui,sans-serif;
+      font-size:20px;
+      line-height:1.25;
+      color:#122a55;
+      font-weight:950;
+      margin-bottom:10px;
+    }
+
+    .angle-card p,
+    .desk-card p,
+    .fit-card p,
+    .related-card p,
+    .brief-card p,
+    .usage-card p,
+    .panel-box p,
+    .panel-box li,
+    .note-box p,
+    .note-box li{
+      color:rgba(11,19,38,.76);
+      font-size:15px;
+      line-height:1.72;
+    }
+
+    .panel-box ul,
+    .note-box ul{
+      padding-left:18px;
+      margin-top:10px;
+    }
+
+    .panel-box li + li,
+    .note-box li + li{
+      margin-top:8px;
+    }
+
+    .split-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+      margin-top:28px;
+      align-items:start;
+    }
+
+    .pill-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .soft-pill{
+      display:inline-flex;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(11,19,38,.05);
+      border:1px solid rgba(11,19,38,.08);
+      color:#122a55;
+      font-size:14px;
+      font-weight:800;
+      text-decoration:none;
+    }
+
+    .note-band{
+      margin-top:18px;
+      padding:18px 20px;
+      border-radius:18px;
+      background:rgba(91,124,250,.08);
+      border:1px solid rgba(91,124,250,.16);
+      color:#122a55;
+      font-weight:600;
+      line-height:1.72;
+    }
+
+    .warn-band{
+      margin-top:18px;
+      padding:18px 20px;
+      border-radius:18px;
+      background:rgba(255,122,42,.08);
+      border:1px solid rgba(255,122,42,.18);
+      color:#122a55;
+      font-weight:600;
+      line-height:1.72;
+    }
+
+    .related-card a{
+      text-decoration:none;
+      color:#122a55;
+      font-weight:900;
+    }
+
+    @media (max-width:900px){
+      .split-grid{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {
+        "@type":"ListItem",
+        "position":1,
+        "name":"Cere3D",
+        "item":"https://cere3d.ro/"
+      },
+      {
+        "@type":"ListItem",
+        "position":2,
+        "name":"Obiecte personalizate printare 3D",
+        "item":"https://cere3d.ro/obiecte-personalizate-printare-3d.html"
+      },
+      {
+        "@type":"ListItem",
+        "position":3,
+        "name":"Suport telefon birou printat 3D",
+        "item":"https://cere3d.ro/suport-telefon-birou-printat-3d.html"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Suport telefon birou printat 3D pentru telefon, cablu si incarcare",
+    "description":"Pagina dedicata suporturilor de telefon printate 3D pentru birou sau cadou, cu accent pe unghi, stabilitate, cablu, incarcare si compatibilitate cu latimea telefonului.",
+    "mainEntityOfPage":"https://cere3d.ro/suport-telefon-birou-printat-3d.html",
+    "author":{"@type":"Organization","name":"Cere3D"},
+    "publisher":{"@type":"Organization","name":"Cere3D"},
+    "datePublished":"2026-03-07",
+    "dateModified":"2026-03-07"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Ce trebuie sa spun in cerere pentru un suport de telefon de birou?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Ajuta foarte mult sa spui modelul sau latimea aproximativa a telefonului, daca il folosesti cu husa, daca vrei incarcare cu cablu, ce unghi preferi si daca suportul trebuie sa stea simplu pe birou sau sa aiba un rol mai decorativ."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Conteaza daca telefonul sta vertical sau orizontal?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Da. Pozitia dorita schimba forma suportului, punctele de sprijin si felul in care se vede ecranul pe birou. Este bine sa mentionezi daca vrei accent pe apeluri video, notificari sau incarcare."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Trebuie sa masor exact telefonul?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Nu intotdeauna, dar ajuta mult sa spui modelul, daca are husa si ce latime aproximativa are. Pentru suporturile personalizate, aceste detalii pot face diferenta intre o potrivire buna si una incomoda."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Se poate face si ca obiect de cadou?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Da. Un suport de telefon de birou poate fi si un cadou util, mai ales daca are un stil personalizat, un detaliu vizual clar sau este adaptat modului in care persoana foloseste telefonul la birou."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body data-page="seo-hub">
+  <header class="topbar">
+    <a href="/index.html" class="logo" aria-label="Cere3D">
+      <img src="/assets/logo-cere3d.svg" alt="Cere3D" class="logo-img" />
+    </a>
+    <a href="/cere.html" class="topbar-cta">Posteaza cererea →</a>
+  </header>
+
+  <div class="container">
+    <div class="crumbs">
+      <a href="/index.html">Acasa</a><span>›</span>
+      <a href="/obiecte-personalizate-printare-3d.html">Obiecte personalizate printare 3D</a><span>›</span>
+      <strong>Suport telefon birou printat 3D</strong>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-badge">Subcategorie: suport util pentru birou</div>
+    <h1>Suport telefon birou <em>printat 3D</em></h1>
+    <p class="hero-sub">
+      Daca vrei un suport care sa tina telefonul la un unghi bun pe birou, sa lase loc pentru cablu si sa nu ocupe inutil spatiu, pagina aceasta este pentru tine. Accentul este pe utilizarea reala la birou: stabilitate, vizibilitate, compatibilitate cu telefonul si confort in folosire zi de zi.
+    </p>
+
+    <div class="hero-cta-wrap">
+      <a href="/cere.html" class="btn-primary">
+        <span>Posteaza cererea</span>
+        <span>→</span>
+      </a>
+      <a href="#ce-conteaza" class="btn-secondary">Ce conteaza la un suport bun</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">Unghi bun</span>
+        <span class="stat-label">Vizibilitate mai buna pe birou</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Cablu + incarcare</span>
+        <span class="stat-label">Important in folosirea zilnica</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Stabilitate</span>
+        <span class="stat-label">Esentiala pentru un suport util</span>
+      </div>
+    </div>
+
+    <div class="pill-row">
+      <a href="/suport-personalizat-plastic.html" class="soft-pill">Suport personalizat plastic</a>
+      <a href="/organizatoare-birou-printare-3d.html" class="soft-pill">Organizatoare birou</a>
+      <a href="/suport-casti-birou-printat-3d.html" class="soft-pill">Suport casti birou</a>
+      <a href="/cere.html" class="soft-pill">Trimite brief-ul</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm" id="ce-conteaza">
+    <div class="container">
+      <div class="section-tag">Criterii reale</div>
+      <h2 class="section-title">Un suport de telefon bun pentru birou nu inseamna doar "sa stea telefonul in el"</h2>
+      <p class="section-lead">
+        Pagina aceasta este gindita pentru utilizare practica pe birou. Diferenta fata de alte pagini cu suporturi este ca aici conteaza mult cum privesti ecranul, cum incarci telefonul si cum se comporta suportul in lucru zilnic.
+      </p>
+
+      <div class="angle-grid">
+        <div class="angle-card">
+          <h3>Unghi de vizualizare bun</h3>
+          <p>Daca telefonul sta prea culcat sau prea vertical, suportul devine incomod pentru notificari, apeluri sau birou de zi cu zi.</p>
+        </div>
+        <div class="angle-card">
+          <h3>Acces usor la cablu</h3>
+          <p>Un suport util trebuie sa lase loc pentru incarcare fara improvizatii si fara ca telefonul sa stea strimb.</p>
+        </div>
+        <div class="angle-card">
+          <h3>Latime potrivita</h3>
+          <p>Diferenta dintre telefon simplu si telefon cu husa poate schimba mult felul in care se aseaza in suport.</p>
+        </div>
+        <div class="angle-card">
+          <h3>Sprijin stabil</h3>
+          <p>Suportul trebuie sa stea bine pe birou si sa nu para fragil cind pui sau iei telefonul des.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Situatii de folosire</div>
+      <h2 class="section-title">Nu toti folosesc suportul de telefon la fel, iar forma buna depinde de asta</h2>
+
+      <div class="usage-grid">
+        <div class="usage-card">
+          <h3>Pentru notificari si vedere rapida</h3>
+          <p>Un suport simplu, stabil si bine inclinat poate fi suficient daca vrei doar sa vezi ecranul usor de pe birou.</p>
+        </div>
+        <div class="usage-card">
+          <h3>Pentru apeluri video</h3>
+          <p>Aici conteaza mai mult unghiul si inaltimea vizuala, ca telefonul sa fie util in call-uri si intilniri online.</p>
+        </div>
+        <div class="usage-card">
+          <h3>Pentru incarcare permanenta</h3>
+          <p>Trebuie gindit clar traseul cablului si pozitia telefonului cind sta conectat mai mult timp.</p>
+        </div>
+        <div class="usage-card">
+          <h3>Pentru cadou util</h3>
+          <p>Un suport de telefon poate fi si un cadou practic, mai ales daca are o forma bine aleasa pentru birou sau pentru desk setup.</p>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-tag">Compatibilitate</div>
+      <h2 class="section-title">Detaliile mici care influenteaza daca suportul va fi comod sau nu</h2>
+
+      <div class="fit-grid">
+        <div class="fit-card">
+          <h3>Telefon cu husa</h3>
+          <p>Un detaliu mic in brief, dar foarte important. Husa schimba grosimea si poate afecta sprijinul lateral.</p>
+        </div>
+        <div class="fit-card">
+          <h3>Telefon mai lat sau mai greu</h3>
+          <p>Conteaza pentru baza suportului si pentru felul in care sta ecranul fara sa traga piesa in fata.</p>
+        </div>
+        <div class="fit-card">
+          <h3>Port de incarcare</h3>
+          <p>Locul unde intra cablul trebuie gindit din start, ca sa nu iasa o piesa incomoda exact in folosirea cea mai frecventa.</p>
+        </div>
+        <div class="fit-card">
+          <h3>Orientare verticala sau orizontala</h3>
+          <p>Schimba punctele de sprijin si felul in care se vede ecranul din scaun, pe birou.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Birou si organizare</div>
+      <h2 class="section-title">Suportul bun nu ocupa doar putin spatiu. El ajuta si la ordine pe birou</h2>
+
+      <div class="desk-grid">
+        <div class="desk-card">
+          <h3>Reduce telefonul lasat aiurea pe masa</h3>
+          <p>Telefonul are un loc clar si ramane usor de gasit, de vazut si de incarcat fara dezordine vizuala.</p>
+        </div>
+        <div class="desk-card">
+          <h3>Ajuta cablul sa stea mai bine</h3>
+          <p>Un suport gandit bine poate reduce senzatia de birou incarcat si improvizat.</p>
+        </div>
+        <div class="desk-card">
+          <h3>Merge bine in desk setup</h3>
+          <p>Pentru birouri ordonate, suportul trebuie sa para coerent cu restul obiectelor, nu doar util.</p>
+        </div>
+        <div class="desk-card">
+          <h3>Poate deveni cadou util</h3>
+          <p>Este una dintre putinele piese mici care pot fi si practice, si placute vizual in acelasi timp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-tag">Cum postezi bine cererea</div>
+      <h2 class="section-title">Pentru un suport de telefon reusit, brief-ul trebuie sa fie mai concret decit lung</h2>
+
+      <div class="split-grid">
+        <div class="panel-box">
+          <h3>Ce sa incluzi in cerere</h3>
+          <ul>
+            <li>modelul telefonului sau latimea aproximativa</li>
+            <li>daca folosesti husa</li>
+            <li>daca vrei incarcare cu cablu in suport</li>
+            <li>pozitia dorita: mai verticala sau mai relaxata</li>
+            <li>cum il folosesti: notificari, birou, apeluri video, cadou</li>
+            <li>daca vrei aspect simplu sau mai personalizat</li>
+          </ul>
+        </div>
+
+        <div class="note-box">
+          <h3>Ce ajuta foarte mult</h3>
+          <ul>
+            <li>o poza cu biroul sau cu stilul dorit</li>
+            <li>daca vrei suport foarte compact sau mai stabil si mai lat</li>
+            <li>daca telefonul sta mai mult la incarcat</li>
+            <li>daca obiectul este pentru tine sau pentru cadou</li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Exemple de intentie</div>
+      <h2 class="section-title">Exemple de cereri potrivite pentru aceasta pagina</h2>
+      <p class="section-lead">Exemple orientative pentru tipul de suport care se potriveste bine cu intentia de cautare.</p>
+
+      <div class="examples-grid">
+        <div class="example-card">
+          <span class="example-status status-done">Birou util</span>
+          <h3>Suport simplu pentru telefon cu cablu de incarcare</h3>
+          <p>Accent pe stabilitate, vedere buna a ecranului si acces comod la cablu, fara sa ocupe mult spatiu.</p>
+          <div class="example-meta">
+            <span><strong>Tip:</strong> zilnic</span>
+            <span><strong>Accent:</strong> cablu + stabilitate</span>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <span class="example-status status-done">Desk setup</span>
+          <h3>Suport de telefon pentru birou ordonat</h3>
+          <p>Utilizatorul vrea un obiect simplu, coerent vizual cu biroul si suficient de stabil pentru folosire repetata.</p>
+          <div class="example-meta">
+            <span><strong>Tip:</strong> birou</span>
+            <span><strong>Accent:</strong> aspect + utilitate</span>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <span class="example-status status-open">Cadou practic</span>
+          <h3>Suport de telefon personalizat pentru cineva care lucreaza la birou</h3>
+          <p>Accent pe utilitate reala si pe un obiect mic care poate fi folosit zilnic, nu doar oferit.</p>
+          <div class="example-meta">
+            <span><strong>Tip:</strong> cadou</span>
+            <span><strong>Accent:</strong> practic</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="brief-grid">
+        <div class="brief-card">
+          <h3>1. Spui telefonul</h3>
+          <p>Modelul sau latimea aproximativa clarifica imediat ce forma are sens.</p>
+        </div>
+        <div class="brief-card">
+          <h3>2. Spui cum il folosesti</h3>
+          <p>Notificari, call-uri, incarcare sau simpla tinere pe birou. Asta schimba mult designul.</p>
+        </div>
+        <div class="brief-card">
+          <h3>3. Spui daca exista husa</h3>
+          <p>Un detaliu mic care poate face diferenta intre potrivire buna si suport incomod.</p>
+        </div>
+        <div class="brief-card">
+          <h3>4. Spui stilul</h3>
+          <p>Compact, simplu, de birou, mai decorativ sau cadou util. Asa directia devine foarte clara.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Pagini inrudite</div>
+      <h2 class="section-title">Vezi si alte pagini similare</h2>
+      <p class="section-lead">Linkuri interne relevante din acelasi cluster, dar cu unghiuri diferite.</p>
+
+      <div class="related-grid">
+        <article class="related-card">
+          <h3>Suport personalizat plastic</h3>
+          <p>Pentru cereri mai largi de suporturi custom, nu doar pentru telefon si birou.</p>
+          <a href="/suport-personalizat-plastic.html">Vezi pagina →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Organizatoare birou printare 3D</h3>
+          <p>Pentru obiecte care completeaza spatiul de lucru si merg bine alaturi de un suport de telefon.</p>
+          <a href="/organizatoare-birou-printare-3d.html">Vezi pagina →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Suport casti birou printat 3D</h3>
+          <p>Pentru o alta pagina orientata pe accesorii de birou si ordine in desk setup.</p>
+          <a href="/suport-casti-birou-printat-3d.html">Vezi pagina →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Obiecte personalizate printare 3D</h3>
+          <p>Pagina parinte pentru alte obiecte utile sau decorative create prin printare 3D.</p>
+          <a href="/obiecte-personalizate-printare-3d.html">Vezi pagina →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Vrei un suport de telefon care chiar sa fie comod pe birou, nu doar sa arate bine?</h2>
+        <p>Posteaza cererea cu modelul telefonului, latimea aproximativa, daca folosesti husa si daca vrei incarcare cu cablu. Asa primesti oferte mai bune pentru un suport telefon birou printat 3D care se potriveste real cu modul tau de folosire.</p>
+        <a href="/cere.html" class="btn-primary" style="font-size:18px; padding:18px 44px;">
+          Posteaza cererea gratuit →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-tag">Intrebari frecvente</div>
+      <h2 class="section-title">FAQ – suport telefon birou printat 3D</h2>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">
+            Ce trebuie sa spun in cerere pentru un suport de telefon de birou?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Ajuta foarte mult sa spui modelul sau latimea aproximativa a telefonului, daca il folosesti cu husa, daca vrei incarcare cu cablu, ce unghi preferi si daca suportul trebuie sa stea simplu pe birou sau sa aiba un rol mai decorativ.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Conteaza daca telefonul sta vertical sau orizontal?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Da. Pozitia dorita schimba forma suportului, punctele de sprijin si felul in care se vede ecranul pe birou. Este bine sa mentionezi daca vrei accent pe apeluri video, notificari sau incarcare.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Trebuie sa masor exact telefonul?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Nu intotdeauna, dar ajuta mult sa spui modelul, daca are husa si ce latime aproximativa are. Pentru suporturile personalizate, aceste detalii pot face diferenta intre o potrivire buna si una incomoda.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Se poate face si ca obiect de cadou?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Da. Un suport de telefon de birou poate fi si un cadou util, mai ales daca are un stil personalizat, un detaliu vizual clar sau este adaptat modului in care persoana foloseste telefonul la birou.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="/index.html" class="footer-logo">Cere<span>3D</span></a>
+      <a href="/obiecte-personalizate-printare-3d.html" class="footer-seo-link">Obiecte personalizate printare 3D</a>
+      <a href="/organizatoare-birou-printare-3d.html" class="footer-seo-link">Organizatoare birou</a>
+      <a href="/suport-casti-birou-printat-3d.html" class="footer-seo-link">Suport casti birou</a>
+      <span class="footer-copy">
+        © <span id="an-curent"></span> Cere3D. Suporturi de telefon pentru birou realizate prin printare 3D.
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-q').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i){
+          i.classList.remove('open');
+        });
+        if(!isOpen) item.classList.add('open');
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function(){
+      const yearSpan = document.getElementById('an-curent');
+      if(yearSpan){
+        yearSpan.textContent = new Date().getFullYear();
+      }
+    });
+  </script>
+
+  <!-- SEO Internal Links: printare 3D -->
+  <nav class="seo-internal-links" aria-label="Pagini principale printare 3D" style="display:none;">
+    <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+    <a href="/">Printare 3D Romania - Cere3D</a>
+    <a href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a>
+    <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a>
+    <a href="/cat-costa-un-obiect-printat-3d.html">Cat costa printare 3D</a>
+    <a href="/ce-material-sa-aleg-pentru-printare-3d.html">Materiale printare 3D</a>
+  </nav>
+</body>
+</html>

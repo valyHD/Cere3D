@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Consent Mode v2 (default denied) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    gtag('js', new Date());
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FY3LRNBF2"></script>
+
+  <!-- Consent UI + loader logic -->
+  <script type="module" src="/consent.js"></script>
+
+  <!-- Google tag (gtag.js) - GA4 + Google Ads -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1FY3LRNBF2');
+    gtag('config', 'AW-17949757837');
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Proiectare Prototip si Printare 3D | Testare, iteratie si prototip functional - Cere3D</title>
+  <meta name="description" content="Ai nevoie de proiectare prototip si printare 3D? Cere3D te ajuta cu prototip functional, model 3D, iteratii, verificare, testare si executie pentru firme, produse noi si proiecte tehnice." />
+  <link rel="canonical" href="https://cere3d.ro/proiectare-prototip-si-printare-3d.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Proiectare Prototip si Printare 3D | Cere3D" />
+  <meta property="og:description" content="Pagina pentru cei care vor prototip functional, cu accent pe testare, iteratie si executie." />
+  <meta property="og:url" content="https://cere3d.ro/proiectare-prototip-si-printare-3d.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Cere3D" />
+  <meta property="og:image" content="https://cere3d.ro/assets/og-cere3d2.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Proiectare Prototip si Printare 3D | Cere3D" />
+  <meta name="twitter:description" content="Serviciu pentru prototip functional: proiectare, verificare, iteratie si printare 3D." />
+  <meta name="twitter:image" content="https://cere3d.ro/assets/og-cere3d2.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/seo-hub.css" />
+
+  <style>
+    body[data-page="seo-hub"] .proto-shell{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:18px;
+      margin-top:22px;
+    }
+
+    body[data-page="seo-hub"] .proto-card,
+    body[data-page="seo-hub"] .testing-card,
+    body[data-page="seo-hub"] .value-card,
+    body[data-page="seo-hub"] .faq-card,
+    body[data-page="seo-hub"] .route-card,
+    body[data-page="seo-hub"] .signal-card{
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:22px;
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));
+      box-shadow:0 18px 46px rgba(0,0,0,.14);
+    }
+
+    body[data-page="seo-hub"] .proto-card,
+    body[data-page="seo-hub"] .testing-card,
+    body[data-page="seo-hub"] .value-card,
+    body[data-page="seo-hub"] .route-card,
+    body[data-page="seo-hub"] .signal-card{
+      padding:22px;
+    }
+
+    body[data-page="seo-hub"] .proto-card h3,
+    body[data-page="seo-hub"] .testing-card h3,
+    body[data-page="seo-hub"] .value-card h3,
+    body[data-page="seo-hub"] .route-card h3,
+    body[data-page="seo-hub"] .signal-card h3{
+      font-family:var(--font-display);
+      color:#0a0e4d;
+      font-size:22px;
+      line-height:1.12;
+      margin:0 0 10px;
+      font-weight:900;
+    }
+
+    body[data-page="seo-hub"] .proto-card p,
+    body[data-page="seo-hub"] .testing-card p,
+    body[data-page="seo-hub"] .value-card p,
+    body[data-page="seo-hub"] .route-card p,
+    body[data-page="seo-hub"] .signal-card p{
+      color:var(--muted);
+      margin:0;
+    }
+
+    body[data-page="seo-hub"] .micro-proto{
+      color:var(--orange2);
+      font-size:12px;
+      letter-spacing:1.4px;
+      text-transform:uppercase;
+      font-weight:900;
+      display:block;
+      margin-bottom:8px;
+    }
+
+    body[data-page="seo-hub"] .proto-list{
+      display:grid;
+      gap:12px;
+      margin-top:16px;
+    }
+
+    body[data-page="seo-hub"] .proto-item{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding:14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
+    }
+
+    body[data-page="seo-hub"] .proto-item .nr{
+      width:34px;
+      height:34px;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(180deg, var(--orange2), var(--orange));
+      color:#fff;
+      font-weight:900;
+      flex-shrink:0;
+      box-shadow:0 10px 22px rgba(242,106,27,.22);
+    }
+
+    body[data-page="seo-hub"] .proto-item strong{
+      display:block;
+      color:#09305c;
+      font-size:15px;
+      margin-bottom:3px;
+    }
+
+    body[data-page="seo-hub"] .proto-item span{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.5;
+    }
+
+    body[data-page="seo-hub"] .testing-grid{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0,1fr));
+      gap:14px;
+      margin-top:22px;
+    }
+
+    body[data-page="seo-hub"] .testing-card h3{
+      font-size:19px;
+    }
+
+    body[data-page="seo-hub"] .iteration-grid{
+      display:grid;
+      grid-template-columns:repeat(5, minmax(0,1fr));
+      gap:12px;
+      margin-top:24px;
+    }
+
+    body[data-page="seo-hub"] .iteration-step{
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:18px;
+      padding:18px;
+      background:rgba(255,255,255,.03);
+      box-shadow:0 16px 40px rgba(0,0,0,.10);
+    }
+
+    body[data-page="seo-hub"] .iteration-step .bubble{
+      width:34px;
+      height:34px;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(180deg, var(--orange2), var(--orange));
+      color:#fff;
+      font-weight:900;
+      margin-bottom:12px;
+      box-shadow:0 10px 22px rgba(242,106,27,.22);
+    }
+
+    body[data-page="seo-hub"] .iteration-step h3{
+      font-family:var(--font-display);
+      color:#09305c;
+      font-size:18px;
+      line-height:1.12;
+      margin:0 0 8px;
+      font-weight:900;
+    }
+
+    body[data-page="seo-hub"] .iteration-step p{
+      color:var(--muted);
+      font-size:14.5px;
+      margin:0;
+    }
+
+    body[data-page="seo-hub"] .signal-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:18px;
+      margin-top:22px;
+    }
+
+    body[data-page="seo-hub"] .signal-list{
+      display:grid;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    body[data-page="seo-hub"] .signal-line{
+      padding:13px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:14.5px;
+      line-height:1.5;
+    }
+
+    body[data-page="seo-hub"] .signal-line strong{
+      color:#140235;
+    }
+
+    body[data-page="seo-hub"] .value-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:14px;
+      margin-top:22px;
+    }
+
+    body[data-page="seo-hub"] .value-card h3{
+      font-size:19px;
+    }
+
+    body[data-page="seo-hub"] .faq-stack{
+      display:grid;
+      gap:12px;
+      margin-top:22px;
+    }
+
+    body[data-page="seo-hub"] .faq-card{
+      overflow:hidden;
+    }
+
+    body[data-page="seo-hub"] .faq-card summary{
+      list-style:none;
+      cursor:pointer;
+      padding:18px 20px;
+      color:#09305c;
+      font-family:var(--font-display);
+      font-size:17px;
+      font-weight:900;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+
+    body[data-page="seo-hub"] .faq-card summary::-webkit-details-marker{ display:none; }
+    body[data-page="seo-hub"] .faq-card summary::after{
+      content:"+";
+      color:var(--orange2);
+      font-size:24px;
+      line-height:1;
+      flex-shrink:0;
+    }
+
+    body[data-page="seo-hub"] .faq-card[open] summary::after{ content:"−"; }
+
+    body[data-page="seo-hub"] .faq-body{
+      padding:0 20px 20px;
+      color:var(--muted);
+    }
+
+    body[data-page="seo-hub"] .route-grid{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0,1fr));
+      gap:12px;
+      margin-top:18px;
+    }
+
+    body[data-page="seo-hub"] .route-link{
+      display:block;
+      padding:16px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+      transition:transform .14s ease, border-color .14s ease;
+      color:inherit;
+    }
+
+    body[data-page="seo-hub"] .route-link:hover{
+      transform:translateY(-2px);
+      border-color:rgba(242,106,27,.25);
+    }
+
+    body[data-page="seo-hub"] .route-link strong{
+      display:block;
+      color:#09305c;
+      font-size:15px;
+      margin-bottom:4px;
+    }
+
+    body[data-page="seo-hub"] .route-link span{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.45;
+    }
+
+    @media (max-width:1100px){
+      body[data-page="seo-hub"] .proto-shell,
+      body[data-page="seo-hub"] .signal-grid{
+        grid-template-columns:1fr;
+      }
+
+      body[data-page="seo-hub"] .testing-grid,
+      body[data-page="seo-hub"] .value-grid,
+      body[data-page="seo-hub"] .route-grid{
+        grid-template-columns:repeat(2, minmax(0,1fr));
+      }
+
+      body[data-page="seo-hub"] .iteration-grid{
+        grid-template-columns:repeat(2, minmax(0,1fr));
+      }
+    }
+
+    @media (max-width:760px){
+      body[data-page="seo-hub"] .testing-grid,
+      body[data-page="seo-hub"] .value-grid,
+      body[data-page="seo-hub"] .route-grid,
+      body[data-page="seo-hub"] .iteration-grid{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {
+        "@type":"ListItem",
+        "position":1,
+        "name":"Cere3D",
+        "item":"https://cere3d.ro/"
+      },
+      {
+        "@type":"ListItem",
+        "position":2,
+        "name":"Servicii printare 3D Romania",
+        "item":"https://cere3d.ro/servicii-printare-3d-romania.html"
+      },
+      {
+        "@type":"ListItem",
+        "position":3,
+        "name":"Proiectare si printare 3D",
+        "item":"https://cere3d.ro/proiectare-si-printare-3d.html"
+      },
+      {
+        "@type":"ListItem",
+        "position":4,
+        "name":"Proiectare prototip si printare 3D",
+        "item":"https://cere3d.ro/proiectare-prototip-si-printare-3d.html"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"Proiectare prototip si printare 3D",
+    "url":"https://cere3d.ro/proiectare-prototip-si-printare-3d.html",
+    "description":"Pagina pentru utilizatorii care au nevoie de un prototip functional, cu accent pe proiectare, testare, iteratie si printare 3D.",
+    "isPartOf":{
+      "@type":"WebSite",
+      "name":"Cere3D",
+      "url":"https://cere3d.ro/"
+    },
+    "about":[
+      {"@type":"Thing","name":"proiectare prototip si printare 3D"},
+      {"@type":"Thing","name":"prototip functional"},
+      {"@type":"Thing","name":"testare si iteratie produs"},
+      {"@type":"Thing","name":"modelare si executie prototip"},
+      {"@type":"Thing","name":"prototip 3D pentru firme si proiecte"}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Ce inseamna proiectare prototip si printare 3D?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Inseamna un serviciu orientat spre prototip functional, unde proiectarea si printarea 3D lucreaza impreuna pentru a ajunge la o versiune care poate fi testata, verificata si imbunatatita."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Pentru cine este potrivita aceasta pagina?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Este potrivita pentru firme, antreprenori, produse noi, proiecte tehnice si persoane care vor sa testeze functional o idee sau o componenta."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"De ce este importanta iteratia?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Pentru ca primul prototip nu este intotdeauna varianta finala. Uneori ai nevoie de verificare, ajustare si o versiune urmatoare mai buna."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Care este diferenta fata de printare 3D prototip?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Aici accentul este pe tot fluxul de prototip functional: clarificare, proiectare, testare si iteratie. La printare 3D prototip accentul este mai apropiat de executia prototipului in sine."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body data-page="seo-hub">
+
+  <header class="topbar">
+    <a href="/index.html" class="logo" aria-label="Cere3D">
+      <img src="/assets/logo-cere3d.svg" alt="Cere3D" class="logo-img" />
+    </a>
+    <a href="/cere.html" class="topbar-cta">Posteaza cererea →</a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-badge">Pentru proiecte unde piesa trebuie testata, verificata si imbunatatita, nu doar produsa</div>
+    <h1><em>Proiectare prototip si printare 3D</em> cu accent pe testare, iteratie si prototip functional</h1>
+    <p class="hero-sub">
+      Pagina aceasta este pentru firme si persoane care nu cauta doar o piesa imprimata, ci un prototip care are sens in utilizare reala.
+      Accentul este pe clarificare, modelare, printare, verificare si ajustare. Cu alte cuvinte, prototipul nu este tratat ca produs final din prima,
+      ci ca instrument practic de invatare si imbunatatire.
+    </p>
+
+    <div class="hero-cta-wrap">
+      <a href="/cere.html" class="btn-primary">
+        <span>Incepe proiectul de prototip</span><span>→</span>
+      </a>
+      <a href="/proiectare-si-printare-3d.html" class="btn-secondary">Inapoi la pagina parinte</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">Prototip functional</span>
+        <span class="stat-label">nu doar forma initiala</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Testare</span>
+        <span class="stat-label">pas important in proces</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Iteratie</span>
+        <span class="stat-label">imbunatatire de la o versiune la alta</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="proto-shell">
+        <div class="proto-card">
+          <div class="section-tag">Ce promite aceasta pagina</div>
+          <h3>Aici nu vorbim despre un simplu model de prezentare, ci despre un prototip care trebuie sa ofere raspunsuri practice.</h3>
+          <p>
+            Intentia principala a utilizatorului este diferita de alte pagini apropiate: el vrea sa afle daca ideea lui functioneaza,
+            daca piesa se potriveste, daca forma are sens, daca montajul merge sau daca produsul trebuie ajustat.
+            De aceea pagina trebuie sa fie orientata mai mult spre invatare prin testare si mai putin spre promisiunea unui rezultat perfect din prima.
+          </p>
+
+          <div class="proto-list">
+            <div class="proto-item">
+              <span class="nr">1</span>
+              <span>
+                <strong>Prototipul este o etapa de verificare</strong>
+                <span>Scopul lui este sa ofere feedback real despre forma, potrivire, functie si utilizare.</span>
+              </span>
+            </div>
+
+            <div class="proto-item">
+              <span class="nr">2</span>
+              <span>
+                <strong>Iteratia face parte din valoare</strong>
+                <span>Uneori tocmai faptul ca poti ajusta si imbunatati este cel mai important avantaj al proiectului.</span>
+              </span>
+            </div>
+
+            <div class="proto-item">
+              <span class="nr">3</span>
+              <span>
+                <strong>Pagina este foarte buna pentru conversie B2B si proiecte serioase</strong>
+                <span>Mai ales pentru firme, antreprenori sau proiecte tehnice care au nevoie de validare reala.</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proto-card">
+          <div class="section-tag">Cand esti pe pagina buna</div>
+          <h3>Esti aici daca vrei sa testezi ceva, nu doar sa il ai imprimat</h3>
+          <div class="proto-list">
+            <div class="proto-item">
+              <span class="nr">A</span>
+              <span>
+                <strong>Ai nevoie de prototip functional</strong>
+                <span>Vrei sa verifici daca piesa, ansamblul sau obiectul isi face treaba in practica.</span>
+              </span>
+            </div>
+
+            <div class="proto-item">
+              <span class="nr">B</span>
+              <span>
+                <strong>Stii ca va exista o versiune 2</strong>
+                <span>Adica nu te astepti neaparat ca prima varianta sa fie finala si definitiva.</span>
+              </span>
+            </div>
+
+            <div class="proto-item">
+              <span class="nr">C</span>
+              <span>
+                <strong>Te intereseaza feedback real</strong>
+                <span>Test de forma, montaj, ergonomie, volum, spatiu, compatibilitate sau utilizare functionala.</span>
+              </span>
+            </div>
+          </div>
+
+          <p style="margin-top:16px;">
+            Pentru serviciul complet explicat mai larg, vezi si
+            <a href="/proiectare-si-printare-3d.html" class="footer-seo-link">proiectare si printare 3D</a>.
+          </p>
+        </div>
+      </div>
+
+      <div class="testing-grid">
+        <div class="testing-card">
+          <span class="micro-proto">Ce poti verifica</span>
+          <h3>Potrivire</h3>
+          <p>Daca piesa intra, se aseaza sau se monteaza asa cum trebuie in contextul real al proiectului.</p>
+        </div>
+
+        <div class="testing-card">
+          <span class="micro-proto">Ce poti verifica</span>
+          <h3>Geometrie</h3>
+          <p>Daca forma, proportiile si volumul au sens inainte de a merge mai departe.</p>
+        </div>
+
+        <div class="testing-card">
+          <span class="micro-proto">Ce poti verifica</span>
+          <h3>Utilizare</h3>
+          <p>Daca obiectul este practic, comod, inteligibil si suficient de clar pentru scopul lui.</p>
+        </div>
+
+        <div class="testing-card">
+          <span class="micro-proto">Ce poti verifica</span>
+          <h3>Iteratie</h3>
+          <p>Daca varianta actuala cere ajustari si ce trebuie imbunatatit la urmatoarea versiune.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Cum trebuie explicat fluxul</div>
+      <h2 class="section-title">Aceasta pagina trebuie sa arate ca prototipul bun nu este doar executat, ci gandit, verificat si imbunatatit</h2>
+
+      <div class="iteration-grid">
+        <div class="iteration-step">
+          <div class="bubble">1</div>
+          <h3>Se defineste ce trebuie testat</h3>
+          <p>Nu doar ce trebuie facut, ci ce anume vrei sa afli din prototipul respectiv.</p>
+        </div>
+
+        <div class="iteration-step">
+          <div class="bubble">2</div>
+          <h3>Se face modelul initial</h3>
+          <p>Varianta de pornire trebuie sa serveasca scopului de verificare, nu doar sa arate bine in teorie.</p>
+        </div>
+
+        <div class="iteration-step">
+          <div class="bubble">3</div>
+          <h3>Se printeaza prototipul</h3>
+          <p>Obiectul devine fizic si poate fi verificat in mod real, nu doar pe ecran.</p>
+        </div>
+
+        <div class="iteration-step">
+          <div class="bubble">4</div>
+          <h3>Se testeaza si se observa</h3>
+          <p>Aici apar informatiile valoroase: ce merge, ce nu merge si ce trebuie corectat.</p>
+        </div>
+
+        <div class="iteration-step">
+          <div class="bubble">5</div>
+          <h3>Se itereaza daca este nevoie</h3>
+          <p>Prototipul urmator poate fi mai bun tocmai pentru ca primul a oferit feedback util.</p>
+        </div>
+      </div>
+
+      <div class="prose" style="margin-top:24px;">
+        <h2>Ce afla nou clientul pe pagina asta</h2>
+        <p>
+          Multi utilizatori cred ca prototipul este doar o forma provizorie. Pagina aceasta trebuie sa explice ceva mai util:
+          prototipul bun este un instrument de decizie. El iti spune daca piesa are sens, daca produsul este viabil,
+          daca montajul merge si unde merita sa investesti in versiunea urmatoare.
+        </p>
+        <p>
+          De aceea pagina trebuie sa fie diferita de
+          <a href="/printare-3d-prototip.html" class="footer-seo-link">printare 3D prototip</a>,
+          unde accentul este mai apropiat de intentia de executie, si de
+          <a href="/printare-3d-serii-mici.html" class="footer-seo-link">printare 3D serii mici</a>,
+          unde focusul se muta deja spre productie mica, nu spre iteratie si validare.
+        </p>
+      </div>
+
+      <div class="signal-grid">
+        <div class="signal-card">
+          <span class="micro-proto">Semnale bune pentru aceasta pagina</span>
+          <h3>Cand intentia este cu adevarat de prototip functional</h3>
+          <div class="signal-list">
+            <div class="signal-line"><strong>Vrei sa testezi ideea</strong> inainte de a o considera gata</div>
+            <div class="signal-line"><strong>Te intereseaza feedback real</strong> despre forma, montaj, spatiu sau utilizare</div>
+            <div class="signal-line"><strong>Accepti ideea de iteratie</strong> si intelegi ca uneori varianta 2 este cea corecta</div>
+            <div class="signal-line"><strong>Ai o miza practica</strong> nu doar una vizuala sau decorativa</div>
+          </div>
+        </div>
+
+        <div class="signal-card">
+          <span class="micro-proto">Cand utilizatorul ar putea merge altundeva</span>
+          <h3>Intentii apropiate, dar diferite</h3>
+          <div class="signal-list">
+            <div class="signal-line"><strong>Daca vrei doar executie de prototip</strong> mergi si spre <a href="/printare-3d-prototip.html" class="footer-seo-link">printare 3D prototip</a></div>
+            <div class="signal-line"><strong>Daca ai deja un produs nou in contur comercial</strong> mergi si spre <a href="/printare-3d-prototip-produs.html" class="footer-seo-link">prototip produs</a></div>
+            <div class="signal-line"><strong>Daca te apropii de productie mica</strong> vezi <a href="/printare-3d-serii-mici.html" class="footer-seo-link">printare 3D serii mici</a></div>
+            <div class="signal-line"><strong>Daca vrei doar modelare</strong> vezi <a href="/modelare-3d-la-comanda.html" class="footer-seo-link">modelare 3D la comanda</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">De ce aceasta pagina este valoroasa</div>
+      <h2 class="section-title">Vinde nu doar un prototip, ci capacitatea de a invata repede din el</h2>
+
+      <div class="value-grid">
+        <div class="value-card">
+          <span class="micro-proto">Beneficiu real</span>
+          <h3>Scade riscul</h3>
+          <p>Ajuta sa vezi mai devreme ce functioneaza si ce trebuie schimbat, inainte sa te blochezi mai tarziu.</p>
+        </div>
+
+        <div class="value-card">
+          <span class="micro-proto">Beneficiu real</span>
+          <h3>Accelereaza validarea</h3>
+          <p>Poti trece mai repede de la presupuneri la observatii concrete despre piesa sau produs.</p>
+        </div>
+
+        <div class="value-card">
+          <span class="micro-proto">Beneficiu real</span>
+          <h3>Ajuta decizia urmatoare</h3>
+          <p>Te ajuta sa stii daca mergi spre ajustare, spre alta versiune sau chiar spre productie mai mica.</p>
+        </div>
+      </div>
+
+      <div class="prose" style="margin-top:24px;">
+        <h2>De ce pagina aceasta poate indexa bine</h2>
+        <p>
+          Acopera un segment foarte clar din intentia comerciala: utilizatorul nu cauta doar “printare 3D”, ci un pas intermediar inteligent
+          intre idee si produs. Prin continutul despre testare, validare, iteratie si semnale de folosire reala,
+          pagina se diferentiaza curat de vecinii ei si devine mai usor de inteles pentru Google si pentru client.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-tag">Intrebari frecvente</div>
+      <h2 class="section-title">Raspunsuri pentru cei care vor prototip functional</h2>
+
+      <div class="faq-stack">
+        <details class="faq-card" open>
+          <summary>Ce inseamna proiectare prototip si printare 3D?</summary>
+          <div class="faq-body">
+            Inseamna un serviciu orientat spre prototip functional, unde proiectarea si printarea 3D lucreaza impreuna pentru a ajunge la o versiune care poate fi testata, verificata si imbunatatita.
+          </div>
+        </details>
+
+        <details class="faq-card">
+          <summary>Pentru cine este potrivita aceasta pagina?</summary>
+          <div class="faq-body">
+            Este potrivita pentru firme, antreprenori, produse noi, proiecte tehnice si persoane care vor sa testeze functional o idee sau o componenta.
+          </div>
+        </details>
+
+        <details class="faq-card">
+          <summary>De ce este importanta iteratia?</summary>
+          <div class="faq-body">
+            Pentru ca primul prototip nu este intotdeauna varianta finala. Uneori ai nevoie de verificare, ajustare si o versiune urmatoare mai buna.
+          </div>
+        </details>
+
+        <details class="faq-card">
+          <summary>Care este diferenta fata de printare 3D prototip?</summary>
+          <div class="faq-body">
+            Aici accentul este pe tot fluxul de prototip functional: clarificare, proiectare, testare si iteratie. La printare 3D prototip accentul este mai apropiat de executia prototipului in sine.
+          </div>
+        </details>
+
+        <details class="faq-card">
+          <summary>Unde trimit cererea?</summary>
+          <div class="faq-body">
+            Intri pe <a href="/cere.html" class="footer-seo-link">pagina de cerere</a> si trimiti ideea, cerintele de testare, poze, schite sau reperele care definesc prototipul.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="route-card">
+        <div class="section-tag">Legaturi utile in cluster</div>
+        <h3>Pagini conectate logic cu aceasta intentie</h3>
+        <p>
+          Pagina trebuie sa lege parintele, paginile surori pe prototipare si rutele care urmeaza dupa validare.
+        </p>
+
+        <div class="route-grid">
+          <a href="/proiectare-si-printare-3d.html" class="route-link">
+            <strong>Proiectare si printare 3D</strong>
+            <span>Pagina parinte pentru serviciul complet, din care aceasta ramura se specializeaza pe prototip functional.</span>
+          </a>
+
+          <a href="/printare-3d-prototip.html" class="route-link">
+            <strong>Printare 3D prototip</strong>
+            <span>Pentru intentiile apropiate unde accentul este mai mult pe executia prototipului.</span>
+          </a>
+
+          <a href="/printare-3d-prototip-produs.html" class="route-link">
+            <strong>Printare 3D prototip produs</strong>
+            <span>Pentru proiectele unde prototipul este deja legat mai direct de produsul nou.</span>
+          </a>
+
+          <a href="/printare-3d-serii-mici.html" class="route-link">
+            <strong>Printare 3D serii mici</strong>
+            <span>Pentru pasul urmator, atunci cand prototipul validat duce spre loturi mici sau test de piata.</span>
+          </a>
+
+          <a href="/de-la-idee-la-piesa-printata-3d.html" class="route-link">
+            <strong>De la idee la piesa printata 3D</strong>
+            <span>Pentru proiectele care pornesc foarte devreme, din idee, inainte de formularea clara a prototipului.</span>
+          </a>
+
+          <a href="/printare-3d-produs-nou.html" class="route-link">
+            <strong>Printare 3D produs nou</strong>
+            <span>Pentru proiectele care capata deja contur comercial si trebuie dezvoltate mai departe.</span>
+          </a>
+
+          <a href="/servicii-complete-printare-3d.html" class="route-link">
+            <strong>Servicii complete printare 3D</strong>
+            <span>Pentru intentiile comerciale apropiate de pachet complet si flux cap-coada.</span>
+          </a>
+
+          <a href="/servicii-printare-3d-romania.html" class="route-link">
+            <strong>Servicii printare 3D in Romania</strong>
+            <span>Hubul mare care conecteaza toate ramurile comerciale si tehnice din cluster.</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Vrei un prototip functional pe care sa il poti testa si imbunatati?</h2>
+        <p>
+          Trimite cererea, spune ce vrei sa verifici si porneste un proiect orientat pe validare reala, nu doar pe prima executie.
+        </p>
+        <a href="/cere.html" class="btn-primary" style="font-size:18px; padding:18px 46px;">
+          Posteaza cererea gratuit →
+        </a>
+
+        <div style="margin-top:18px; display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+          <a href="/printare-3d-prototip.html" class="footer-seo-link">Printare 3D prototip</a>
+          <a href="/printare-3d-prototip-produs.html" class="footer-seo-link">Prototip produs</a>
+          <a href="/printare-3d-serii-mici.html" class="footer-seo-link">Serii mici</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="/index.html" class="footer-logo">Cere<span>3D</span></a>
+
+      <a href="/servicii-printare-3d-romania.html" class="footer-seo-link">Servicii printare 3D in Romania</a>
+      <a href="/printare-3d-la-comanda.html" class="footer-seo-link">Printare 3D la comanda</a>
+      <a href="/proiectare-si-printare-3d.html" class="footer-seo-link">Proiectare si printare 3D</a>
+      <a href="/refacere-piese-plastic.html" class="footer-seo-link">Refacere piese din plastic</a>
+
+      <span class="footer-copy">
+        © <span id="an-curent"></span> Cere3D. Proiectare prototip si printare 3D pentru testare, iteratie si validare functionala.
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const yearSpan = document.getElementById("an-curent");
+      if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+    });
+  </script>
+
+  <!-- SEO Internal Links: printare 3D -->
+  <nav class="seo-internal-links" aria-label="Pagini principale printare 3D" style="display:none;">
+    <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+    <a href="/">Printare 3D Romania - Cere3D</a>
+    <a href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a>
+    <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a>
+    <a href="/cat-costa-un-obiect-printat-3d.html">Cat costa printare 3D</a>
+    <a href="/ce-material-sa-aleg-pentru-printare-3d.html">Materiale printare 3D</a>
+  </nav>
+</body>
+</html>

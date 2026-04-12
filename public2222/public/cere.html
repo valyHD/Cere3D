@@ -1,0 +1,920 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <!-- Consent Mode v2 (default denied) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  // default: blocat pana la consimtamant
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    analytics_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied'
+  });
+
+  gtag('js', new Date());
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1FY3LRNBF2"></script>
+
+<!-- Consent UI + loader logic -->
+<script type="module" src="/consent.js"></script>
+  <!-- Google tag (gtag.js) - GA4 + Google Ads -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1FY3LRNBF2');
+    gtag('config', 'AW-17949757837');
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Posteaza cerere de printare 3D | Piesa rupta, obiect sau prototip | Cere3D</title>
+  <meta name="description" content="Posteaza o cerere de printare 3D pentru piese rupte, obiecte personalizate, carcase, suporturi sau prototipuri. Gratuit, fara obligatii si fara plata in platforma." />
+  <link rel="canonical" href="https://cere3d.ro/cere.html" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Posteaza cerere de printare 3D | Cere3D" />
+  <meta name="twitter:description" content="Piesa rupta, obiect personalizat, carcasa, suport sau prototip. Postezi gratuit si primesti oferte de la printatori din Romania." />
+  <meta name="twitter:image" content="https://cere3d.ro/assets/og-cere3d2.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Cere3D" />
+  <meta property="og:title" content="Cere3D – Posteaza o cerere de printare 3D" />
+  <meta property="og:description" content="Trimite poza, schita sau fisierul 3D si primesti oferte pentru piese, obiecte personalizate sau prototipuri. Gratuit." />
+  <meta property="og:url" content="https://cere3d.ro/cere.html" />
+  <meta property="og:image" content="https://cere3d.ro/assets/og-cere3d2.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <noscript>
+    <img height="1" width="1" src="https://www.facebook.com/tr?id=1606097973753136&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Facebook Pixel Code -->
+
+  <style>
+    /* ===== PAGE-LEVEL OVERRIDES FOR FORM PAGE ===== */
+
+    .page-intro {
+      max-width: 620px;
+      margin: 32px auto 0;
+      text-align: center;
+      padding: 0 16px;
+    }
+    .page-intro h1 {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: #111;
+      margin: 0 0 10px;
+      line-height: 1.3;
+    }
+    .page-intro p {
+      font-size: 1rem;
+      color: #6b7280;
+      margin: 0;
+    }
+
+    /* Trust pills */
+    .trust-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px auto 32px;
+      max-width: 640px;
+      padding: 0 16px;
+    }
+    .trust-pill {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #166534;
+      font-size: .84rem;
+      font-weight: 700;
+      padding: 7px 16px;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    /* Form card - cleaner */
+    .form-card {
+      max-width: 680px;
+      margin: 0 auto 48px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 32px rgba(0,0,0,.08), 0 0 0 1px rgba(0,0,0,.05);
+      overflow: hidden;
+    }
+
+    .form-head {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+      padding: 28px 32px 24px;
+      color: #fff;
+    }
+    .form-head .form-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .form-head .form-sub {
+      font-size: .9rem;
+      opacity: .85;
+      color: #fff;
+    }
+
+    /* Step labels */
+    .fieldset {
+      padding: 28px 32px 0;
+      border: none;
+    }
+    .fieldset:last-of-type {
+      padding-bottom: 0;
+    }
+    .fs-title {
+      font-size: .78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #2563eb;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .fs-title::before {
+      content: attr(data-step);
+      background: #2563eb;
+      color: #fff;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .72rem;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    /* Fields */
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 20px;
+    }
+    .field .label {
+      font-size: .88rem;
+      font-weight: 700;
+      color: #374151;
+    }
+    .field .help {
+      font-size: .78rem;
+      color: #9ca3af;
+      margin-top: 2px;
+    }
+    .field .input,
+    .field select,
+    .field textarea {
+      border: 1.5px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 11px 14px;
+      font-size: .95rem;
+      color: #111;
+      background: #fafafa;
+      transition: border-color .18s, box-shadow .18s;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .field .input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+      background: #fff;
+    }
+    .field textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .field input[type="file"] {
+      padding: 8px 10px;
+      font-size: .88rem;
+    }
+
+    .request-type-box{
+      margin:0 0 18px;
+      padding:16px;
+      border-radius:14px;
+      background:linear-gradient(180deg,#f8fbff 0%,#eef4ff 100%);
+      border:1px solid rgba(37,99,235,.10);
+    }
+    .request-type-title{
+      font-size:.84rem;
+      font-weight:800;
+      color:#1e3a8a;
+      margin-bottom:10px;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+    }
+    .request-type-chips{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .request-type-chip{
+      appearance:none;
+      border:1px solid #dbe3f3;
+      background:#fff;
+      color:#16325c;
+      font-weight:800;
+      border-radius:999px;
+      padding:10px 14px;
+      cursor:pointer;
+      transition:all .16s ease;
+    }
+    .request-type-chip:hover{ transform:translateY(-1px); border-color:#93c5fd; }
+    .request-type-chip.is-active{
+      background:#2563eb;
+      border-color:#2563eb;
+      color:#fff;
+      box-shadow:0 10px 20px rgba(37,99,235,.20);
+    }
+    .request-type-hint{
+      margin-top:10px;
+      font-size:.83rem;
+      color:#475569;
+      line-height:1.55;
+    }
+
+    /* File upload zone */
+    .file-zone {
+      border: 2px dashed #d1d5db;
+      border-radius: 12px;
+      padding: 20px 16px;
+      text-align: center;
+      background: #f9fafb;
+      cursor: pointer;
+      transition: border-color .18s, background .18s;
+      position: relative;
+    }
+    .file-zone:hover {
+      border-color: #2563eb;
+      background: #eff6ff;
+    }
+    .file-zone input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+    .file-zone-icon { font-size: 1.8rem; margin-bottom: 6px; }
+    .file-zone-text { font-size: .88rem; color: #6b7280; }
+    .file-zone-text strong { color: #2563eb; }
+.upload-meta{
+  margin-top:10px;
+  font-size:.85rem;
+  color:#374151;
+  background:#f3f4f6;
+  border:1px solid #e5e7eb;
+  padding:10px 12px;
+  border-radius:10px;
+}
+
+.photos-preview{
+  margin-top:12px;
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:10px;
+}
+
+.photos-preview .ph{
+  position:relative;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid rgba(0,0,0,.08);
+  background:#fff;
+  aspect-ratio: 1 / 1;
+}
+
+.photos-preview img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+@media (max-width: 600px){
+  .photos-preview{ grid-template-columns: repeat(3, 1fr); }
+}
+    /* Optional tag */
+    .tag-opt {
+      background: #f3f4f6;
+      color: #9ca3af;
+      font-size: .72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 8px;
+      margin-left: 6px;
+      text-transform: uppercase;
+    }
+    .tag-req {
+      background: #fef3c7;
+      color: #92400e;
+      font-size: .72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 8px;
+      margin-left: 6px;
+      text-transform: uppercase;
+    }
+
+    /* Submit area */
+    .form-submit-area {
+      padding: 28px 32px 32px;
+    }
+
+    .no-obligation-note {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-size: .88rem;
+      color: #78350f;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      line-height: 1.55;
+    }
+    .no-obligation-note .nob-ico { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+
+    .btn-submit-main {
+      display: block;
+      width: 100%;
+      background: #f97316;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 800;
+      padding: 17px 24px;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(249,115,22,.4);
+      transition: background .18s, transform .15s, box-shadow .18s;
+      text-align: center;
+    }
+    .btn-submit-main:hover {
+      background: #ea6c0a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(249,115,22,.5);
+    }
+    .btn-submit-main:active { transform: translateY(0); }
+
+    .form-footnote {
+      font-size: .8rem;
+      color: #9ca3af;
+      text-align: center;
+      margin-top: 14px;
+      line-height: 1.6;
+    }
+    .form-footnote strong { color: #6b7280; }
+
+    /* Divider */
+    .fs-divider {
+      height: 1px;
+      background: #f3f4f6;
+      margin: 8px 32px 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .page-intro h1 { font-size: 1.3rem; }
+      .form-head { padding: 22px 20px 18px; }
+      .fieldset { padding: 22px 20px 0; }
+      .fs-divider { margin: 8px 20px 0; }
+      .form-submit-area { padding: 22px 20px 28px; }
+      .trust-pill { font-size: .8rem; padding: 6px 12px; }
+    }
+
+    /* Files note */
+    #filesNote {
+      text-align: center;
+      background: #fef9c3;
+      border: 1px solid #fde047;
+      border-radius: 10px;
+      padding: 10px 18px;
+      margin: 0 auto 20px;
+      max-width: 640px;
+    }
+
+    /* Auth guard */
+    #authGuard {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    #authGuard > div {
+      background: #0b1326;
+      color: #e0eaf1;
+      padding: 32px 28px;
+      border-radius: 16px;
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+    }
+    #authGuard h3 { margin: 0 0 10px; font-size: 1.15rem; }
+    #authGuard p { opacity: .85; margin: 0 0 20px; font-size: .92rem; }
+  </style>
+</head>
+
+<body class="auth-loading">
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="logo" href="/">
+        <img loading="lazy" decoding="async" class="logo-img" src="/assets/logo-cere3d.svg" alt="Cere 3D" />
+      </a>
+
+      <button class="nav-burger" id="navBurger" type="button" aria-label="Meniu" aria-expanded="false"></button>
+
+      <nav class="nav">
+        <a class="nav-link" href="./ghid.html">Ghid</a>
+        <a class="nav-link" href="./cereri.html">Cereri</a>
+        <a class="nav-link" href="./cere.html">Cere un Obiect 3D</a>
+                <a class="nav-link nav-printatori-new" href="/printatori.html">
+          🔥 Printatori
+          <span class="nav-badge-new">NOU</span>
+        </a>
+        <a class="nav-link nav-auth" id="navAuthLink" href="/auth.html">Autentificare</a>
+
+        <div class="nav-userwrap" id="navUserWrap" style="display:none;">
+          <a class="nav-user" id="navUser" href="/cont.html" title="Contul meu">
+            <span class="nav-avatar-wrap">
+              <img loading="lazy" decoding="async" id="navAvatar" class="nav-avatar" src="/assets/avatar-placeholder.svg" alt="" />
+              <span id="navDmDot" class="nav-dot" style="display:none;"></span>
+            </span>
+            <span id="navName" class="nav-name"></span>
+          </a>
+<a class="nav-link nav-messages" id="navMessages" href="/mesaje.html">Mesaje</a>
+          <button class="nav-logout" id="navLogout" type="button">Logout</button>
+        </div>
+      </nav>
+
+    </div>
+  </header>
+
+  <div class="nav-overlay" id="navOverlay" hidden></div>
+
+  <main class="wrap">
+
+    <!-- Page intro -->
+    <div class="page-intro">
+      <h1>Ai nevoie de printare 3D?<br/>Piesa, obiect personalizat sau prototip.</h1>
+          <div class="trust-bar">
+      <span class="trust-pill red">CREEAZA CONT sau LOGIN inainte de Postare</span>
+    </div>
+
+      <p>Printatori din toata Romania vad cererea ta si iti trimit oferte in chat. Merg bine atat piesele rupte, cat si obiectele noi, carcasele, suporturile sau prototipurile.</p>
+    </div>
+
+    <!-- Trust bar -->
+    <div class="trust-bar">
+      <span class="trust-pill">✔ Gratuit</span>
+      <span class="trust-pill">✔ Fără obligații</span>
+      <span class="trust-pill">✔ Nu se fac plăți aici</span>
+      <span class="trust-pill">✔ Răspunsuri de la oameni reali</span>
+    </div>
+
+    <!-- Files note (shown after auth redirect) -->
+    <p id="filesNote" class="small-muted" style="display:none;">
+      Notă: fișierele (poze / model 3D) trebuie reselecate după autentificare.
+    </p>
+
+    <section class="page-intro" aria-label="Trasee utile inainte de formular">
+      <p style="margin-top:14px;">Daca vrei mai intii sa vezi exemple reale, intra pe <a href="/cereri.html">cereri</a>. Daca problema este strict o piesa rupta, vezi si hub-ul de <a href="/refacere-piese-plastic.html">refacere piese din plastic</a>. Pentru obiecte noi, cadouri si prototipuri, vezi <a href="/printare-3d-la-comanda.html">printare 3D la comanda</a>.</p>
+    </section>
+
+    <section class="form-card">
+      <div class="form-head">
+        <div class="form-title">Posteaza o cerere de printare 3D</div>
+        <div class="form-sub">Completezi in 1-2 minute. Poti cere refacere piese, obiecte personalizate, accesorii utile sau prototipuri.</div>
+      </div>
+
+      <form class="cere-form" action="#" method="post" onsubmit="return false;">
+
+        <!-- STEP 1: Ce vrei -->
+        <div class="fieldset">
+          <div class="fs-title" data-step="1">Descrie ce ai nevoie</div>
+
+          <div class="request-type-box">
+            <div class="request-type-title">Alege rapid tipul cererii</div>
+            <div class="request-type-chips" id="requestTypeChips">
+              <button type="button" class="request-type-chip is-active" data-kind="repair">🔧 Refacere piesa</button>
+              <button type="button" class="request-type-chip" data-kind="custom">🎁 Obiect personalizat</button>
+              <button type="button" class="request-type-chip" data-kind="functional">📦 Suport / carcasa / accesoriu</button>
+              <button type="button" class="request-type-chip" data-kind="prototype">🧪 Prototip / test</button>
+            </div>
+            <div class="request-type-hint" id="requestTypeHint">Bun pentru piese rupte, capace, cleme, prinderi sau componente care nu se mai gasesc.</div>
+          </div>
+
+          <label class="field">
+            <span class="label">Titlu scurt <span class="tag-req">Obligatoriu</span></span>
+            <input id="c_title" class="input" type="text"
+              placeholder="ex: Clema auto rupta / Suport telefon / Carcasa proiect / Prototip piesa"
+              required />
+            <span class="help">Un titlu clar creste raspunsurile: ce este, la ce foloseste si daca trebuie refacut sau creat.</span>
+          </label>
+
+          <label class="field">
+            <span class="label">Descrie pe scurt ce vrei sa obtii <span class="tag-req">Obligatoriu</span></span>
+            <textarea id="c_description" class="input textarea" rows="4" required
+              placeholder="Ex: Am nevoie de un suport pentru telefon in masina. Vreau sa se prinda in grila de ventilatie. Dimensiune aprox. 8x5 cm. Pot trimite poze si un exemplu similar."></textarea>
+            <span class="help">Nu trebuie sa stii termeni tehnici. Spune ce vrei, unde se foloseste, ce dimensiuni are si daca trebuie sa reziste la caldura, exterior sau uzura.</span>
+          </label>
+
+          <label class="field">
+            <span class="label">Link referință <span class="tag-opt">Opțional</span></span>
+            <input id="c_refurl" class="input" type="url" placeholder="Link produs similar / model pe Thingiverse / poză online" />
+            <span class="help">Dacă ai văzut ceva asemănător online, lipește linkul.</span>
+          </label>
+        </div>
+
+        <div class="fs-divider"></div>
+
+        <!-- STEP 2: Poze -->
+        <div class="fieldset">
+          <div class="fs-title" data-step="2">Adaugă poze <span style="font-weight:400; text-transform:none; letter-spacing:0; font-size:.8rem; color:#6b7280; margin-left:4px;">(recomandat — cresc mult șansele de ofertă)</span></div>
+
+          <label class="field">
+            <span class="label">Poze, schite sau referinte vizuale <span class="tag-opt">Optional</span></span>
+            <div class="file-zone">
+              <input id="c_photos" type="file" accept="image/*" multiple />
+              <div class="file-zone-icon">📸</div>
+              <div class="file-zone-text">
+                <strong>Apasă pentru a alege pozele</strong><br/>
+                2-3 poze cu piesa / ideea + una cu rigla daca ai dimensiuni
+              </div>
+            </div>
+            <div id="photosMeta" class="upload-meta" style="display:none;"></div>
+<div id="photosPreview" class="photos-preview" style="display:none;"></div>
+          </label>
+
+          <label class="field">
+            <span class="label">Fișier 3D (STL / STEP / OBJ / 3MF) <span class="tag-opt">Opțional</span></span>
+            <input id="c_model3d" class="input" type="file" accept=".stl,.step,.stp,.obj,.3mf" />
+            <div id="modelMeta" class="upload-meta" style="display:none;"></div>
+            <span class="help">Daca nu ai fisier 3D nu e nicio problema. Pozele, schita sau un link de referinta sunt suficiente pentru multe cereri.</span>
+          </label>
+        </div>
+
+        <div class="fs-divider"></div>
+
+        <!-- STEP 3: Județ -->
+        <div class="fieldset">
+          <div class="fs-title" data-step="3">Unde esti?</div>
+
+          <label class="field" style="max-width:320px;">
+            <span class="label">Județ <span class="tag-req">Obligatoriu</span></span>
+            <select id="c_county" class="input" required>
+              <option value="">Alege județul</option>
+              <option>Alba</option>
+              <option>Arad</option>
+              <option>Argeș</option>
+              <option>Bacău</option>
+              <option>Bihor</option>
+              <option>Bistrița-Năsăud</option>
+              <option>Botoșani</option>
+              <option>Brașov</option>
+              <option>Brăila</option>
+              <option>București</option>
+              <option>Buzău</option>
+              <option>Caraș-Severin</option>
+              <option>Cluj</option>
+              <option>Constanța</option>
+              <option>Covasna</option>
+              <option>Dâmbovița</option>
+              <option>Dolj</option>
+              <option>Galați</option>
+              <option>Giurgiu</option>
+              <option>Gorj</option>
+              <option>Harghita</option>
+              <option>Hunedoara</option>
+              <option>Ialomița</option>
+              <option>Iași</option>
+              <option>Ilfov</option>
+              <option>Maramureș</option>
+              <option>Mehedinți</option>
+              <option>Mureș</option>
+              <option>Neamț</option>
+              <option>Olt</option>
+              <option>Prahova</option>
+              <option>Sălaj</option>
+              <option>Satu Mare</option>
+              <option>Sibiu</option>
+              <option>Suceava</option>
+              <option>Teleorman</option>
+              <option>Timiș</option>
+              <option>Tulcea</option>
+              <option>Vâlcea</option>
+              <option>Vaslui</option>
+              <option>Vrancea</option>
+              <option>Alt județ</option>
+            </select>
+            <span class="help">Ajută printatorii locali să te găsească.</span>
+          </label>
+
+          <!-- Hidden fields preserved for JS compatibility -->
+          <input id="c_city" type="hidden" value="" />
+          <input id="c_pickup" type="hidden" value="Oricare" />
+          <input id="c_deadline" type="hidden" value="Oricand" />
+          <input id="c_budget" type="hidden" value="Nu stiu" />
+          <select id="c_category" style="display:none;"><option selected>Refacere piesa</option></select>
+          <select id="c_have3d" style="display:none;"><option selected>Nu am fisier, vreau sa il modeleze cineva</option></select>
+        </div>
+
+        <!-- Submit area -->
+        <div class="form-submit-area">
+          <div class="no-obligation-note">
+            <span class="nob-ico">💬</span>
+            <span>
+              <strong>Nu cumperi nimic automat.</strong> Postezi cererea, primesti oferte in chat de la printatori care pot face piese, obiecte personalizate sau prototipuri. Tu alegi daca si cu cine mergi mai departe. Pretul si livrarea se stabilesc direct cu ei.
+            </span>
+          </div>
+
+<button id="btnPosteazaCererea" class="btn-submit-main" type="button">
+  📸 Posteaza cererea si primeste oferte
+</button>
+
+          <div class="form-footnote">
+            <strong>Nu se fac plăți pe platformă.</strong> Cere3D conectează utilizatori cu printatori locali din România.<br/>
+            Prețul, termenul și livrarea — totul se stabilește direct în chat.
+          </div>
+        </div>
+
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Auth guard -->
+  <div id="authGuard">
+    <div>
+      <h3 id="guardTitle">Acces restricționat</h3>
+      <p id="guardText">Trebuie să fii autentificat și să ai numele completat.</p>
+      <button id="guardBtn" class="btn">Continuă</button>
+    </div>
+  </div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© <span id="year"></span> Cere3D</span>
+    <span class="footer-links">
+      <a href="/legal.html">Legal · Privacy · Terms · Cookies</a>
+      <a class="footer-seo-link" href="/refacere-piese-plastic.html">
+        Refacere piese din plastic
+      </a>
+      <a class="footer-seo-link" href="/printare-3d-la-comanda.html">
+        Printare 3D la comanda
+      </a>
+      <a class="footer-seo-link" href="/servicii-printare-3d-romania.html">
+        Servicii printare 3d Romania
+      </a>
+      <a class="footer-seo-link" href="/comenzi-si-ofertare-printare-3d.html">
+        Comanda printare 3D
+      </a>
+      <a class="footer-seo-link" href="/aplicatii-printare-3d-utile.html">
+        Aplicatii printare 3D
+      </a>
+      <a class="footer-seo-link" href="/idei-si-utilizari-printare-3d.html">
+        Idei si Utilizari Printare 3D
+      </a>
+    </span>
+  </div>
+</footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+<script type="module">
+  import { initNavAuth } from "./nav-auth.js?v=2";
+  import { initCereSubmit } from "./cere-submit.js";
+
+  initCereSubmit();
+  initNavAuth();
+
+  // UI feedback pentru upload poze + model
+  const photosInput = document.getElementById("c_photos");
+  const photosMeta  = document.getElementById("photosMeta");
+  const photosPrev  = document.getElementById("photosPreview");
+
+  const modelInput = document.getElementById("c_model3d");
+  const modelMeta  = document.getElementById("modelMeta");
+
+  function fmtBytes(b){
+    if (!Number.isFinite(b)) return "";
+    const units = ["B","KB","MB","GB"];
+    let i=0, n=b;
+    while(n>=1024 && i<units.length-1){ n/=1024; i++; }
+    return `${n.toFixed(i===0?0:1)} ${units[i]}`;
+  }
+
+  function clearPreviews(){
+    if (photosMeta){ photosMeta.style.display="none"; photosMeta.textContent=""; }
+    if (photosPrev){ photosPrev.style.display="none"; photosPrev.innerHTML=""; }
+  }
+
+  photosInput?.addEventListener("change", () => {
+    const files = Array.from(photosInput.files || []);
+    clearPreviews();
+
+    if (!files.length) return;
+
+    if (photosMeta){
+      const total = files.reduce((s,f)=>s+(f.size||0),0);
+      photosMeta.textContent = `Selectat: ${files.length} poza(e) • Total: ${fmtBytes(total)}`;
+      photosMeta.style.display = "block";
+    }
+
+    if (photosPrev){
+      const slice = files.slice(0, 8);
+      photosPrev.innerHTML = "";
+      slice.forEach((f) => {
+        if (!f.type?.startsWith("image/")) return;
+        const url = URL.createObjectURL(f);
+        const wrap = document.createElement("div");
+        wrap.className = "ph";
+        const img = document.createElement("img");
+        img.src = url;
+        img.alt = f.name || "poza";
+        img.onload = () => URL.revokeObjectURL(url);
+        wrap.appendChild(img);
+        photosPrev.appendChild(wrap);
+      });
+      photosPrev.style.display = "grid";
+    }
+  });
+
+  modelInput?.addEventListener("change", () => {
+    const f = modelInput.files?.[0];
+    if (!modelMeta) return;
+
+    if (!f){
+      modelMeta.style.display = "none";
+      modelMeta.textContent = "";
+      return;
+    }
+
+    modelMeta.textContent = `Fisier selectat: ${f.name} • ${fmtBytes(f.size || 0)}`;
+    modelMeta.style.display = "block";
+  });
+
+
+  const typeChips = document.querySelectorAll(".request-type-chip");
+  const typeHint = document.getElementById("requestTypeHint");
+  const titleInput = document.getElementById("c_title");
+  const descInput = document.getElementById("c_description");
+  const categoryInput = document.getElementById("c_category");
+
+  const requestTypeMap = {
+    repair: {
+      category: "Refacere piesa",
+      hint: "Bun pentru piese rupte, capace, cleme, prinderi sau componente care nu se mai gasesc.",
+      title: "Piesa rupta de refacut",
+      desc: "Am o piesa rupta din plastic pe care vreau sa o refac prin printare 3D. Pot trimite poze, dimensiuni aproximative si detalii despre cum se foloseste."
+    },
+    custom: {
+      category: "Obiect personalizat",
+      hint: "Bun pentru decor, cadouri, obiecte unice sau idei care nu exista deja in comert.",
+      title: "Obiect personalizat printat 3D",
+      desc: "Vreau un obiect personalizat realizat prin printare 3D. Pot trimite poze de inspiratie, dimensiuni aproximative si ce stil imi doresc."
+    },
+    functional: {
+      category: "Suport / carcasa / accesoriu",
+      hint: "Bun pentru suporturi, carcase, organizatoare, accesorii auto, birou, atelier sau casa.",
+      title: "Suport / carcasa / accesoriu printat 3D",
+      desc: "Am nevoie de un obiect util printat 3D, de exemplu un suport, o carcasa sau un accesoriu functional. Pot trimite poze si dimensiuni."
+    },
+    prototype: {
+      category: "Prototip",
+      hint: "Bun pentru test de forma, validare, prezentare, montaj sau MVP rapid.",
+      title: "Prototip printat 3D",
+      desc: "Am nevoie de un prototip printat 3D pentru test sau prezentare. Pot trimite schita, model 3D sau explicatii despre rolul piesei."
+    }
+  };
+
+  typeChips.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const kind = btn.dataset.kind;
+      const conf = requestTypeMap[kind];
+      if (!conf) return;
+
+      typeChips.forEach((x) => x.classList.remove("is-active"));
+      btn.classList.add("is-active");
+
+      if (typeHint) typeHint.textContent = conf.hint;
+      if (categoryInput) categoryInput.innerHTML = `<option selected>${conf.category}</option>`;
+
+      if (titleInput && !titleInput.value.trim()) titleInput.value = conf.title;
+      if (descInput && !descInput.value.trim()) descInput.value = conf.desc;
+    });
+  });
+
+  const p = new URLSearchParams(location.search);
+  if (p.get("autopost") === "1") {
+    const note = document.getElementById("filesNote");
+    if (note) note.style.display = "block";
+  }
+</script>
+
+  <script>
+    // fallback: dacă auth nu răspunde în 2 secunde, arată "Autentificare"
+    setTimeout(() => {
+      document.body.classList.remove("auth-loading");
+    }, 2000);
+  </script>
+
+  <script>
+    (function initMobileNav(){
+      const burger = document.getElementById("navBurger");
+      const overlay = document.getElementById("navOverlay");
+      const nav = document.querySelector(".topbar .nav");
+      if (!burger || !overlay || !nav) return;
+
+      function openNav(){
+        document.body.classList.add("nav-open");
+        overlay.hidden = false;
+        burger.setAttribute("aria-expanded", "true");
+      }
+      function closeNav(){
+        document.body.classList.remove("nav-open");
+        overlay.hidden = true;
+        burger.setAttribute("aria-expanded", "false");
+      }
+
+      burger.addEventListener("click", () => {
+        document.body.classList.contains("nav-open") ? closeNav() : openNav();
+      });
+      overlay.addEventListener("click", closeNav);
+      nav.addEventListener("click", (e) => {
+        const a = e.target.closest("a");
+        if (!a) return;
+        if (window.matchMedia("(max-width: 900px)").matches) closeNav();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeNav();
+      });
+      window.addEventListener("resize", () => {
+        if (!window.matchMedia("(max-width: 900px)").matches) closeNav();
+      });
+    })();
+  </script>
+<button id="floatingBackBtn" class="floating-back-btn" aria-label="Inapoi">
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5">
+    <path d="M15 18l-6-6 6-6"/>
+  </svg>
+</button>
+
+<script>
+(function initFloatingBack(){
+  const btn = document.getElementById("floatingBackBtn");
+  if (!btn) return;
+
+  btn.addEventListener("click", () => {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.href = "/";
+    }
+  });
+})();
+</script>
+<script type="module" src="/push.js?v=1"></script>
+<script src="/nav-messages-push.js?v=1"></script>
+
+  <!-- SEO Internal Links: printare 3D -->
+  <nav class="seo-internal-links" aria-label="Pagini principale printare 3D" style="display:none;">
+    <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+    <a href="/">Printare 3D Romania - Cere3D</a>
+    <a href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a>
+    <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a>
+    <a href="/cat-costa-un-obiect-printat-3d.html">Cat costa printare 3D</a>
+    <a href="/ce-material-sa-aleg-pentru-printare-3d.html">Materiale printare 3D</a>
+  </nav>
+</body>
+</html>

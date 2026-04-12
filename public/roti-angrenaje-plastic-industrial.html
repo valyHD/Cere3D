@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Consent Mode v2 (default denied) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+
+    gtag('js', new Date());
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FY3LRNBF2"></script>
+
+  <!-- Consent UI + loader logic -->
+  <script type="module" src="/consent.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Roti Dintate Si Angrenaje Din Plastic | Refacere Pinioane Si Roti Dintate - Cere3D</title>
+  <meta name="description" content="Ai un pinion sau o roata dintata din plastic uzata, crapata sau lipsa? Pe Cere3D poti cere refacere pentru angrenaje, pinioane si roti dintate din plastic, dupa modelul vechi si cu masuratori corecte." />
+  <link rel="canonical" href="https://cere3d.ro/roti-angrenaje-plastic-industrial.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Roti Dintate Si Angrenaje Din Plastic | Cere3D" />
+  <meta property="og:description" content="Refacere pentru roti dintate, pinioane si angrenaje din plastic. Postezi cererea cu poze si masuratori si primesti oferte." />
+  <meta property="og:url" content="https://cere3d.ro/roti-angrenaje-plastic-industrial.html" />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/seo-hub.css" />
+
+  <style>
+    .crumbs{
+      padding:18px 0 0;
+      font-size:13px;
+      color:rgba(11,19,38,.66);
+    }
+    .crumbs a{
+      color:rgba(11,19,38,.82);
+      text-decoration:none;
+      font-weight:700;
+    }
+    .crumbs span{
+      margin:0 8px;
+      opacity:.45;
+    }
+
+    .spec-strip{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:center;
+      margin-top:18px;
+    }
+    .spec-chip{
+      display:inline-flex;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(11,19,38,.05);
+      border:1px solid rgba(11,19,38,.08);
+      color:#122a55;
+      font-weight:800;
+      font-size:14px;
+    }
+
+    .diag-grid,
+    .measure-grid,
+    .decision-grid,
+    .related-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+      gap:16px;
+      margin-top:28px;
+    }
+
+    .diag-card,
+    .measure-card,
+    .decision-card,
+    .related-card,
+    .table-card,
+    .warn-card{
+      background:rgba(255,255,255,.88);
+      border:1px solid rgba(11,19,38,.08);
+      border-radius:20px;
+      box-shadow:var(--hub-shadow);
+      padding:24px;
+    }
+
+    .diag-card h3,
+    .measure-card h3,
+    .decision-card h3,
+    .related-card h3,
+    .table-card h3,
+    .warn-card h3{
+      font-family:Manrope, system-ui, sans-serif;
+      font-size:20px;
+      color:#122a55;
+      font-weight:950;
+      line-height:1.25;
+      margin-bottom:10px;
+    }
+
+    .diag-card p,
+    .measure-card p,
+    .decision-card p,
+    .related-card p,
+    .table-card p,
+    .warn-card p,
+    .table-card li,
+    .warn-card li{
+      color:rgba(11,19,38,.76);
+      font-size:15px;
+      line-height:1.72;
+    }
+
+    .table-layout{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:22px;
+      margin-top:26px;
+    }
+
+    .table-card ul,
+    .warn-card ul{
+      padding-left:18px;
+      margin-top:10px;
+    }
+
+    .table-card li + li,
+    .warn-card li + li{
+      margin-top:8px;
+    }
+
+    .metric-list{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:14px;
+      margin-top:18px;
+    }
+
+    .metric-item{
+      background:rgba(11,19,38,.04);
+      border:1px solid rgba(11,19,38,.08);
+      border-radius:16px;
+      padding:16px;
+    }
+
+    .metric-item strong{
+      display:block;
+      color:#122a55;
+      font-weight:900;
+      margin-bottom:6px;
+    }
+
+    .metric-item span{
+      color:rgba(11,19,38,.72);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .blue-band{
+      margin-top:18px;
+      padding:18px 20px;
+      border-radius:18px;
+      background:rgba(91,124,250,.08);
+      border:1px solid rgba(91,124,250,.16);
+      color:#122a55;
+      font-weight:600;
+      line-height:1.7;
+    }
+
+    .orange-band{
+      margin-top:18px;
+      padding:18px 20px;
+      border-radius:18px;
+      background:rgba(255,122,42,.08);
+      border:1px solid rgba(255,122,42,.18);
+      color:#122a55;
+      font-weight:600;
+      line-height:1.7;
+    }
+
+    .related-card a{
+      text-decoration:none;
+      color:#122a55;
+      font-weight:900;
+    }
+
+    @media (max-width: 900px){
+      .table-layout{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {
+        "@type":"ListItem",
+        "position":1,
+        "name":"Cere3D",
+        "item":"https://cere3d.ro/"
+      },
+      {
+        "@type":"ListItem",
+        "position":2,
+        "name":"Refacere piese din plastic",
+        "item":"https://cere3d.ro/refacere-piese-plastic.html"
+      },
+      {
+        "@type":"ListItem",
+        "position":3,
+        "name":"Piese plastic echipament industrial",
+        "item":"https://cere3d.ro/piese-plastic-echipament-industrial.html"
+      },
+      {
+        "@type":"ListItem",
+        "position":4,
+        "name":"Roti dintate si angrenaje din plastic",
+        "item":"https://cere3d.ro/roti-angrenaje-plastic-industrial.html"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Roti dintate si angrenaje din plastic: refacere pentru pinioane, roti dintate si piese cu profil functional",
+    "description":"Pagina dedicata pentru utilizatori care cauta refacere la roti dintate si angrenaje din plastic, cu accent pe numar de dinti, diametre, ax, uzura si tolerante functionale.",
+    "mainEntityOfPage":"https://cere3d.ro/roti-angrenaje-plastic-industrial.html",
+    "author":{"@type":"Organization","name":"Cere3D"},
+    "publisher":{"@type":"Organization","name":"Cere3D"},
+    "datePublished":"2026-03-07",
+    "dateModified":"2026-03-07"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Ce trebuie masurat la o roata dintata din plastic ca sa poata fi refacuta corect?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Cele mai utile date sunt numarul de dinti, diametrul exterior, diametrul gaurii pe ax, grosimea piesei si poze clare din fata si lateral. Ajuta mult si o poza cu roata montata in mecanism."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Daca roata dintata este tocita sau lipsesc dinti, mai are rost sa postez cererea?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Da. Chiar si o piesa uzata poate fi utila ca model. Daca lipsesc mai multi dinti, este bine sa existe si poze cu piesa in context sau cu angrenajul pereche."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Conteaza axul si tipul de prindere?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Da, foarte mult. La pinioane si roti dintate conteaza nu doar dintii, ci si prinderea pe ax: gaura simpla, profil special, pana, surub de fixare sau alte detalii de montaj."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Pagina aceasta este pentru orice piesa care se roteste?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Nu chiar. Pagina este pentru roti dintate, pinioane si angrenaje din plastic. Daca ai mai degraba un suport, un adaptor sau o piesa de carcasa, exista pagini mai potrivite in cluster."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body data-page="seo-hub">
+  <header class="topbar">
+    <a href="/index.html" class="logo" aria-label="Cere3D">
+      <img src="/assets/logo-cere3d.svg" alt="Cere3D" class="logo-img" />
+    </a>
+    <a href="/cere.html" class="topbar-cta">Posteaza cererea →</a>
+  </header>
+
+  <div class="container">
+    <div class="crumbs">
+      <a href="/index.html">Acasa</a><span>›</span>
+      <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a><span>›</span>
+      <a href="/piese-plastic-echipament-industrial.html">Piese plastic echipament industrial</a><span>›</span>
+      <strong>Roti dintate si angrenaje din plastic</strong>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-badge">Subcategorie industriala functionala</div>
+    <h1>Roti dintate si angrenaje din plastic <em>uzate, crapate sau lipsa</em></h1>
+    <p class="hero-sub">
+      Daca ai un pinion de plastic tocit, o roata dintata crapata sau un angrenaj care patineaza pentru ca lipsesc dinti, pagina aceasta este facuta pentru cazurile in care forma functionala si tolerantele conteaza mai mult decit aspectul exterior.
+    </p>
+
+    <div class="hero-cta-wrap">
+      <a href="/cere.html" class="btn-primary">
+        <span>Posteaza cererea gratuit</span>
+        <span>→</span>
+      </a>
+      <a href="#masuratori" class="btn-secondary">Ce trebuie masurat</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">Numar dinti</span>
+        <span class="stat-label">Date esentiale pentru evaluare</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Ax</span>
+        <span class="stat-label">Prinderea conteaza mult</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Tolerante</span>
+        <span class="stat-label">Functia este mai importanta decit estetica</span>
+      </div>
+    </div>
+
+    <div class="spec-strip">
+      <span class="spec-chip">pinioane</span>
+      <span class="spec-chip">roti dintate</span>
+      <span class="spec-chip">angrenaje</span>
+      <span class="spec-chip">profil functional</span>
+      <span class="spec-chip">diametre si ax</span>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Intentie specifica</div>
+      <h2 class="section-title">Aici nu vorbim despre o piesa de plastic oarecare, ci despre una care transmite miscare</h2>
+      <p class="section-lead">
+        Spre deosebire de paginile pentru capace, carcase sau suporti, aceasta pagina este despre componente care trebuie sa se potriveasca functional intr-un angrenaj. Utilizatorul cauta de obicei o solutie pentru o roata dintata uzata, un pinion care a pierdut dinti sau o piesa care nu mai transmite corect miscarea.
+      </p>
+
+      <div class="diag-grid">
+        <div class="diag-card">
+          <h3>Pinion tocit</h3>
+          <p>Dintii nu mai au profilul corect, apare joc, patinare sau zgomot, iar mecanismul nu mai trage cum trebuie.</p>
+        </div>
+
+        <div class="diag-card">
+          <h3>Roata crapata la butuc</h3>
+          <p>Exteriorul pare in regula, dar piesa a cedat in zona centrala, pe ax sau in jurul gaurii de prindere.</p>
+        </div>
+
+        <div class="diag-card">
+          <h3>Dinti lipsa</h3>
+          <p>Chiar si 1-2 dinti rupti pot bloca ciclul normal sau pot face sistemul sa sara peste pas.</p>
+        </div>
+
+        <div class="diag-card">
+          <h3>Prindere neclara pe ax</h3>
+          <p>Uneori problema reala nu este la dinti, ci la profilul interior: gaura, pana, surubul de fixare sau forma speciala de montaj.</p>
+        </div>
+      </div>
+
+      <div class="blue-band">
+        Pagina este construita pentru cautari de tipul "pinion plastic rupt", "roata dintata din plastic nu se mai gaseste" sau "angrenaj plastic uzat", nu pentru piese decorative. Accentul cade pe functionare, nu pe aspect.
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm" id="masuratori">
+    <div class="container">
+      <div class="section-tag">Cea mai importanta parte</div>
+      <h2 class="section-title">Ce poze si ce masuratori ajuta cel mai mult la roti dintate si pinioane</h2>
+
+      <div class="table-layout">
+        <div class="table-card">
+          <h3>Pozele utile din prima</h3>
+          <ul>
+            <li>poza din fata, perpendicular pe roata dintata</li>
+            <li>poza laterala, ca sa se vada grosimea</li>
+            <li>poza cu piesa pe ax sau linga angrenajul pereche</li>
+            <li>poza a zonei uzate, crapate sau cu dinti lipsa</li>
+            <li>poza cu orice marcaj, cod sau reper existent pe piesa</li>
+          </ul>
+        </div>
+
+        <div class="warn-card">
+          <h3>Masuratorile care conteaza</h3>
+          <div class="metric-list">
+            <div class="metric-item">
+              <strong>Numar de dinti</strong>
+              <span>Un detaliu esential. Se numara complet, chiar daca piesa este uzata.</span>
+            </div>
+            <div class="metric-item">
+              <strong>Diametru exterior</strong>
+              <span>Ajuta la estimarea profilului si a dimensiunii corecte.</span>
+            </div>
+            <div class="metric-item">
+              <strong>Diametru gaura / ax</strong>
+              <span>Foarte important pentru potrivirea reala.</span>
+            </div>
+            <div class="metric-item">
+              <strong>Grosime</strong>
+              <span>Conteaza la aliniere si la pozitia fata de piesa pereche.</span>
+            </div>
+            <div class="metric-item">
+              <strong>Prindere interioara</strong>
+              <span>Gaura simpla, profil D, pana, canelura sau surub lateral.</span>
+            </div>
+            <div class="metric-item">
+              <strong>Distanta intre trepte</strong>
+              <span>Daca piesa are mai multe niveluri sau butuc ridicat.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="orange-band">
+        La angrenaje, diferenta dintre o piesa care "aproape se potriveste" si una care functioneaza bine este data de masuratori. Din acest motiv, pagina aceasta trebuie sa ramina clar diferita de cele despre capace, butoane sau carcase.
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Cum verifici daca are sens</div>
+      <h2 class="section-title">Cind merita sa postezi cererea pentru un angrenaj din plastic</h2>
+
+      <div class="decision-grid">
+        <div class="decision-card">
+          <h3>Merita frecvent cind</h3>
+          <p>Ai piesa veche, o poti masura, iar restul mecanismului este functional si blocajul vine clar de la roata dintata sau pinion.</p>
+        </div>
+
+        <div class="decision-card">
+          <h3>Trebuie spus clar in cerere</h3>
+          <p>Daca piesa lucreaza in sarcina mare, in temperaturi ridicate, in mediu cu praf fin sau in cicluri foarte dese.</p>
+        </div>
+
+        <div class="decision-card">
+          <h3>Ajuta mult daca explici</h3>
+          <p>Ce face mecanismul cind piesa este montata: patineaza, sare, se blocheaza, freaca sau nu mai transmite deloc miscarea.</p>
+        </div>
+
+        <div class="decision-card">
+          <h3>Nu te baza doar pe nume</h3>
+          <p>Chiar daca ii spui pinion sau roata dintata, rolul exact si prinderea pe ax sint mai importante decit denumirea generica.</p>
+        </div>
+      </div>
+
+      <div class="blue-band">
+        Formula buna de cerere aici este una tehnica si scurta: "roata dintata din plastic, 32 dinti, gaura pe ax de 6 mm, crapata la butuc, poze atasate, mecanismul in rest functioneaza". Asta creste calitatea ofertelor.
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-tag">Exemple orientative</div>
+      <h2 class="section-title">Probleme tipice din aceasta subcategorie</h2>
+      <p class="section-lead">Exemple utile pentru intentie si structurare a cererii.</p>
+
+      <div class="examples-grid">
+        <div class="example-card">
+          <span class="example-status status-done">Caz frecvent</span>
+          <h3>Pinion de plastic cu dinti tociti</h3>
+          <p>Mecanismul merge, dar sare la sarcina sau face zgomot pentru ca dintii au pierdut forma corecta in timp.</p>
+          <div class="example-meta">
+            <span><strong>Problema:</strong> uzura</span>
+            <span><strong>Cheie:</strong> numar dinti</span>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <span class="example-status status-done">Caz frecvent</span>
+          <h3>Roata dintata crapata in centru</h3>
+          <p>Piesa mai are dintii aproape intregi, dar butucul nu mai tine pe ax si miscarea nu se transmite corect.</p>
+          <div class="example-meta">
+            <span><strong>Problema:</strong> butuc</span>
+            <span><strong>Cheie:</strong> diametru ax</span>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <span class="example-status status-open">Analiza necesara</span>
+          <h3>Angrenaj cu profil interior special</h3>
+          <p>Piesa are forma interioara diferita de o gaura simpla si cere poze bune plus masuratori mai atente pentru evaluare.</p>
+          <div class="example-meta">
+            <span><strong>Problema:</strong> prindere</span>
+            <span><strong>Cheie:</strong> profil interior</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Ai un pinion sau o roata dintata din plastic care nu mai merge corect?</h2>
+        <p>Posteaza cererea cu poze din fata, lateral, numarul de dinti si prinderea pe ax. Pentru angrenaje, aceste detalii fac diferenta intre o simpla intrebare si o oferta utila.</p>
+        <a href="/cere.html" class="btn-primary" style="font-size:18px; padding:18px 44px;">
+          Posteaza cererea gratuit →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="pagini-inrudite">
+    <div class="container">
+      <div class="section-tag">Vezi si alte piese similare</div>
+      <h2 class="section-title">Linkuri interne relevante pentru aceasta problema</h2>
+      <p class="section-lead">Am evitat sa o leg de pagini prea apropiate ca structura si am pastrat contextul industrial si functional.</p>
+
+      <div class="related-grid">
+        <article class="related-card">
+          <h3>Piese plastic echipament industrial</h3>
+          <p>Categoria parinte pentru ghidaje, suporti, capace, distantiere si alte piese greu de gasit in zona industriala.</p>
+          <a href="/piese-plastic-echipament-industrial.html">Vezi categoria →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Suport senzor industrial plastic</h3>
+          <p>Pentru piese de montaj si pozitionare, nu pentru angrenaje sau transmisie de miscare.</p>
+          <a href="/suport-senzor-industrial-plastic.html">Vezi pagina →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Paleta sau angrenaj robot bucatarie</h3>
+          <p>Pagina inrudita prin ideea de antrenare si uzura, dar orientata spre electrocasnice, nu spre echipamente industriale.</p>
+          <a href="/paleta-robot-bucatarie.html">Vezi pagina →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Adaptor plastic la comanda</h3>
+          <p>Pentru piese create de la zero, cind problema este mai degraba de adaptare sau interconectare decit de profil dintat.</p>
+          <a href="/adaptor-plastic-la-comanda.html">Vezi pagina →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-tag">Intrebari frecvente</div>
+      <h2 class="section-title">FAQ pentru roti dintate si angrenaje din plastic</h2>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">
+            Ce trebuie masurat la o roata dintata din plastic ca sa poata fi refacuta corect?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Cele mai utile date sunt numarul de dinti, diametrul exterior, diametrul gaurii pe ax, grosimea piesei si poze clare din fata si lateral. Ajuta mult si o poza cu roata montata in mecanism.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Daca roata dintata este tocita sau lipsesc dinti, mai are rost sa postez cererea?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Da. Chiar si o piesa uzata poate fi utila ca model. Daca lipsesc mai multi dinti, este bine sa existe si poze cu piesa in context sau cu angrenajul pereche.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Conteaza axul si tipul de prindere?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Da, foarte mult. La pinioane si roti dintate conteaza nu doar dintii, ci si prinderea pe ax: gaura simpla, profil special, pana, surub de fixare sau alte detalii de montaj.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Pagina aceasta este pentru orice piesa care se roteste?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Nu chiar. Pagina este pentru roti dintate, pinioane si angrenaje din plastic. Daca ai mai degraba un suport, un adaptor sau o piesa de carcasa, exista pagini mai potrivite in cluster.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="/index.html" class="footer-logo">Cere<span>3D</span></a>
+      <a href="/refacere-piese-plastic.html" class="footer-seo-link">Refacere piese din plastic</a>
+      <a href="/piese-plastic-echipament-industrial.html" class="footer-seo-link">Piese plastic echipament industrial</a>
+      <a href="/suport-senzor-industrial-plastic.html" class="footer-seo-link">Suport senzor industrial</a>
+      <span class="footer-copy">
+        © <span id="an-curent"></span> Cere3D. Roti dintate si angrenaje din plastic refacute la comanda.
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-q').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i){
+          i.classList.remove('open');
+        });
+        if(!isOpen) item.classList.add('open');
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function(){
+      const yearSpan = document.getElementById('an-curent');
+      if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+    });
+  </script>
+
+  <!-- SEO Internal Links: printare 3D -->
+  <nav class="seo-internal-links" aria-label="Pagini principale printare 3D" style="display:none;">
+    <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+    <a href="/">Printare 3D Romania - Cere3D</a>
+    <a href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a>
+    <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a>
+    <a href="/cat-costa-un-obiect-printat-3d.html">Cat costa printare 3D</a>
+    <a href="/ce-material-sa-aleg-pentru-printare-3d.html">Materiale printare 3D</a>
+  </nav>
+</body>
+</html>

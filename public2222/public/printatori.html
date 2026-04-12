@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Printatori 3D | Primeste cereri pentru piese, obiecte si prototipuri | Cere3D</title>
+  <meta name="description" content="Devino printator pe Cere3D si primeste cereri reale pentru piese rupte, obiecte personalizate, accesorii utile si prototipuri. Profil public, portofoliu si review-uri." />
+  <link rel="canonical" href="https://cere3d.ro/printatori.html" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Cere3D" />
+  <meta property="og:title" content="Printatori 3D | Inscrie-te si primeste clienti noi | Cere3D" />
+  <meta property="og:description" content="Devino printator pe Cere3D. Profil public, badge, cereri reale si portofoliu vizibil." />
+  <meta property="og:url" content="https://cere3d.ro/printatori.html" />
+  <meta property="og:image" content="https://cere3d.ro/assets/og-cere3d2.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Printatori 3D | Cere3D" />
+  <meta name="twitter:description" content="Inscrie-te ca printator pe Cere3D. Profil public, cereri reale, review-uri." />
+  <meta name="twitter:image" content="https://cere3d.ro/assets/og-cere3d2.png" />
+
+  <!-- Structured Data: LocalBusiness listing for printers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Printatori 3D - Cere3D",
+    "description": "Lista printatorilor 3D activi pe Cere3D. Profil public, rating, portofoliu si cereri rezolvate.",
+    "url": "https://cere3d.ro/printatori.html",
+    "mainEntity": {
+      "@type": "ItemList",
+      "name": "Printatori 3D Romania",
+      "description": "Printatori 3D verificati pe Cere3D cu profil public si review-uri"
+    }
+  }
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="stylesheet" href="/styles.css?v=printatori-5" />
+
+  <style>
+    /* ===== PRINTER PAGE DESIGN SYSTEM ===== */
+    :root {
+      --pr-blue: #2563eb;
+      --pr-orange: #f97316;
+      --pr-green: #10b981;
+      --pr-dark: #0f1f3a;
+      --pr-muted: #5e718d;
+      --pr-line: rgba(15,31,58,.08);
+      --pr-card: #ffffff;
+      --pr-badge-bg: linear-gradient(135deg, #2563eb 0%, #f97316 100%);
+    }
+
+    /* ===== HERO ===== */
+    .pr-hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      padding: 40px 28px;
+      margin-top: 18px;
+      background:
+        radial-gradient(1200px 450px at 0% 0%, rgba(37,99,235,.13), transparent 55%),
+        radial-gradient(900px 380px at 100% 100%, rgba(249,115,22,.13), transparent 50%),
+        linear-gradient(180deg, #ffffff 0%, #f6faff 100%);
+      border: 1px solid var(--pr-line);
+      box-shadow: 0 20px 60px rgba(15,31,58,.09);
+    }
+
+    .pr-hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .pr-hero-title {
+      margin: 0 0 12px;
+      color: var(--pr-dark);
+      font-size: clamp(28px, 3.8vw, 46px);
+      line-height: 1.07;
+      font-weight: 900;
+      letter-spacing: -.5px;
+    }
+
+    .pr-hero-sub {
+      margin: 0;
+      color: #42546d;
+      font-size: 17px;
+      line-height: 1.65;
+      max-width: 760px;
+    }
+
+    .pr-hero-cta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+
+  /* ===== PRINTER PAGE QUICK MENU ===== */
+  .pr-quick-menu {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+    padding: 14px;
+    background: rgba(255,255,255,.88);
+    border: 1px solid var(--pr-line);
+    border-radius: 18px;
+    box-shadow: 0 10px 28px rgba(15,31,58,.05);
+  }
+
+  .pr-quick-menu-label {
+    width: 100%;
+    margin: 0 0 2px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .3px;
+    text-transform: uppercase;
+    color: var(--pr-muted);
+  }
+
+  .pr-quick-menu-link {
+    flex: 1 1 240px;
+    min-width: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 16px;
+    text-decoration: none;
+    color: var(--pr-dark);
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+    border: 1px solid rgba(15,31,58,.08);
+    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    box-shadow: 0 6px 18px rgba(15,31,58,.04);
+  }
+
+  .pr-quick-menu-link:hover {
+    transform: translateY(-2px);
+    border-color: rgba(37,99,235,.18);
+    box-shadow: 0 14px 32px rgba(15,31,58,.08);
+  }
+
+  .pr-quick-menu-link.is-active {
+    background: linear-gradient(180deg, #eff6ff 0%, #dbeafe 100%);
+    border-color: rgba(37,99,235,.22);
+  }
+
+  .pr-quick-menu-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+  }
+
+  .pr-quick-menu-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    font-size: 20px;
+    background: rgba(37,99,235,.08);
+    color: var(--pr-blue);
+  }
+
+  .pr-quick-menu-link.community .pr-quick-menu-icon {
+    background: rgba(249,115,22,.10);
+    color: var(--pr-orange);
+  }
+
+  .pr-quick-menu-link.lista .pr-quick-menu-icon {
+    background: rgba(37,99,235,.08);
+    color: var(--pr-blue);
+  }
+
+  .pr-quick-menu-text {
+    min-width: 0;
+  }
+
+  .pr-quick-menu-title {
+    display: block;
+    font-size: 15px;
+    font-weight: 900;
+    color: var(--pr-dark);
+    line-height: 1.2;
+    margin-bottom: 3px;
+  }
+
+  .pr-quick-menu-sub {
+    display: block;
+    font-size: 12px;
+    color: var(--pr-muted);
+    line-height: 1.35;
+  }
+
+  .pr-quick-menu-arrow {
+    flex: 0 0 auto;
+    font-size: 18px;
+    color: var(--pr-muted);
+    font-weight: 900;
+  }
+
+  @media (max-width: 640px) {
+    .pr-quick-menu {
+      padding: 12px;
+      gap: 10px;
+    }
+
+    .pr-quick-menu-link {
+      min-width: 100%;
+      padding: 13px 14px;
+    }
+
+    .pr-quick-menu-title {
+      font-size: 14px;
+    }
+
+    .pr-quick-menu-sub {
+      font-size: 11.5px;
+    }
+  }
+
+
+    /* KPI bar */
+    .pr-kpis {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .pr-kpi {
+      background: rgba(255,255,255,.9);
+      border: 1px solid var(--pr-line);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 8px 24px rgba(15,31,58,.05);
+      text-align: center;
+    }
+
+    .pr-kpi-value {
+      font-size: 26px;
+      line-height: 1;
+      font-weight: 900;
+      color: var(--pr-dark);
+      margin-bottom: 6px;
+    }
+
+    .pr-kpi-label {
+      font-size: 12px;
+      color: var(--pr-muted);
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    /* Hero aside card */
+    .pr-hero-aside {
+      background: rgba(255,255,255,.94);
+      border: 1px solid var(--pr-line);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 14px 36px rgba(15,31,58,.07);
+    }
+
+    .pr-hero-aside h3 {
+      margin: 0 0 14px;
+      color: var(--pr-dark);
+      font-size: 17px;
+    }
+
+    /* ===== SECTION ===== */
+    .pr-section {
+      margin-top: 22px;
+      background: #fff;
+      border: 1px solid var(--pr-line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 10px 28px rgba(15,31,58,.05);
+    }
+
+    .pr-section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .pr-section-head h2 {
+      margin: 0 0 4px;
+      color: var(--pr-dark);
+      font-size: 22px;
+    }
+
+    .pr-section-sub {
+      color: var(--pr-muted);
+      margin: 0;
+      font-size: 14px;
+    }
+
+    /* ===== STEPS ===== */
+    .pr-steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 14px;
+    }
+
+    .pr-step {
+      background: linear-gradient(180deg, #fff 0%, #fbfdff 100%);
+      border: 1px solid var(--pr-line);
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .pr-step-no {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: #fff;
+      font-size: 15px;
+      background: var(--pr-badge-bg);
+      margin-bottom: 12px;
+    }
+
+    /* ===== BENEFITS ===== */
+    .pr-benefits {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 14px;
+    }
+
+    .pr-benefit {
+      background: linear-gradient(180deg, #fff 0%, #fbfdff 100%);
+      border: 1px solid var(--pr-line);
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .pr-benefit-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    /* ===== JOIN BOX ===== */
+    .pr-join-box {
+      background:
+        radial-gradient(700px 280px at 100% 0%, rgba(249,115,22,.08), transparent 46%),
+        linear-gradient(180deg, #fff 0%, #f9fbff 100%);
+      border: 1px solid var(--pr-line);
+      border-radius: 22px;
+      padding: 24px;
+    }
+
+    /* ===== PRINTER CARD ===== */
+    .pr-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 16px;
+    }
+
+    .pr-card {
+      background: linear-gradient(180deg, #fff 0%, #fbfdff 100%);
+      border: 1px solid var(--pr-line);
+      border-radius: 20px;
+      padding: 18px;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+
+    .pr-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px rgba(15,31,58,.10);
+    }
+
+    .pr-card-top {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+
+    /* Avatar + Badge */
+    .pr-avatar-wrap {
+      position: relative;
+      width: 64px;
+      height: 64px;
+      flex: 0 0 auto;
+    }
+
+    .pr-avatar {
+      width: 64px;
+      height: 64px;
+      object-fit: cover;
+      border-radius: 999px;
+      border: 2px solid rgba(37,99,235,.18);
+      background: #eef4ff;
+      display: block;
+    }
+
+    /* 3D Badge — il facem spectaculos */
+    .pr-badge-3d {
+      position: absolute;
+      right: -4px;
+      bottom: -4px;
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--pr-badge-bg);
+      border: 2.5px solid #fff;
+      box-shadow: 0 4px 12px rgba(37,99,235,.35), 0 2px 6px rgba(249,115,22,.25);
+      font-size: 9px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -.3px;
+    }
+
+    .pr-name-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 4px;
+    }
+
+    .pr-name-link {
+      font-weight: 900;
+      color: var(--pr-dark);
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .pr-name-link:hover { color: var(--pr-orange); }
+
+    .pr-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: rgba(37,99,235,.09);
+      border: 1px solid rgba(37,99,235,.14);
+      color: #1d4ed8;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .pr-chip-green {
+      background: rgba(16,185,129,.10);
+      border-color: rgba(16,185,129,.20);
+      color: #059669;
+    }
+
+    .pr-chip-orange {
+      background: rgba(249,115,22,.10);
+      border-color: rgba(249,115,22,.20);
+      color: #c2410c;
+    }
+
+    .pr-meta-line {
+      font-size: 13px;
+      color: var(--pr-muted);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .pr-desc {
+      color: #334155;
+      font-size: 14px;
+      line-height: 1.55;
+      margin: 10px 0 14px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Stats row */
+    .pr-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .pr-stat {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #f8fafc;
+      border: 1px solid rgba(15,31,58,.08);
+      color: var(--pr-dark);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .pr-stat-stars {
+      color: #f59e0b;
+    }
+
+    /* Rating display */
+    .pr-rating-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .pr-stars {
+      color: #f59e0b;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .pr-rating-num {
+      font-weight: 900;
+      color: var(--pr-dark);
+      font-size: 15px;
+    }
+
+    .pr-rating-count {
+      color: var(--pr-muted);
+      font-size: 12px;
+    }
+
+    /* Top rank badge */
+    .pr-rank-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .pr-rank-1 {
+      background: linear-gradient(135deg, #ffd700, #ff8c00);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(255,140,0,.25);
+    }
+
+    .pr-rank-2 {
+      background: linear-gradient(135deg, #a8a9ad, #6b7280);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(107,114,128,.20);
+    }
+
+    .pr-rank-3 {
+      background: linear-gradient(135deg, #cd7f32, #92400e);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(146,64,14,.20);
+    }
+
+    .pr-rank-other {
+      background: rgba(37,99,235,.10);
+      border: 1px solid rgba(37,99,235,.15);
+      color: #1d4ed8;
+    }
+
+    /* Online indicator */
+    .pr-online-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #10b981;
+      box-shadow: 0 0 0 3px rgba(16,185,129,.15);
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    /* CTA row in card */
+    .pr-card-cta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* ===== FOOTER CTA ===== */
+    .pr-footer-cta {
+      text-align: center;
+      padding: 36px 22px;
+      background:
+        radial-gradient(900px 280px at 0% 50%, rgba(37,99,235,.09), transparent 52%),
+        radial-gradient(900px 280px at 100% 50%, rgba(249,115,22,.09), transparent 52%),
+        #fff;
+      border: 1px solid var(--pr-line);
+      border-radius: 24px;
+      margin-top: 22px;
+    }
+
+    /* ===== SEO CONTENT BLOCK ===== */
+    .pr-seo-block {
+      margin-top: 22px;
+      background: #f8fbff;
+      border: 1px solid var(--pr-line);
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    .pr-seo-block h2 { color: var(--pr-dark); margin: 0 0 10px; }
+    .pr-seo-block p { color: #42546d; line-height: 1.7; margin: 0 0 10px; }
+    .pr-seo-block ul { color: #42546d; line-height: 1.7; }
+
+    /* ===== EMPTY STATE ===== */
+    .pr-empty {
+      text-align: center;
+      padding: 32px;
+      color: var(--pr-muted);
+      background: #f8fafc;
+      border-radius: 16px;
+      border: 1px dashed rgba(15,31,58,.10);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1100px) {
+      .pr-benefits { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .pr-grid-3 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+
+    @media (max-width: 900px) {
+      .pr-hero-grid { grid-template-columns: 1fr; }
+      .pr-steps { grid-template-columns: 1fr; }
+      .pr-kpis { grid-template-columns: repeat(3, minmax(0,1fr)); }
+      .pr-benefits { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .pr-grid-3 { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 580px) {
+      .pr-kpis { grid-template-columns: 1fr; }
+      .pr-benefits { grid-template-columns: 1fr; }
+    }
+
+    /* ===== BTN extras ===== */
+    .btn-orange { background: linear-gradient(180deg, #ff7a2a, #f26a1b); }
+    .btn-blue-soft {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid rgba(37,99,235,.18);
+      box-shadow: none;
+    }
+    .btn-blue-soft:hover { background: #dbeafe; filter: none; }
+  </style>
+</head>
+
+<body class="auth-loading">
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="logo" href="/">
+        <img class="logo-img" src="/assets/logo-cere3d.svg" alt="Cere3D" />
+      </a>
+      <button class="nav-burger" id="navBurger" type="button" aria-label="Meniu" aria-expanded="false"></button>
+      <nav class="nav">
+        <a class="nav-link" href="/ghid.html">Ghid</a>
+        <a class="nav-link" href="/cereri.html">Cereri</a>
+        <a class="nav-link" href="/cere.html">Cere un Obiect 3D</a>
+                <a class="nav-link nav-printatori-new" href="/printatori.html">
+          🔥 Printatori
+          <span class="nav-badge-new">NOU</span>
+        </a>
+        <a class="nav-link nav-auth" id="navAuthLink" href="/auth.html">Autentificare</a>
+        <div class="nav-userwrap" id="navUserWrap" style="display:none;">
+          <a class="nav-user" id="navUser" href="/cont.html" title="Contul meu">
+            <span class="nav-avatar-wrap">
+              <img id="navAvatar" class="nav-avatar" src="/assets/avatar-placeholder.svg" alt="" />
+              <span id="navDmDot" class="nav-dot" style="display:none;"></span>
+            </span>
+            <span id="navName" class="nav-name"></span>
+          </a>
+<a class="nav-link nav-messages" id="navMessages" href="/mesaje.html">Mesaje</a>
+          <button class="nav-logout" id="navLogout" type="button">Logout</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="nav-overlay" id="navOverlay" hidden></div>
+<div class="pr-quick-menu" aria-label="Navigare rapida printatori">
+  <div class="pr-quick-menu-label">Exploreaza zona pentru printatori</div>
+
+  <a class="pr-quick-menu-link community" href="/comunitate-printatori.html">
+    <div class="pr-quick-menu-left">
+      <div class="pr-quick-menu-icon">💬</div>
+      <div class="pr-quick-menu-text">
+        <span class="pr-quick-menu-title">Comunitate printatori</span>
+        <span class="pr-quick-menu-sub">Discutii, intrebari, sfaturi, vanzari si showcase</span>
+      </div>
+    </div>
+    <span class="pr-quick-menu-arrow">→</span>
+  </a>
+
+  <a class="pr-quick-menu-link lista is-active" href="/lista-printatori.html">
+    <div class="pr-quick-menu-left">
+      <div class="pr-quick-menu-icon">🖨️</div>
+      <div class="pr-quick-menu-text">
+        <span class="pr-quick-menu-title">Lista printatori</span>
+        <span class="pr-quick-menu-sub">Vezi profiluri publice, rating, portofoliu si activitate</span>
+      </div>
+    </div>
+    <span class="pr-quick-menu-arrow">→</span>
+  </a>
+</div>
+  <main class="wrap">
+
+    <!-- ===== HERO ===== -->
+    <section class="pr-hero" aria-label="Inscrie-te ca printator">
+      <div class="pr-hero-grid">
+        <div>
+          <div class="meta-pill" style="margin-bottom:12px;">🖨️ Pentru printatori 3D</div>
+          <h1 class="pr-hero-title">
+            Gaseste clienti pentru<br>printare 3D pe Cere3D
+          </h1>
+          <p class="pr-hero-sub">
+            Inscrie-te gratuit ca printator, apari in lista publica si poti primi cereri reale pentru refacere piese, obiecte personalizate, accesorii utile si prototipuri. Iti construiesti profilul cu review-uri si portofoliu vizibil.
+          </p>
+
+          <div class="pr-hero-cta">
+            <button class="btn btn-orange" id="btnJoinPrinter" type="button">
+              🖨️ Inscrie-te ca printator
+            </button>
+            <a class="btn btn-blue-soft" href="/lista-printatori.html">
+              Vezi toti printatorii →
+            </a>
+          </div>
+
+          <div class="pr-kpis">
+            <div class="pr-kpi">
+              <div class="pr-kpi-value" id="printersCountStat">—</div>
+              <div class="pr-kpi-label">Printatori activi</div>
+            </div>
+            <div class="pr-kpi">
+              <div class="pr-kpi-value" id="resolvedMonthStat">—</div>
+              <div class="pr-kpi-label">Cereri rezolvate luna asta</div>
+            </div>
+            <div class="pr-kpi">
+              <div class="pr-kpi-value" id="reviewsStat">—</div>
+              <div class="pr-kpi-label">Rating mediu printatori</div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="pr-hero-aside" aria-label="Beneficii inscriere printator">
+          <h3>✅ Ce primesti daca te inscrii</h3>
+          <ul class="side-ul" style="margin:0; line-height:2;">
+            <li>🏅 Badge special <strong>Printator 3D</strong> langa avatar si nume</li>
+            <li>📋 Profil public cu oras, descriere si contact</li>
+            <li>🔍 Vizibilitate in lista publica de printatori</li>
+            <li>⭐ Review-uri si nota totala afisata public</li>
+            <li>🗂️ Portofoliu cu piese rezolvate (inainte & dupa)</li>
+            <li>📈 Istoric cereri rezolvate</li>
+            <li>🔗 Pagina SEO proprie indexata Google</li>
+          </ul>
+          <div class="note" style="margin-top:14px;">
+            <strong>Gratuit.</strong> Daca ai deja cont, te autentifici si activezi profilul in 2 click-uri.
+            Daca nu ai cont, il creezi rapid si revii aici.
+          </div>
+        </aside>
+      </div>
+    </section>
+
+
+
+    <!-- ===== DE CE MERITA ===== -->
+    <section class="pr-section" aria-label="Beneficii printatori Cere3D">
+      <div class="pr-section-head">
+        <div>
+          <h2>De ce merita sa fii printator pe Cere3D</h2>
+          <p class="pr-section-sub">Nu esti doar listat. Iti construiesti o reputatie reala si clienti fideli.</p>
+        </div>
+      </div>
+
+      <div class="pr-benefits">
+        <div class="pr-benefit">
+          <div class="pr-benefit-icon" style="background:rgba(37,99,235,.08);">🎯</div>
+          <h3 style="margin:0 0 6px;color:var(--pr-dark);font-size:16px;">Cereri reale</h3>
+          <p class="pr-desc" style="margin:0;font-size:13px;">
+            Clienti care cauta efectiv pe cineva sa le printeze o piesa rupta, un obiect personalizat, un accesoriu util sau un prototip rapid.
+          </p>
+        </div>
+        <div class="pr-benefit">
+          <div class="pr-benefit-icon" style="background:rgba(249,115,22,.08);">👤</div>
+          <h3 style="margin:0 0 6px;color:var(--pr-dark);font-size:16px;">Profil public clar</h3>
+          <p class="pr-desc" style="margin:0;font-size:13px;">
+            Avatar cu badge 3D, descriere, oras, rating, numar cereri rezolvate si ultima activitate.
+          </p>
+        </div>
+        <div class="pr-benefit">
+          <div class="pr-benefit-icon" style="background:rgba(16,185,129,.08);">🗂️</div>
+          <h3 style="margin:0 0 6px;color:var(--pr-dark);font-size:16px;">Portofoliu vizibil</h3>
+          <p class="pr-desc" style="margin:0;font-size:13px;">
+            Pozele cu piese printate (inainte/dupa) cresc increderea si te diferentiaza de alti printatori.
+          </p>
+        </div>
+        <div class="pr-benefit">
+          <div class="pr-benefit-icon" style="background:rgba(168,85,247,.08);">📈</div>
+          <h3 style="margin:0 0 6px;color:var(--pr-dark);font-size:16px;">SEO propriu</h3>
+          <p class="pr-desc" style="margin:0;font-size:13px;">
+            Profilul tau este indexat de Google. Clientii te pot gasi si direct pe cautari ca „printator 3D [oras]".
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== INSCRIE-TE ===== -->
+    <section class="pr-section" id="join-section" aria-label="Inscrie-te ca printator">
+      <div class="pr-section-head">
+        <div>
+          <h2>Devino printator pe Cere3D</h2>
+          <p class="pr-section-sub">
+            Daca ai cont, apesi butonul si esti inscris direct. Daca nu ai cont, mergi la creare cont si revii.
+          </p>
+        </div>
+      </div>
+
+      <div id="printerJoinWrap" class="pr-join-box">
+
+        <!-- Neautentificat -->
+        <div id="printerJoinLoggedOut">
+          <p style="margin:0 0 14px;color:#42546d;">Nu esti autentificat. Autentifica-te sau creeaza un cont pentru a deveni printator.</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <a class="btn btn-orange" href="/auth.html?return=/printatori.html%3Faction%3Djoin-printer">
+              🔐 Autentifica-te si devino printator
+            </a>
+            <a class="btn btn-blue btn-soft" href="/auth.html?mode=register&return=/printatori.html%3Faction%3Djoin-printer">
+              ✨ Creeaza cont nou
+            </a>
+          </div>
+        </div>
+
+        <!-- Autentificat, nu e printer -->
+        <div id="printerJoinLoggedIn" style="display:none;">
+          <div class="note" style="margin-bottom:14px;">
+            Apasand butonul de mai jos, profilul tau actual va fi folosit pentru inscrierea ca printator.
+            Vei aparea in lista publica cu badge special si poti incepe sa primesti cereri.
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <button id="btnBecomePrinterLoggedIn" class="btn btn-orange" type="button">
+              🖨️ Activeaza profilul de printator
+            </button>
+          </div>
+          <div id="printerJoinStatus" class="small-muted" style="margin-top:10px;"></div>
+        </div>
+
+        <!-- Done / deja printator -->
+        <div id="printerJoinDone" style="display:none;"></div>
+      </div>
+    </section>
+
+    <!-- ===== TOP PRINTATORI LUNA ASTA ===== -->
+    <section class="pr-section" id="top-printatori" aria-label="Top printatori luna aceasta">
+      <div class="pr-section-head">
+        <div>
+          <h2>🏆 Top printatori luna aceasta</h2>
+          <p class="pr-section-sub">Evidentiati dupa cereri rezolvate, rating si activitate in aceasta luna.</p>
+        </div>
+        <a class="btn btn-blue-soft" href="/lista-printatori.html">
+          Toti printatorii →
+        </a>
+      </div>
+      <div class="pr-grid-3" id="topPrintersGrid">
+        <div class="pr-empty">Se incarca topul...</div>
+      </div>
+    </section>
+
+    <!-- ===== PRINTATORI ONLINE ACUM ===== -->
+    <section class="pr-section" id="online-printatori" aria-label="Printatori online acum">
+      <div class="pr-section-head">
+        <div>
+          <h2>🟢 Printatori activi acum</h2>
+          <p class="pr-section-sub">Printatori online recent. Raspund rapid la cereri noi.</p>
+        </div>
+      </div>
+      <div class="pr-grid-3" id="printersPublicGrid">
+        <div class="pr-empty">Se incarca printatorii online...</div>
+      </div>
+    </section>
+
+    <!-- ===== SEO CONTENT ===== -->
+    <section class="pr-seo-block" aria-label="Informatii printatori 3D Romania">
+      <h2>Printatori 3D verificati in Romania</h2>
+      <p>
+        Cere3D este platforma romaneasca unde printatorii 3D isi construiesc un profil public verificat, primesc cereri reale
+        de la clienti si isi afiseaza lucrarile rezolvate. Spre deosebire de directoare statice, pe Cere3D printatorii sunt
+        evidentiati prin activitate reala: cereri rezolvate, review-uri de la clienti si ultima activitate.
+      </p>
+      <p>
+        Daca esti printator 3D in Romania si vrei sa gasesti clienti, inscrierea este gratuita. Profilul tau public este
+        indexat de Google si apare la cautari precum <em>printare 3D [oras]</em>, <em>printator 3D Romania</em> sau
+        <em>piese printate 3D la comanda</em>.
+      </p>
+      <ul>
+        <li>✅ Profil public indexat Google pentru fiecare printator</li>
+        <li>✅ Badge special „Printator 3D" vizibil in toata platforma</li>
+        <li>✅ Portofoliu cu piese realizate (foto inainte/dupa)</li>
+        <li>✅ Rating si review-uri de la clienti reali</li>
+        <li>✅ Notificari cand apar cereri noi in zona ta</li>
+      </ul>
+    </section>
+
+    <!-- ===== FOOTER CTA ===== -->
+    <section class="pr-footer-cta" aria-label="Call to action printatori">
+      <h2 style="margin:0 0 10px;color:var(--pr-dark);">Vrei sa apari si tu in lista?</h2>
+      <p style="margin:0 auto 20px;max-width:680px;color:#42546d;line-height:1.65;">
+        Fa-ti cont sau intra in contul tau, activeaza profilul de printator si incepe sa primesti cereri.
+        Profilul tau va fi indexat Google si vizibil pentru clientii din zona ta.
+      </p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <button class="btn btn-orange" id="btnJoinPrinterBottom" type="button">
+          🖨️ Devino printator — Gratuit
+        </button>
+        <a class="btn btn-blue btn-soft" href="/cereri.html">
+          Vezi cererile active →
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>© <span id="year"></span> Cere3D</span>
+      <span class="footer-links">
+        <a href="/legal.html">Legal · Privacy · Terms · Cookies</a>
+        <a class="footer-seo-link" href="/refacere-piese-plastic.html">Refacere piese din plastic</a>
+        <a class="footer-seo-link" href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+        <a class="footer-seo-link" href="/servicii-printare-3d-romania.html">Servicii printare 3d Romania</a>
+        <a class="footer-seo-link" href="/comenzi-si-ofertare-printare-3d.html">Comanda printare 3D</a>
+        <a class="footer-seo-link" href="/lista-printatori.html">Lista printatori 3D</a>
+      </span>
+    </div>
+  </footer>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+
+  <script type="module">
+  import { initNavAuth } from "./nav-auth.js?v=printatori-7";
+  import { initPrintatoriPage } from "./printatori-page.js?v=printatori-7";
+
+    initNavAuth();
+    initPrintatoriPage();
+  </script>
+
+  <script>
+    (function initMobileNav(){
+      const burger = document.getElementById("navBurger");
+      const overlay = document.getElementById("navOverlay");
+      const nav = document.querySelector(".topbar .nav");
+      if (!burger || !overlay || !nav) return;
+      function openNav(){ document.body.classList.add("nav-open"); overlay.hidden = false; burger.setAttribute("aria-expanded","true"); }
+      function closeNav(){ document.body.classList.remove("nav-open"); overlay.hidden = true; burger.setAttribute("aria-expanded","false"); }
+      burger.addEventListener("click", () => document.body.classList.contains("nav-open") ? closeNav() : openNav());
+      overlay.addEventListener("click", closeNav);
+      nav.addEventListener("click", (e) => { const a = e.target.closest("a"); if (!a) return; if (window.matchMedia("(max-width:900px)").matches) closeNav(); });
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeNav(); });
+      window.addEventListener("resize", () => { if (!window.matchMedia("(max-width:900px)").matches) closeNav(); });
+    })();
+  </script>
+  <script type="module" src="/push.js?v=1"></script>
+  <script src="/nav-messages-push.js?v=1"></script>
+
+  <!-- SEO Internal Links: printare 3D -->
+  <nav class="seo-internal-links" aria-label="Pagini principale printare 3D" style="display:none;">
+    <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+    <a href="/">Printare 3D Romania - Cere3D</a>
+    <a href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a>
+    <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a>
+    <a href="/cat-costa-un-obiect-printat-3d.html">Cat costa printare 3D</a>
+    <a href="/ce-material-sa-aleg-pentru-printare-3d.html">Materiale printare 3D</a>
+  </nav>
+</body>
+</html>

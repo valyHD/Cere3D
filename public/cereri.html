@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) - GA4 + Google Ads -->
+ <!-- Consent Mode v2 (default denied) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  // default: blocat pana la consimtamant
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    analytics_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied'
+  });
+
+  gtag('js', new Date());
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1FY3LRNBF2"></script>
+
+<!-- Consent UI + loader logic -->
+<script type="module" src="/consent.js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // GA4
+  gtag('config', 'G-1FY3LRNBF2');
+
+  // Google Ads
+  gtag('config', 'AW-17949757837');
+</script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cere3D - Cereri</title>
+<link rel="canonical" href="https://cere3d.ro/cereri.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Cere3D" />
+<meta property="og:title" content="Cere3D - Cereri" />
+<meta property="og:description" content="Pune o cerere de printare 3D si primesti oferte in chat." />
+<meta property="og:url" content="https://cere3d.ro/cereri.html" />
+<meta property="og:image" content="https://cere3d.ro/assets/og-cere3d5.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Cere3D - Cereri" />
+<meta name="twitter:description" content="Pune o cerere de printare 3D si primesti oferte in chat." />
+<meta name="twitter:image" content="https://cere3d.ro/assets/og-cere3d5.png" />
+
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+<link rel="stylesheet" href="/styles.css?v=20260328-5" />
+<link rel="stylesheet" href="/cereri-tabs.css?v=20260328-5" />
+</head>
+
+<body class="auth-loading">
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="logo" href="/">
+        <img class="logo-img" src="/assets/logo-cere3d.svg" alt="Cere 3D" />
+      </a>
+<button class="nav-burger" id="navBurger" type="button" aria-label="Meniu" aria-expanded="false"></button>
+
+
+      <nav class="nav">
+        <a class="nav-link" href="./ghid.html">Ghid</a>
+        <a class="nav-link" href="./cereri.html">Cereri</a>
+        <a class="nav-link" href="./cere.html">Cere un Obiect 3D</a>
+                <a class="nav-link nav-printatori-new" href="/printatori.html">
+          🔥 Printatori
+          <span class="nav-badge-new">NOU</span>
+        </a>
+        <a class="nav-link nav-auth" id="navAuthLink" href="/auth.html">Autentificare</a>
+<div class="nav-userwrap" id="navUserWrap" style="display:none;">
+  <a class="nav-user" id="navUser" href="/cont.html" title="Contul meu">
+    <span class="nav-avatar-wrap">
+      <img loading="lazy" decoding="async" id="navAvatar" class="nav-avatar" src="/assets/avatar-placeholder.svg" alt="" />
+      <span id="navDmDot" class="nav-dot" style="display:none;"></span>
+    </span>
+    <span id="navName" class="nav-name"></span>
+  </a>
+
+  <!-- NEW: Mesaje -->
+  <a class="nav-link nav-messages" id="navMessages" href="/mesaje.html">Mesaje</a>
+
+  <button class="nav-logout" id="navLogout" type="button">Logout</button>
+</div>
+
+
+      </nav>
+    </div>
+  </header>
+<div class="nav-overlay" id="navOverlay" hidden></div>
+  <main class="wrap">
+<!-- MAKER NUDGE -->
+<section class="maker-mini2">
+  <div class="maker-mini2-row">
+    <span class="maker-mini2-badge">Pentru printatori</span>
+    <span class="maker-mini2-text">
+      Scrie primul in chat + cere 2–3 detalii (poze cu rigla, material, termen).
+    </span>
+    <a href="#" id="btnMakerMiniToggle" class="maker-mini2-link">Detalii</a>
+  </div>
+  <div class="maker-mini2-more" id="makerMiniMore" style="display:none;">
+    Autorii raspund mai repede cand mesajul este scurt si clar.
+  </div>
+</section>
+
+<section class="how-mini card">
+  <div class="how-mini-top">
+    <div class="how-mini-left">
+      <div class="how-mini-title">Cum functioneaza</div>
+      <div class="how-mini-pills">
+        <span class="how-pill"><b>1</b> Postezi</span>
+        <span class="how-pill"><b>2</b> Oferte</span>
+        <span class="how-pill"><b>3</b> Alegi</span>
+      </div>
+    </div>
+    <div class="how-mini-right">
+      <a class="btn btn-orange how-mini-btn" href="./cere.html">Posteaza</a>
+      <button class="btn btn-blue btn-soft how-mini-btn" id="btnHowToggle" type="button">Detalii</button>
+    </div>
+  </div>
+  <div class="how-mini-details" id="howDetails" style="display:none;">
+    <ol class="how-mini-list">
+      <li>Adaugi poze + cateva detalii (dimensiuni, material, termen).</li>
+      <li>Primesti mesaje si oferte in chat / Oferte.</li>
+      <li>Alegi printatorul potrivit si inchizi cererea cand e gata.</li>
+    </ol>
+    <div class="how-mini-actions">
+      <a class="btn btn-blue btn-soft how-mini-btn" href="./ghid.html">Vezi ghidul</a>
+    </div>
+  </div>
+  <div id="cereriStatus" class="filters-hint" style="margin-top:8px;"></div>
+</section>
+
+<!-- MY POSTS dropdown -->
+<section class="filters-card" id="myPostsCard" style="margin-top:12px; display:none;">
+  <div class="filters-grid" style="grid-template-columns: 1fr;">
+    <div class="f-field">
+      <span class="f-label">Postarile mele</span>
+      <button id="myPostsToggle" class="f-input" type="button"
+        style="display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;">
+        <span id="myPostsToggleText">Apasa ca sa vezi postarile mele</span>
+        <span aria-hidden="true" style="font-weight:900;">▾</span>
+      </button>
+      <div id="myPostsPanel" class="card" style="display:none;margin-top:10px;background:rgba(255,255,255,0.03);">
+        <div id="myPostsList" class="small-muted">Se incarca...</div>
+      </div>
+      <div id="myPostsHint" class="small-muted" style="margin-top:8px;"></div>
+    </div>
+  </div>
+</section>
+
+    <!-- LIST (REAL) -->
+    <section class="requests-section">
+      <div id="cereriGrid" class="requests-grid requests-grid-wide"></div>
+<div style="margin:14px 0; display:flex; justify-content:center;">
+</div>
+
+      <div class="requests-cta">
+        <a class="btn btn-orange" href="./cere.html">Posteaza o cerere</a>
+      </div>
+      <button id="btnLoadMoreCereri" class="btn btn-blue btn-soft" type="button" style="margin:14px auto 0;display:none;">
+  Incarca mai multe (200)
+</button>
+
+    </section>
+  </main>
+  <!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© <span id="year"></span> Cere3D</span>
+    <span class="footer-links">
+      <a href="/legal.html">Legal · Privacy · Terms · Cookies</a>
+      <a class="footer-seo-link" href="/refacere-piese-plastic.html">
+        Refacere piese din plastic
+      </a>
+      <a class="footer-seo-link" href="/printare-3d-la-comanda.html">
+        Printare 3D la comanda
+      </a>
+      <a class="footer-seo-link" href="/servicii-printare-3d-romania.html">
+        Servicii printare 3d Romania
+      </a>
+      <a class="footer-seo-link" href="/comenzi-si-ofertare-printare-3d.html">
+        Comanda printare 3D
+      </a>
+      <a class="footer-seo-link" href="/aplicatii-printare-3d-utile.html">
+        Aplicatii printare 3D
+      </a>
+      <a class="footer-seo-link" href="/idei-si-utilizari-printare-3d.html">
+        Idei si Utilizari Printare 3D
+      </a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+
+<script type="module">
+  import { initCereriFeed } from "./cereri-feed.js?v=10";
+  import { initMyPostsDropdown } from "./my-cereri-dropdown.js?v=10";
+  import { initNavAuth } from "./nav-auth.js?v=10";
+  import { initCereriFilters } from "/cereri-filters.js?v=10";
+  import { initCereriTabs } from "./cereri-tabs.js?v=10";
+  initCereriFilters();
+  initCereriFeed();
+  initMyPostsDropdown();
+  initNavAuth();
+  initCereriTabs();
+  </script>
+  <script>
+  // fallback: daca auth nu raspunde in 2 secunde, arata "Autentificare"
+  setTimeout(() => {
+    document.body.classList.remove("auth-loading");
+  }, 2000);
+</script>
+<script>
+  (function initMobileNav(){
+    const burger = document.getElementById("navBurger");
+    const overlay = document.getElementById("navOverlay");
+    const nav = document.querySelector(".topbar .nav");
+    if (!burger || !overlay || !nav) return;
+
+    function openNav(){
+      document.body.classList.add("nav-open");
+      overlay.hidden = false;
+      burger.setAttribute("aria-expanded", "true");
+    }
+    function closeNav(){
+      document.body.classList.remove("nav-open");
+      overlay.hidden = true;
+      burger.setAttribute("aria-expanded", "false");
+    }
+
+    burger.addEventListener("click", () => {
+      document.body.classList.contains("nav-open") ? closeNav() : openNav();
+    });
+
+    overlay.addEventListener("click", closeNav);
+
+    nav.addEventListener("click", (e) => {
+      const a = e.target.closest("a");
+      if (!a) return;
+      if (window.matchMedia("(max-width: 900px)").matches) closeNav();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeNav();
+    });
+
+    window.addEventListener("resize", () => {
+      if (!window.matchMedia("(max-width: 900px)").matches) closeNav();
+    });
+  })();
+</script>
+<button id="floatingBackBtn" class="floating-back-btn" aria-label="Inapoi">
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5">
+    <path d="M15 18l-6-6 6-6"/>
+  </svg>
+</button>
+
+<script>
+(function initFloatingBack(){
+  const btn = document.getElementById("floatingBackBtn");
+  if (!btn) return;
+
+  btn.addEventListener("click", () => {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.href = "/";
+    }
+  });
+})();
+</script>
+<script>
+(function initHowToggle(){
+  const btn = document.getElementById("btnHowToggle");
+  const box = document.getElementById("howDetails");
+  if(!btn || !box) return;
+
+  btn.addEventListener("click", () => {
+    const open = box.style.display !== "none";
+    box.style.display = open ? "none" : "block";
+    btn.textContent = open ? "Detalii" : "Inchide";
+  });
+})();
+</script>
+<script>
+(function initMakerMini2(){
+  const link = document.getElementById("btnMakerMiniToggle");
+  const more = document.getElementById("makerMiniMore");
+  if(!link || !more) return;
+
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const open = more.style.display !== "none";
+    more.style.display = open ? "none" : "block";
+    link.textContent = open ? "Detalii" : "Inchide";
+  });
+})();
+</script>
+
+  <!-- SEO Internal Links: printare 3D -->
+  <nav class="seo-internal-links" aria-label="Pagini principale printare 3D" style="display:none;">
+    <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+    <a href="/">Printare 3D Romania - Cere3D</a>
+    <a href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a>
+    <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a>
+    <a href="/cat-costa-un-obiect-printat-3d.html">Cat costa printare 3D</a>
+    <a href="/ce-material-sa-aleg-pentru-printare-3d.html">Materiale printare 3D</a>
+  </nav>
+</body>
+</html>
+

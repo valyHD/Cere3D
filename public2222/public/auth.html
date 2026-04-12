@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <!-- Consent Mode v2 (default denied) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  // default: blocat pana la consimtamant
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    analytics_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied'
+  });
+
+  gtag('js', new Date());
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1FY3LRNBF2"></script>
+
+<!-- Consent UI + loader logic -->
+<script type="module" src="/consent.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cere3D - Autentificare</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body class="auth-loading">
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="logo" href="/">
+        <img loading="lazy" decoding="async" class="logo-img" src="/assets/logo-cere3d.svg" alt="Cere 3D" />
+      </a>
+<button class="nav-burger" id="navBurger" type="button" aria-label="Meniu" aria-expanded="false"></button>
+
+
+      <nav class="nav">
+        <a class="nav-link" href="/ghid.html">Ghid</a>
+        <a class="nav-link" href="/cereri.html">Cereri</a>
+        <a class="nav-link" href="/cere.html">Cere un Obiect 3D</a>
+                <a class="nav-link nav-printatori-new" href="/printatori.html">
+          🔥 Printatori
+          <span class="nav-badge-new">NOU</span>
+        </a>
+        <a class="nav-link nav-auth" id="navAuthLink" href="/auth.html">Autentificare</a>
+<div class="nav-userwrap" id="navUserWrap" style="display:none;">
+  <a class="nav-user" id="navUser" href="/cont.html" title="Contul meu">
+    <span class="nav-avatar-wrap">
+      <img loading="lazy" decoding="async" id="navAvatar" class="nav-avatar" src="/assets/avatar-placeholder.svg" alt="" />
+      <span id="navDmDot" class="nav-dot" style="display:none;"></span>
+    </span>
+    <span id="navName" class="nav-name"></span>
+  </a>
+
+  <!-- NEW: Mesaje -->
+  <a class="nav-link nav-messages" id="navMessages" href="/mesaje.html">Mesaje</a>
+
+  <button class="nav-logout" id="navLogout" type="button">Logout</button>
+</div>
+
+
+      </nav>
+    </div>
+  </header>
+<div class="nav-overlay" id="navOverlay" hidden></div>
+
+  <main class="wrap">
+    <div class="section-head" style="margin-top:18px;">
+      <h2>Autentificare</h2>
+      <p>Cont cu email + parola sau login rapid cu Google. Pentru o experienta totala completeaza Nume/username, avatar si descriere. Exploreaza site-ul :)</p>
+    </div>
+
+    <section class="form-card">
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Login</div>
+
+          <label class="field">
+            <span class="label">Email</span>
+            <input id="loginEmail" class="input" type="email" placeholder="email@exemplu.ro" />
+          </label>
+
+          <label class="field">
+            <span class="label">Parola</span>
+            <input id="loginPass" class="input" type="password" placeholder="••••••••" />
+          </label>
+
+          <div class="form-actions" style="justify-content:flex-start;gap:10px;">
+            <button id="btnLogin" class="btn btn-orange" type="button">Login</button>
+            <button id="btnGoogle" class="btn btn-blue btn-soft" type="button">Login cu Google</button>
+          </div>
+
+          <div class="note" style="margin-top:12px;">
+            <button id="btnShowReset" class="btn btn-blue btn-soft" type="button">Ai uitat parola?</button>
+          </div>
+
+          <div id="resetBox" class="note" style="display:none;margin-top:12px;">
+            <div style="font-weight:900;margin-bottom:8px;">Reset parola</div>
+            <input id="resetEmail" class="input" type="email" placeholder="email@exemplu.ro" />
+            <div class="form-actions" style="justify-content:flex-start;gap:10px;margin-top:10px;">
+              <button id="btnReset" class="btn btn-orange btn-soft-orange" type="button">Trimite email reset</button>
+              <button id="btnHideReset" class="btn btn-blue btn-soft" type="button">Inchide</button>
+            </div>
+          </div>
+
+          <div id="authStatus" class="form-status" role="status" aria-live="polite"></div>
+
+        </div>
+
+        <div class="card">
+          <div class="card-title">Creeaza cont</div>
+
+          <label class="field">
+            <span class="label">Nume public (username)</span>
+            <input id="regName" class="input" type="text" placeholder="ex: Ionut" />
+            <span class="help">Apare public pe profil si in chat.</span>
+          </label>
+
+          <label class="field">
+            <span class="label">Email</span>
+            <input id="regEmail" class="input" type="email" placeholder="email@exemplu.ro" />
+          </label>
+
+          <label class="field">
+            <span class="label">Parola</span>
+            <input id="regPass" class="input" type="password" placeholder="minim 6 caractere" />
+          </label>
+
+          <div class="form-actions" style="justify-content:flex-start;">
+            <button id="btnRegister" class="btn btn-orange" type="button">Creeaza cont</button>
+          </div>
+
+          <div class="note" style="margin-top:12px;">
+            Dupa creare cont, iti facem profil automat in Firestore (nume + email).
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+<!-- SUCCESS MODAL -->
+<div class="pop" id="pop" aria-hidden="true">
+  <div class="pop-backdrop" data-close="1"></div>
+
+  <div class="pop-card" role="dialog" aria-modal="true">
+    <button class="pop-x" id="popX" type="button" aria-label="Inchide">✕</button>
+    <div class="pop-title" id="popTitle">Felicitari!</div>
+    <div class="pop-text" id="popText">Ai creat contul. Acum te poti loga.</div>
+
+    <div class="pop-actions">
+      <button class="btn btn-orange" id="popOk" type="button">Ok</button>
+    </div>
+  </div>
+</div>
+<!-- RESET STEP 2 (vine din link-ul emailului) -->
+<section class="card" id="reset2Box" style="display:none;">
+  <div class="card-title">Seteaza parola noua</div>
+
+  <label class="field">
+    <span class="label">Email</span>
+    <input id="reset2Email" class="input" type="email" readonly />
+    <span class="help">Emailul vine autocompletat din link-ul de reset.</span>
+  </label>
+
+  <label class="field">
+    <span class="label">Parola noua</span>
+    <input id="reset2Pass" class="input" type="password" placeholder="Minim 6 caractere" />
+  </label>
+
+  <label class="field">
+    <span class="label">Repeta parola noua</span>
+    <input id="reset2Pass2" class="input" type="password" placeholder="Repeta parola" />
+  </label>
+
+  <div class="form-actions" style="justify-content:flex-start;gap:10px;">
+    <button class="btn btn-orange" id="btnReset2Confirm" type="button">Salveaza parola</button>
+    <a class="btn btn-blue btn-soft" href="/auth.html">Inapoi la login</a>
+  </div>
+
+  <div id="reset2Msg" class="small-muted" style="margin-top:10px;"></div>
+</section>
+  <!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© <span id="year"></span> Cere3D</span>
+    <span class="footer-links">
+      <a href="/legal.html">Legal · Privacy · Terms · Cookies</a>
+      <a class="footer-seo-link" href="/refacere-piese-plastic.html">
+        Refacere piese din plastic
+      </a>
+      <a class="footer-seo-link" href="/printare-3d-la-comanda.html">
+        Printare 3D la comanda
+      </a>
+      <a class="footer-seo-link" href="/servicii-printare-3d-romania.html">
+        Servicii printare 3d Romania
+      </a>
+      <a class="footer-seo-link" href="/comenzi-si-ofertare-printare-3d.html">
+        Comanda printare 3D
+      </a>
+      <a class="footer-seo-link" href="/aplicatii-printare-3d-utile.html">
+        Aplicatii printare 3D
+      </a>
+      <a class="footer-seo-link" href="/idei-si-utilizari-printare-3d.html">
+        Idei si Utilizari Printare 3D
+      </a>
+    </span>
+  </div>
+</footer>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+  <script type="module">
+    import { initAuthPage } from "./auth-page.js";
+    initAuthPage();
+      import { initNavAuth } from "./nav-auth.js";
+  initNavAuth();
+  </script>
+  <script>
+  // fallback: daca auth nu raspunde in 2 secunde, arata "Autentificare"
+  setTimeout(() => {
+    document.body.classList.remove("auth-loading");
+  }, 2000);
+</script>
+<script>
+  (function initMobileNav(){
+    const burger = document.getElementById("navBurger");
+    const overlay = document.getElementById("navOverlay");
+    const nav = document.querySelector(".topbar .nav");
+    if (!burger || !overlay || !nav) return;
+
+    function openNav(){
+      document.body.classList.add("nav-open");
+      overlay.hidden = false;
+      burger.setAttribute("aria-expanded", "true");
+    }
+    function closeNav(){
+      document.body.classList.remove("nav-open");
+      overlay.hidden = true;
+      burger.setAttribute("aria-expanded", "false");
+    }
+
+    burger.addEventListener("click", () => {
+      document.body.classList.contains("nav-open") ? closeNav() : openNav();
+    });
+
+    overlay.addEventListener("click", closeNav);
+
+    nav.addEventListener("click", (e) => {
+      const a = e.target.closest("a");
+      if (!a) return;
+      if (window.matchMedia("(max-width: 900px)").matches) closeNav();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeNav();
+    });
+
+    window.addEventListener("resize", () => {
+      if (!window.matchMedia("(max-width: 900px)").matches) closeNav();
+    });
+  })();
+</script>
+<button id="floatingBackBtn" class="floating-back-btn" aria-label="Inapoi">
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5">
+    <path d="M15 18l-6-6 6-6"/>
+  </svg>
+</button>
+
+<script>
+(function initFloatingBack(){
+  const btn = document.getElementById("floatingBackBtn");
+  if (!btn) return;
+
+  btn.addEventListener("click", () => {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.href = "/";
+    }
+  });
+})();
+</script>
+
+  <!-- SEO Internal Links: printare 3D -->
+  <nav class="seo-internal-links" aria-label="Pagini principale printare 3D" style="display:none;">
+    <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+    <a href="/">Printare 3D Romania - Cere3D</a>
+    <a href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a>
+    <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a>
+    <a href="/cat-costa-un-obiect-printat-3d.html">Cat costa printare 3D</a>
+    <a href="/ce-material-sa-aleg-pentru-printare-3d.html">Materiale printare 3D</a>
+  </nav>
+</body>
+</html>
+

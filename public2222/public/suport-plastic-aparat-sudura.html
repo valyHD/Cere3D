@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Consent Mode v2 (default denied) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+
+    gtag('js', new Date());
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FY3LRNBF2"></script>
+
+  <!-- Consent UI + loader logic -->
+  <script type="module" src="/consent.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Suport Plastic Aparat de Sudura | Refacere Capace, Colturi, Distantiere - Cere3D</title>
+  <meta name="description" content="Ti s-a rupt un suport, un colt, un capac sau o piesa de plastic la aparatul de sudura? Pe Cere3D poti obtine oferte pentru refacere sau printare 3D la comanda pentru piese exterioare si non-critice, cu accent pe caldura, prinderi si compatibilitate." />
+  <link rel="canonical" href="https://cere3d.ro/suport-plastic-aparat-sudura.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Suport Plastic Aparat de Sudura | Cere3D" />
+  <meta property="og:description" content="Refacere pentru suport, capac, colt sau piesa de plastic la aparat de sudura. Postezi cererea si primesti oferte." />
+  <meta property="og:url" content="https://cere3d.ro/suport-plastic-aparat-sudura.html" />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/seo-hub.css" />
+
+  <style>
+    .crumbs{
+      padding:18px 0 0;
+      font-size:13px;
+      color:rgba(11,19,38,.66);
+    }
+    .crumbs a{
+      color:rgba(11,19,38,.82);
+      text-decoration:none;
+      font-weight:700;
+    }
+    .crumbs span{
+      margin:0 8px;
+      opacity:.45;
+    }
+
+    .jump-nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:center;
+      margin-top:20px;
+    }
+    .jump-nav a{
+      display:inline-flex;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(11,19,38,.05);
+      border:1px solid rgba(11,19,38,.08);
+      color:#122a55;
+      font-weight:850;
+      font-size:14px;
+      text-decoration:none;
+      transition:transform .14s ease, background .14s ease;
+    }
+    .jump-nav a:hover{
+      transform:translateY(-1px);
+      background:rgba(11,19,38,.08);
+    }
+
+    .diag-grid,
+    .quote-grid,
+    .related-grid,
+    .heat-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+      gap:16px;
+      margin-top:26px;
+    }
+
+    .diag-card,
+    .quote-card,
+    .related-card,
+    .heat-card,
+    .checklist-box,
+    .context-box,
+    .alert-box{
+      background:rgba(255,255,255,.88);
+      border:1px solid rgba(11,19,38,.08);
+      border-radius:20px;
+      box-shadow:var(--hub-shadow);
+      padding:24px;
+    }
+
+    .diag-card h3,
+    .quote-card h3,
+    .related-card h3,
+    .heat-card h3,
+    .checklist-box h3,
+    .context-box h3,
+    .alert-box h3{
+      font-family:Manrope, system-ui, sans-serif;
+      font-size:20px;
+      color:#122a55;
+      font-weight:950;
+      line-height:1.25;
+      margin-bottom:10px;
+    }
+
+    .diag-card p,
+    .quote-card p,
+    .related-card p,
+    .heat-card p,
+    .checklist-box p,
+    .checklist-box li,
+    .context-box p,
+    .context-box li,
+    .alert-box p,
+    .alert-box li{
+      color:rgba(11,19,38,.76);
+      font-size:15px;
+      line-height:1.72;
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+      margin-top:28px;
+      align-items:start;
+    }
+
+    .checklist-box ul,
+    .context-box ul,
+    .alert-box ul{
+      padding-left:18px;
+      margin-top:10px;
+    }
+    .checklist-box li + li,
+    .context-box li + li,
+    .alert-box li + li{
+      margin-top:8px;
+    }
+
+    .mini-specs{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+      gap:14px;
+      margin-top:16px;
+    }
+
+    .mini-spec{
+      background:rgba(11,19,38,.04);
+      border:1px solid rgba(11,19,38,.08);
+      border-radius:16px;
+      padding:16px;
+    }
+    .mini-spec strong{
+      display:block;
+      color:#122a55;
+      font-weight:900;
+      margin-bottom:6px;
+    }
+    .mini-spec span{
+      color:rgba(11,19,38,.72);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .context-box{
+      background:rgba(91,124,250,.08);
+      border-color:rgba(91,124,250,.18);
+      margin-top:18px;
+    }
+
+    .alert-box{
+      background:rgba(255,122,42,.08);
+      border-color:rgba(255,122,42,.18);
+      margin-top:18px;
+    }
+
+    .related-card a{
+      text-decoration:none;
+      color:#122a55;
+      font-weight:900;
+    }
+
+    @media (max-width: 920px){
+      .two-col{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {
+        "@type":"ListItem",
+        "position":1,
+        "name":"Cere3D",
+        "item":"https://cere3d.ro/"
+      },
+      {
+        "@type":"ListItem",
+        "position":2,
+        "name":"Refacere piese din plastic",
+        "item":"https://cere3d.ro/refacere-piese-plastic.html"
+      },
+      {
+        "@type":"ListItem",
+        "position":3,
+        "name":"Piese plastic unelte si scule",
+        "item":"https://cere3d.ro/piese-plastic-unelte.html"
+      },
+      {
+        "@type":"ListItem",
+        "position":4,
+        "name":"Suport plastic aparat de sudura",
+        "item":"https://cere3d.ro/suport-plastic-aparat-sudura.html"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Suport plastic aparat de sudura: refacere pentru capace, colturi, distantiere si piese exterioare",
+    "description":"Pagina dedicata utilizatorilor care cauta refacere sau printare 3D la comanda pentru suport, capac, colt sau alte piese de plastic exterioare si non-critice la aparatul de sudura, cu accent pe caldura, prinderi si compatibilitate.",
+    "mainEntityOfPage":"https://cere3d.ro/suport-plastic-aparat-sudura.html",
+    "author":{"@type":"Organization","name":"Cere3D"},
+    "publisher":{"@type":"Organization","name":"Cere3D"},
+    "datePublished":"2026-03-07",
+    "dateModified":"2026-03-07"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Ce piese din plastic la aparatul de sudura au sens sa fie refacute?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"In special suporturi, capace, colturi, distantiere, piese de mascare si alte componente exterioare sau non-critice care nu tin direct de functionarea electrica sau de siguranta activa a aparatului."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Ce trebuie sa mentionez despre temperatura si mediu?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Este important sa spui daca piesa sta aproape de zone calde, de fante de evacuare, de carcasa metalica sau intr-o zona expusa la praf si socuri. Acest context influenteaza materialul si geometria recomandate."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Ce poze ajuta cel mai mult pentru o piesa de aparat de sudura?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Pozele cele mai utile sint cele cu piesa scoasa, cu spatele piesei, cu punctele de prindere, cu zona unde vine montata si cu aparatul in ansamblu. Daca piesa are distantiere sau gauri, acestea trebuie sa se vada clar."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Cum stiu daca merita o copie identica sau o varianta intarita?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Daca piesa s-a rupt intr-o zona subtire, la colt sau la prinderi, merita mentionata dorinta pentru o varianta intarita. Daca problema este doar lipsa unei piese de mascare sau a unui capac exterior, o copie apropiata de original poate fi suficienta."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body data-page="seo-hub">
+  <header class="topbar">
+    <a href="/index.html" class="logo" aria-label="Cere3D">
+      <img src="/assets/logo-cere3d.svg" alt="Cere3D" class="logo-img" />
+    </a>
+    <a href="/cere.html" class="topbar-cta">Posteaza cererea →</a>
+  </header>
+
+  <div class="container">
+    <div class="crumbs">
+      <a href="/index.html">Acasa</a><span>›</span>
+      <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a><span>›</span>
+      <a href="/piese-plastic-unelte.html">Piese plastic unelte si scule</a><span>›</span>
+      <strong>Suport plastic aparat de sudura</strong>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-badge">Piesa exterioara de unealta</div>
+    <h1>Suport, capac sau colt de plastic la <em>aparatul de sudura</em></h1>
+    <p class="hero-sub">
+      Cind se rupe o piesa de plastic la aparatul de sudura, utilizatorul nu cauta un text generic despre printare 3D. Cauta sa afle daca se poate reface un suport, un capac, un colt sau un distantier care tine carcasa, ordinea cablurilor sau aspectul exterior al aparatului.
+    </p>
+
+    <div class="hero-cta-wrap">
+      <a href="/cere.html" class="btn-primary">
+        <span>Posteaza cererea gratuit</span>
+        <span>→</span>
+      </a>
+      <a href="#diagnostic" class="btn-secondary">Ce piese intra aici</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">Caldura</span>
+        <span class="stat-label">Context important pentru piesa</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Prinderi</span>
+        <span class="stat-label">Gaurile si distantele conteaza mult</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Non-critic</span>
+        <span class="stat-label">Accent pe piese exterioare si suporturi</span>
+      </div>
+    </div>
+
+    <div class="jump-nav">
+      <a href="/piese-plastic-unelte.html">Categoria unelte</a>
+      <a href="#diagnostic">Tipuri de piese</a>
+      <a href="#temperatura">Caldura si mediu</a>
+      <a href="#oferta">Ce verifici in oferta</a>
+      <a href="#pagini-inrudite">Pagini inrudite</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="diagnostic">
+    <div class="container">
+      <div class="section-tag">Ce intra pe pagina asta</div>
+      <h2 class="section-title">Piese de plastic de aparat de sudura care au sens sa fie evaluate separat</h2>
+      <p class="section-lead">
+        Aici nu vorbim despre componente active sau critice. Intentia paginii este mai concreta: utilizatorul are o piesa exterioara, un suport sau un element de carcasa care s-a rupt si vrea sa stie daca merita refacerea.
+      </p>
+
+      <div class="diag-grid">
+        <div class="diag-card">
+          <h3>Suport exterior</h3>
+          <p>Piesa care tine un panou, o zona de carcasa, o protectie sau ajuta la pozitionarea unei parti exterioare a aparatului.</p>
+        </div>
+        <div class="diag-card">
+          <h3>Colt de carcasa</h3>
+          <p>Muchie sau colt fisurat la impact, la transport sau la manipulare frecventa in atelier.</p>
+        </div>
+        <div class="diag-card">
+          <h3>Capac de mascare</h3>
+          <p>Capac mic sau zona de acces rupta, lipsa ori deformata, care strica inchiderea sau aspectul aparatului.</p>
+        </div>
+        <div class="diag-card">
+          <h3>Distantier</h3>
+          <p>Piesa care tine o distanta corecta intre panouri, suruburi sau zone ale carcasei si fara de care apar jocuri sau frecari.</p>
+        </div>
+        <div class="diag-card">
+          <h3>Picior sau sprijin secundar</h3>
+          <p>Element exterior care ajuta la stabilitate sau sprijin pe masa ori pe carcasa, fara a fi piesa structurala critica.</p>
+        </div>
+        <div class="diag-card">
+          <h3>Prinderi si urechi</h3>
+          <p>Zone mici din plastic care cedeaza in jurul gaurilor si fac imposibila montarea corecta a unei piese mai mari.</p>
+        </div>
+      </div>
+
+      <div class="context-box">
+        <h3>Ce face pagina asta diferita de altele</h3>
+        <p>
+          Spre deosebire de piese de auto sau electrocasnice, aici utilizatorul este interesat de relatie dintre piesa si mediul de lucru: caldura, praf, manipulare in atelier si pozitionarea pe carcasa aparatului. Asta trebuie sa se simta clar in continut.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm" id="temperatura">
+    <div class="container">
+      <div class="section-tag">Context tehnic util</div>
+      <h2 class="section-title">La aparatul de sudura conteaza nu doar forma, ci si unde sta piesa fata de sursa de caldura</h2>
+
+      <div class="two-col">
+        <div class="checklist-box">
+          <h3>Ce trebuie spus in cerere despre mediu</h3>
+          <ul>
+            <li>daca piesa este aproape de zona de ventilare sau evacuare</li>
+            <li>daca sta lipita de o carcasa metalica care se incalzeste</li>
+            <li>daca aparatul este folosit des, in praf sau in atelier</li>
+            <li>daca piesa este lovita frecvent la transport sau manipulare</li>
+            <li>daca ruptura a aparut la caldura, la surub sau la soc mecanic</li>
+          </ul>
+        </div>
+
+        <div class="checklist-box">
+          <h3>Ce poze ajuta cel mai mult</h3>
+          <div class="mini-specs">
+            <div class="mini-spec">
+              <strong>Poza cu piesa scoasa</strong>
+              <span>Din fata, spate si profil.</span>
+            </div>
+            <div class="mini-spec">
+              <strong>Puncte de prindere</strong>
+              <span>Gaurile, clipsurile si urechile rupte.</span>
+            </div>
+            <div class="mini-spec">
+              <strong>Poza cu aparatul</strong>
+              <span>Ca sa se inteleaga zona unde vine piesa.</span>
+            </div>
+            <div class="mini-spec">
+              <strong>Zona calda</strong>
+              <span>Daca piesa este aproape de fante sau sursa termica.</span>
+            </div>
+            <div class="mini-spec">
+              <strong>Dimensiuni de baza</strong>
+              <span>Lungime, latime, grosime si distante intre gauri.</span>
+            </div>
+            <div class="mini-spec">
+              <strong>Bucati ramase</strong>
+              <span>Foarte utile daca piesa e sparta.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="alert-box">
+        <h3>Delimitare importanta</h3>
+        <p>
+          Pagina este pentru piese exterioare si non-critice. Daca ai o componenta care tine direct de siguranta activa, de electrica interna sau de functionarea critica a aparatului, aceea trebuie evaluata separat si descrisa foarte clar.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Unde cedeaza de obicei</div>
+      <h2 class="section-title">Rupturile tipice la suporturi si capace de aparat de sudura</h2>
+      <p class="section-lead">
+        Pe astfel de aparate apar frecvent fisuri la colturi, in jurul suruburilor si la piesele care par minore, dar care tin pozitia corecta a carcasei.
+      </p>
+
+      <div class="heat-grid">
+        <div class="heat-card">
+          <h3>La colturi expuse</h3>
+          <p>Carcasa este lovita la transport sau sprijinire, iar coltul de plastic fisureaza ori se sparge.</p>
+        </div>
+        <div class="heat-card">
+          <h3>In jurul gaurilor</h3>
+          <p>Suruburile string, plasticul oboseste si apare ruptura exact in zona de fixare.</p>
+        </div>
+        <div class="heat-card">
+          <h3>Linga zone calde</h3>
+          <p>Piesele apropiate de ventilatie sau de carcasa incalzita pot deveni mai fragile in timp.</p>
+        </div>
+        <div class="heat-card">
+          <h3>La distantiere</h3>
+          <p>Piese mici, dar importante. Cind lipsesc, apar jocuri, frecari sau presiuni nedorite in alte puncte.</p>
+        </div>
+      </div>
+
+      <div class="context-box">
+        <h3>Cind merita ceruta varianta intarita</h3>
+        <p>
+          Daca piesa s-a rupt intr-un loc cunoscut slab, la o ureche de prindere sau la un colt subtire, merita sa mentionezi in cerere ca vrei o varianta intarita, nu doar o copie 1:1.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="oferta">
+    <div class="container">
+      <div class="section-tag">Ce verifici in oferta</div>
+      <h2 class="section-title">La o piesa de aparat de sudura nu e suficient sa semene vizual</h2>
+      <p class="section-lead">
+        Oferta buna trebuie sa arate ca s-a inteles rolul piesei, mediul in care lucreaza si modul in care se prinde pe aparat.
+      </p>
+
+      <div class="quote-grid">
+        <div class="quote-card">
+          <h3>Prinderile sint intelese corect?</h3>
+          <p>Verifica daca oferta ia in calcul gaurile, distantierele, clipsurile si relatia cu piesele vecine.</p>
+        </div>
+        <div class="quote-card">
+          <h3>Este mentionata zona termica?</h3>
+          <p>Daca piesa sta aproape de caldura, acest lucru trebuie sa fie reflectat in recomandare si material.</p>
+        </div>
+        <div class="quote-card">
+          <h3>Se pastreaza compatibilitatea?</h3>
+          <p>O piesa buna trebuie sa se potriveasca pe aparatul existent, nu doar sa reproduca aproximativ forma.</p>
+        </div>
+        <div class="quote-card">
+          <h3>Ai explicat rolul piesei?</h3>
+          <p>Spune daca este capac, colt, suport sau distantier. Asta schimba mult evaluarea si oferta.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Exemple orientative</div>
+      <h2 class="section-title">Situatii tipice pentru piese din plastic la aparate de sudura</h2>
+      <p class="section-lead">Exemplele te ajuta sa formulezi cererea mai bine, nu reprezinta oferte fixe.</p>
+
+      <div class="examples-grid">
+        <div class="example-card">
+          <span class="example-status status-done">Caz frecvent</span>
+          <h3>Colt de carcasa spart la transport</h3>
+          <p>Aparatul functioneaza, dar coltul de plastic s-a fisurat si nu mai tine corect una dintre laturi.</p>
+          <div class="example-meta">
+            <span><strong>Zona:</strong> exterior</span>
+            <span><strong>Tip:</strong> colt</span>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <span class="example-status status-done">Caz frecvent</span>
+          <h3>Suport mic rupt la punct de fixare</h3>
+          <p>O piesa aparent simpla tinea un capac sau un panou pe pozitie si fara ea aparatul nu mai inchide curat.</p>
+          <div class="example-meta">
+            <span><strong>Zona:</strong> prindere</span>
+            <span><strong>Tip:</strong> suport</span>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <span class="example-status status-open">Analiza necesara</span>
+          <h3>Distantier lipsa linga zona calda</h3>
+          <p>Piesa este mica, dar sta intr-o zona unde temperatura si apropierea de carcasa metalica conteaza mult.</p>
+          <div class="example-meta">
+            <span><strong>Zona:</strong> caldura</span>
+            <span><strong>Tip:</strong> distantier</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Ai un suport sau un capac de plastic rupt la aparatul de sudura?</h2>
+        <p>Posteaza cererea si arata clar unde vine piesa, cum se prinde si daca sta aproape de o zona calda. Asa primesti oferte mai utile pentru o piesa care chiar se potriveste.</p>
+        <a href="/cere.html" class="btn-primary" style="font-size:18px; padding:18px 44px;">
+          Posteaza cererea gratuit →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="pagini-inrudite">
+    <div class="container">
+      <div class="section-tag">Vezi si alte piese similare</div>
+      <h2 class="section-title">Pagini inrudite din clusterul unelte si scule</h2>
+      <p class="section-lead">Linkuri alese logic pentru pagina asta, nu aceeasi retea repetata mecanic.</p>
+
+      <div class="related-grid">
+        <article class="related-card">
+          <h3>Piese plastic unelte si scule</h3>
+          <p>Hub-ul categoriei pentru carcase, capace, manere si piese din plastic la scule si echipamente.</p>
+          <a href="/piese-plastic-unelte.html">Vezi categoria →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Piese plastic masina de gaurit</h3>
+          <p>Pentru carcase, ghidaje si piese unde inchiderea jumatatilor de corp este mai importanta.</p>
+          <a href="/piese-plastic-masina-gaurit.html">Vezi pagina →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Maner polizor plastic rupt</h3>
+          <p>Pentru piese la care accentul cade mai mult pe vibratii, forta in mina si prindere filetata.</p>
+          <a href="/maner-polizor-plastic-rupt.html">Vezi pagina →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Capac protectie fierastrau</h3>
+          <p>Pentru aparatoare si capace unde forma de protectie si montajul au alta logica fata de aparatul de sudura.</p>
+          <a href="/capac-protectie-fierastrau.html">Vezi pagina →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-tag">Intrebari frecvente</div>
+      <h2 class="section-title">FAQ pentru suporturi si piese de plastic la aparatul de sudura</h2>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">
+            Ce piese din plastic la aparatul de sudura au sens sa fie refacute?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            In special suporturi, capace, colturi, distantiere, piese de mascare si alte componente exterioare sau non-critice care nu tin direct de functionarea electrica sau de siguranta activa a aparatului.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Ce trebuie sa mentionez despre temperatura si mediu?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Este important sa spui daca piesa sta aproape de zone calde, de fante de evacuare, de carcasa metalica sau intr-o zona expusa la praf si socuri. Acest context influenteaza materialul si geometria recomandate.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Ce poze ajuta cel mai mult pentru o piesa de aparat de sudura?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Pozele cele mai utile sint cele cu piesa scoasa, cu spatele piesei, cu punctele de prindere, cu zona unde vine montata si cu aparatul in ansamblu. Daca piesa are distantiere sau gauri, acestea trebuie sa se vada clar.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Cum stiu daca merita o copie identica sau o varianta intarita?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Daca piesa s-a rupt intr-o zona subtire, la colt sau la prinderi, merita mentionata dorinta pentru o varianta intarita. Daca problema este doar lipsa unei piese de mascare sau a unui capac exterior, o copie apropiata de original poate fi suficienta.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="/index.html" class="footer-logo">Cere<span>3D</span></a>
+      <a href="/refacere-piese-plastic.html" class="footer-seo-link">Refacere piese din plastic</a>
+      <a href="/piese-plastic-unelte.html" class="footer-seo-link">Piese plastic unelte</a>
+      <a href="/piese-plastic-masina-gaurit.html" class="footer-seo-link">Piese masina gaurit</a>
+      <span class="footer-copy">
+        © <span id="an-curent"></span> Cere3D. Suporturi si piese de plastic pentru aparat de sudura refacute la comanda.
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-q').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i){
+          i.classList.remove('open');
+        });
+        if(!isOpen) item.classList.add('open');
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function(){
+      const yearSpan = document.getElementById('an-curent');
+      if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+    });
+  </script>
+
+  <!-- SEO Internal Links: printare 3D -->
+  <nav class="seo-internal-links" aria-label="Pagini principale printare 3D" style="display:none;">
+    <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+    <a href="/">Printare 3D Romania - Cere3D</a>
+    <a href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a>
+    <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a>
+    <a href="/cat-costa-un-obiect-printat-3d.html">Cat costa printare 3D</a>
+    <a href="/ce-material-sa-aleg-pentru-printare-3d.html">Materiale printare 3D</a>
+  </nav>
+</body>
+</html>

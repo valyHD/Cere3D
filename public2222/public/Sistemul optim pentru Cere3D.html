@@ -1,0 +1,355 @@
+Sistemul optim pentru Cere3D
+1. Notificari clare cand primeste activitate
+
+Trebuie sa fie notificat la:
+
+mesaj privat nou
+mesaj nou pe chatul cererii
+oferta noua
+printator ales / confirmari importante
+reminder daca nu a raspuns
+reminder sa inchida cererea daca pare rezolvata
+
+Aici folosim 3 straturi:
+
+A. In site
+badge cu numar pe Mesaje
+badge cu numar pe Cereri / cererea lui
+banner sus: Ai 3 mesaje noi si 2 oferte noi
+highlight pe conversatiile necitite
+highlight pe cererile lui care au activitate noua
+B. Email
+mesaj nou
+oferta noua
+reminder dupa X ore
+reminder dupa 24h / 48h
+email de tip: Cererea ta pare rezolvata. Inchizi cererea sau inca astepti?
+C. Browser notification
+doar pentru userii care accepta permisiunea
+foarte bun pentru revenire rapida
+2. Cererea trebuie sa aiba stari clare
+
+Acum aici e cheia.
+
+Eu as face statusurile asa:
+
+Statusuri principale
+Deschisa
+Are interes = a primit cel putin 1 mesaj sau 1 oferta
+In discutie = userul a raspuns / exista conversatie reala
+Printator ales
+Rezolvata
+Inca astept
+Inchisa fara rezultat
+
+Nu trebuie neaparat sa le afisezi pe toate mare in UI, dar intern trebuie sa existe.
+
+Ce afisezi simplu pentru user
+
+Pentru user poti afisa doar:
+
+Deschisa
+In discutie
+Printator ales
+Rezolvata
+Inca astept
+3. Sistem automat care impinge userul sa revina
+
+Aici facem presiunea buna, nu agresiva.
+
+Dupa ce posteaza
+
+Imediat dupa postare:
+
+mesaj mare in pagina:
+Cererea ta este activa. Urmareste mesajele si ofertele. Printatorii raspund mai repede la cererile active.
+email:
+Cererea ta a fost publicata. Vei primi notificari cand apare activitate.
+Cand vine prima oferta / primul mesaj
+badge
+email
+browser notification
+banner:
+Ai primit prima oferta. Intra acum si raspunde.
+
+Asta e foarte important. Prima interactiune trebuie facuta mare.
+
+Daca au intrat 2-3 printatori si userul nu raspunde
+
+Dupa 6h sau 12h:
+
+email:
+Ai primit raspunsuri la cererea ta. Daca nu raspunzi, printatorii pot trece la alte cereri.
+Daca exista conversatie si pare aproape rezolvata
+
+Dupa 24h sau 48h:
+
+email:
+Cererea ta s-a rezolvat?
+cu 2 butoane/linkuri:
+Da, inchide cererea
+Nu, inca astept
+4. Inchidere inteligenta a cererii
+
+Asta ai zis foarte bine si da, trebuie.
+
+Nu as inchide automat direct doar fiindca a vorbit cu cineva. Mai bine facem asa:
+
+Conditie de "pare rezolvata"
+
+Daca:
+
+a primit cel putin 1-2 oferte
+a avut schimb de mesaje cu cel putin un printator
+exista activitate dupa postare
+apoi nu mai scrie nimeni o perioada
+
+atunci trimitem email / banner:
+Cererea ta pare aproape rezolvata. Vrei sa o inchizi sau inca astepti alte oferte?
+
+Optiuni pentru user
+Rezolvata
+Inca astept
+Nu s-a rezolvat
+optional: Am ales un printator
+Daca apasa "Rezolvata"
+status = Rezolvata
+optional status secundar = Printator ales
+ascunzi cererea din feed sau o marchezi foarte clar rezolvata
+trimiti userul spre review
+Daca apasa "Inca astept"
+status ramane activ
+mai trimitem reminder peste 24h / 48h daca mai exista activitate
+Daca ignora tot
+lasi cererea activa
+dar la X zile fara raspuns poti trimite:
+Cererea ta este inca deschisa. Daca s-a rezolvat, inchide-o.
+5. Presiune buna in UI
+
+Trebuie sa simta ca merita sa intre acum.
+
+Exemple bune:
+
+In cont / homepage
+Ai 2 oferte noi
+1 printator asteapta raspunsul tau
+Cererea ta are activitate noua
+In cerere
+3 printatori au raspuns
+Raspunde rapid ca sa pastrezi interesul
+Cereri active primesc mai multe raspunsuri
+In mesaje
+Raspunsurile rapide cresc sansele sa rezolvi cererea
+Printatorii raspund mai usor cand primesc confirmari rapide
+
+===================================
+
+De facut, cererile mai vechi de 14 zile sa apara ca si Still trying gen ... ca nu le-a facut nimeni printul dar ei au primit mail daca au rezolvat sau daca mai asteapta si dupa acel mail daca nu inchide cererea sa se transforme in status nou, Still waiting sau Trying Hard. dont know
+
+
+=====================================
+=====================================
+🔥 3. Micro gamification
+
+Pentru printatori:
+
+Ai raspuns la 5 cereri azi
+Top printator saptamana
+
+👉 ii tine activi
+/printatori.html
+pagina cu Inscriere printator. Daca are deja cont sa isi adauge email si parola si e inscris, daca nu are sa il trimita la pagina de facut cont sa isi faca si revine aici baga email si parola si apare profilul lui in lista
+In pagina asta avem doar despre printatori mai ales cei inscrisi ca printatori, o data inscrisi sa aiba badge de printator cu ceva icon cool care sa le apara la avatar si nume sa fie usor evidentiati.
+Sa avem rubrica Top cereri rezolvate luna asta.
+Sa le fie afisata imaginea de la avatar cu descrierea si review nota totala. La click pe avatar/nume sa te duca pe pagina de profil public.
+El dupa ce se inscrie aici intra intro pagina unde ii apar cererile rezolvate.
+La fel si noi daca dam click pe un buton vezi pagina printatorului ne duce acolo si vedem pagina lui, aici 
+sunt multe, cererile rezolvate, pe langa asta o rubrica unde isi adauga poze cu piesele rezolvate, atasate la cerere, gen e cererea rezolvata de el, el are buton ataseaza imagine si descriere, lumea vede doar.
+Piesa rupta sau cerinta -> piesa printata.
+Sa apara ce e la profil public, ultima activatate cand a fost, etc si eventual un total de ore pe site.
+Tine cont de optimizare seo, adica layout optim de conversie, cand printator se inscrie si face pagina cu cererile rezolvate sa se creeze pagini html sau ce trebuie pentru SEO 
+De aici mai astept sugestii ce facem cu pagina printatorilor.
+=============================
+
+
+Vreau asta:
+Pentru SEO, ce e foarte valoros
+
+Daca vrei ca pagina asta sa aiba greutate SEO, eu as adauga in profil si:
+
+1. Mini text SEO generat din date
+
+De exemplu:
+
+[Nume] este printator 3D din [oras], specializat in [specializari]. Ofera servicii de printare 3D la comanda, refacere piese rupte si modelare 3D dupa poza sau dimensiuni.
+
+Asta poate fi generat automat din campurile profilului.
+
+2. FAQ mic pe profil
+
+Exemple:
+
+Ce tipuri de piese poate realiza?
+Lucreaza dupa poza?
+Livreaza in tara?
+Ce materiale foloseste?
+
+Foarte bun pentru SEO si claritate.
+
+3. Structured data mai bogata
+
+In JS-ul paginii poti adauga in JSON-LD si:
+
+sameAs pentru site/Instagram/Facebook
+areaServed
+knowsAbout
+url
+image
+
+Asta ajuta mult.
+Si
+1. “Specializari”
+
+Asta e foarte buna si pentru SEO si pentru clienti.
+
+Exemple:
+
+Piese auto
+Electrocasnice
+Piese functionale
+Prototipuri
+Decor si cadouri
+Piese mari
+Modelare 3D dupa poza
+Printare PLA
+PETG
+ABS
+ASA
+TPU
+
+Aici clientul intelege rapid ce face omul, iar Google vede clar intentia.
+
+2. “Lucrez si in afara Cere3D”
+
+Aici da, eu as permite linkuri externe, dar curate.
+
+Exemple:
+
+Site oficial
+Instagram
+Facebook
+TikTok
+WhatsApp
+Email
+Portofoliu extern
+
+Avantaje:
+
+printatorul simte ca are “pagina lui”
+isi pune brandul
+are motiv sa distribuie profilul Cere3D
+iti aduce trafic inapoi daca isi promoveaza profilul
+3. “De ce sa lucrezi cu mine”
+
+Un text scurt, mai comercial.
+
+Exemple:
+
+raspund rapid
+pot modela dupa poza
+lucrez cu materiale pentru exterior
+livrez in toata tara
+pot face si serii mici
+pot testa mai multe variante
+
+Asta il face sa para mai important si mai profesionist.
+
+Eu as adauga in profil exact sectiunile astea
+A. Bloc nou: “Specializari printator”
+
+Foarte bun pentru SEO.
+
+Exemplu de continut:
+
+Piese auto
+Piese de schimb
+Reparatii prin printare 3D
+Obiecte personalizate
+Prototipuri
+Modelare 3D dupa poza
+Modelare 3D dupa dimensiuni
+
+Vizual:
+
+chips / badge-uri frumoase
+B. Bloc nou: “Canale si prezenta online”
+
+Aici da, as permite promovare externa.
+
+Dar as face-o elegant, nu spam.
+
+Campuri utile in cont:
+website
+instagram
+facebookPage
+tiktok
+whatsapp
+emailBusiness
+Regula buna
+maxim 5-6 linkuri
+doar un URL per camp
+afisate frumos cu iconite
+rel="nofollow noopener" la linkuri externe
+De ce e bine
+printatorii au motivatie sa-si completeze profilul
+profilul devine “mini landing page”
+pot zice clientilor “intra pe profilul meu de pe Cere3D”
+iti creste valoarea platformei
+
+Da, eu as permite clar asta.
+
+C. Bloc nou: “Servicii oferite”
+
+Aici pui texte scurte selectabile sau custom.
+
+Exemple:
+
+Printare 3D la comanda
+Modelare 3D
+Refacere piese rupte
+Productie serie mica
+Piese pentru exterior
+Livrare nationala
+Ridicare personala
+Consultanta material
+
+Asta ajuta mult la SEO semantic.
+
+D. Bloc nou: “Zone acoperite”
+
+Foarte bun pentru intentie locala.
+
+Exemple:
+
+Bucuresti
+Ilfov
+Cluj
+Timisoara
+livrare in toata Romania
+
+Asta il face mai relevant si pentru cautari de tip:
+
+printator 3D Bucuresti
+printare 3D Ilfov
+piese auto printate 3D Cluj
+E. Bloc nou: “Timp mediu de raspuns”
+
+Chiar daca initial e manual sau simplu.
+
+Exemplu:
+
+raspunde de obicei in cateva minute
+raspunde in aceeasi zi
+raspunde in 24h
+
+Asta creste increderea.

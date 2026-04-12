@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Consent Mode v2 (default denied) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+
+    gtag('js', new Date());
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FY3LRNBF2"></script>
+
+  <!-- Consent UI + loader logic -->
+  <script type="module" src="/consent.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Prototip Piesa Plastic Rapid | Testare Forma Si Functie Inainte De Varianta Finala - Cere3D</title>
+  <meta name="description" content="Ai o idee sau o piesa care trebuie testata rapid? Pe Cere3D poti cere un prototip din plastic pentru verificare de forma, montaj, functie si iteratie, inainte de varianta finala." />
+  <link rel="canonical" href="https://cere3d.ro/prototip-piesa-plastic-rapid.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Prototip Piesa Plastic Rapid | Cere3D" />
+  <meta property="og:description" content="Testeaza rapid o piesa sau o idee inainte de versiunea finala: forma, montaj, functie si iteratii mai rapide." />
+  <meta property="og:url" content="https://cere3d.ro/prototip-piesa-plastic-rapid.html" />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/seo-hub.css" />
+
+  <style>
+    .crumbs{
+      padding:18px 0 0;
+      font-size:13px;
+      color:rgba(11,19,38,.66);
+    }
+    .crumbs a{
+      color:rgba(11,19,38,.82);
+      text-decoration:none;
+      font-weight:700;
+    }
+    .crumbs span{
+      margin:0 8px;
+      opacity:.45;
+    }
+
+    .phase-grid,
+    .check-grid,
+    .case-grid,
+    .related-grid,
+    .mistake-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+      gap:16px;
+      margin-top:28px;
+    }
+
+    .phase-card,
+    .check-card,
+    .case-card,
+    .related-card,
+    .mistake-card,
+    .info-panel,
+    .note-box{
+      background:rgba(255,255,255,.88);
+      border:1px solid rgba(11,19,38,.08);
+      border-radius:20px;
+      box-shadow:var(--hub-shadow);
+      padding:24px;
+    }
+
+    .phase-card h3,
+    .check-card h3,
+    .case-card h3,
+    .related-card h3,
+    .mistake-card h3,
+    .info-panel h3,
+    .note-box h3{
+      font-family:Manrope, system-ui, sans-serif;
+      font-size:20px;
+      color:#122a55;
+      font-weight:950;
+      line-height:1.25;
+      margin-bottom:10px;
+    }
+
+    .phase-card p,
+    .check-card p,
+    .case-card p,
+    .related-card p,
+    .mistake-card p,
+    .info-panel p,
+    .info-panel li,
+    .note-box p,
+    .note-box li{
+      color:rgba(11,19,38,.76);
+      font-size:15px;
+      line-height:1.72;
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+      margin-top:28px;
+    }
+
+    .info-panel ul,
+    .note-box ul{
+      padding-left:18px;
+      margin-top:10px;
+    }
+
+    .info-panel li + li,
+    .note-box li + li{
+      margin-top:8px;
+    }
+
+    .tag-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .mini-tag{
+      display:inline-flex;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(11,19,38,.05);
+      border:1px solid rgba(11,19,38,.08);
+      color:#122a55;
+      font-size:14px;
+      font-weight:800;
+    }
+
+    .note-band{
+      margin-top:18px;
+      padding:18px 20px;
+      border-radius:18px;
+      background:rgba(91,124,250,.08);
+      border:1px solid rgba(91,124,250,.16);
+      color:#122a55;
+      font-weight:600;
+      line-height:1.72;
+    }
+
+    .warn-band{
+      margin-top:18px;
+      padding:18px 20px;
+      border-radius:18px;
+      background:rgba(255,122,42,.08);
+      border:1px solid rgba(255,122,42,.18);
+      color:#122a55;
+      font-weight:600;
+      line-height:1.72;
+    }
+
+    .related-card a{
+      text-decoration:none;
+      color:#122a55;
+      font-weight:900;
+    }
+
+    @media (max-width: 900px){
+      .two-col{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {
+        "@type":"ListItem",
+        "position":1,
+        "name":"Cere3D",
+        "item":"https://cere3d.ro/"
+      },
+      {
+        "@type":"ListItem",
+        "position":2,
+        "name":"Refacere piese din plastic",
+        "item":"https://cere3d.ro/refacere-piese-plastic.html"
+      },
+      {
+        "@type":"ListItem",
+        "position":3,
+        "name":"Piese plastic la comanda",
+        "item":"https://cere3d.ro/piese-plastic-la-comanda.html"
+      },
+      {
+        "@type":"ListItem",
+        "position":4,
+        "name":"Prototip piesa plastic rapid",
+        "item":"https://cere3d.ro/prototip-piesa-plastic-rapid.html"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Prototip piesa plastic rapid pentru test, iteratie si verificare de forma sau functie",
+    "description":"Pagina dedicata pentru prototipuri rapide din plastic, cu accent pe testare de forma, montaj, functie si iteratii succesive inainte de versiunea finala.",
+    "mainEntityOfPage":"https://cere3d.ro/prototip-piesa-plastic-rapid.html",
+    "author":{"@type":"Organization","name":"Cere3D"},
+    "publisher":{"@type":"Organization","name":"Cere3D"},
+    "datePublished":"2026-03-07",
+    "dateModified":"2026-03-07"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Ce inseamna un prototip rapid din plastic?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Inseamna o versiune de test a unei piese, facuta pentru a verifica forma, montajul, functionalitatea sau compatibilitatea, fara sa fie neaparat varianta finala perfect finisata."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Cind are sens sa cer mai intii un prototip si nu piesa finala?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Are sens cind inca nu esti sigur pe dimensiuni, pe forma exacta, pe modul de montaj sau pe functionalitate. Prototipul te ajuta sa vezi ce trebuie corectat inainte de o varianta finala."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Ce trebuie sa trimit pentru un prototip util?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Trimite poze, schita, dimensiuni de baza, contextul in care vine piesa si spune foarte clar ce vrei sa testezi: forma, potrivirea, miscarea, prinderea sau doar ideea generala."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Prototipul poate fi urmat de o varianta imbunatatita?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Da. Tocmai acesta este scopul paginii: sa pornesti cu o varianta rapida de test, apoi sa ajustezi si sa ceri o versiune finala mai buna dupa ce vezi ce functioneaza si ce trebuie schimbat."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body data-page="seo-hub">
+  <header class="topbar">
+    <a href="/index.html" class="logo" aria-label="Cere3D">
+      <img src="/assets/logo-cere3d.svg" alt="Cere3D" class="logo-img" />
+    </a>
+    <a href="/cere.html" class="topbar-cta">Posteaza cererea →</a>
+  </header>
+
+  <div class="container">
+    <div class="crumbs">
+      <a href="/index.html">Acasa</a><span>›</span>
+      <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a><span>›</span>
+      <a href="/piese-plastic-la-comanda.html">Piese plastic la comanda</a><span>›</span>
+      <strong>Prototip piesa plastic rapid</strong>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-badge">Subpagina custom / test si iteratie</div>
+    <h1>Prototip piesa plastic <em>rapid</em> inainte de varianta finala</h1>
+    <p class="hero-sub">
+      Ai o idee, o piesa in lucru sau o componenta care trebuie verificata repede? Pagina asta este pentru situatiile in care vrei sa testezi forma, montajul sau functia inainte sa investesti timp intr-o versiune finala mai bine finisata.
+    </p>
+
+    <div class="hero-cta-wrap">
+      <a href="/cere.html" class="btn-primary">
+        <span>Posteaza cererea pentru prototip</span>
+        <span>→</span>
+      </a>
+      <a href="#ce-testezi" class="btn-secondary">Ce poti testa</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">Forma</span>
+        <span class="stat-label">Verifici daca piesa incape corect</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Montaj</span>
+        <span class="stat-label">Testezi prinderi si pozitionare</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Iteratie</span>
+        <span class="stat-label">Corectezi rapid inainte de final</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-tag">Intentia paginii</div>
+      <h2 class="section-title">Aici accentul nu este pe piesa perfecta, ci pe verificarea rapida a ideii</h2>
+      <p class="section-lead">
+        Pagina este construita pentru utilizatorul care nu vrea direct finisajul final, ci o confirmare practica: se potriveste, functioneaza, incape, se misca bine, merita continuat sau nu.
+      </p>
+
+      <div class="tag-row">
+        <div class="mini-tag">test de forma</div>
+        <div class="mini-tag">test de montaj</div>
+        <div class="mini-tag">test de functie</div>
+        <div class="mini-tag">verificare rapida</div>
+        <div class="mini-tag">versiune 1</div>
+        <div class="mini-tag">corectii ulterioare</div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="ce-testezi">
+    <div class="container">
+      <div class="section-tag">Ce verifici cu un prototip</div>
+      <h2 class="section-title">Patru motive bune pentru care merita sa incepi cu o versiune de test</h2>
+
+      <div class="phase-grid">
+        <div class="phase-card">
+          <h3>1. Vezi daca forma este buna</h3>
+          <p>Piesa poate arata corect pe schita, dar in realitate sa fie prea lunga, prea lata sau sa nu urmareasca bine spatiul disponibil.</p>
+        </div>
+        <div class="phase-card">
+          <h3>2. Verifici daca se monteaza usor</h3>
+          <p>Prototipul iti arata daca prinderile, gaurile, clipsurile sau punctele de contact sint unde trebuie.</p>
+        </div>
+        <div class="phase-card">
+          <h3>3. Testezi functia de baza</h3>
+          <p>Uneori nu conteaza cum arata perfect, ci daca piesa ghidaza, sustine, apasa, inchide sau aliniaza corect.</p>
+        </div>
+        <div class="phase-card">
+          <h3>4. Reduci riscul de a gresi varianta finala</h3>
+          <p>Un prototip rapid este util mai ales cind ai dubii si vrei sa ajustezi dupa prima proba, nu dupa o varianta finala mai costisitoare.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-tag">Ce sa trimiti</div>
+      <h2 class="section-title">Cum formulezi o cerere buna pentru prototip</h2>
+
+      <div class="two-col">
+        <div class="info-panel">
+          <h3>Date utile pentru prototipul initial</h3>
+          <ul>
+            <li>schita, poza, model 3D sau macar o explicatie clara a ideii</li>
+            <li>dimensiuni de baza si contextul unde vine piesa</li>
+            <li>ce vrei sa verifici prima data: forma, prindere, aliniere sau miscare</li>
+            <li>daca exista o piesa veche sau un reper aproximativ</li>
+            <li>ce este acceptabil la versiunea de test si ce poate fi lasat pentru varianta finala</li>
+          </ul>
+        </div>
+
+        <div class="info-panel">
+          <h3>Formula buna in cerere</h3>
+          <p>
+            In loc de "vreau piesa finala", este mai util sa spui:
+          </p>
+          <ul>
+            <li>vreau sa verific daca incape in spatiul X</li>
+            <li>vreau sa testez daca se potriveste pe prinderea existenta</li>
+            <li>vreau sa vad daca geometria functioneaza inainte de finisaj</li>
+            <li>vreau o prima iteratie rapida si apoi o corectie</li>
+          </ul>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Gindire pe etape</div>
+      <h2 class="section-title">Cum se foloseste bine un prototip: versiunea 1, corectie, versiunea 2</h2>
+      <p class="section-lead">
+        Continutul de pe pagina trebuie sa raspunda si unei intentii practice: nu doar "se poate?", ci "cum lucrez corect ca sa obtin mai repede varianta buna?".
+      </p>
+
+      <div class="case-grid">
+        <div class="case-card">
+          <h3>Versiunea 1</h3>
+          <p>Test rapid pentru forma generala, volum si punctele principale de montaj.</p>
+        </div>
+        <div class="case-card">
+          <h3>Observatii dupa proba</h3>
+          <p>Spui ce nu intra bine, unde atinge, unde are joc sau ce functie nu iese cum ai vrut.</p>
+        </div>
+        <div class="case-card">
+          <h3>Iteratia urmatoare</h3>
+          <p>Se corecteaza dimensiuni, muchii, pozitii de gauri, grosimi sau alte detalii importante.</p>
+        </div>
+        <div class="case-card">
+          <h3>Varianta finala</h3>
+          <p>Abia dupa validare are sens sa urmaresti si finisaj mai bun, forma definitiva sau serii mici.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-tag">Cind ajuta cel mai mult</div>
+      <h2 class="section-title">Exemple de situatii bune pentru prototip rapid</h2>
+
+      <div class="check-grid">
+        <div class="check-card">
+          <h3>Piesa noua, fara siguranta pe dimensiuni</h3>
+          <p>Ai ideea generala, dar nu stii daca geometria reala se potriveste bine in locul disponibil.</p>
+        </div>
+        <div class="check-card">
+          <h3>Montaj nou pe un obiect existent</h3>
+          <p>Vrei sa vezi daca prinderea, clipsul sau suportul functioneaza inainte de versiunea definitiva.</p>
+        </div>
+        <div class="check-card">
+          <h3>Componenta care trebuie sa faca o miscare simpla</h3>
+          <p>Testezi daca o piesa culiseaza, se roteste, ghideaza sau loveste unde trebuie.</p>
+        </div>
+        <div class="check-card">
+          <h3>Proiect in dezvoltare</h3>
+          <p>Lucrezi in pasi mici si ai nevoie de o iteratie rapida, nu de solutia finala din prima.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Ce sa eviti</div>
+      <h2 class="section-title">Greseli frecvente care incetinesc un prototip</h2>
+
+      <div class="mistake-grid">
+        <div class="mistake-card">
+          <h3>Se cere direct finisaj final</h3>
+          <p>Pentru prototip este mai util sa validezi geometria si functia decit sa urmaresti din prima aspect perfect.</p>
+        </div>
+        <div class="mistake-card">
+          <h3>Nu se spune ce anume trebuie testat</h3>
+          <p>Daca nu precizezi daca vrei test de forma, montaj sau miscare, feedbackul devine vag si iteratia mai grea.</p>
+        </div>
+        <div class="mistake-card">
+          <h3>Se trimit prea putine repere</h3>
+          <p>O poza neclara fara context nu ajuta. Pentru prototip conteaza sa se inteleaga cum va fi folosit.</p>
+        </div>
+        <div class="mistake-card">
+          <h3>Se asteapta perfectiune din prima</h3>
+          <p>Valoarea paginii este tocmai in testul rapid si in corectiile ulterioare, nu in promisiunea unei versiuni definitive imediat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-tag">Exemple orientative</div>
+      <h2 class="section-title">Cereri care se potrivesc bine cu aceasta pagina</h2>
+      <p class="section-lead">
+        Exemplele de mai jos sustin intentia SEO a paginii si o separa clar de paginile despre suporturi, adaptoare sau carcase finale.
+      </p>
+
+      <div class="examples-grid">
+        <div class="example-card">
+          <span class="example-status status-done">Caz tipic</span>
+          <h3>Prima versiune pentru o piesa care trebuie sa incapa intr-un spatiu limitat</h3>
+          <p>Utilizatorul vrea sa vada daca forma generala este buna inainte sa mearga mai departe cu detaliile finale.</p>
+          <div class="example-meta">
+            <span><strong>Accent:</strong> forma</span>
+            <span><strong>Tip:</strong> validare rapida</span>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <span class="example-status status-done">Caz tipic</span>
+          <h3>Test de prindere pentru o piesa noua</h3>
+          <p>Se verifica daca gaurile, clipsurile sau suprafetele de contact sint pe pozitia corecta.</p>
+          <div class="example-meta">
+            <span><strong>Accent:</strong> montaj</span>
+            <span><strong>Tip:</strong> iteratie</span>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <span class="example-status status-open">Analiza necesara</span>
+          <h3>Piesa care functioneaza, dar mai trebuie rafinata</h3>
+          <p>Prima versiune isi face treaba, dar utilizatorul vrea sa ajusteze grosimi, margini sau miscarea inainte de forma finala.</p>
+          <div class="example-meta">
+            <span><strong>Accent:</strong> functie</span>
+            <span><strong>Tip:</strong> versiunea 2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Ai o idee buna si vrei sa o verifici repede?</h2>
+        <p>Posteaza cererea cu schita, poze si explicatia simpla a testului pe care vrei sa-l faci. Asa ai sanse mai mari sa obtii un prototip util, nu doar o piesa aproximativa.</p>
+        <a href="/cere.html" class="btn-primary" style="font-size:18px; padding:18px 44px;">
+          Posteaza cererea gratuit →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="pagini-inrudite">
+    <div class="container">
+      <div class="section-tag">Vezi si alte piese similare</div>
+      <h2 class="section-title">Pagini apropiate, dar cu rol diferit</h2>
+      <p class="section-lead">
+        Linkurile interne de mai jos separa intentiile din clusterul custom si ajuta pagina sa nu para un sablon rescris.
+      </p>
+
+      <div class="related-grid">
+        <article class="related-card">
+          <h3>Adaptor plastic la comanda</h3>
+          <p>Pentru reductii, conectori si piese de tranzitie intre doua interfete, nu pentru iteratie rapida de concept.</p>
+          <a href="/adaptor-plastic-la-comanda.html">Vezi pagina →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Carcasa proiect plastic personalizata</h3>
+          <p>Pentru carcasa gandita mai complet in jurul electronicii, cu decupaje, suruburi si acces la conectori.</p>
+          <a href="/carcasa-proiect-plastic-personalizata.html">Vezi pagina →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Piese plastic la comanda</h3>
+          <p>Pagina parinte pentru cereri custom in care piesa porneste de la nevoie, idee sau schita.</p>
+          <a href="/piese-plastic-la-comanda.html">Vezi categoria →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Suport personalizat din plastic</h3>
+          <p>Pentru piese in care conteaza mai ales sustinerea, unghiul si fixarea unui obiect, nu etapa de prototipare rapida.</p>
+          <a href="/suport-personalizat-plastic.html">Vezi pagina →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-tag">Intrebari frecvente</div>
+      <h2 class="section-title">FAQ pentru prototip piesa plastic rapid</h2>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">
+            Ce inseamna un prototip rapid din plastic?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Inseamna o versiune de test a unei piese, facuta pentru a verifica forma, montajul, functionalitatea sau compatibilitatea, fara sa fie neaparat varianta finala perfect finisata.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Cind are sens sa cer mai intii un prototip si nu piesa finala?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Are sens cind inca nu esti sigur pe dimensiuni, pe forma exacta, pe modul de montaj sau pe functionalitate. Prototipul te ajuta sa vezi ce trebuie corectat inainte de o varianta finala.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Ce trebuie sa trimit pentru un prototip util?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Trimite poze, schita, dimensiuni de baza, contextul in care vine piesa si spune foarte clar ce vrei sa testezi: forma, potrivirea, miscarea, prinderea sau doar ideea generala.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Prototipul poate fi urmat de o varianta imbunatatita?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Da. Tocmai acesta este scopul paginii: sa pornesti cu o varianta rapida de test, apoi sa ajustezi si sa ceri o versiune finala mai buna dupa ce vezi ce functioneaza si ce trebuie schimbat.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="/index.html" class="footer-logo">Cere<span>3D</span></a>
+      <a href="/piese-plastic-la-comanda.html" class="footer-seo-link">Piese plastic la comanda</a>
+      <a href="/adaptor-plastic-la-comanda.html" class="footer-seo-link">Adaptor plastic la comanda</a>
+      <a href="/carcasa-proiect-plastic-personalizata.html" class="footer-seo-link">Carcasa proiect personalizata</a>
+      <span class="footer-copy">
+        © <span id="an-curent"></span> Cere3D. Prototip piesa plastic rapid pentru test si iteratie.
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-q').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i){
+          i.classList.remove('open');
+        });
+        if(!isOpen) item.classList.add('open');
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function(){
+      const yearSpan = document.getElementById('an-curent');
+      if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+    });
+  </script>
+
+  <!-- SEO Internal Links: printare 3D -->
+  <nav class="seo-internal-links" aria-label="Pagini principale printare 3D" style="display:none;">
+    <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+    <a href="/">Printare 3D Romania - Cere3D</a>
+    <a href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a>
+    <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a>
+    <a href="/cat-costa-un-obiect-printat-3d.html">Cat costa printare 3D</a>
+    <a href="/ce-material-sa-aleg-pentru-printare-3d.html">Materiale printare 3D</a>
+  </nav>
+</body>
+</html>

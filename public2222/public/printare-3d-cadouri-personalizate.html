@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Consent Mode v2 (default denied) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+
+    gtag('js', new Date());
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FY3LRNBF2"></script>
+
+  <!-- Consent UI + loader logic -->
+  <script type="module" src="/consent.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Printare 3D Cadouri Personalizate | Cadouri Unice Cu Nume, Mesaj Sau Design Custom - Cere3D</title>
+  <meta name="description" content="Cauti cadouri personalizate realizate prin printare 3D? Pe Cere3D poti cere figurine, rame foto, suporturi pentru poze, litere 3D, decoratiuni, cadouri pentru cuplu, aniversare sau corporate." />
+  <link rel="canonical" href="https://cere3d.ro/printare-3d-cadouri-personalizate.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Printare 3D Cadouri Personalizate | Cere3D" />
+  <meta property="og:description" content="Cadouri personalizate printate 3D: figurine, rame foto, suporturi pentru poze, litere 3D, decor si obiecte utile facute la comanda." />
+  <meta property="og:url" content="https://cere3d.ro/printare-3d-cadouri-personalizate.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://cere3d.ro/assets/og-cere3d2.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Printare 3D Cadouri Personalizate | Cere3D" />
+  <meta name="twitter:description" content="Cadouri personalizate printate 3D pentru aniversari, cuplu, evenimente, corporate si decor personalizat." />
+  <meta name="twitter:image" content="https://cere3d.ro/assets/og-cere3d2.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/seo-hub.css" />
+
+  <style>
+    .crumbs{
+      padding:18px 0 0;
+      font-size:13px;
+      color:rgba(11,19,38,.66);
+    }
+    .crumbs a{
+      color:rgba(11,19,38,.84);
+      text-decoration:none;
+      font-weight:700;
+    }
+    .crumbs span{
+      margin:0 8px;
+      opacity:.48;
+    }
+
+    .anchor-nav,
+    .pill-row,
+    .zone-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:20px;
+    }
+
+    .anchor-nav{
+      justify-content:center;
+    }
+
+    .anchor-link,
+    .mini-pill,
+    .soft-link{
+      display:inline-flex;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(11,19,38,.05);
+      border:1px solid rgba(11,19,38,.08);
+      color:#122a55;
+      font-size:14px;
+      font-weight:800;
+      text-decoration:none;
+      transition:transform .14s ease, background .14s ease;
+    }
+
+    .anchor-link:hover,
+    .mini-pill:hover,
+    .soft-link:hover{
+      transform:translateY(-1px);
+      background:rgba(11,19,38,.08);
+    }
+
+    .zone-grid,
+    .occasion-grid,
+    .brief-grid,
+    .related-grid,
+    .reason-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+      gap:16px;
+      margin-top:28px;
+    }
+
+    .zone-card,
+    .occasion-card,
+    .brief-card,
+    .related-card,
+    .reason-card,
+    .note-card{
+      background:rgba(255,255,255,.90);
+      border:1px solid rgba(11,19,38,.08);
+      border-radius:20px;
+      box-shadow:var(--hub-shadow);
+      padding:24px;
+    }
+
+    .zone-card h3,
+    .occasion-card h3,
+    .brief-card h3,
+    .related-card h3,
+    .reason-card h3,
+    .note-card h3{
+      font-family:Manrope, system-ui, sans-serif;
+      font-size:20px;
+      line-height:1.25;
+      color:#122a55;
+      font-weight:950;
+      margin-bottom:10px;
+    }
+
+    .zone-card p,
+    .occasion-card p,
+    .brief-card p,
+    .related-card p,
+    .reason-card p,
+    .note-card p,
+    .note-card li{
+      color:rgba(11,19,38,.76);
+      font-size:15px;
+      line-height:1.72;
+    }
+
+    .note-card ul{
+      padding-left:18px;
+      margin-top:10px;
+    }
+
+    .note-card li + li{
+      margin-top:8px;
+    }
+
+    .split-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:22px;
+      margin-top:28px;
+      align-items:start;
+    }
+
+    .note-band{
+      margin-top:18px;
+      padding:18px 20px;
+      border-radius:18px;
+      background:rgba(91,124,250,.08);
+      border:1px solid rgba(91,124,250,.16);
+      color:#122a55;
+      font-weight:600;
+      line-height:1.72;
+    }
+
+    .warn-band{
+      margin-top:18px;
+      padding:18px 20px;
+      border-radius:18px;
+      background:rgba(255,122,42,.08);
+      border:1px solid rgba(255,122,42,.18);
+      color:#122a55;
+      font-weight:600;
+      line-height:1.72;
+    }
+
+    .section-note{
+      max-width:780px;
+      color:rgba(11,19,38,.72);
+      font-size:16px;
+      line-height:1.75;
+      margin-top:16px;
+    }
+
+    .related-card a{
+      text-decoration:none;
+      color:#122a55;
+      font-weight:900;
+    }
+
+    .related-card .small-note{
+      margin-top:10px;
+      font-size:13px;
+      color:rgba(11,19,38,.6);
+    }
+
+    @media (max-width: 900px){
+      .split-grid{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+
+  <!-- JSON-LD: Breadcrumb -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {
+        "@type":"ListItem",
+        "position":1,
+        "name":"Cere3D",
+        "item":"https://cere3d.ro/"
+      },
+      {
+        "@type":"ListItem",
+        "position":2,
+        "name":"Refacere piese din plastic",
+        "item":"https://cere3d.ro/refacere-piese-plastic.html"
+      },
+      {
+        "@type":"ListItem",
+        "position":3,
+        "name":"Printare 3D cadouri personalizate",
+        "item":"https://cere3d.ro/printare-3d-cadouri-personalizate.html"
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: CollectionPage -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"CollectionPage",
+    "name":"Printare 3D cadouri personalizate",
+    "headline":"Printare 3D cadouri personalizate pentru obiecte unice cu nume, mesaj sau design custom",
+    "description":"Hub Cere3D pentru cadouri personalizate realizate prin printare 3D: figurine, rame foto, suporturi pentru poze, litere 3D, decoratiuni, cadouri de cuplu, aniversare si corporate.",
+    "url":"https://cere3d.ro/printare-3d-cadouri-personalizate.html",
+    "isPartOf":{
+      "@type":"WebSite",
+      "name":"Cere3D",
+      "url":"https://cere3d.ro/"
+    },
+    "about":[
+      "printare 3d cadouri personalizate",
+      "figurina personalizata 3d",
+      "rama foto personalizata 3d",
+      "cadou aniversare printare 3d",
+      "cadou cuplu personalizat 3d",
+      "cadou corporate printare 3d"
+    ],
+    "publisher":{
+      "@type":"Organization",
+      "name":"Cere3D",
+      "url":"https://cere3d.ro/"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Ce tipuri de cadouri personalizate se pot face prin printare 3D?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Se pot cere figurine personalizate, rame foto, suporturi pentru poze, litere 3D, decoratiuni cu nume, cadouri pentru aniversari, cuplu, corporate si obiecte utile personalizate."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Trebuie sa am un model 3D gata facut?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Nu neaparat. In multe cazuri este suficient sa explici ideea, sa trimiti poze de inspiratie, textul dorit, dimensiunea aproximativa si contextul in care va fi oferit cadoul."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Ce informatii ajuta cel mai mult intr-o cerere pentru cadouri personalizate?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Ajuta numele sau mesajul dorit, ocazia, stilul preferat, poze de inspiratie, culorile dorite, dimensiunea aproximativa si termenul in care ai nevoie de produs."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Cadourile personalizate printate 3D pot fi si utile, nu doar decorative?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Da. Pe linga decoratiuni si figurine, se pot cere si obiecte utile precum suporturi de telefon, suporturi de birou, organizatoare, display-uri si accesorii personalizate."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body data-page="seo-hub">
+  <header class="topbar">
+    <a href="/index.html" class="logo" aria-label="Cere3D">
+      <img src="/assets/logo-cere3d.svg" alt="Cere3D" class="logo-img" />
+    </a>
+    <a href="/cere.html" class="topbar-cta">Posteaza cererea →</a>
+  </header>
+
+  <div class="container">
+    <div class="crumbs">
+      <a href="/index.html">Acasa</a><span>›</span>
+      <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a><span>›</span>
+      <strong>Printare 3D cadouri personalizate</strong>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-badge">Cadouri si decor personalizat</div>
+    <h1>Printare 3D pentru <em>cadouri personalizate</em></h1>
+    <p class="hero-sub">
+      Daca vrei un cadou diferit de ce gasesti in magazine, aici este hubul potrivit.
+      Pe Cere3D poti cere cadouri personalizate realizate prin printare 3D: figurine, rame foto,
+      suporturi pentru poze, litere 3D, decoratiuni, cadouri pentru aniversari, cuplu, evenimente
+      sau obiecte utile cu nume, mesaj, data ori design ales special.
+    </p>
+
+    <div class="hero-cta-wrap">
+      <a href="/cere.html" class="btn-primary">
+        <span>Posteaza ideea ta</span>
+        <span>→</span>
+      </a>
+      <a href="#ramuri-cadou" class="btn-secondary">Vezi ce poti cere</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">Personal</span>
+        <span class="stat-label">Nume, mesaj, data, initiale</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Ocazii</span>
+        <span class="stat-label">Aniversari, cuplu, evenimente, corporate</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Decor + util</span>
+        <span class="stat-label">Cadouri frumoase sau functionale</span>
+      </div>
+    </div>
+
+    <div class="anchor-nav">
+      <a href="/refacere-piese-plastic.html" class="anchor-link">Hub principal</a>
+      <a href="#ramuri-cadou" class="anchor-link">Ramuri cadou</a>
+      <a href="#cum-ceri" class="anchor-link">Cum formulezi cererea</a>
+      <a href="#pagini-inrudite" class="anchor-link">Pagini inrudite</a>
+    </div>
+
+    <div class="pill-row">
+      <a href="/obiecte-personalizate-printare-3d.html" class="mini-pill">Obiecte personalizate</a>
+      <a href="/figurina-personalizata-3d.html" class="mini-pill">Figurina personalizata</a>
+      <a href="/rama-foto-personalizata-3d.html" class="mini-pill">Rama foto personalizata</a>
+      <a href="/cadou-aniversare-printare-3d.html" class="mini-pill">Cadou aniversare</a>
+      <a href="/cadou-cuplu-personalizat-3d.html" class="mini-pill">Cadou cuplu</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="ramuri-cadou">
+    <div class="container">
+      <div class="section-tag">Hub categorie</div>
+      <h2 class="section-title">Categoria se imparte natural in citeva tipuri mari de cadouri personalizate</h2>
+      <p class="section-lead">
+        Ca sa nu se amestece cu obiectele tehnice sau cu paginile generale de obiecte personalizate, hubul de cadouri trebuie sa impinga clar spre intentii emotionale, decorative sau de ocazie.
+      </p>
+
+      <div class="zone-grid">
+        <article class="zone-card">
+          <h3>Figurine si obiecte de expunere</h3>
+          <p>
+            Pentru cadouri unde accentul principal este pe prezenta vizuala: figurine stilizate,
+            busturi, obiecte inspirate din poze sau mici piese decorative personalizate.
+          </p>
+          <div class="zone-links">
+            <a href="/figurina-personalizata-3d.html" class="soft-link">Figurina personalizata 3D</a>
+            <a href="/figurina-dupa-poza-3d.html" class="soft-link">Figurina dupa poza</a>
+            <a href="/bust-personalizat-printare-3d.html" class="soft-link">Bust personalizat</a>
+          </div>
+        </article>
+
+        <article class="zone-card">
+          <h3>Foto, display si amintiri</h3>
+          <p>
+            Pentru cadouri legate de fotografii, amintiri si display de birou sau de raft:
+            rame foto, suporturi pentru poze si obiecte cu valoare sentimentala clara.
+          </p>
+          <div class="zone-links">
+            <a href="/rama-foto-personalizata-3d.html" class="soft-link">Rama foto personalizata</a>
+            <a href="/suport-poza-polaroid-3d.html" class="soft-link">Suport poza polaroid</a>
+          </div>
+        </article>
+
+        <article class="zone-card">
+          <h3>Nume, litere si decor personalizat</h3>
+          <p>
+            Pentru nume decorative, litere 3D, decoratiuni de camera, simboluri si obiecte
+            care pun accent pe text, mesaj sau identitate vizuala.
+          </p>
+          <div class="zone-links">
+            <a href="/litere-3d-personalizate.html" class="soft-link">Litere 3D personalizate</a>
+            <a href="/nume-personalizat-printat-3d.html" class="soft-link">Nume personalizat</a>
+            <a href="/decoratiuni-personalizate-printare-3d.html" class="soft-link">Decoratiuni personalizate</a>
+            <a href="/decoratiuni-camera-copil-printare-3d.html" class="soft-link">Decoratiuni camera copil</a>
+          </div>
+        </article>
+
+        <article class="zone-card">
+          <h3>Cadouri dupa ocazie</h3>
+          <p>
+            Pentru utilizatori care nu stiu exact obiectul, dar stiu ocazia:
+            aniversare, relatie, eveniment, cuplu sau dar cu semnificatie personala.
+          </p>
+          <div class="zone-links">
+            <a href="/cadou-aniversare-printare-3d.html" class="soft-link">Cadou aniversare</a>
+            <a href="/cadou-cuplu-personalizat-3d.html" class="soft-link">Cadou cuplu</a>
+          </div>
+        </article>
+
+        <article class="zone-card">
+          <h3>Evenimente si display de masa</h3>
+          <p>
+            Pentru suporturi de meniu, numere de masa, mici piese de semnalistica,
+            decor si obiecte personalizate pentru nunta, botez sau alte evenimente.
+          </p>
+          <div class="zone-links">
+            <a href="/suport-meniu-eveniment-printat-3d.html" class="soft-link">Suport meniu eveniment</a>
+            <a href="/suport-poza-polaroid-3d.html" class="soft-link">Display foto eveniment</a>
+          </div>
+        </article>
+
+        <article class="zone-card">
+          <h3>Cadouri corporate si obiecte utile</h3>
+          <p>
+            Pentru serii mici cu logo, obiecte promotionale, suporturi de birou sau cadouri
+            personalizate pentru clienti, colegi sau parteneri.
+          </p>
+          <div class="zone-links">
+            <a href="/cadou-corporate-printare-3d.html" class="soft-link">Cadou corporate</a>
+            <a href="/obiecte-personalizate-printare-3d.html" class="soft-link">Obiecte personalizate</a>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-tag">Ocazii potrivite</div>
+      <h2 class="section-title">Cind se cauta cel mai des cadouri personalizate printate 3D</h2>
+
+      <div class="occasion-grid">
+        <div class="occasion-card">
+          <h3>Aniversari</h3>
+          <p>Cadouri cu nume, virsta, data, mesaj scurt sau obiect simbolic pentru cineva apropiat.</p>
+        </div>
+        <div class="occasion-card">
+          <h3>Cuplu si familie</h3>
+          <p>Cadouri cu initiale, figurine, rame foto, display-uri si obiecte decorative cu sens personal.</p>
+        </div>
+        <div class="occasion-card">
+          <h3>Nunti, botezuri, evenimente</h3>
+          <p>Decor de masa, suporturi, numere, semnalistica mica, mici serii si piese de display personalizat.</p>
+        </div>
+        <div class="occasion-card">
+          <h3>Birou si corporate</h3>
+          <p>Suporturi cu logo, obiecte promotionale, accesorii de birou si cadouri in serii mici.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="cum-ceri">
+    <div class="container">
+      <div class="section-tag">Cum postezi o idee buna</div>
+      <h2 class="section-title">Nu ai nevoie de desen tehnic. Ai nevoie de un brief clar si uman</h2>
+
+      <div class="split-grid">
+        <div class="brief-grid" style="margin-top:0;">
+          <div class="brief-card">
+            <h3>Spune ocazia</h3>
+            <p>Aniversare, cadou de cuplu, cadou corporate, decor de eveniment sau obiect pentru birou ori casa.</p>
+          </div>
+          <div class="brief-card">
+            <h3>Spune personalizarea</h3>
+            <p>Nume, mesaj, data, initiale, logo, fotografie sau referinta vizuala care trebuie sa apara.</p>
+          </div>
+          <div class="brief-card">
+            <h3>Spune marimea aproximativa</h3>
+            <p>Mic de birou, obiect de raft, display de masa, decor de perete sau piesa de eveniment.</p>
+          </div>
+          <div class="brief-card">
+            <h3>Trimite inspiratie</h3>
+            <p>Poze, schite, exemple de stil sau capturi care arata clar directia dorita.</p>
+          </div>
+        </div>
+
+        <div class="note-card">
+          <h3>Brief-ul bun pentru categoria asta contine</h3>
+          <ul>
+            <li>ce tip de cadou vrei</li>
+            <li>pentru cine este</li>
+            <li>ce text sau nume trebuie sa apara</li>
+            <li>ce stil iti place: simplu, elegant, jucaus, decorativ</li>
+            <li>in ce termen ai nevoie de el</li>
+          </ul>
+          <div class="warn-band">
+            Cu cit intentia e mai clara, cu atit oferta vine mai aproape de ce vrei de fapt: cadou emotional, decorativ, util sau corporate.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Diferentiere fata de alte huburi</div>
+      <h2 class="section-title">Unde se opreste “cadoul personalizat” si unde incep alte intentii din site</h2>
+
+      <div class="reason-grid">
+        <div class="reason-card">
+          <h3>Nu este pagina pentru piese rupte</h3>
+          <p>
+            Daca cineva cauta refacerea unei componente lipsa sau sparte, trebuie trimis spre ramura
+            de refacere piese plastic, nu spre cadouri personalizate.
+          </p>
+        </div>
+
+        <div class="reason-card">
+          <h3>Nu este pagina pentru prototip tehnic</h3>
+          <p>
+            Aici nu vorbim despre validare functionala sau test rapid de geometrie.
+            Intentia este comerciala si emotionala, orientata spre obiect final.
+          </p>
+        </div>
+
+        <div class="reason-card">
+          <h3>Nu este identica cu obiectele personalizate</h3>
+          <p>
+            Pagina de obiecte personalizate este mai larga si mai utilitar-functionala.
+            Aici accentul cade pe ocazie, cadou, mesaj, prezentare si valoare personala.
+          </p>
+        </div>
+
+        <div class="reason-card">
+          <h3>Se leaga natural de corporate si evenimente</h3>
+          <p>
+            Pentru ca multe cadouri ies din zona pur personala si intra in serii mici,
+            branding, semnalistica sau obiecte de masa pentru evenimente.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-tag">Exemple orientative</div>
+      <h2 class="section-title">Cereri care se potrivesc bine cu aceasta categorie</h2>
+      <p class="section-lead">Exemplele sint utile ca directie de intentie, nu ca produs standard.</p>
+
+      <div class="examples-grid">
+        <div class="example-card">
+          <span class="example-status status-done">Cadou personal</span>
+          <h3>Rama foto cu nume si data</h3>
+          <p>Cadou pentru aniversare, cu mesaj scurt si suport de birou, facut pentru o singura persoana.</p>
+          <div class="example-meta">
+            <span><strong>Tip:</strong> display foto</span>
+            <span><strong>Personalizare:</strong> text</span>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <span class="example-status status-done">Cadou de relatie</span>
+          <h3>Obiect pentru cuplu cu initiale</h3>
+          <p>Poate fi figurina, rama, suport foto sau decor simbolic, unde important este mesajul si contextul personal.</p>
+          <div class="example-meta">
+            <span><strong>Tip:</strong> cuplu</span>
+            <span><strong>Personalizare:</strong> initiale/data</span>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <span class="example-status status-open">Eveniment / serii mici</span>
+          <h3>Set de suporturi de masa personalizate</h3>
+          <p>Obiecte pentru eveniment sau corporate, unde ai nevoie de mai multe bucati intr-un stil coerent.</p>
+          <div class="example-meta">
+            <span><strong>Tip:</strong> eveniment</span>
+            <span><strong>Personalizare:</strong> tema/logo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="pagini-inrudite">
+    <div class="container">
+      <div class="section-tag">Vezi si alte piese similare</div>
+      <h2 class="section-title">Pagini importante din clusterul de cadouri si obiecte personalizate</h2>
+      <p class="section-lead">
+        De aici utilizatorul trebuie sa poata cobori rapid spre subiectul exact: figurina, foto, litere, aniversare, cuplu, corporate sau eveniment.
+      </p>
+
+      <div class="related-grid">
+        <article class="related-card">
+          <h3><a href="/obiecte-personalizate-printare-3d.html">Obiecte personalizate printare 3D</a></h3>
+          <p>Pentru idei mai largi de obiecte utile sau decorative, nu doar cadouri pentru o ocazie precisa.</p>
+          <div class="small-note">Hub sora: util + decor</div>
+        </article>
+
+        <article class="related-card">
+          <h3><a href="/figurina-personalizata-3d.html">Figurina personalizata 3D</a></h3>
+          <p>Pentru cereri centrate pe figurine decorative, personaje stilizate sau obiecte de expunere.</p>
+          <div class="small-note">Subcategorie: figurine</div>
+        </article>
+
+        <article class="related-card">
+          <h3><a href="/rama-foto-personalizata-3d.html">Rama foto personalizata 3D</a></h3>
+          <p>Pentru cadouri cu nume, data, poza si mesaj, orientate clar spre amintiri si display.</p>
+          <div class="small-note">Subcategorie: foto</div>
+        </article>
+
+        <article class="related-card">
+          <h3><a href="/suport-poza-polaroid-3d.html">Suport poza polaroid 3D</a></h3>
+          <p>Pentru display foto de masa, cadou sentimental sau decor de birou ori eveniment.</p>
+          <div class="small-note">Subcategorie: display foto</div>
+        </article>
+
+        <article class="related-card">
+          <h3><a href="/litere-3d-personalizate.html">Litere 3D personalizate</a></h3>
+          <p>Pentru litere, nume, initiale si texte decorative care functioneaza bine ca dar sau decor.</p>
+          <div class="small-note">Subcategorie: text + nume</div>
+        </article>
+
+        <article class="related-card">
+          <h3><a href="/decoratiuni-personalizate-printare-3d.html">Decoratiuni personalizate printare 3D</a></h3>
+          <p>Pentru obiecte tematice, decor de casa, raft, birou sau mici simboluri personalizate.</p>
+          <div class="small-note">Subcategorie: decor</div>
+        </article>
+
+        <article class="related-card">
+          <h3><a href="/cadou-aniversare-printare-3d.html">Cadou aniversare printare 3D</a></h3>
+          <p>Pentru cautari unde ocazia este mai importanta decit tipul exact al obiectului.</p>
+          <div class="small-note">Subcategorie: ocazie</div>
+        </article>
+
+        <article class="related-card">
+          <h3><a href="/cadou-cuplu-personalizat-3d.html">Cadou cuplu personalizat 3D</a></h3>
+          <p>Pentru cadouri de relatie, initiale, date importante, figurine sau obiecte simbolice.</p>
+          <div class="small-note">Subcategorie: cuplu</div>
+        </article>
+
+        <article class="related-card">
+          <h3><a href="/cadou-corporate-printare-3d.html">Cadou corporate printare 3D</a></h3>
+          <p>Pentru firme, serii mici, logo, obiecte promotionale si daruri cu branding discret.</p>
+          <div class="small-note">Subcategorie: corporate</div>
+        </article>
+
+        <article class="related-card">
+          <h3><a href="/suport-meniu-eveniment-printat-3d.html">Suport meniu eveniment printat 3D</a></h3>
+          <p>Pentru mese festive, semnalistica, numere de masa si obiecte personalizate de eveniment.</p>
+          <div class="small-note">Subcategorie: eveniment</div>
+        </article>
+      </div>
+
+      <p class="section-note">
+        Daca vrei ceva mai util si mai putin legat de ocazie, intra pe
+        <a href="/obiecte-personalizate-printare-3d.html">obiecte personalizate printare 3D</a>.
+        Daca accentul este pe fotografie si amintiri, mergi spre
+        <a href="/rama-foto-personalizata-3d.html">rama foto personalizata 3D</a> sau
+        <a href="/suport-poza-polaroid-3d.html">suport poza polaroid 3D</a>.
+        Pentru texte si nume, paginile de
+        <a href="/litere-3d-personalizate.html">litere 3D personalizate</a> si
+        <a href="/nume-personalizat-printat-3d.html">nume personalizat printat 3D</a>
+        sint mai potrivite.
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Ai o idee de cadou, dar nu gasesti ceva potrivit in magazine?</h2>
+        <p>
+          Posteaza cererea pe Cere3D cu numele, mesajul, ocazia si citeva poze de inspiratie.
+          Asa primesti oferte pentru un obiect personalizat care chiar se potriveste persoanei, evenimentului sau contextului.
+        </p>
+        <a href="/cere.html" class="btn-primary" style="font-size:18px; padding:18px 44px;">
+          Posteaza ideea gratuit →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-tag">Intrebari frecvente</div>
+      <h2 class="section-title">FAQ – printare 3D cadouri personalizate</h2>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">
+            Ce tipuri de cadouri personalizate se pot face prin printare 3D?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Se pot cere figurine personalizate, rame foto, suporturi pentru poze, litere 3D, decoratiuni cu nume, cadouri pentru aniversari, cuplu, corporate si obiecte utile personalizate.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Trebuie sa am un model 3D gata facut?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Nu neaparat. In multe cazuri este suficient sa explici ideea, sa trimiti poze de inspiratie, textul dorit, dimensiunea aproximativa si contextul in care va fi oferit cadoul.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Ce informatii ajuta cel mai mult intr-o cerere pentru cadouri personalizate?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Ajuta numele sau mesajul dorit, ocazia, stilul preferat, poze de inspiratie, culorile dorite, dimensiunea aproximativa si termenul in care ai nevoie de produs.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Cadourile personalizate printate 3D pot fi si utile, nu doar decorative?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Da. Pe linga decoratiuni si figurine, se pot cere si obiecte utile precum suporturi de telefon, suporturi de birou, organizatoare, display-uri si accesorii personalizate.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="/index.html" class="footer-logo">Cere<span>3D</span></a>
+      <a href="/refacere-piese-plastic.html" class="footer-seo-link">Refacere piese din plastic</a>
+      <a href="/obiecte-personalizate-printare-3d.html" class="footer-seo-link">Obiecte personalizate printare 3D</a>
+      <a href="/cadou-aniversare-printare-3d.html" class="footer-seo-link">Cadou aniversare printare 3D</a>
+      <a href="/cadou-corporate-printare-3d.html" class="footer-seo-link">Cadou corporate printare 3D</a>
+      <span class="footer-copy">
+        © <span id="an-curent"></span> Cere3D. Cadouri personalizate realizate prin printare 3D.
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-q').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i){
+          i.classList.remove('open');
+        });
+        if(!isOpen) item.classList.add('open');
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function(){
+      const yearSpan = document.getElementById('an-curent');
+      if(yearSpan){
+        yearSpan.textContent = new Date().getFullYear();
+      }
+    });
+  </script>
+
+  <!-- SEO Internal Links: printare 3D -->
+  <nav class="seo-internal-links" aria-label="Pagini principale printare 3D" style="display:none;">
+    <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+    <a href="/">Printare 3D Romania - Cere3D</a>
+    <a href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a>
+    <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a>
+    <a href="/cat-costa-un-obiect-printat-3d.html">Cat costa printare 3D</a>
+    <a href="/ce-material-sa-aleg-pentru-printare-3d.html">Materiale printare 3D</a>
+  </nav>
+</body>
+</html>

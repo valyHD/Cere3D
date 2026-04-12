@@ -1,0 +1,25 @@
+Prompt
+da-mi pagina asta refacuta conform instructiuni
+Creeaza pagina pentru: [NUME PAGINA / PROBLEMA]
+
+Date:
+- URL dorit: [url]
+- Tip pagina: [hub / categorie / piesa mica / piesa de forta]
+- Parinte: [pagina parinte]
+- Pagini inrudite deja existente: [lista scurta]
+- Intentie principala: [ex: om care cauta solutie pentru piesa rupta]
+- CTA principal: /cere.html
+
+Vreau:
+- HTML complet, gata de copiat
+- aceeasi identitate vizuala si acelasi CSS
+- structura diferita fata de paginile deja facute
+- continut mai bun pentru indexare
+- linkuri interne corecte
+- fara diacritice
+- Tine cont de instructiunile setate, mai mult decat ce e aici
+
+Intentie principala: om care cauta solutie pentru capac de bord fisurat, decolorat sau rupt la prinderi
+Observatii speciale: vreau sa fie diferita de gura ventilatie si maner usa interior; accent pe fisuri de la soare, prinderi si potrivire pe bord
+
+De evitat sa semene cu: clapeta-hublou-masina-spalat.html, sertar-detergent-masina-spalat.html capac-tablou-bord.html, suport-cotier-auto.html

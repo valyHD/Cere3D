@@ -1,0 +1,53 @@
+Prompt
+da-mi pagina asta refacuta conform instructiuni
+
+Vreau:
+- HTML complet, gata de copiat
+- aceeasi identitate vizuala si acelasi CSS
+- structura diferita fata de paginile deja facute
+- continut mai bun pentru indexare
+- linkuri interne corecte
+- fara diacritice
+- Tine cont de instructiunile setate, mai mult decat ce e aici
+- Incearca sa pui ceva diferit la pagina asta, sa schimbi ceva asezare in pagina fata de cea de mai sus
+- Pune link-uri intre pagini.
+- Tine cont ca tintim indexarea pe google cu toate paginile.
+- Dezvolta paginile astfel incat clientul sa afle ceva nou si raspunsuri la intrebari, convinge clientul sa pune o cerere.
+- Numai pune Note Seo in pagina html, astea raman intre noi. Sa nu apara pe site cuvintele tale gen sugestii
+-numai pune text alb
+- include in header link catre Cereri -cereri.html si Cere Un Obiect 3D - cere.html
+- numai include color:#fff in stilizare. Sa fie color blue la text peste tot, la hover portocaliu.!!!
+- stilizeaza foarte frumos textul cu background diferit, evidentiaza textul sa fie usor de citit pentru client
+- textul sa fie excclusiv adresat clientului care vrea sa posteze o cerere de printare.
+- foloseste font family diferit sa evidentiezi sectiuni sau tipuri de text.
+- tot continutul sa-l convinga sa depuna o cere
+- adauga butoane stilizate catre posteaza o cerere gratuit si asteapta sa primesti oferte etc.
+- tot continutul sa fie optimizat pentru a-l indruma sa stie ca trebuie sa dea click sa posteze, sau click sa vada cereri existente.
+- descrie platforma ce face ea
+- fa diferit fata de pagina anterioara, alt text alta structura.
+- tine cont de cum ai facut paginile anterioare imediate.
+- NU pune continut care sa imi explice mie ceva, adreseaza-te doar clientului si ce il intereseaza.
+- daca poti include si imagini ar fi super, dar fara a le downloada un fel de preview la un link sau thumbail nu stiu.. ceva fara a le downloada.
+- cta-band de jos deasupra la footer schimba fundalul sa fie o culoare mai deschisa, sau macar albastru mai deschis
+
+Cand iti dau doar un slug, nu ma mai intrebi ce vreau sa contina.
+Tu deduci singur:
+- intentia SEO
+- tipul paginii
+- structura potrivita
+- ce linkuri interne trebuie puse
+- ce FAQ trebuie pus
+- ce CTA trebuie pus
+- cum trebuie diferentiata fata de paginile apropiate
+
+Livrezi direct HTML complet, gata de copiat.
+
+Nu schimba baza tehnica comuna intre pagini:
+- include mereu /seo-hub.css
+- include mereu linkuri in header spre /cereri.html si /cere.html
+- include mereu CTA-uri clare
+- include mereu footer cu linkuri relevante
+- pastreaza identitatea vizuala Cere3D
+- fara diacritice
+- fara text alb
+- text albastru, hover portocaliu

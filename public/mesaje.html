@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <!-- Consent Mode v2 (default denied) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  // default: blocat pana la consimtamant
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    analytics_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied'
+  });
+
+  gtag('js', new Date());
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1FY3LRNBF2"></script>
+
+<!-- Consent UI + loader logic -->
+<script type="module" src="/consent.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cere3D - Mesaje</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/dm-messages-redesign.css" />
+</head>
+
+<body class="auth-loading">
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="logo" href="/"><img class="logo-img" src="/assets/logo-cere3d.svg" alt="Cere 3D" /></a>
+<button class="nav-burger" id="navBurger" type="button" aria-label="Meniu" aria-expanded="false"></button>
+
+
+    <nav class="nav">
+      <a class="nav-link" href="/ghid.html">Ghid</a>
+      <a class="nav-link" href="/cereri.html">Cereri</a>
+      <a class="nav-link" href="/cere.html">Cere un Obiect 3D</a>
+        <a class="nav-link nav-printatori-new" href="/printatori.html">
+          🔥 Printatori
+          <span class="nav-badge-new">NOU</span>
+        </a>
+      <a class="nav-link nav-auth" id="navAuthLink" href="/auth.html">Autentificare</a>
+
+<div class="nav-userwrap" id="navUserWrap" style="display:none;">
+  <a class="nav-user" id="navUser" href="/cont.html" title="Contul meu">
+    <span class="nav-avatar-wrap">
+      <img loading="lazy" decoding="async" id="navAvatar" class="nav-avatar" src="/assets/avatar-placeholder.svg" alt="" />
+      <span id="navDmDot" class="nav-dot" style="display:none;"></span>
+    </span>
+    <span id="navName" class="nav-name"></span>
+  </a>
+
+  <!-- NEW: Mesaje -->
+  <a class="nav-link nav-messages" id="navMessages" href="/mesaje.html">Mesaje</a>
+
+  <button class="nav-logout" id="navLogout" type="button">Logout</button>
+</div>
+
+    </nav>
+  </div>
+</header>
+<div class="nav-overlay" id="navOverlay" hidden></div>
+
+<main class="wrap">
+  <div class="section-head" style="margin-top:18px;">
+    <h2>Mesaje private</h2>
+    <p class="small-muted">Conversații directe cu ceilalți utilizatori.</p>
+  </div>
+
+  <section class="dm-grid">
+
+    <!-- ──────────────── SIDEBAR ──────────────── -->
+    <aside class="card dm-left">
+      <div class="card-title">Conversații</div>
+      <input id="dmSearch" class="input" type="text"
+             placeholder="Caută după nume..."
+             autocomplete="off" spellcheck="false" />
+      <div id="dmList" class="dm-list">
+        <div class="small-muted" style="padding:8px 4px;">Se încarcă...</div>
+      </div>
+    </aside>
+
+    <!-- ──────────────── CHAT PANEL ──────────────── -->
+    <div class="card dm-right">
+
+      <!-- Header -->
+      <div class="dm-head">
+        <!-- Buton BACK (vizibil doar mobil, JS adauga/scoate clasa dm-show-chat) -->
+        <button class="dm-back-btn" id="dmBackBtn" type="button" aria-label="Înapoi la lista">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none"
+               stroke="currentColor" stroke-width="2.5">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
+
+        <a id="dmPeerLink" class="author-link" href="#" style="text-decoration:none; flex:1; min-width:0;">
+          <img loading="lazy" decoding="async"
+               id="dmPeerAvatar" class="nav-avatar"
+               src="/assets/avatar-placeholder.svg" alt="" />
+          <div style="min-width:0;">
+            <div id="dmPeerName" class="card-title" style="margin:0;">
+              Alege o conversație
+            </div>
+            <div id="dmPeerHint" class="small-muted">
+              Mesajele rămân salvate.
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Mesaje -->
+      <div id="dmMsgs" class="dm-msgs"></div>
+
+      <!-- Trimitere -->
+      <div class="dm-send">
+        <input id="dmText" class="input" type="text"
+               placeholder="Scrie un mesaj…"
+               autocomplete="off" autocorrect="off" spellcheck="true" />
+        <button id="dmSendBtn" class="btn btn-blue" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5" style="flex-shrink:0">
+            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+          </svg>
+          Trimite
+        </button>
+      </div>
+
+      <div id="dmStatus" class="small-muted"></div>
+    </div>
+
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© <span id="year"></span> Cere3D</span>
+    <span class="footer-links">
+      <a href="/legal.html">Legal · Privacy · Terms · Cookies</a>
+      <a class="footer-seo-link" href="/refacere-piese-plastic.html">
+        Refacere piese din plastic
+      </a>
+      <a class="footer-seo-link" href="/printare-3d-la-comanda.html">
+        Printare 3D la comanda
+      </a>
+      <a class="footer-seo-link" href="/servicii-printare-3d-romania.html">
+        Servicii printare 3d Romania
+      </a>
+      <a class="footer-seo-link" href="/comenzi-si-ofertare-printare-3d.html">
+        Comanda printare 3D
+      </a>
+      <a class="footer-seo-link" href="/aplicatii-printare-3d-utile.html">
+        Aplicatii printare 3D
+      </a>
+      <a class="footer-seo-link" href="/idei-si-utilizari-printare-3d.html">
+        Idei si Utilizari Printare 3D
+      </a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+<script type="module">
+  import { initNavAuth } from "./nav-auth.js?v=4";
+  import { initDmPage } from "./dm-page.js?v=4";
+  initNavAuth();
+  initDmPage();
+</script>
+
+<script>
+  setTimeout(() => document.body.classList.remove("auth-loading"), 2000);
+</script>
+<script>
+  (function initMobileNav(){
+    const burger = document.getElementById("navBurger");
+    const overlay = document.getElementById("navOverlay");
+    const nav = document.querySelector(".topbar .nav");
+    if (!burger || !overlay || !nav) return;
+
+    function openNav(){
+      document.body.classList.add("nav-open");
+      overlay.hidden = false;
+      burger.setAttribute("aria-expanded", "true");
+    }
+    function closeNav(){
+      document.body.classList.remove("nav-open");
+      overlay.hidden = true;
+      burger.setAttribute("aria-expanded", "false");
+    }
+
+    burger.addEventListener("click", () => {
+      document.body.classList.contains("nav-open") ? closeNav() : openNav();
+    });
+
+    overlay.addEventListener("click", closeNav);
+
+    nav.addEventListener("click", (e) => {
+      const a = e.target.closest("a");
+      if (!a) return;
+      if (window.matchMedia("(max-width: 900px)").matches) closeNav();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeNav();
+    });
+
+    window.addEventListener("resize", () => {
+      if (!window.matchMedia("(max-width: 900px)").matches) closeNav();
+    });
+  })();
+</script>
+<button id="floatingBackBtn" class="floating-back-btn" aria-label="Inapoi">
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5">
+    <path d="M15 18l-6-6 6-6"/>
+  </svg>
+</button>
+
+<script>
+(function initFloatingBack(){
+  const btn = document.getElementById("floatingBackBtn");
+  if (!btn) return;
+
+  btn.addEventListener("click", () => {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.href = "/";
+    }
+  });
+})();
+</script>
+
+  <!-- SEO Internal Links: printare 3D -->
+  <nav class="seo-internal-links" aria-label="Pagini principale printare 3D" style="display:none;">
+    <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+    <a href="/">Printare 3D Romania - Cere3D</a>
+    <a href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a>
+    <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a>
+    <a href="/cat-costa-un-obiect-printat-3d.html">Cat costa printare 3D</a>
+    <a href="/ce-material-sa-aleg-pentru-printare-3d.html">Materiale printare 3D</a>
+  </nav>
+</body>
+</html>

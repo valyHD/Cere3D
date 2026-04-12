@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <!-- Consent Mode v2 (default denied) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  // default: blocat pana la consimtamant
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    analytics_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied'
+  });
+
+  gtag('js', new Date());
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1FY3LRNBF2"></script>
+
+<!-- Consent UI + loader logic -->
+<script type="module" src="/consent.js"></script>
+  <!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) - GA4 + Google Ads -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // GA4
+  gtag('config', 'G-1FY3LRNBF2');
+
+  // Google Ads
+  gtag('config', 'AW-17949757837');
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cere3D - Detalii cerere</title>
+  <link rel="canonical" href="https://cere3d.ro/cerere.html" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Cere3D" />
+<meta property="og:title" content="Cere3D - Detalii cerere" />
+<meta property="og:description" content="Vezi detalii cerere pentru printare 3D." />
+<meta property="og:url" content="https://cere3d.ro/cerere.html" />
+<meta property="og:image" content="https://cere3d.ro/assets/og-cere3d2.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Cere3D - Detalii cerere" />
+<meta name="twitter:description" content="Vezi detalii cerere pentru printare 3D." />
+<meta name="twitter:image" content="https://cere3d.ro/assets/og-cere3d2.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="stylesheet" href="/styles.css?v=20260328-5">
+</head>
+
+<body class="auth-loading">
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="logo" href="/">
+        <img loading="lazy" decoding="async" loading="lazy" decoding="async" class="logo-img" src="/assets/logo-cere3d.svg" alt="Cere 3D" />
+      </a>
+<button class="nav-burger" id="navBurger" type="button" aria-label="Meniu" aria-expanded="false"></button>
+
+
+      <nav class="nav">
+        <a class="nav-link" href="./ghid.html">Ghid</a>
+        <a class="nav-link" href="./cereri.html">Cereri</a>
+        <a class="nav-link" href="./cere.html">Cere un Obiect 3D</a>
+                <a class="nav-link nav-printatori-new" href="/printatori.html">
+          🔥 Printatori
+          <span class="nav-badge-new">NOU</span>
+        </a>
+        <a class="nav-link nav-auth" id="navAuthLink" href="/auth.html">Autentificare</a>
+<div class="nav-userwrap" id="navUserWrap" style="display:none;">
+  <a class="nav-user" id="navUser" href="/cont.html" title="Contul meu">
+    <span class="nav-avatar-wrap">
+      <img loading="lazy" decoding="async" loading="lazy" decoding="async" id="navAvatar" class="nav-avatar" src="/assets/avatar-placeholder.svg" alt="" />
+      <span id="navDmDot" class="nav-dot" style="display:none;"></span>
+    </span>
+    <span id="navName" class="nav-name"></span>
+  </a>
+
+  <!-- NEW: Mesaje -->
+  <a class="nav-link nav-messages" id="navMessages" href="/mesaje.html">Mesaje</a>
+
+  <button class="nav-logout" id="navLogout" type="button">Logout</button>
+</div>
+
+
+      </nav>
+    </div>
+  </header>
+<div class="nav-overlay" id="navOverlay" hidden></div>
+  <main class="wrap">
+    <!-- breadcrumb -->
+    <div class="crumbs">
+      <a class="crumb-link" href="./cereri.html">← Inapoi la cereri</a>
+      <span class="crumb-dot">•</span>
+      <span class="crumb-muted">Detalii cerere</span>
+    </div>
+
+    <!-- header -->
+    <section class="detail-head">
+      <div class="detail-title-row">
+        <h1 id="d_title" class="detail-title">Se incarca...</h1>
+        <span id="d_badge" class="mat-badge mat-unknown">...</span>
+      </div>
+
+      <div id="d_meta" class="detail-meta"></div>
+      <div id="d_flags" class="flag-row" style="margin-top:10px;"></div>
+
+  <div class="detail-author">
+    <a id="authorLink" class="author-link" href="#">
+      <img loading="lazy" decoding="async" id="authorAv" class="author-av" src="/assets/avatar-placeholder.svg" alt="" />
+      <span id="authorName" class="author-name">User</span>
+    </a>
+  </div>
+      <div class="detail-actions">
+        <a class="btn btn-blue btn-soft" href="./cereri.html">Vezi alte cereri</a>
+        <button class="btn btn-orange" id="btnDmAuthor" type="button">Trimite mesaj</button>
+        <div class="dm-nudge" id="dmNudge">
+  Tip: scrie 1 mesaj scurt. Intreaba 2 lucruri: poze cu rigla + termen. Autorul raspunde mai repede.
+</div>
+
+<button class="btn btn-blue btn-soft" id="btnEditCerere" type="button" style="display:none;">
+  Editeaza
+</button>
+
+<button class="btn btn-blue btn-soft" id="btnGoChat" type="button" style="display:none;">
+  Mergi la chat
+</button>
+
+
+<div class="small-muted" id="lastEditedLine" style="margin-top:10px; display:none;"></div>
+
+      </div>
+
+      <div id="solvedInfo" class="solved-line" style="display:none;">
+  Rezolvat • Printator ales: <span class="name" id="solvedName">User</span>
+</div>
+
+<!-- Owner-only controls -->
+<div id="ownerControls" class="card" style="margin-top:12px; display:none;">
+  <div class="card-title">Setari autor (doar tu poti edita asta). Pentru a fi mai vizibil de catre printatori bifeaza casutele. Poti alege un printator din oferte sau poti inchide cererea si fara alegere.</div>
+
+  <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+    <label class="chip" style="cursor:pointer;">
+      <input id="flagUrgent" type="checkbox" style="margin-right:8px;"> Urgent
+    </label>
+
+    <label class="chip" style="cursor:pointer;">
+      <input id="flagHighPay" type="checkbox" style="margin-right:8px;"> Platesc bine
+    </label>
+
+    <label class="chip" style="cursor:pointer;">
+<input id="flagSolved" type="checkbox" style="margin-right:8px;"> Rezolvat
+    </label>
+  </div>
+<div id="solvedHint" class="small-muted" style="margin-top:10px; display:none;"></div>
+
+  <div class="small-muted" id="ownerStatus" style="margin-top:10px;"></div>
+</div>
+
+    </section>
+
+    <!-- layout 2 coloane -->
+    <section class="detail-grid">
+      <!-- left -->
+      <div class="detail-main">
+        <div class="card">
+          <div class="card-title">Descriere</div>
+          <p id="d_desc" class="p">Se incarca...</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Dimensiuni & prindere</div>
+          <div id="d_dims" class="kv-grid"></div>
+        </div>
+        <div class="card">
+          <div class="card-title">Fisiere atasate</div>
+          <div id="d_files" class="attach-list"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Conditii de folosire</div>
+          <div id="d_cond" class="kv-grid"></div>
+
+          <div class="note" style="margin-top:12px;">
+            Sugestie: pentru auto/exterior, printatorii pot recomanda Filament ABS sau Filament ASA (in functie de cerinta).
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Poze</div>
+          <div id="d_photos" class="photo-grid"></div>
+        </div>
+      </div>
+
+<div class="card sticky">
+  <div class="card-title">Rezumat rapid</div>
+
+  <div class="side-row" style="align-items:flex-start;">
+    <div class="side-label">Titlu</div>
+    <div class="side-value" id="s_title" style="font-weight:900;">—</div>
+  </div>
+
+  <div class="side-row" style="align-items:flex-start;">
+    <div class="side-label">Descriere</div>
+    <div class="side-value" id="s_desc" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+      —
+    </div>
+  </div>
+
+  <div class="side-divider"></div>
+
+  <div class="side-tip">
+    Printatorii vor intreba de obicei:
+    <ul class="side-ul">
+      <li>ai poze cu rigla?</li>
+      <li>cum se prinde exact?</li>
+      <li>rezista la caldura/soare?</li>
+    </ul>
+  </div>
+
+  <div class="side-actions">
+    <button class="btn btn-orange" id="btnDmAuthorSide" type="button">Trimite mesaj</button>
+    <a class="btn btn-blue btn-soft" href="./cere.html">Posteaza si tu</a>
+  </div>
+
+  <!-- restul cardurilor tale (oferta, oferte, chat) raman la fel, sub acest card -->
+   <!-- ===== PRINTER: trimite oferta (doar cand NU esti autor si cererea e deschisa) ===== -->
+<div id="printerOfferCard" class="card" style="margin-top:12px; display:none;">
+  <div class="card-title">Trimite o oferta</div>
+
+  <label class="field" style="margin-top:10px;">
+    <span class="label">Pret (lei)</span>
+    <input id="offerPrice" class="input" type="number" min="1" step="1" placeholder="ex: 120" />
+  </label>
+
+  <label class="field">
+    <span class="label">Mesaj (optional)</span>
+    <textarea id="offerNote" class="input textarea" rows="3"
+      placeholder="Ex: Pot printa in PETG/PLA. Trimit in 24-48h."></textarea>
+  </label>
+
+  <button id="btnSaveOffer" class="btn btn-orange" type="button">Salveaza oferta</button>
+  <div id="offerStatus" class="small-muted" style="margin-top:10px;"></div>
+</div>
+
+<!-- ===== OWNER: vede ofertele (doar cand esti autor si cererea e deschisa) ===== -->
+<div id="ownerOffersCard" class="card" style="margin-top:12px; display:none;">
+  <div class="card-title" style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+    <span>Oferte primite</span>
+    <span id="offersCountPill" class="meta-pill" style="display:none;">0</span>
+  </div>
+
+  <div id="chosenBox" class="card" style="display:none; margin-top:10px; background:rgba(0,0,0,.03);">
+    <div class="small-muted">Ai ales un printator:</div>
+    <div id="chosenName" style="font-weight:900; margin-top:6px;">—</div>
+    <div id="chosenMeta" class="small-muted" style="margin-top:6px;"></div>
+    <button id="btnGoDmChosen" class="btn btn-blue btn-soft" type="button" style="margin-top:10px;">
+      Mesaj catre printator
+    </button>
+  </div>
+
+  <div id="offersList" style="margin-top:10px;"></div>
+</div>
+<!-- ===== CONTOR PUBLIC OFERTE ===== -->
+<div id="publicOffersCard" class="card" style="margin-top:12px;">
+  <div class="card-title" style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+    <span>Interes pentru aceasta cerere</span>
+    <span id="publicOffersCountPill" class="meta-pill">0</span>
+  </div>
+  <div id="publicOffersInfoText" class="small-muted" style="margin-top:10px; font-weight:800; color:#111;">
+    Clientul a primit: 0 oferte
+  </div>
+</div>
+<!-- ===== CHAT POSTARE (vizibil la logati) ===== -->
+<div id="postChatCard" class="card" style="margin-top:12px;">
+  <div class="card-title" style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+    <span>Chat (postare)</span>
+    <span class="small-muted" id="postChatHint" style="display:none;">Pentru chat trebuie sa fii logat.</span>
+  </div>
+
+  <div id="postChatMsgs" class="chat-msgs" style="margin-top:10px; margin-bottom:10px; min-height: 100px;"></div>
+
+  <div class="chat-send" style="margin-top:10px; display:flex; gap:10px;">
+    <input id="postChatText" class="input" type="text" placeholder="Scrie un mesaj..." maxlength="600" />
+    <button id="postChatSend" class="btn btn-blue" style="margin-top:10px;" type="button">Trimite</button>
+  </div>
+</div>
+</div>
+    </section>
+  </main>
+  <!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© <span id="year"></span> Cere3D</span>
+    <span class="footer-links">
+      <a href="/legal.html">Legal · Privacy · Terms · Cookies</a>
+      <a class="footer-seo-link" href="/refacere-piese-plastic.html">
+        Refacere piese din plastic
+      </a>
+      <a class="footer-seo-link" href="/printare-3d-la-comanda.html">
+        Printare 3D la comanda
+      </a>
+      <a class="footer-seo-link" href="/servicii-printare-3d-romania.html">
+        Servicii printare 3d Romania
+      </a>
+      <a class="footer-seo-link" href="/comenzi-si-ofertare-printare-3d.html">
+        Comanda printare 3D
+      </a>
+      <a class="footer-seo-link" href="/aplicatii-printare-3d-utile.html">
+        Aplicatii printare 3D
+      </a>
+      <a class="footer-seo-link" href="/idei-si-utilizari-printare-3d.html">
+        Idei si Utilizari Printare 3D
+      </a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<script type="module">
+  import { initCerereDetail } from "./cerere-detail.js?v=10";
+  import { initNavAuth } from "./nav-auth.js?v=10";
+  initCerereDetail();
+  initNavAuth();
+</script>
+  <script>
+  // fallback: daca auth nu raspunde in 2 secunde, arata "Autentificare"
+  setTimeout(() => {
+    document.body.classList.remove("auth-loading");
+  }, 2000);
+</script>
+<script>
+  (function initMobileNav(){
+    const burger = document.getElementById("navBurger");
+    const overlay = document.getElementById("navOverlay");
+    const nav = document.querySelector(".topbar .nav");
+    if (!burger || !overlay || !nav) return;
+
+    function openNav(){
+      document.body.classList.add("nav-open");
+      overlay.hidden = false;
+      burger.setAttribute("aria-expanded", "true");
+    }
+    function closeNav(){
+      document.body.classList.remove("nav-open");
+      overlay.hidden = true;
+      burger.setAttribute("aria-expanded", "false");
+    }
+
+    burger.addEventListener("click", () => {
+      document.body.classList.contains("nav-open") ? closeNav() : openNav();
+    });
+
+    overlay.addEventListener("click", closeNav);
+
+    nav.addEventListener("click", (e) => {
+      const a = e.target.closest("a");
+      if (!a) return;
+      if (window.matchMedia("(max-width: 900px)").matches) closeNav();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeNav();
+    });
+
+    window.addEventListener("resize", () => {
+      if (!window.matchMedia("(max-width: 900px)").matches) closeNav();
+    });
+  })();
+</script>
+<button id="floatingBackBtn" class="floating-back-btn" aria-label="Inapoi">
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5">
+    <path d="M15 18l-6-6 6-6"/>
+  </svg>
+</button>
+
+<script>
+(function initFloatingBack(){
+  const btn = document.getElementById("floatingBackBtn");
+  if (!btn) return;
+
+  btn.addEventListener("click", () => {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.href = "/";
+    }
+  });
+})();
+</script>
+</body>
+</html>

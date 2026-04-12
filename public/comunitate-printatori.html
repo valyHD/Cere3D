@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Comunitate printatori 3D | Discutii, showcase, vanzari si sfaturi | Cere3D</title>
+  <meta name="description" content="Comunitatea Cere3D pentru printatori 3D: discutii, probleme tehnice, sfaturi, showcase, vanzari tip bazar si activitate reala intre printatori din Romania." />
+  <link rel="canonical" href="https://cere3d.ro/comunitate-printatori.html" />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Cere3D" />
+  <meta property="og:title" content="Comunitate printatori 3D | Discutii, showcase, vanzari si sfaturi | Cere3D" />
+  <meta property="og:description" content="Discutii 3D pe Cere3D: intrebari, probleme, idei, showcase printuri, bazar light si gamification pentru printatori." />
+  <meta property="og:url" content="https://cere3d.ro/comunitate-printatori.html" />
+  <meta property="og:image" content="https://cere3d.ro/assets/og-cere3d2.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Comunitate printatori 3D | Cere3D" />
+  <meta name="twitter:description" content="Discutii, showcase, sfaturi, probleme si vanzari pentru printatori 3D din Romania." />
+  <meta name="twitter:image" content="https://cere3d.ro/assets/og-cere3d2.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Comunitate printatori 3D - Cere3D",
+    "description": "Comunitate pentru printatori 3D cu discutii, showcase, vanzari si sfaturi.",
+    "url": "https://cere3d.ro/comunitate-printatori.html",
+    "mainEntity": {
+      "@type": "ItemList",
+      "name": "Discutii 3D Cere3D",
+      "description": "Feed de discutii pentru printatori 3D din Romania"
+    }
+  }
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="stylesheet" href="/styles.css?v=comunitate-printatori-2" />
+
+  <style>
+    :root {
+      --cp-blue: #2563eb;
+      --cp-orange: #f97316;
+      --cp-green: #10b981;
+      --cp-purple: #7c3aed;
+      --cp-dark: #0f1f3a;
+      --cp-muted: #5e718d;
+      --cp-line: rgba(15,31,58,.08);
+      --cp-card: #ffffff;
+      --cp-bg-soft: #f8fbff;
+      --cp-grad: linear-gradient(135deg, #2563eb 0%, #f97316 100%);
+    }
+
+    /* ── hero ── */
+    .cp-hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      padding: 40px 28px;
+      margin-top: 18px;
+      background:
+        radial-gradient(1200px 460px at 0% 0%, rgba(37,99,235,.13), transparent 55%),
+        radial-gradient(900px 380px at 100% 100%, rgba(249,115,22,.13), transparent 50%),
+        linear-gradient(180deg, #ffffff 0%, #f6faff 100%);
+      border: 1px solid var(--cp-line);
+      box-shadow: 0 20px 60px rgba(15,31,58,.09);
+    }
+
+    .cp-title { margin: 0 0 12px; color: var(--cp-dark); font-size: clamp(28px, 4vw, 46px); line-height: 1.07; font-weight: 900; letter-spacing: -.5px; }
+    .cp-sub { margin: 0; color: #42546d; font-size: 17px; line-height: 1.65; max-width: 760px; }
+    .cp-hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+
+    /* ── quick menu ── */
+    .cp-quick-menu { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; padding: 14px; background: rgba(255,255,255,.88); border: 1px solid var(--cp-line); border-radius: 18px; box-shadow: 0 10px 28px rgba(15,31,58,.05); }
+    .cp-quick-menu-label { width: 100%; margin: 0 0 2px; font-size: 12px; font-weight: 800; letter-spacing: .3px; text-transform: uppercase; color: var(--cp-muted); }
+    .cp-quick-link { flex: 1 1 240px; min-width: 220px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; border-radius: 16px; text-decoration: none; color: var(--cp-dark); background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%); border: 1px solid rgba(15,31,58,.08); transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease; box-shadow: 0 6px 18px rgba(15,31,58,.04); }
+    .cp-quick-link:hover { transform: translateY(-2px); border-color: rgba(37,99,235,.18); box-shadow: 0 14px 32px rgba(15,31,58,.08); }
+    .cp-quick-link.is-active { background: linear-gradient(180deg, #eff6ff 0%, #dbeafe 100%); border-color: rgba(37,99,235,.22); }
+    .cp-quick-left { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .cp-quick-icon { width: 42px; height: 42px; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; font-size: 20px; background: rgba(37,99,235,.08); color: var(--cp-blue); }
+    .cp-quick-link.community .cp-quick-icon { background: rgba(249,115,22,.10); color: var(--cp-orange); }
+    .cp-quick-link.lista .cp-quick-icon { background: rgba(37,99,235,.08); color: var(--cp-blue); }
+    .cp-quick-title { display: block; font-size: 15px; font-weight: 900; color: var(--cp-dark); line-height: 1.2; margin-bottom: 3px; }
+    .cp-quick-sub { display: block; font-size: 12px; color: var(--cp-muted); line-height: 1.35; }
+    .cp-quick-arrow { flex: 0 0 auto; font-size: 18px; color: var(--cp-muted); font-weight: 900; }
+
+    /* ── kpis ── */
+    .cp-kpis { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; margin-top: 24px; }
+    .cp-kpi { background: rgba(255,255,255,.92); border: 1px solid var(--cp-line); border-radius: 18px; padding: 16px; box-shadow: 0 8px 24px rgba(15,31,58,.05); text-align: center; }
+    .cp-kpi-value { font-size: 26px; line-height: 1; font-weight: 900; color: var(--cp-dark); margin-bottom: 6px; }
+    .cp-kpi-label { font-size: 12px; color: var(--cp-muted); font-weight: 700; line-height: 1.35; }
+
+    /* ── hero side ── */
+    .cp-hero-side { background: rgba(255,255,255,.94); border: 1px solid var(--cp-line); border-radius: 22px; padding: 22px; box-shadow: 0 14px 36px rgba(15,31,58,.07); }
+    .cp-hero-side h3 { margin: 0 0 14px; color: var(--cp-dark); font-size: 17px; }
+    .cp-side-mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+    .cp-mini-box { border-radius: 16px; padding: 14px; border: 1px solid var(--cp-line); background: linear-gradient(180deg, #fff 0%, #fbfdff 100%); }
+
+    /* ── section ── */
+    .cp-section { margin-top: 22px; background: #fff; border: 1px solid var(--cp-line); border-radius: 24px; padding: 24px; box-shadow: 0 10px 28px rgba(15,31,58,.05); }
+    .cp-section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 14px; margin-bottom: 18px; flex-wrap: wrap; }
+    .cp-section-head h2 { margin: 0 0 4px; color: var(--cp-dark); font-size: 22px; }
+    .cp-section-sub { color: var(--cp-muted); margin: 0; font-size: 14px; }
+
+    /* ── category pills ── */
+    .cp-pill-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .cp-cat-pill { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 999px; background: #fff; border: 1px solid var(--cp-line); color: var(--cp-dark); font-size: 13px; font-weight: 800; box-shadow: 0 6px 16px rgba(15,31,58,.04); }
+
+    /* ── layout ── */
+    .cp-layout { display: grid; grid-template-columns: minmax(0,1.1fr) 360px; gap: 18px; align-items: start; }
+
+    /* ── feed ── */
+    .cp-feed { display: grid; gap: 14px; }
+
+    /* ── post card ── */
+    .cp-card { position: relative; background: linear-gradient(180deg, #fff 0%, #fbfdff 100%); border: 1px solid var(--cp-line); border-radius: 22px; padding: 18px; box-shadow: 0 10px 24px rgba(15,31,58,.05); transition: transform .15s ease, box-shadow .15s ease; }
+    .cp-card:hover { transform: translateY(-2px); box-shadow: 0 16px 38px rgba(15,31,58,.09); }
+    .cp-card-top { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; margin-bottom: 12px; }
+    .cp-card-title { margin: 0; color: var(--cp-dark); font-size: 18px; font-weight: 900; line-height: 1.25; }
+    .cp-card-title-link { color: inherit; text-decoration: none; }
+    .cp-card-title-link:hover { text-decoration: underline; text-decoration-color: rgba(37,99,235,.3); }
+    .cp-card-desc { margin: 0 0 14px; color: #334155; line-height: 1.65; font-size: 14px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+    /* ── type badges ── */
+    .cp-type { display: inline-flex; align-items: center; gap: 6px; padding: 7px 11px; border-radius: 999px; font-size: 12px; font-weight: 900; white-space: nowrap; border: 1px solid transparent; }
+    .cp-type-general  { background:rgba(37,99,235,.09); color:#1d4ed8; border-color:rgba(37,99,235,.14); }
+    .cp-type-probleme { background:rgba(239,68,68,.09);  color:#b91c1c; border-color:rgba(239,68,68,.14); }
+    .cp-type-sfaturi  { background:rgba(124,58,237,.10); color:#6d28d9; border-color:rgba(124,58,237,.15); }
+    .cp-type-vanzari  { background:rgba(249,115,22,.10); color:#c2410c; border-color:rgba(249,115,22,.18); }
+    .cp-type-showcase { background:rgba(16,185,129,.10);  color:#047857; border-color:rgba(16,185,129,.18); }
+
+    /* ── author ── */
+    .cp-author { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; min-width: 0; }
+    .cp-author-av { width: 42px; height: 42px; border-radius: 999px; object-fit: cover; flex: 0 0 auto; border: 2px solid rgba(37,99,235,.14); background: #eef4ff; }
+    .cp-author-name { font-weight: 900; color: var(--cp-dark); min-width: 0; line-height: 1.2; }
+    .cp-author-meta { color: var(--cp-muted); font-size: 12px; margin-top: 2px; }
+
+    /* ── tags ── */
+    .cp-post-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+    .cp-tag { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; background: #f8fafc; border: 1px solid rgba(15,31,58,.08); color: var(--cp-dark); font-size: 11.5px; font-weight: 800; }
+
+    /* ── price line ── */
+    .cp-price-line { margin: 0 0 12px; padding: 12px 14px; border-radius: 16px; background: rgba(249,115,22,.07); border: 1px solid rgba(249,115,22,.14); color: #9a3412; font-size: 14px; font-weight: 900; }
+
+    /* ── images ── */
+    .cp-image-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; margin-bottom: 14px; }
+    .cp-image-real {
+      aspect-ratio: 1/1;
+      border-radius: 14px;
+      background-size: cover;
+      background-position: center;
+      background-color: #eef4ff;
+      border: 1px solid rgba(37,99,235,.10);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .cp-image-real:hover { transform: scale(1.03); box-shadow: 0 8px 24px rgba(15,31,58,.12); }
+    .cp-image-more { position: absolute; inset: 0; background: rgba(15,31,58,.55); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 20px; font-weight: 900; }
+
+    /* ── poll ── */
+    .cp-poll { margin: 0 0 14px; padding: 16px; border-radius: 18px; background: #f8fbff; border: 1px solid var(--cp-line); }
+    .cp-poll-title { font-weight: 900; color: var(--cp-dark); margin-bottom: 12px; font-size: 14px; }
+    .cp-poll-opt { position: relative; display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 10px 12px; margin-bottom: 6px; border-radius: 10px; border: 1.5px solid var(--cp-line); background: #fff; cursor: pointer; overflow: hidden; font-size: 13px; font-weight: 700; transition: border-color .15s; }
+    .cp-poll-opt:hover:not(.is-readonly) { border-color: rgba(37,99,235,.3); background: #eff6ff; }
+    .cp-poll-opt.is-voted { border-color: var(--cp-blue); background: #eff6ff; }
+    .cp-poll-opt.is-readonly { cursor: default; }
+    .cp-poll-bar { position: absolute; left: 0; top: 0; bottom: 0; background: rgba(37,99,235,.08); border-radius: 10px; transition: width .4s ease; z-index: 0; }
+    .cp-poll-label, .cp-poll-pct { position: relative; z-index: 1; }
+    .cp-poll-pct { font-size: 11px; color: var(--cp-muted); font-weight: 800; }
+    .cp-poll-meta { font-size: 11px; color: var(--cp-muted); margin-top: 4px; }
+
+    /* ── card footer ── */
+    .cp-card-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 2px; }
+    .cp-stats { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .cp-stat { display: inline-flex; align-items: center; gap: 6px; padding: 7px 10px; border-radius: 999px; background: #f8fafc; border: 1px solid rgba(15,31,58,.08); color: var(--cp-dark); font-size: 12px; font-weight: 800; }
+    .cp-like-btn { cursor: pointer; transition: all .15s; }
+    .cp-like-btn:hover { background: #eff6ff; border-color: rgba(37,99,235,.2); }
+    .cp-like-btn.is-liked { background: #fee2e2; border-color: rgba(239,68,68,.25); color: #b91c1c; }
+    .cp-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .btn-ghost { background: transparent; border: 1px solid var(--cp-line); color: var(--cp-muted); box-shadow: none; }
+    .btn-ghost:hover { background: #f8fafc; filter: none; }
+
+    /* ── inline comments ── */
+    .cp-comments-inline {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--cp-line);
+    }
+    .cp-comments-list { display: grid; gap: 8px; margin-bottom: 10px; }
+    .cp-comment {
+      display: grid;
+      gap: 4px;
+      padding: 10px 12px;
+      border: 1px solid rgba(15,31,58,.07);
+      border-radius: 14px;
+      background: #f8fbff;
+    }
+    .cp-comment-head { display: flex; align-items: center; gap: 8px; }
+    .cp-comment-av { width: 30px; height: 30px; border-radius: 999px; object-fit: cover; flex-shrink: 0; border: 1.5px solid rgba(37,99,235,.12); background: #eef4ff; }
+    .cp-comment-name { font-size: 12px; font-weight: 900; color: var(--cp-dark); }
+    .cp-comment-time { font-size: 11px; color: var(--cp-muted); }
+    .cp-comment-body { color: #334155; line-height: 1.55; font-size: 13px; }
+    .cp-comment-images { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+    .cp-comment-img { width: 64px; height: 64px; object-fit: cover; border-radius: 10px; cursor: pointer; border: 1px solid var(--cp-line); transition: transform .15s; }
+    .cp-comment-img:hover { transform: scale(1.06); }
+    .cp-comment-empty { color: var(--cp-muted); font-size: 13px; }
+    .cp-see-more-link { display: inline-block; font-size: 13px; font-weight: 800; color: var(--cp-blue); text-decoration: none; margin-top: 4px; }
+    .cp-see-more-link:hover { text-decoration: underline; }
+
+    /* ── comment form inline ── */
+    .cp-comment-form { display: flex; gap: 10px; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--cp-line); }
+    .cp-comment-input-wrap { flex: 1; display: grid; gap: 6px; }
+    .cp-comment-input { padding: 10px 12px; border-radius: 12px; border: 1.5px solid var(--cp-line); font-size: 13px; font-family: inherit; transition: border-color .15s; }
+    .cp-comment-input:focus { outline: none; border-color: rgba(37,99,235,.35); }
+    .cp-comment-input-actions { display: flex; gap: 6px; align-items: center; }
+    .cp-attach-btn { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 9px; background: #f1f5f9; border: 1px solid var(--cp-line); cursor: pointer; font-size: 14px; transition: background .15s; position: relative; }
+    .cp-attach-btn:hover { background: #e2e8f0; }
+    .cp-comment-img-preview { display: flex; gap: 6px; flex-wrap: wrap; }
+    .cp-img-thumb-wrap { position: relative; }
+    .cp-img-thumb { width: 52px; height: 52px; object-fit: cover; border-radius: 10px; border: 1px solid var(--cp-line); }
+    .cp-img-thumb-remove { position: absolute; top: -4px; right: -4px; width: 16px; height: 16px; border-radius: 999px; background: #ef4444; color: #fff; border: none; cursor: pointer; font-size: 9px; display: flex; align-items: center; justify-content: center; }
+
+    /* ── composer upload zone ── */
+    .cp-upload-zone {
+      position: relative;
+      border: 2px dashed rgba(37,99,235,.2);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      background: #f8fbff;
+      transition: border-color .2s, background .2s;
+      cursor: pointer;
+    }
+    .cp-upload-zone:hover { border-color: rgba(37,99,235,.4); background: #eff6ff; }
+    .cp-upload-icon { font-size: 28px; margin-bottom: 6px; }
+    .cp-upload-label { font-size: 14px; font-weight: 700; color: var(--cp-dark); }
+    .cp-upload-hint { font-size: 12px; color: var(--cp-muted); margin-top: 4px; }
+
+    .cp-img-previews { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+
+    /* ── pagination ── */
+    #cpPagination { margin-top: 18px; }
+    .cp-pager { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; justify-content: center; padding: 14px; background: #fff; border: 1px solid var(--cp-line); border-radius: 20px; }
+    .cp-page-btn {
+      min-width: 38px;
+      height: 38px;
+      padding: 0 12px;
+      border-radius: 10px;
+      border: 1px solid var(--cp-line);
+      background: #f8fafc;
+      color: var(--cp-dark);
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .cp-page-btn:hover { background: #eff6ff; border-color: rgba(37,99,235,.25); color: var(--cp-blue); }
+    .cp-page-btn.is-active { background: var(--cp-blue); color: #fff; border-color: var(--cp-blue); }
+    .cp-page-ellipsis { color: var(--cp-muted); font-size: 14px; font-weight: 800; padding: 0 4px; }
+
+    /* ── side ── */
+    .cp-side-stack { display: grid; gap: 14px; position: sticky; top: 94px; }
+    .cp-side-card { border-radius: 20px; background: linear-gradient(180deg, #fff 0%, #fbfdff 100%); border: 1px solid var(--cp-line); padding: 18px; box-shadow: 0 8px 22px rgba(15,31,58,.05); }
+    .cp-side-card h3 { margin: 0 0 10px; color: var(--cp-dark); font-size: 16px; }
+    .cp-rank-list, .cp-mini-list { display: grid; gap: 10px; }
+    .cp-rank-item, .cp-mini-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 12px; border-radius: 14px; background: #f8fbff; border: 1px solid rgba(15,31,58,.06); }
+    .cp-rank-left { display: flex; align-items: center; gap: 10px; min-width: 0; }
+    .cp-rank-no { width: 28px; height: 28px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 900; color: #fff; background: var(--cp-grad); flex: 0 0 auto; }
+    .cp-rank-name { font-weight: 800; color: var(--cp-dark); line-height: 1.2; }
+    .cp-rank-meta { font-size: 11px; color: var(--cp-muted); margin-top: 2px; }
+    .cp-rank-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; font-size: 11px; font-weight: 900; border: 1px solid transparent; white-space: nowrap; }
+    .cp-badge-top    { background:rgba(249,115,22,.10); color:#c2410c; border-color:rgba(249,115,22,.15); }
+    .cp-badge-fast   { background:rgba(16,185,129,.10);  color:#047857; border-color:rgba(16,185,129,.15); }
+    .cp-badge-active { background:rgba(124,58,237,.10); color:#6d28d9; border-color:rgba(124,58,237,.15); }
+    .cp-badge-user   { background:rgba(37,99,235,.09);  color:#1d4ed8; border-color:rgba(37,99,235,.15); }
+
+    /* ── showcase ── */
+    .cp-showcase-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; margin-top: 16px; }
+    .cp-showcase-item { border-radius: 20px; overflow: hidden; background: linear-gradient(180deg, #fff 0%, #fbfdff 100%); border: 1px solid var(--cp-line); box-shadow: 0 10px 22px rgba(15,31,58,.05); transition: transform .15s, box-shadow .15s; }
+    .cp-showcase-item:hover { transform: translateY(-2px); box-shadow: 0 16px 34px rgba(15,31,58,.09); }
+    .cp-showcase-link { display: block; text-decoration: none; color: inherit; }
+    .cp-showcase-media {
+      aspect-ratio: 1/1;
+      background: radial-gradient(circle at 25% 25%, rgba(249,115,22,.18), transparent 30%), radial-gradient(circle at 75% 75%, rgba(37,99,235,.18), transparent 30%), linear-gradient(180deg, #edf4ff 0%, #dbeafe 100%);
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: #1d4ed8;
+      font-size: 13px;
+      text-align: center;
+      padding: 10px;
+    }
+    .cp-showcase-media.has-image { background-color: #eef4ff; color: transparent; }
+    .cp-showcase-body { padding: 14px; }
+    .cp-showcase-title { font-size: 14px; font-weight: 900; color: var(--cp-dark); margin: 0 0 6px; line-height: 1.35; }
+    .cp-showcase-meta { font-size: 12px; color: var(--cp-muted); }
+
+    /* ── lightbox ── */
+    #cpLightbox {
+      position: fixed; inset: 0; z-index: 9999;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .25s;
+    }
+    #cpLightbox.is-open { opacity: 1; pointer-events: all; }
+    .cp-lb-backdrop { position: absolute; inset: 0; background: rgba(10,18,35,.92); backdrop-filter: blur(8px); }
+    .cp-lb-close { position: absolute; top: 20px; right: 20px; width: 42px; height: 42px; border-radius: 999px; background: rgba(255,255,255,.15); border: none; color: #fff; font-size: 18px; cursor: pointer; z-index: 1; transition: background .15s; }
+    .cp-lb-close:hover { background: rgba(255,255,255,.28); }
+    .cp-lb-prev, .cp-lb-next { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 999px; background: rgba(255,255,255,.15); border: none; color: #fff; font-size: 26px; cursor: pointer; z-index: 1; transition: background .15s; }
+    .cp-lb-prev { left: 20px; }
+    .cp-lb-next { right: 20px; }
+    .cp-lb-prev:hover, .cp-lb-next:hover { background: rgba(255,255,255,.28); }
+    .cp-lb-main { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 12px; max-width: min(92vw,1200px); max-height: 90vh; }
+    .cp-lb-img { max-width: 100%; max-height: calc(90vh - 50px); border-radius: 16px; object-fit: contain; box-shadow: 0 24px 64px rgba(0,0,0,.4); }
+    .cp-lb-counter { color: rgba(255,255,255,.7); font-size: 13px; font-weight: 800; }
+
+    /* ── features ── */
+    .cp-features-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px; }
+    .cp-feature { background: linear-gradient(180deg, #fff 0%, #fbfdff 100%); border: 1px solid var(--cp-line); border-radius: 20px; padding: 18px; }
+    .cp-feature-icon { width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; font-size: 22px; background: rgba(37,99,235,.08); }
+    .cp-feature h3 { margin: 0 0 8px; color: var(--cp-dark); font-size: 16px; }
+    .cp-feature p { margin: 0; color: #42546d; line-height: 1.6; font-size: 13px; }
+
+    /* ── roadmap ── */
+    .cp-roadmap { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; }
+    .cp-road-card { border-radius: 20px; border: 1px solid var(--cp-line); background: linear-gradient(180deg, #fff 0%, #fbfdff 100%); padding: 18px; }
+    .cp-road-top { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .cp-road-priority { display: inline-flex; align-items: center; justify-content: center; min-width: 38px; height: 38px; border-radius: 12px; font-weight: 900; color: #fff; background: var(--cp-grad); }
+    .cp-road-card h3 { margin: 0; color: var(--cp-dark); font-size: 16px; }
+    .cp-road-card ul { margin: 10px 0 0; padding-left: 18px; color: #42546d; line-height: 1.7; font-size: 14px; }
+
+    /* ── footer cta ── */
+    .cp-footer-cta { text-align: center; padding: 36px 22px; background: radial-gradient(900px 280px at 0% 50%, rgba(37,99,235,.09), transparent 52%), radial-gradient(900px 280px at 100% 50%, rgba(249,115,22,.09), transparent 52%), #fff; border: 1px solid var(--cp-line); border-radius: 24px; margin-top: 22px; }
+
+    /* ── seo block ── */
+    .cp-seo-block { margin-top: 22px; background: #f8fbff; border: 1px solid var(--cp-line); border-radius: 20px; padding: 24px; }
+    .cp-seo-block h2 { color: var(--cp-dark); margin: 0 0 10px; }
+    .cp-seo-block p { color: #42546d; line-height: 1.7; margin: 0 0 10px; }
+    .cp-seo-block ul { color: #42546d; line-height: 1.7; }
+
+    /* ── empty ── */
+    .cp-empty { text-align: center; padding: 32px; color: var(--cp-muted); background: #f8fafc; border-radius: 16px; border: 1px dashed rgba(15,31,58,.10); }
+
+    /* ── buttons ── */
+    .btn-orange { background: linear-gradient(180deg, #ff7a2a, #f26a1b); }
+    .btn-blue-soft { background: #eff6ff; color: #1d4ed8; border: 1px solid rgba(37,99,235,.18); box-shadow: none; }
+    .btn-blue-soft:hover { background: #dbeafe; filter: none; }
+
+    .cp-card-new {
+  animation: cpNewPostPulse 2s ease;
+  box-shadow:
+    0 0 0 3px rgba(37,99,235,.18),
+    0 20px 46px rgba(37,99,235,.16) !important;
+}
+
+@keyframes cpNewPostPulse {
+  0% {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow:
+      0 0 0 0 rgba(37,99,235,.28),
+      0 24px 54px rgba(37,99,235,.22);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    box-shadow:
+      0 0 0 3px rgba(37,99,235,.18),
+      0 20px 46px rgba(37,99,235,.16);
+  }
+}
+    /* ── responsive ── */
+    @media (max-width: 1180px) {
+      .cp-layout { grid-template-columns: 1fr; }
+      .cp-side-stack { position: static; }
+      .cp-showcase-grid, .cp-features-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .cp-roadmap { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 980px) {
+      .cp-hero-grid { grid-template-columns: 1fr; }
+      .cp-kpis { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .cp-showcase-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .cp-side-mini-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 740px) {
+      .cp-features-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .cp-kpis, .cp-showcase-grid, .cp-side-mini-grid { grid-template-columns: 1fr; }
+      .cp-quick-menu { padding: 12px; gap: 10px; }
+      .cp-quick-link { min-width: 100%; padding: 13px 14px; }
+      .cp-title { font-size: 30px; }
+      .cp-card { padding: 16px; }
+      .cp-card-top { flex-direction: column; align-items: flex-start; }
+    }
+    .cp-poll-opt {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  border-radius: 12px;
+  border: 2px solid var(--cp-line);
+  background: #fff;
+  cursor: pointer;
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 800;
+  transition: border-color .15s, background .15s, box-shadow .15s, transform .12s;
+}
+.cp-poll-opt:hover:not(.is-readonly) {
+  border-color: #2563eb;
+  background: #eff6ff;
+  box-shadow: 0 0 0 4px rgba(37,99,235,.10);
+  transform: translateY(-1px);
+}
+.cp-poll-opt.is-voted {
+  border-color: #2563eb;
+  background: #eff6ff;
+  box-shadow: 0 0 0 4px rgba(37,99,235,.12);
+}
+.cp-poll-opt.is-readonly {
+  cursor: default;
+}
+.floating-back-btn {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  border: none;
+  background: #5f8bf1;
+  color: #fff;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,.25);
+  cursor: pointer;
+  z-index: 9999;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.floating-back-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.3);
+}
+
+.floating-back-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+  .floating-back-btn {
+    display: flex;
+  }
+}
+.cp-live-chat-card {
+  border: 1px solid var(--cp-line);
+  border-radius: 22px;
+  background: linear-gradient(180deg, #fff 0%, #fbfdff 100%);
+  padding: 18px;
+  box-shadow: 0 10px 24px rgba(15,31,58,.05);
+}
+
+.cp-live-chat-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.cp-live-chat-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--cp-dark);
+}
+
+.cp-live-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #10b981;
+  box-shadow: 0 0 0 4px rgba(16,185,129,.15);
+}
+
+.cp-live-chat-note {
+  font-size: 12px;
+  color: var(--cp-muted);
+  font-weight: 700;
+}
+
+.cp-live-chat-msgs {
+  height: 420px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 18px;
+  border: 1px solid var(--cp-line);
+  background: #f8fbff;
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.cp-live-chat-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 10px 12px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid rgba(15,31,58,.06);
+}
+
+.cp-live-chat-item.mine {
+  background: #eff6ff;
+  border-color: rgba(37,99,235,.14);
+}
+
+.cp-live-chat-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid rgba(37,99,235,.12);
+  background: #eef4ff;
+  flex: 0 0 auto;
+}
+
+.cp-live-chat-body {
+  min-width: 0;
+  flex: 1;
+}
+
+.cp-live-chat-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.cp-live-chat-name {
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--cp-dark);
+  line-height: 1.2;
+}
+
+.cp-live-chat-time {
+  font-size: 11px;
+  color: var(--cp-muted);
+  font-weight: 700;
+}
+
+.cp-live-chat-text {
+  font-size: 14px;
+  color: #334155;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.cp-live-chat-form-wrap {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--cp-line);
+}
+
+.cp-live-chat-form {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.cp-live-chat-input-wrap {
+  flex: 1;
+  display: grid;
+  gap: 8px;
+}
+
+.cp-live-chat-input {
+  min-height: 84px;
+  resize: vertical;
+  border-radius: 14px;
+  border: 1.5px solid var(--cp-line);
+  background: #fff;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--cp-dark);
+  transition: border-color .15s, box-shadow .15s;
+}
+
+.cp-live-chat-input:focus {
+  outline: none;
+  border-color: rgba(37,99,235,.35);
+  box-shadow: 0 0 0 4px rgba(37,99,235,.10);
+}
+
+.cp-live-chat-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .cp-live-chat-msgs {
+    height: 360px;
+  }
+
+  .cp-live-chat-form {
+    flex-direction: column;
+  }
+
+  .cp-live-chat-avatar {
+    width: 34px;
+    height: 34px;
+  }
+
+  .cp-live-chat-actions {
+    justify-content: flex-start;
+  }
+}
+.cp-news-list{
+  display:grid;
+  gap:10px;
+  max-height:520px;
+  overflow:auto;
+  padding-right:4px;
+}
+
+.cp-news-item{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  padding:12px;
+  border-radius:16px;
+  background:#f8fbff;
+  border:1px solid rgba(15,31,58,.06);
+  transition:transform .15s, box-shadow .15s, border-color .15s;
+}
+
+.cp-news-item:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 24px rgba(15,31,58,.07);
+  border-color:rgba(37,99,235,.18);
+}
+
+.cp-news-top{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:6px;
+}
+
+.cp-news-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:5px 9px;
+  border-radius:999px;
+  background:rgba(37,99,235,.09);
+  border:1px solid rgba(37,99,235,.14);
+  color:#1d4ed8;
+  font-size:11px;
+  font-weight:900;
+}
+
+.cp-news-time{
+  font-size:11px;
+  color:var(--cp-muted);
+  font-weight:800;
+}
+
+.cp-news-title{
+  font-size:14px;
+  font-weight:900;
+  color:var(--cp-dark);
+  line-height:1.35;
+  margin:0 0 6px;
+}
+
+.cp-news-excerpt{
+  font-size:12.5px;
+  line-height:1.55;
+  color:#42546d;
+  margin:0;
+  display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+  </style>
+</head>
+
+<body class="auth-loading">
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="logo" href="/">
+        <img class="logo-img" src="/assets/logo-cere3d.svg" alt="Cere3D" />
+      </a>
+      <button class="nav-burger" id="navBurger" type="button" aria-label="Meniu" aria-expanded="false"></button>
+      <nav class="nav">
+        <a class="nav-link" href="/ghid.html">Ghid</a>
+        <a class="nav-link" href="/cereri.html">Cereri</a>
+        <a class="nav-link" href="/cere.html">Cere un Obiect 3D</a>
+        <a class="nav-link nav-printatori-new" href="/printatori.html">
+          🔥 Printatori
+          <span class="nav-badge-new">NOU</span>
+        </a>
+        <a class="nav-link nav-auth" id="navAuthLink" href="/auth.html">Autentificare</a>
+        <div class="nav-userwrap" id="navUserWrap" style="display:none;">
+          <a class="nav-user" id="navUser" href="/cont.html" title="Contul meu">
+            <span class="nav-avatar-wrap">
+              <img id="navAvatar" class="nav-avatar" src="/assets/avatar-placeholder.svg" alt="" />
+              <span id="navDmDot" class="nav-dot" style="display:none;"></span>
+            </span>
+            <span id="navName" class="nav-name"></span>
+          </a>
+          <a class="nav-link nav-messages" id="navMessages" href="/mesaje.html">Mesaje</a>
+          <button class="nav-logout" id="navLogout" type="button">Logout</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="nav-overlay" id="navOverlay" hidden></div>
+
+  <main class="wrap">
+
+    <section class="cp-hero" aria-label="Comunitate printatori 3D">
+      <div class="cp-hero-grid">
+        <div>
+          <div class="meta-pill" style="margin-bottom:12px;">💬 Comunitate pentru printatori 3D</div>
+
+          <h1 class="cp-title">
+            Discutii 3D, showcase,<br>sfaturi si vanzari intre printatori
+          </h1>
+
+          <p class="cp-sub">
+            Comunitatea Cere3D este gandita ca un mini Reddit intern pentru printatori:
+            pui intrebari tehnice, ceri sfaturi, arati proiecte reusite, discuti despre imprimante,
+            materiale si setari, iar la nevoie postezi si vanzari tip bazar light direct in feed.
+          </p>
+
+<div class="cp-hero-cta">
+  <button class="btn btn-orange" type="button" data-open-community-post>
+    ✍️ Posteaza in comunitate
+  </button>
+  <a class="btn btn-blue-soft" href="/printatori.html">
+    Devino printator →
+  </a>
+</div>
+
+          <div class="cp-quick-menu" aria-label="Navigare rapida printatori">
+            <div class="cp-quick-menu-label">Exploreaza zona pentru printatori</div>
+
+            <a class="cp-quick-link community is-active" href="/comunitate-printatori.html">
+              <div class="cp-quick-left">
+                <div class="cp-quick-icon">💬</div>
+                <div>
+                  <span class="cp-quick-title">Comunitate printatori</span>
+                  <span class="cp-quick-sub">Discutii, intrebari, showcase, vanzari si activitate</span>
+                </div>
+              </div>
+              <span class="cp-quick-arrow">→</span>
+            </a>
+
+            <a class="cp-quick-link lista" href="/lista-printatori.html">
+              <div class="cp-quick-left">
+                <div class="cp-quick-icon">🖨️</div>
+                <div>
+                  <span class="cp-quick-title">Lista printatori</span>
+                  <span class="cp-quick-sub">Vezi profiluri publice, rating, portofoliu si cereri rezolvate</span>
+                </div>
+              </div>
+              <span class="cp-quick-arrow">→</span>
+            </a>
+          </div>
+
+          <div class="cp-kpis">
+            <div class="cp-kpi">
+              <div class="cp-kpi-value" id="printersCountStat">—</div>
+              <div class="cp-kpi-label">Postari in comunitate</div>
+            </div>
+            <div class="cp-kpi">
+              <div class="cp-kpi-value" id="resolvedMonthStat">—</div>
+              <div class="cp-kpi-label">Postari Showcase</div>
+            </div>
+            <div class="cp-kpi">
+              <div class="cp-kpi-value" id="reviewsStat">—</div>
+              <div class="cp-kpi-label">Like-uri medii / post</div>
+            </div>
+            <div class="cp-kpi">
+              <div class="cp-kpi-value">🏆</div>
+              <div class="cp-kpi-label">Gamification activa</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="cp-section" aria-label="Categorii discutii 3D">
+      <div class="cp-section-head">
+        <div>
+          <h2>Categorii simple, usor de inteles</h2>
+          <p class="cp-section-sub">Nu forum clasic complicat. Un singur feed central cu tipuri de post clare si utile.</p>
+        </div>
+      </div>
+      <div class="cp-pill-row">
+        <span class="cp-cat-pill">💬 General</span>
+        <span class="cp-cat-pill">🛠️ Probleme</span>
+        <span class="cp-cat-pill">🧠 Sfaturi</span>
+        <span class="cp-cat-pill">🛒 Vanzari</span>
+        <span class="cp-cat-pill">🖼️ Showcase</span>
+      </div>
+    </section>
+<section class="cp-section" aria-label="Chat live comunitate">
+  <div class="cp-section-head">
+    <div>
+      <h2>💬 Chat live comunitate</h2>
+      <p class="cp-section-sub">
+        Discutii rapide intre printatori, intrebari scurte, raspunsuri rapide si activitate live fara sa mai faci o postare noua.
+      </p>
+    </div>
+  </div>
+
+  <div class="cp-live-chat-card">
+    <div class="cp-live-chat-top">
+      <div class="cp-live-chat-status">
+        <span class="cp-live-dot"></span>
+        <span>Live acum in comunitate</span>
+      </div>
+      <div class="cp-live-chat-note">Mesaje scurte, publice, vizibile tuturor</div>
+    </div>
+
+    <div id="cpLiveChatMsgs" class="cp-live-chat-msgs">
+      <div class="cp-empty">Se incarca mesajele live...</div>
+    </div>
+
+    <div id="cpLiveChatFormWrap" class="cp-live-chat-form-wrap">
+      <div class="cp-live-chat-form">
+        <img id="cpLiveChatAvatar" class="cp-live-chat-avatar" src="/assets/avatar-placeholder.svg" alt="" />
+        <div class="cp-live-chat-input-wrap">
+          <textarea
+            id="cpLiveChatInput"
+            class="cp-live-chat-input"
+            maxlength="500"
+            placeholder="Scrie un mesaj scurt in chatul comunitatii..."
+          ></textarea>
+
+          <div class="cp-live-chat-actions">
+            <div id="cpLiveChatStatus" class="small-muted"></div>
+            <button id="cpLiveChatSend" class="btn btn-orange" type="button">Trimite</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="cpLiveChatAuthNotice" class="cp-comment-empty" style="display:none;margin-top:12px;">
+      <a href="/auth.html">Autentifica-te</a> ca sa scrii in chatul live.
+    </div>
+  </div>
+</section>
+    <section class="cp-section" aria-label="Exemple de discutii">
+      <div class="cp-section-head">
+        <div>
+          <h2>Feed de discutii 3D</h2>
+          <p class="cp-section-sub">Discutii reale din comunitate. Click pe orice postare pentru conversatia completa.</p>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <button class="btn btn-orange" type="button" data-open-community-post>Posteaza ceva</button>
+          <a class="btn btn-blue-soft" href="/lista-printatori.html">Vezi printatori</a>
+        </div>
+      </div>
+
+      <div class="cp-layout">
+        <div>
+          <div class="cp-feed" id="cpFeed">
+            <div class="cp-empty">Se incarca discutiile din comunitate...</div>
+          </div>
+          <div id="cpPagination"></div>
+        </div>
+
+        <aside class="cp-side-stack">
+            <div class="cp-side-card">
+    <h3>📰 Stiri pentru printatori</h3>
+    <div id="cpNewsList" class="cp-news-list">
+      <div class="cp-empty">Se incarca stirile...</div>
+    </div>
+  </div>
+          <div class="cp-side-card">
+            <h3>🏆 Badge-uri si gamification (urmeaza ...)</h3>
+            <div class="cp-rank-list">
+              <div class="cp-rank-item">
+                <div class="cp-rank-left"><span class="cp-rank-badge cp-badge-top">🏆 Top printator saptamana</span></div>
+              </div>
+              <div class="cp-rank-item">
+                <div class="cp-rank-left"><span class="cp-rank-badge cp-badge-fast">🔥 Raspunde rapid</span></div>
+              </div>
+              <div class="cp-rank-item">
+                <div class="cp-rank-left"><span class="cp-rank-badge cp-badge-active">💬 Activ in comunitate</span></div>
+              </div>
+              <div class="cp-rank-item">
+                <div class="cp-rank-left"><span class="cp-rank-badge cp-badge-user">⭐ A pus 3 cereri</span></div>
+              </div>
+            </div>
+            <div class="note" style="margin-top:12px;">
+              Badge-urile cresc retentia, motiveaza oamenii sa raspunda si fac profilurile mai interesante vizual.
+            </div>
+          </div>
+
+          <div class="cp-side-card">
+            <h3>Top activi in comunitate</h3>
+            <div class="cp-rank-list" id="cpTopActiveList">
+              <div class="cp-empty">Se incarca topul...</div>
+            </div>
+          </div>
+
+
+
+          <div class="cp-side-card">
+            <h3>CTA rapid</h3>
+            <div style="display:grid;gap:10px;">
+              <button class="btn btn-orange" type="button" data-open-community-post>Posteaza o discutie</button>
+              <a class="btn btn-blue-soft" href="/lista-printatori.html">Vezi lista de printatori</a>
+              <a class="btn btn-blue-soft" href="/cereri.html">Vezi cererile active</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="cp-section" aria-label="Showcase global">
+      <div class="cp-section-head">
+        <div>
+          <h2>🖼️ Showcase global din comunitae</h2>
+          <p class="cp-section-sub">
+            Proiecte realizate de printatori, cu imagini reale. Click pe orice proiect pentru detalii.
+          </p>
+        </div>
+        <a class="btn btn-blue-soft" href="/lista-printatori.html">Vezi profilele printatorilor</a>
+      </div>
+      <div class="cp-showcase-grid" id="cpShowcaseGrid">
+        <div class="cp-empty" style="grid-column:1/-1;">Se incarca showcase-ul...</div>
+      </div>
+    </section>
+
+    <section class="cp-section" aria-label="De ce aceasta structura este buna">
+      <div class="cp-section-head">
+        <div>
+          <h2>De ce structura asta este mai buna decat un forum clasic</h2>
+          <p class="cp-section-sub">Simplu pentru utilizator, usor de alimentat cu continut si bun pentru cresterea platformei.</p>
+        </div>
+      </div>
+      <div class="cp-features-grid">
+        <div class="cp-feature">
+          <div class="cp-feature-icon">⚡</div>
+          <h3>Intrare usoara</h3>
+          <p>Oamenii inteleg imediat feed-ul. Nu trebuie sa invete categorii complicate.</p>
+        </div>
+        <div class="cp-feature">
+          <div class="cp-feature-icon" style="background:rgba(249,115,22,.08);">📈</div>
+          <h3>Mai multa activitate</h3>
+          <p>Postarile scurte si clare genereaza mai usor comentarii, reactii si DM-uri.</p>
+        </div>
+        <div class="cp-feature">
+          <div class="cp-feature-icon" style="background:rgba(16,185,129,.08);">🛒</div>
+          <h3>Bazar integrat</h3>
+          <p>Tip de post „Vanzari" cu pret, locatie, poze si mesaj direct. Simplu si util.</p>
+        </div>
+        <div class="cp-feature">
+          <div class="cp-feature-icon" style="background:rgba(124,58,237,.08);">🧲</div>
+          <h3>Retentie reala</h3>
+          <p>Showcase-ul, topurile si badge-urile fac printatorii sa revina mai des.</p>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="cp-seo-block" aria-label="Informatii comunitate printatori 3D">
+      <h2>Comunitate printatori 3D in Romania</h2>
+      <p>
+        Pagina de comunitate pentru printatori 3D de pe Cere3D este gandita sa aduca impreuna partea tehnica,
+        partea sociala si partea comerciala intr-un singur loc. Feed usor de parcurs, bun pe mobil,
+        cu comentarii live, imagini reale, sondaje si lightbox fullscreen.
+      </p>
+      <ul>
+        <li>feed usor de folosit pe telefon cu paginare</li>
+        <li>categorii clare si utile pentru discutii reale</li>
+        <li>bazar integrat direct in comunitate cu imagini</li>
+        <li>showcase global cu preview imagini</li>
+        <li>comentarii live fara refresh</li>
+        <li>sondaje integrate in postari</li>
+        <li>lightbox fullscreen pentru imagini</li>
+      </ul>
+    </section>
+
+    <section class="cp-footer-cta" aria-label="Call to action comunitate">
+      <h2 style="margin:0 0 10px;color:var(--cp-dark);">Vrei sa fii printator activ in comunitate?</h2>
+      <p style="margin:0 auto 20px;max-width:760px;color:#42546d;line-height:1.65;">
+        Intra in cont, activeaza-ti profilul de printator si incepe sa postezi in comunitate.
+        Poti castiga vizibilitate, reputatie, colaborari si clienti prin activitate reala.
+      </p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <a class="btn btn-orange" href="/printatori.html">🖨️ Devino printator</a>
+        <a class="btn btn-blue-soft" href="/lista-printatori.html">Vezi lista de printatori</a>
+        <a class="btn btn-blue-soft" href="/cereri.html">Vezi cererile active</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>© <span id="year"></span> Cere3D</span>
+      <span class="footer-links">
+        <a href="/legal.html">Legal · Privacy · Terms · Cookies</a>
+        <a class="footer-seo-link" href="/printatori.html">Printatori 3D</a>
+        <a class="footer-seo-link" href="/lista-printatori.html">Lista printatori 3D</a>
+        <a class="footer-seo-link" href="/cereri.html">Cereri active</a>
+        <a class="footer-seo-link" href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+        <a class="footer-seo-link" href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a>
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <script type="module">
+    import { initNavAuth } from "./nav-auth.js?v=comunitate-printatori-2";
+    initNavAuth();
+  </script>
+
+  <script>
+    (function initMobileNav(){
+      const burger = document.getElementById("navBurger");
+      const overlay = document.getElementById("navOverlay");
+      const nav = document.querySelector(".topbar .nav");
+      if (!burger || !overlay || !nav) return;
+      function openNav(){ document.body.classList.add("nav-open"); overlay.hidden = false; burger.setAttribute("aria-expanded","true"); }
+      function closeNav(){ document.body.classList.remove("nav-open"); overlay.hidden = true; burger.setAttribute("aria-expanded","false"); }
+      burger.addEventListener("click", () => document.body.classList.contains("nav-open") ? closeNav() : openNav());
+      overlay.addEventListener("click", closeNav);
+      nav.addEventListener("click", e => { if(e.target.closest("a") && window.matchMedia("(max-width:900px)").matches) closeNav(); });
+      document.addEventListener("keydown", e => { if(e.key==="Escape") closeNav(); });
+      window.addEventListener("resize", () => { if(!window.matchMedia("(max-width:900px)").matches) closeNav(); });
+    })();
+  </script>
+
+  <script type="module">
+  import { initComunitatePrintatoriPage } from "./comunitate-printatori-page.js?v=2";
+  initComunitatePrintatoriPage();
+  </script>
+  <script>
+document.addEventListener("click", (e) => {
+  const link = e.target.closest("a");
+  if (!link) return;
+
+  // salvează DOAR dacă mergi spre altă pagină (ex: post)
+  if (link.href && !link.href.includes("comunitate-printatori.html")) {
+    sessionStorage.setItem("lastCommunityPage", location.href);
+  }
+});
+</script>
+<button id="floatingBackBtn" class="floating-back-btn" aria-label="Inapoi">
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5">
+    <path d="M15 18l-6-6 6-6"/>
+  </svg>
+</button>
+<script>
+(function initFloatingBack(){
+  const btn = document.getElementById("floatingBackBtn");
+  if (!btn) return;
+
+  btn.addEventListener("click", () => {
+    if (window.history.length > 1) {
+      window.history.back();
+      return;
+    }
+
+    const prev =
+      sessionStorage.getItem("lastCommunityPage") ||
+      sessionStorage.getItem("lastPage") ||
+      document.referrer;
+
+    if (prev && !prev.includes("/auth.html")) {
+      window.location.href = prev;
+    } else {
+      window.location.href = "/";
+    }
+  });
+})();
+</script>
+<script>
+sessionStorage.setItem("lastCommunityPage", location.href);
+</script>
+
+  <!-- SEO Internal Links: printare 3D -->
+  <nav class="seo-internal-links" aria-label="Pagini principale printare 3D" style="display:none;">
+    <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+    <a href="/">Printare 3D Romania - Cere3D</a>
+    <a href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a>
+    <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a>
+    <a href="/cat-costa-un-obiect-printat-3d.html">Cat costa printare 3D</a>
+    <a href="/ce-material-sa-aleg-pentru-printare-3d.html">Materiale printare 3D</a>
+  </nav>
+</body>
+</html>

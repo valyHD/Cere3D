@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Consent Mode v2 (default denied) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+
+    gtag('js', new Date());
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FY3LRNBF2"></script>
+
+  <!-- Consent UI + loader logic -->
+  <script type="module" src="/consent.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Paleta Robot Bucatarie Rupta | Refacere Paleta, Angrenaj sau Cupla - Cere3D</title>
+  <meta name="description" content="Ti s-a rupt paleta, cupla sau angrenajul de la robotul de bucatarie? Pe Cere3D poti obtine oferte pentru refacere sau printare 3D la comanda, cu accent pe imbinare pe ax, uzura si forma functionala." />
+  <link rel="canonical" href="https://cere3d.ro/paleta-robot-bucatarie.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Paleta Robot Bucatarie Rupta | Cere3D" />
+  <meta property="og:description" content="Refacere paleta, angrenaj sau cupla pentru robot de bucatarie. Postezi cererea si primesti oferte pentru o piesa care sa se potriveasca functional." />
+  <meta property="og:url" content="https://cere3d.ro/paleta-robot-bucatarie.html" />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/seo-hub.css" />
+
+  <style>
+    .crumbs{
+      padding:18px 0 0;
+      font-size:13px;
+      color:rgba(11,19,38,.66);
+    }
+    .crumbs a{
+      color:rgba(11,19,38,.82);
+      text-decoration:none;
+      font-weight:700;
+    }
+    .crumbs span{
+      margin:0 8px;
+      opacity:.45;
+    }
+
+    .hero-pills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:center;
+      margin-top:18px;
+    }
+    .hero-pills a{
+      display:inline-flex;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(11,19,38,.05);
+      border:1px solid rgba(11,19,38,.08);
+      color:#122a55;
+      font-weight:850;
+      font-size:14px;
+      text-decoration:none;
+      transition:transform .14s ease, background .14s ease;
+    }
+    .hero-pills a:hover{
+      transform:translateY(-1px);
+      background:rgba(11,19,38,.08);
+    }
+
+    .diag-grid,
+    .compare-grid,
+    .measure-grid,
+    .related-grid,
+    .offer-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+      gap:16px;
+      margin-top:26px;
+    }
+
+    .diag-card,
+    .compare-card,
+    .measure-card,
+    .related-card,
+    .offer-card,
+    .info-panel,
+    .warning-panel{
+      background:rgba(255,255,255,.88);
+      border:1px solid rgba(11,19,38,.08);
+      border-radius:20px;
+      box-shadow:var(--hub-shadow);
+      padding:24px;
+    }
+
+    .diag-card h3,
+    .compare-card h3,
+    .measure-card h3,
+    .related-card h3,
+    .offer-card h3,
+    .info-panel h3,
+    .warning-panel h3{
+      font-family:Manrope, system-ui, sans-serif;
+      font-size:20px;
+      color:#122a55;
+      font-weight:950;
+      line-height:1.25;
+      margin-bottom:10px;
+    }
+
+    .diag-card p,
+    .compare-card p,
+    .measure-card p,
+    .related-card p,
+    .offer-card p,
+    .info-panel p,
+    .info-panel li,
+    .warning-panel p,
+    .warning-panel li{
+      color:rgba(11,19,38,.76);
+      font-size:15px;
+      line-height:1.72;
+    }
+
+    .info-panel ul,
+    .warning-panel ul{
+      padding-left:18px;
+      margin-top:10px;
+    }
+    .info-panel li + li,
+    .warning-panel li + li{
+      margin-top:8px;
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+      margin-top:28px;
+      align-items:start;
+    }
+
+    .spec-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+      gap:14px;
+      margin-top:18px;
+    }
+    .spec-box{
+      background:rgba(11,19,38,.04);
+      border:1px solid rgba(11,19,38,.08);
+      border-radius:16px;
+      padding:16px;
+    }
+    .spec-box strong{
+      display:block;
+      color:#122a55;
+      font-weight:900;
+      margin-bottom:6px;
+    }
+    .spec-box span{
+      color:rgba(11,19,38,.72);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .blue-note{
+      margin-top:18px;
+      padding:18px 20px;
+      border-radius:18px;
+      background:rgba(91,124,250,.08);
+      border:1px solid rgba(91,124,250,.16);
+      color:#122a55;
+      font-weight:600;
+      line-height:1.72;
+    }
+
+    .orange-note{
+      margin-top:18px;
+      padding:18px 20px;
+      border-radius:18px;
+      background:rgba(255,122,42,.08);
+      border:1px solid rgba(255,122,42,.18);
+      color:#122a55;
+      font-weight:600;
+      line-height:1.72;
+    }
+
+    .related-card a{
+      text-decoration:none;
+      color:#122a55;
+      font-weight:900;
+    }
+
+    @media (max-width: 920px){
+      .two-col{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {
+        "@type":"ListItem",
+        "position":1,
+        "name":"Cere3D",
+        "item":"https://cere3d.ro/"
+      },
+      {
+        "@type":"ListItem",
+        "position":2,
+        "name":"Refacere piese din plastic",
+        "item":"https://cere3d.ro/refacere-piese-plastic.html"
+      },
+      {
+        "@type":"ListItem",
+        "position":3,
+        "name":"Piese plastic electrocasnice",
+        "item":"https://cere3d.ro/piese-plastic-electrocasnice.html"
+      },
+      {
+        "@type":"ListItem",
+        "position":4,
+        "name":"Paleta robot bucatarie",
+        "item":"https://cere3d.ro/paleta-robot-bucatarie.html"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Paleta robot bucatarie rupta: refacere pentru paleta, angrenaj sau cupla",
+    "description":"Pagina dedicata utilizatorilor care cauta refacere sau printare 3D pentru paleta, cupla sau angrenaj de robot bucatarie, cu accent pe imbinare pe ax, uzura, forma functionala si evaluarea separata a contactului alimentar.",
+    "mainEntityOfPage":"https://cere3d.ro/paleta-robot-bucatarie.html",
+    "author":{"@type":"Organization","name":"Cere3D"},
+    "publisher":{"@type":"Organization","name":"Cere3D"},
+    "datePublished":"2026-03-07",
+    "dateModified":"2026-03-07"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Se poate reface doar paleta sau si cupla ori angrenajul care o pune in miscare?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Da. In functie de defect, se poate evalua refacerea paletei, a cuplei, a imbinarii pe ax sau a unui angrenaj din plastic. Important este sa se vada clar ce piesa este uzata si cum transmite miscarea."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Ce conteaza cel mai mult la o piesa de robot bucatarie: forma sau prinderea?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Ambele conteaza, dar la multe piese de robot bucatarie prinderea pe ax si geometria functionala sint decisive. O piesa care arata bine, dar are joc pe ax sau nu antreneaza corect, nu rezolva problema reala."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Daca piesa intra in contact cu alimentele, este suficient sa cer doar printare 3D?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Nu. Contactul alimentar trebuie mentionat separat si evaluat clar in cerere. Pagina este utila pentru identificarea si descrierea piesei, dar cerintele de utilizare alimentara trebuie discutate explicit."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Ce poze ajuta cel mai mult pentru o paleta sau o cupla?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Ajuta poze cu piesa din fata, spate si profil, poze cu axul sau locul unde se monteaza si orice detaliu despre uzura, crapaturi sau rotunjirea zonei de antrenare."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body data-page="seo-hub">
+  <header class="topbar">
+    <a href="/index.html" class="logo" aria-label="Cere3D">
+      <img src="/assets/logo-cere3d.svg" alt="Cere3D" class="logo-img" />
+    </a>
+    <a href="/cere.html" class="topbar-cta">Posteaza cererea →</a>
+  </header>
+
+  <div class="container">
+    <div class="crumbs">
+      <a href="/index.html">Acasa</a><span>›</span>
+      <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a><span>›</span>
+      <a href="/piese-plastic-electrocasnice.html">Piese plastic electrocasnice</a><span>›</span>
+      <strong>Paleta robot bucatarie</strong>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-badge">Piesa functionala de electrocasnic</div>
+    <h1>Paleta, cupla sau angrenaj de robot bucatarie <em>rupt ori uzat</em></h1>
+    <p class="hero-sub">
+      Daca robotul nu mai amesteca bine, patineaza, scoate zgomot sau piesa de amestecare nu mai sta corect pe ax,
+      problema poate fi la paleta, la cupla sau la zona de antrenare. Pagina asta este despre piese functionale, nu despre capace sau butoane.
+    </p>
+
+    <div class="hero-cta-wrap">
+      <a href="/cere.html" class="btn-primary">
+        <span>Posteaza cererea gratuit</span>
+        <span>→</span>
+      </a>
+      <a href="#cum-identifici" class="btn-secondary">Cum identifici piesa</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">Ax</span>
+        <span class="stat-label">Imbinarea corecta conteaza mult</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Uzura</span>
+        <span class="stat-label">Apare des in zona de antrenare</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Forma</span>
+        <span class="stat-label">Trebuie sa ramina functionala, nu doar similara vizual</span>
+      </div>
+    </div>
+
+    <div class="hero-pills">
+      <a href="/piese-plastic-electrocasnice.html">Categoria electrocasnice</a>
+      <a href="#cum-identifici">Cum identifici piesa</a>
+      <a href="#ce-masori">Ce masori</a>
+      <a href="#oferta">Ce verifici in oferta</a>
+      <a href="#pagini-inrudite">Pagini inrudite</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="cum-identifici">
+    <div class="container">
+      <div class="section-tag">Primul pas util</div>
+      <h2 class="section-title">Inainte sa ceri o oferta, trebuie sa stii daca s-a stricat piesa care amesteca sau piesa care transmite miscarea</h2>
+      <p class="section-lead">
+        Aceasta pagina trebuie sa fie clar diferita de clapeta hublou sau buton aragaz. Aici problema reala este functionala: robotul are miscare, are ax, are cuplare si are uzura mecanica in zona de antrenare.
+      </p>
+
+      <div class="compare-grid">
+        <div class="compare-card">
+          <h3>Paleta este crapata sau lipseste o parte</h3>
+          <p>Forma de amestecare se modifica si robotul nu mai lucreaza uniform sau loveste in vas.</p>
+        </div>
+
+        <div class="compare-card">
+          <h3>Cupla se roteste in gol</h3>
+          <p>Exteriorul pare bun, dar interiorul unde intra pe ax s-a rotunjit si nu mai transmite forta corect.</p>
+        </div>
+
+        <div class="compare-card">
+          <h3>Angrenajul are dinti tociti sau rupti</h3>
+          <p>Robotul poate scoate zgomot, patina sau opri antrenarea sub sarcina.</p>
+        </div>
+
+        <div class="compare-card">
+          <h3>Imbinarea pe ax are joc</h3>
+          <p>Paleta sau accesoriul se monteaza, dar nu mai sta fix si incepe sa joace la lucru.</p>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-tag">Ce intra aici exact</div>
+      <h2 class="section-title">Pagina acopera trei cazuri apropiate, dar nu identice</h2>
+
+      <div class="diag-grid">
+        <div class="diag-card">
+          <h3>Paleta de amestecare</h3>
+          <p>Piesa care intra in vas si are forma activa de amestecare, framintare sau impingere a compozitiei.</p>
+        </div>
+
+        <div class="diag-card">
+          <h3>Cupla sau adaptorul pe ax</h3>
+          <p>Piesa intermediara care leaga paleta de mecanismul motor si care se poate uza chiar daca restul pare intact.</p>
+        </div>
+
+        <div class="diag-card">
+          <h3>Angrenajul din plastic</h3>
+          <p>Piesa cu dinti sau profil tehnic ce transmite miscarea si care necesita atentie la uzura si la tolerante.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="ce-masori">
+    <div class="container">
+      <div class="section-tag">Masuratori utile</div>
+      <h2 class="section-title">La o paleta sau o cupla, dimensiunile importante nu sint doar lungimea si latimea, ci mai ales zona care preia miscarea</h2>
+
+      <div class="two-col">
+        <div class="info-panel">
+          <h3>Ce poze sint cele mai utile</h3>
+          <ul>
+            <li>poza din fata si din spate a piesei</li>
+            <li>poza de profil, ca sa se vada grosimea si forma activa</li>
+            <li>poza cu locul unde intra pe ax sau in mecanism</li>
+            <li>poza cu uzura, crapatura sau zona rotunjita</li>
+            <li>poza cu piesa montata, daca mai poate fi pusa in pozitie</li>
+          </ul>
+        </div>
+
+        <div class="info-panel">
+          <h3>Ce trebuie masurat daca poti</h3>
+          <div class="spec-grid">
+            <div class="spec-box">
+              <strong>Diametru ax</strong>
+              <span>Sau forma lui: rotund, D, patrat, canelat.</span>
+            </div>
+            <div class="spec-box">
+              <strong>Adincime imbinare</strong>
+              <span>Cit intra efectiv piesa pe ax.</span>
+            </div>
+            <div class="spec-box">
+              <strong>Latimea partii active</strong>
+              <span>Forma care amesteca sau transmite miscarea.</span>
+            </div>
+            <div class="spec-box">
+              <strong>Uzura vizibila</strong>
+              <span>Dinti rupti, gol marit, muchii tocite.</span>
+            </div>
+            <div class="spec-box">
+              <strong>Modelul aparatului</strong>
+              <span>Foarte util la electrocasnice cu variante similare.</span>
+            </div>
+            <div class="spec-box">
+              <strong>Contact alimentar</strong>
+              <span>Trebuie spus clar, separat, in cerere.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Cind merita</div>
+      <h2 class="section-title">Refacerea are sens mai ales cind piesa nu se mai gaseste sau cind defectul este concentrat intr-o zona mica, dar critica</h2>
+      <p class="section-lead">
+        La aceasta pagina, criteriul principal este daca piesa poate transmite miscarea corect si daca geometria functionala poate fi reprodusa bine.
+      </p>
+
+      <div class="offer-grid">
+        <div class="offer-card">
+          <h3>Merita cind restul robotului este bun</h3>
+          <p>Daca motorul si vasul sint functionale, o paleta sau o cupla uzata poate fi exact piesa care blocheaza utilizarea.</p>
+        </div>
+
+        <div class="offer-card">
+          <h3>Merita cind uzura este la imbinarea pe ax</h3>
+          <p>Chiar si o piesa aproape intreaga devine inutila daca zona de antrenare a luat joc.</p>
+        </div>
+
+        <div class="offer-card">
+          <h3>Trebuie analizat atent cind exista contact alimentar</h3>
+          <p>Acest aspect nu trebuie presupus. El se mentioneaza separat, clar, in cerere si in evaluarea solutiei propuse.</p>
+        </div>
+
+        <div class="offer-card">
+          <h3>Trebuie analizat atent cind piesa lucreaza sub sarcina mare</h3>
+          <p>Framintarea sau amestecarea consistenta poate solicita diferit piesa fata de un robot folosit usor.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="oferta">
+    <div class="container">
+      <div class="section-tag">Ce verifici in oferta</div>
+      <h2 class="section-title">La o piesa de robot bucatarie, oferta buna trebuie sa raspunda la potrivirea functionala, nu doar la forma vizuala</h2>
+
+      <div class="two-col">
+        <div class="warning-panel">
+          <h3>Intrebari bune pentru oferta</h3>
+          <ul>
+            <li>este clar cum va fi refacuta zona de cuplare pe ax?</li>
+            <li>se tine cont de uzura si de jocul existent?</li>
+            <li>se intelege daca problema este la paleta sau la piesa care o antreneaza?</li>
+            <li>este mentionat separat daca exista contact cu alimentele?</li>
+          </ul>
+        </div>
+
+        <div class="warning-panel">
+          <h3>Ce poate duce la o piesa nepotrivita</h3>
+          <ul>
+            <li>poze doar din exterior, fara zona de imbinare</li>
+            <li>lipsa masuratorilor la ax sau la golul interior</li>
+            <li>confuzie intre paleta, cupla si angrenaj</li>
+            <li>omisiunea faptului ca piesa lucreaza in contact alimentar sau sub sarcina mare</li>
+          </ul>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Exemple orientative</div>
+      <h2 class="section-title">Situatii tipice in care utilizatorii cauta pagina asta</h2>
+      <p class="section-lead">Exemplele te ajuta sa descrii corect defectul, nu sint oferte standard.</p>
+
+      <div class="examples-grid">
+        <div class="example-card">
+          <span class="example-status status-done">Caz frecvent</span>
+          <h3>Paleta crapata la baza</h3>
+          <p>Piesa mai intra in robot, dar incepe sa joace si nu mai amesteca uniform in vas.</p>
+          <div class="example-meta">
+            <span><strong>Problema:</strong> baza paletei</span>
+            <span><strong>Tip:</strong> piesa activa</span>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <span class="example-status status-done">Caz frecvent</span>
+          <h3>Cupla rotunjita si patinare pe ax</h3>
+          <p>Robotul porneste, dar piesa nu mai preia bine miscarea si se invarte in gol la sarcina.</p>
+          <div class="example-meta">
+            <span><strong>Problema:</strong> imbinare</span>
+            <span><strong>Tip:</strong> cupla</span>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <span class="example-status status-open">Analiza necesara</span>
+          <h3>Angrenaj cu dinti tociti</h3>
+          <p>Miscarea apare sacadat si nu este clar daca uzura este doar la piesa vizibila sau mai adinc in mecanism.</p>
+          <div class="example-meta">
+            <span><strong>Problema:</strong> dinti uzati</span>
+            <span><strong>Tip:</strong> evaluare</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Ai paleta sau cupla robotului rupta?</h2>
+        <p>Posteaza cererea si arata clar piesa, zona de ax si uzura. Asa cresc sansele unei oferte utile pentru o piesa care se potriveste functional, nu doar vizual.</p>
+        <a href="/cere.html" class="btn-primary" style="font-size:18px; padding:18px 44px;">
+          Posteaza cererea gratuit →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="pagini-inrudite">
+    <div class="container">
+      <div class="section-tag">Vezi si alte piese similare</div>
+      <h2 class="section-title">Pagini inrudite din clusterul electrocasnice</h2>
+      <p class="section-lead">Linkurile sint alese astfel incit aceasta pagina sa aiba context propriu, nu aceeasi structura de interlinking ca restul.</p>
+
+      <div class="related-grid">
+        <article class="related-card">
+          <h3>Piese plastic electrocasnice</h3>
+          <p>Pagina parinte pentru piesele din plastic de la electrocasnice care pot fi refacute la comanda.</p>
+          <a href="/piese-plastic-electrocasnice.html">Vezi categoria →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Buton aragaz rupt</h3>
+          <p>Pentru butoane si piese de comanda, nu pentru piese care transmit miscarea in interiorul unui robot.</p>
+          <a href="/buton-aragaz-rupt.html">Vezi pagina →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Capac masina cafea plastic</h3>
+          <p>Pentru capace si piese de acces, cu logica diferita fata de palete, cuple si angrenaje.</p>
+          <a href="/capac-masina-cafea-plastic.html">Vezi pagina →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Perie aspirator piesa rupta</h3>
+          <p>Pentru piese de antrenare usoara si carcase de aspirator, nu pentru contactul direct cu alimentele din bucatarie.</p>
+          <a href="/perie-aspirator-piesa-rupta.html">Vezi pagina →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-tag">Intrebari frecvente</div>
+      <h2 class="section-title">FAQ pentru paleta robot bucatarie</h2>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">
+            Se poate reface doar paleta sau si cupla ori angrenajul care o pune in miscare?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Da. In functie de defect, se poate evalua refacerea paletei, a cuplei, a imbinarii pe ax sau a unui angrenaj din plastic. Important este sa se vada clar ce piesa este uzata si cum transmite miscarea.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Ce conteaza cel mai mult la o piesa de robot bucatarie: forma sau prinderea?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Ambele conteaza, dar la multe piese de robot bucatarie prinderea pe ax si geometria functionala sint decisive. O piesa care arata bine, dar are joc pe ax sau nu antreneaza corect, nu rezolva problema reala.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Daca piesa intra in contact cu alimentele, este suficient sa cer doar printare 3D?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Nu. Contactul alimentar trebuie mentionat separat si evaluat clar in cerere. Pagina este utila pentru identificarea si descrierea piesei, dar cerintele de utilizare alimentara trebuie discutate explicit.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Ce poze ajuta cel mai mult pentru o paleta sau o cupla?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Ajuta poze cu piesa din fata, spate si profil, poze cu axul sau locul unde se monteaza si orice detaliu despre uzura, crapaturi sau rotunjirea zonei de antrenare.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="/index.html" class="footer-logo">Cere<span>3D</span></a>
+      <a href="/refacere-piese-plastic.html" class="footer-seo-link">Refacere piese din plastic</a>
+      <a href="/piese-plastic-electrocasnice.html" class="footer-seo-link">Piese plastic electrocasnice</a>
+      <a href="/buton-aragaz-rupt.html" class="footer-seo-link">Buton aragaz rupt</a>
+      <span class="footer-copy">
+        © <span id="an-curent"></span> Cere3D. Paleta robot bucatarie refacuta la comanda.
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-q').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i){
+          i.classList.remove('open');
+        });
+        if(!isOpen) item.classList.add('open');
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function(){
+      const yearSpan = document.getElementById('an-curent');
+      if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+    });
+  </script>
+
+  <!-- SEO Internal Links: printare 3D -->
+  <nav class="seo-internal-links" aria-label="Pagini principale printare 3D" style="display:none;">
+    <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+    <a href="/">Printare 3D Romania - Cere3D</a>
+    <a href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a>
+    <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a>
+    <a href="/cat-costa-un-obiect-printat-3d.html">Cat costa printare 3D</a>
+    <a href="/ce-material-sa-aleg-pentru-printare-3d.html">Materiale printare 3D</a>
+  </nav>
+</body>
+</html>

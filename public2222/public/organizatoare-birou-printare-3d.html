@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Consent Mode v2 (default denied) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+
+    gtag('js', new Date());
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FY3LRNBF2"></script>
+
+  <!-- Consent UI + loader logic -->
+  <script type="module" src="/consent.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Organizatoare Birou Printare 3D | Suport Pixuri, Cabluri, Telefon Si Carti De Vizita - Cere3D</title>
+  <meta name="description" content="Cauti organizatoare de birou personalizate printate 3D? Pe Cere3D poti cere suporturi pentru pixuri, cabluri, telefon, carti de vizita si accesorii de birou, cu compartimente gandite pentru spatiul tau." />
+  <link rel="canonical" href="https://cere3d.ro/organizatoare-birou-printare-3d.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Organizatoare Birou Printare 3D | Cere3D" />
+  <meta property="og:description" content="Organizatoare de birou personalizate printate 3D, cu compartimente pentru pixuri, cabluri, telefon, carti de vizita si accesorii utile." />
+  <meta property="og:url" content="https://cere3d.ro/organizatoare-birou-printare-3d.html" />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/seo-hub.css" />
+
+  <style>
+    .crumbs{
+      padding:18px 0 0;
+      font-size:13px;
+      color:rgba(11,19,38,.64);
+    }
+    .crumbs a{
+      color:rgba(11,19,38,.84);
+      text-decoration:none;
+      font-weight:700;
+    }
+    .crumbs span{
+      margin:0 8px;
+      opacity:.46;
+    }
+
+    .comp-grid,
+    .use-grid,
+    .detail-grid,
+    .related-grid,
+    .flow-grid,
+    .mistake-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:16px;
+      margin-top:28px;
+    }
+
+    .comp-card,
+    .use-card,
+    .detail-card,
+    .related-card,
+    .flow-card,
+    .mistake-card,
+    .panel-box,
+    .note-box{
+      background:rgba(255,255,255,.90);
+      border:1px solid rgba(11,19,38,.08);
+      border-radius:20px;
+      box-shadow:var(--hub-shadow);
+      padding:24px;
+    }
+
+    .comp-card h3,
+    .use-card h3,
+    .detail-card h3,
+    .related-card h3,
+    .flow-card h3,
+    .mistake-card h3,
+    .panel-box h3,
+    .note-box h3{
+      font-family:Manrope,system-ui,sans-serif;
+      font-size:20px;
+      line-height:1.25;
+      color:#122a55;
+      font-weight:950;
+      margin-bottom:10px;
+    }
+
+    .comp-card p,
+    .use-card p,
+    .detail-card p,
+    .related-card p,
+    .flow-card p,
+    .mistake-card p,
+    .panel-box p,
+    .panel-box li,
+    .note-box p,
+    .note-box li{
+      color:rgba(11,19,38,.76);
+      font-size:15px;
+      line-height:1.72;
+    }
+
+    .panel-box ul,
+    .note-box ul{
+      padding-left:18px;
+      margin-top:10px;
+    }
+
+    .panel-box li + li,
+    .note-box li + li{
+      margin-top:8px;
+    }
+
+    .split-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+      margin-top:28px;
+      align-items:start;
+    }
+
+    .pill-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .soft-pill{
+      display:inline-flex;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(11,19,38,.05);
+      border:1px solid rgba(11,19,38,.08);
+      color:#122a55;
+      font-size:14px;
+      font-weight:800;
+      text-decoration:none;
+    }
+
+    .note-band{
+      margin-top:18px;
+      padding:18px 20px;
+      border-radius:18px;
+      background:rgba(91,124,250,.08);
+      border:1px solid rgba(91,124,250,.16);
+      color:#122a55;
+      font-weight:600;
+      line-height:1.72;
+    }
+
+    .warn-band{
+      margin-top:18px;
+      padding:18px 20px;
+      border-radius:18px;
+      background:rgba(255,122,42,.08);
+      border:1px solid rgba(255,122,42,.18);
+      color:#122a55;
+      font-weight:600;
+      line-height:1.72;
+    }
+
+    .related-card a{
+      text-decoration:none;
+      color:#122a55;
+      font-weight:900;
+    }
+
+    @media (max-width:900px){
+      .split-grid{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {
+        "@type":"ListItem",
+        "position":1,
+        "name":"Cere3D",
+        "item":"https://cere3d.ro/"
+      },
+      {
+        "@type":"ListItem",
+        "position":2,
+        "name":"Obiecte personalizate printare 3D",
+        "item":"https://cere3d.ro/obiecte-personalizate-printare-3d.html"
+      },
+      {
+        "@type":"ListItem",
+        "position":3,
+        "name":"Organizatoare birou printare 3D",
+        "item":"https://cere3d.ro/organizatoare-birou-printare-3d.html"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Organizatoare birou printare 3D pentru pixuri, cabluri, telefon si carti de vizita",
+    "description":"Pagina dedicata organizatoarelor de birou personalizate printate 3D, cu accent pe compartimente, pixuri, cabluri, telefon, carti de vizita si personalizare cu nume sau logo.",
+    "mainEntityOfPage":"https://cere3d.ro/organizatoare-birou-printare-3d.html",
+    "author":{"@type":"Organization","name":"Cere3D"},
+    "publisher":{"@type":"Organization","name":"Cere3D"},
+    "datePublished":"2026-03-07",
+    "dateModified":"2026-03-07"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Ce trebuie sa spun in cerere pentru un organizator de birou?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Ajuta foarte mult sa spui ce vrei sa tii in el: pixuri, cabluri, telefon, carti de vizita, stick-uri, notite sau alte obiecte mici. Conteaza si marimea spatiului disponibil pe birou."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Se poate personaliza cu nume sau logo?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Da. Organizatoarele de birou se potrivesc bine cu personalizare discreta sau vizibila, in functie de context: home office, birou personal, cadou sau varianta corporate."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Este mai bine un organizator cu multe compartimente sau unul simplu?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Depinde de ce vrei sa tii in el. Un organizator prea incarcat poate ocupa mult spatiu si poate deveni greu de folosit. Unul bine gandit, cu compartimentele potrivite, este de obicei o alegere mai buna."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Merge si ca obiect de cadou pentru birou?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Da. Un organizator de birou poate fi un cadou util si usor de personalizat, mai ales daca persoana foloseste des pixuri, telefon, cabluri sau carti de vizita."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body data-page="seo-hub">
+  <header class="topbar">
+    <a href="/index.html" class="logo" aria-label="Cere3D">
+      <img src="/assets/logo-cere3d.svg" alt="Cere3D" class="logo-img" />
+    </a>
+    <a href="/cere.html" class="topbar-cta">Posteaza cererea →</a>
+  </header>
+
+  <div class="container">
+    <div class="crumbs">
+      <a href="/index.html">Acasa</a><span>›</span>
+      <a href="/obiecte-personalizate-printare-3d.html">Obiecte personalizate printare 3D</a><span>›</span>
+      <strong>Organizatoare birou printare 3D</strong>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-badge">Subcategorie: organizare si accesorii de birou</div>
+    <h1>Organizatoare birou <em>printare 3D</em></h1>
+    <p class="hero-sub">
+      Daca vrei sa pui ordine pe birou fara sa folosesti un obiect generic care nu se potriveste cu ce ai pe masa, pagina aceasta este pentru tine. Aici intra organizatoare printate 3D pentru pixuri, cabluri, telefon, carti de vizita si alte accesorii mici, cu compartimente gandite pentru folosirea reala.
+    </p>
+
+    <div class="hero-cta-wrap">
+      <a href="/cere.html" class="btn-primary">
+        <span>Posteaza cererea</span>
+        <span>→</span>
+      </a>
+      <a href="#ce-poate-include" class="btn-secondary">Vezi ce poate include</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">Compartimente utile</span>
+        <span class="stat-label">Nu doar cutii puse la intamplare</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Telefon + cabluri</span>
+        <span class="stat-label">Integrare buna pe birou</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Nume / logo</span>
+        <span class="stat-label">Personalizare simpla sau business</span>
+      </div>
+    </div>
+
+    <div class="pill-row">
+      <a href="/suport-telefon-birou-printat-3d.html" class="soft-pill">Suport telefon birou</a>
+      <a href="/suport-carti-vizita-printat-3d.html" class="soft-pill">Suport carti vizita</a>
+      <a href="/suport-casti-birou-printat-3d.html" class="soft-pill">Suport casti birou</a>
+      <a href="/cere.html" class="soft-pill">Trimite brief-ul</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm" id="ce-poate-include">
+    <div class="container">
+      <div class="section-tag">Ce poate intra intr-un organizator bun</div>
+      <h2 class="section-title">Un organizator de birou reusit porneste de la obiectele pe care le folosesti zilnic, nu de la o forma aleasa la intamplare</h2>
+      <p class="section-lead">
+        Pagina aceasta este construita pentru organizare reala de birou. Accentul nu este pe mobilier si nici pe un obiect decorativ generic, ci pe compartimente bine alese pentru lucrurile care se aduna pe masa de lucru.
+      </p>
+
+      <div class="comp-grid">
+        <div class="comp-card">
+          <h3>Pixuri si markere</h3>
+          <p>Una dintre cele mai comune cerinte. Compartimentele trebuie sa aiba sens pentru acces rapid, nu doar sa arate simetric.</p>
+        </div>
+        <div class="comp-card">
+          <h3>Cabluri si accesorii mici</h3>
+          <p>Foarte utile in home office sau desk setup, mai ales cand vrei sa reduci dezordinea vizuala de pe masa.</p>
+        </div>
+        <div class="comp-card">
+          <h3>Telefon sau stand mic</h3>
+          <p>Unele organizatoare merg bine cu o zona dedicata pentru telefon, daca obiectul trebuie sa combine ordine si utilitate rapida.</p>
+        </div>
+        <div class="comp-card">
+          <h3>Carti de vizita sau notite</h3>
+          <p>Bune pentru birou, receptie sau masa de lucru, mai ales daca vrei si o nota mai profesionala sau corporate.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Cum il folosesti</div>
+      <h2 class="section-title">Organizatorul bun depinde de ce fel de birou ai si cum lucrezi la el</h2>
+
+      <div class="use-grid">
+        <div class="use-card">
+          <h3>Home office</h3>
+          <p>Conteaza mai mult ordinea vizuala, accesul rapid si un obiect care sa nu para prea business sau prea incarcat.</p>
+        </div>
+        <div class="use-card">
+          <h3>Birou personal</h3>
+          <p>Poate merge foarte bine cu nume discret, compartimente clare si o forma adaptata la lucrurile pe care le folosesti cel mai des.</p>
+        </div>
+        <div class="use-card">
+          <h3>Birou corporate</h3>
+          <p>Poate avea sens o personalizare mai ordonata, cu logo, carti de vizita sau compartiment pentru obiecte de lucru recurente.</p>
+        </div>
+        <div class="use-card">
+          <h3>Cadou util</h3>
+          <p>Este una dintre cele mai bune variante cand vrei sa oferi ceva practic si usor de adaptat stilului de lucru al cuiva.</p>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-tag">Detaliile care fac diferenta</div>
+      <h2 class="section-title">Un organizator util nu inseamna neaparat multe compartimente, ci compartimentele potrivite</h2>
+
+      <div class="detail-grid">
+        <div class="detail-card">
+          <h3>Adancimea compartimentelor</h3>
+          <p>Pixurile, cablurile si accesoriile mici nu au nevoie de aceeasi forma, deci interiorul trebuie gandit practic.</p>
+        </div>
+        <div class="detail-card">
+          <h3>Amprenta pe birou</h3>
+          <p>Un organizator prea mare poate rezolva dezordinea doar ca sa creeze alta. Proportia conteaza foarte mult.</p>
+        </div>
+        <div class="detail-card">
+          <h3>Ordinea de acces</h3>
+          <p>Ce folosesti des trebuie sa fie usor de luat, iar ce folosesti rar poate sta in zone secundare.</p>
+        </div>
+        <div class="detail-card">
+          <h3>Personalizarea</h3>
+          <p>Numele sau logo-ul trebuie sa completeze obiectul, nu sa il transforme intr-o piesa prea incarcata vizual.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Greseli frecvente</div>
+      <h2 class="section-title">Ce face ca un organizator sa para bun in poza, dar mai slab in folosire</h2>
+
+      <div class="mistake-grid">
+        <div class="mistake-card">
+          <h3>Prea multe zone mici</h3>
+          <p>Poate arata interesant, dar in folosire devine greu de umplut logic si ocupa mai mult spatiu decat trebuie.</p>
+        </div>
+        <div class="mistake-card">
+          <h3>Fara gandire pentru cabluri</h3>
+          <p>Daca biroul tau are cabluri, organizatorul trebuie sa tina cont de ele, nu doar de pixuri si accesorii statice.</p>
+        </div>
+        <div class="mistake-card">
+          <h3>Telefon ignorat</h3>
+          <p>Pe multe birouri, telefonul este obiectul principal. Daca nu are loc clar, dezordinea revine imediat.</p>
+        </div>
+        <div class="mistake-card">
+          <h3>Logo sau nume prea mare</h3>
+          <p>Personalizarea ajuta, dar daca domina tot obiectul, organizatorul poate pierde din claritate si eleganta.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-tag">Cum postezi corect cererea</div>
+      <h2 class="section-title">Ca sa primesti oferte bune, spune ce vrei sa organizezi, nu doar ca vrei "un organizator"</h2>
+
+      <div class="split-grid">
+        <div class="panel-box">
+          <h3>Ce sa incluzi in cerere</h3>
+          <ul>
+            <li>ce obiecte vrei sa tina: pixuri, cabluri, telefon, carti de vizita, stick-uri, notite</li>
+            <li>cat spatiu ai pe birou</li>
+            <li>daca il vrei pentru birou personal, home office sau corporate</li>
+            <li>daca vrei nume, logo sau fara personalizare</li>
+            <li>daca vrei un organizator compact sau unul mai complex</li>
+            <li>o poza a biroului sau a zonei unde va sta, daca ai</li>
+          </ul>
+        </div>
+
+        <div class="note-box">
+          <h3>Ce ajuta foarte mult</h3>
+          <ul>
+            <li>sa spui care sint cele mai folosite 3-5 obiecte de pe masa</li>
+            <li>sa mentionezi daca vrei si loc pentru telefon</li>
+            <li>sa spui daca trebuie sa arate mai clean sau mai utilitar</li>
+            <li>sa clarifici daca obiectul este pentru tine sau pentru cadou</li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Flux simplu de decizie</div>
+      <h2 class="section-title">Cum alegi un organizator de birou care chiar are sens</h2>
+
+      <div class="flow-grid">
+        <div class="flow-card">
+          <h3>1. Vezi ce se aduna pe birou</h3>
+          <p>Porneste de la lucrurile care raman mereu pe masa, nu de la ideea de obiect in sine.</p>
+        </div>
+        <div class="flow-card">
+          <h3>2. Grupezi obiectele</h3>
+          <p>Pixuri cu pixuri, cabluri cu cabluri, carti de vizita separat. Asta clarifica imediat compartimentele necesare.</p>
+        </div>
+        <div class="flow-card">
+          <h3>3. Alegi ce vrei la vedere</h3>
+          <p>Nu totul trebuie expus la fel. Unele lucruri trebuie sa fie rapide la acces, altele doar bine asezate.</p>
+        </div>
+        <div class="flow-card">
+          <h3>4. Adaugi personalizarea</h3>
+          <p>Nume sau logo doar dupa ce functia este clara. Asa obiectul ramane util si arata bine in acelasi timp.</p>
+        </div>
+      </div>
+
+      <div class="examples-grid">
+        <div class="example-card">
+          <span class="example-status status-done">Birou personal</span>
+          <h3>Organizator compact cu pixuri, telefon si cablu</h3>
+          <p>Accent pe ordine zilnica si obiect util care sa nu ocupe prea mult spatiu pe masa.</p>
+          <div class="example-meta">
+            <span><strong>Tip:</strong> home office</span>
+            <span><strong>Accent:</strong> compact</span>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <span class="example-status status-done">Birou business</span>
+          <h3>Organizator cu carti de vizita si logo discret</h3>
+          <p>Gandit pentru receptie sau birou, cu prezenta mai profesionala si compartimente clare.</p>
+          <div class="example-meta">
+            <span><strong>Tip:</strong> corporate</span>
+            <span><strong>Accent:</strong> logo + ordine</span>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <span class="example-status status-open">Cadou util</span>
+          <h3>Organizator personalizat pentru cineva care lucreaza la birou</h3>
+          <p>Se cauta un obiect practic si placut vizual, adaptat stilului real de lucru al persoanei.</p>
+          <div class="example-meta">
+            <span><strong>Tip:</strong> cadou</span>
+            <span><strong>Accent:</strong> utilitate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Pagini inrudite</div>
+      <h2 class="section-title">Vezi si alte pagini similare</h2>
+      <p class="section-lead">Linkuri interne utile din acelasi cluster, dar cu roluri mai specifice.</p>
+
+      <div class="related-grid">
+        <article class="related-card">
+          <h3>Suport telefon birou printat 3D</h3>
+          <p>Pentru pagina concentrata pe telefon, unghi, cablu si folosire rapida pe birou.</p>
+          <a href="/suport-telefon-birou-printat-3d.html">Vezi pagina →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Suport carti vizita printat 3D</h3>
+          <p>Pentru o pagina mai specifica pe prezentare business si obiecte de birou orientate spre contact.</p>
+          <a href="/suport-carti-vizita-printat-3d.html">Vezi pagina →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Suport casti birou printat 3D</h3>
+          <p>Pentru accesoriu dedicat castilor, cu accent pe baza, agatare si desk setup.</p>
+          <a href="/suport-casti-birou-printat-3d.html">Vezi pagina →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Obiecte personalizate printare 3D</h3>
+          <p>Pagina parinte pentru alte obiecte utile sau decorative create prin printare 3D.</p>
+          <a href="/obiecte-personalizate-printare-3d.html">Vezi pagina →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Vrei un organizator de birou care sa se potriveasca exact cu lucrurile pe care le folosesti?</h2>
+        <p>Posteaza cererea cu obiectele pe care vrei sa le organizezi, spatiul disponibil si daca vrei nume sau logo. Asa primesti oferte mai bune pentru un organizator birou printat 3D gandit pe nevoile tale reale.</p>
+        <a href="/cere.html" class="btn-primary" style="font-size:18px; padding:18px 44px;">
+          Posteaza cererea gratuit →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-tag">Intrebari frecvente</div>
+      <h2 class="section-title">FAQ – organizatoare birou printare 3D</h2>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">
+            Ce trebuie sa spun in cerere pentru un organizator de birou?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Ajuta foarte mult sa spui ce vrei sa tii in el: pixuri, cabluri, telefon, carti de vizita, stick-uri, notite sau alte obiecte mici. Conteaza si marimea spatiului disponibil pe birou.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Se poate personaliza cu nume sau logo?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Da. Organizatoarele de birou se potrivesc bine cu personalizare discreta sau vizibila, in functie de context: home office, birou personal, cadou sau varianta corporate.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Este mai bine un organizator cu multe compartimente sau unul simplu?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Depinde de ce vrei sa tii in el. Un organizator prea incarcat poate ocupa mult spatiu si poate deveni greu de folosit. Unul bine gandit, cu compartimentele potrivite, este de obicei o alegere mai buna.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Merge si ca obiect de cadou pentru birou?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Da. Un organizator de birou poate fi un cadou util si usor de personalizat, mai ales daca persoana foloseste des pixuri, telefon, cabluri sau carti de vizita.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="/index.html" class="footer-logo">Cere<span>3D</span></a>
+      <a href="/obiecte-personalizate-printare-3d.html" class="footer-seo-link">Obiecte personalizate printare 3D</a>
+      <a href="/suport-telefon-birou-printat-3d.html" class="footer-seo-link">Suport telefon birou</a>
+      <a href="/suport-casti-birou-printat-3d.html" class="footer-seo-link">Suport casti birou</a>
+      <span class="footer-copy">
+        © <span id="an-curent"></span> Cere3D. Organizatoare de birou realizate prin printare 3D.
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-q').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i){
+          i.classList.remove('open');
+        });
+        if(!isOpen) item.classList.add('open');
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function(){
+      const yearSpan = document.getElementById('an-curent');
+      if(yearSpan){
+        yearSpan.textContent = new Date().getFullYear();
+      }
+    });
+  </script>
+
+  <!-- SEO Internal Links: printare 3D -->
+  <nav class="seo-internal-links" aria-label="Pagini principale printare 3D" style="display:none;">
+    <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+    <a href="/">Printare 3D Romania - Cere3D</a>
+    <a href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a>
+    <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a>
+    <a href="/cat-costa-un-obiect-printat-3d.html">Cat costa printare 3D</a>
+    <a href="/ce-material-sa-aleg-pentru-printare-3d.html">Materiale printare 3D</a>
+  </nav>
+</body>
+</html>

@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Consent Mode v2 (default denied) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+
+    gtag('js', new Date());
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FY3LRNBF2"></script>
+
+  <!-- Consent UI + loader logic -->
+  <script type="module" src="/consent.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Gura Ventilatie Auto Sparta | Refacere Aripioare, Cleme Sau Grila Aer - Cere3D</title>
+  <meta name="description" content="Ti s-a spart gura de ventilatie auto? Cere3D te ajuta sa obtii oferte pentru refacere sau printare 3D la comanda pentru aripioare rupte, cleme de prindere, rama grilei si alte piese de interior auto." />
+  <link rel="canonical" href="https://cere3d.ro/gura-ventilatie-auto.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Gura Ventilatie Auto Sparta | Cere3D" />
+  <meta property="og:description" content="Aripioare rupte, cleme lipsa sau grila de aer crapata? Postezi cererea si primesti oferte pentru refacere dupa modelul vechi." />
+  <meta property="og:url" content="https://cere3d.ro/gura-ventilatie-auto.html" />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/seo-hub.css" />
+
+  <style>
+    .crumbs{
+      padding:18px 0 0;
+      font-size:13px;
+      color:rgba(11,19,38,.66);
+    }
+    .crumbs a{
+      color:rgba(11,19,38,.80);
+      text-decoration:none;
+      font-weight:700;
+    }
+    .crumbs span{
+      margin:0 8px;
+      opacity:.5;
+    }
+
+    .anchor-nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:20px;
+      justify-content:center;
+    }
+    .anchor-link{
+      display:inline-flex;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(11,19,38,.05);
+      border:1px solid rgba(11,19,38,.08);
+      color:#122a55;
+      font-weight:800;
+      font-size:14px;
+      text-decoration:none;
+      transition:transform .14s ease, background .14s ease;
+    }
+    .anchor-link:hover{
+      transform:translateY(-1px);
+      background:rgba(11,19,38,.08);
+    }
+
+    .split-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+      align-items:start;
+      margin-top:32px;
+    }
+
+    .info-card,
+    .fit-card,
+    .measure-card,
+    .related-card{
+      background:rgba(255,255,255,.88);
+      border:1px solid rgba(11,19,38,.08);
+      border-radius:20px;
+      box-shadow:var(--hub-shadow);
+      padding:24px;
+    }
+
+    .info-card h3,
+    .fit-card h3,
+    .measure-card h3,
+    .related-card h3{
+      font-family:Manrope, system-ui, sans-serif;
+      font-size:20px;
+      color:#122a55;
+      font-weight:950;
+      line-height:1.25;
+      margin-bottom:10px;
+    }
+
+    .info-card p,
+    .fit-card p,
+    .measure-card p,
+    .related-card p,
+    .info-card li,
+    .fit-card li,
+    .measure-card li{
+      color:rgba(11,19,38,.75);
+      font-size:15px;
+      line-height:1.72;
+    }
+
+    .info-card ul,
+    .fit-card ul,
+    .measure-card ul{
+      padding-left:18px;
+      margin-top:10px;
+    }
+
+    .info-card li + li,
+    .fit-card li + li,
+    .measure-card li + li{
+      margin-top:8px;
+    }
+
+    .mini-grid,
+    .related-grid,
+    .spec-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:16px;
+      margin-top:24px;
+    }
+
+    .spec-item{
+      background:rgba(11,19,38,.04);
+      border:1px solid rgba(11,19,38,.08);
+      border-radius:16px;
+      padding:16px;
+    }
+
+    .spec-item strong{
+      display:block;
+      color:#122a55;
+      font-weight:900;
+      margin-bottom:6px;
+    }
+
+    .spec-item span{
+      color:rgba(11,19,38,.72);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .note-band{
+      margin-top:18px;
+      padding:18px 20px;
+      border-radius:18px;
+      background:rgba(255,122,42,.08);
+      border:1px solid rgba(255,122,42,.18);
+      color:#122a55;
+      font-weight:600;
+      line-height:1.7;
+    }
+
+    .related-card a{
+      text-decoration:none;
+      color:#122a55;
+      font-weight:900;
+    }
+
+    @media (max-width: 900px){
+      .split-grid{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+
+  <!-- JSON-LD: Breadcrumb -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {
+        "@type":"ListItem",
+        "position":1,
+        "name":"Cere3D",
+        "item":"https://cere3d.ro/"
+      },
+      {
+        "@type":"ListItem",
+        "position":2,
+        "name":"Refacere piese din plastic",
+        "item":"https://cere3d.ro/refacere-piese-plastic.html"
+      },
+      {
+        "@type":"ListItem",
+        "position":3,
+        "name":"Piese plastic auto",
+        "item":"https://cere3d.ro/piese-plastic-auto.html"
+      },
+      {
+        "@type":"ListItem",
+        "position":4,
+        "name":"Gura ventilatie auto",
+        "item":"https://cere3d.ro/gura-ventilatie-auto.html"
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Gura ventilatie auto sparta: refacere pentru aripioare, cleme, rama sau grila de aer",
+    "description":"Pagina dedicata pentru utilizatori care cauta refacere sau printare 3D pentru guri de ventilatie auto sparte, aripioare lipsa si cleme de prindere rupte.",
+    "mainEntityOfPage":"https://cere3d.ro/gura-ventilatie-auto.html",
+    "author":{"@type":"Organization","name":"Cere3D"},
+    "publisher":{"@type":"Organization","name":"Cere3D"},
+    "datePublished":"2026-03-06",
+    "dateModified":"2026-03-06"
+  }
+  </script>
+
+  <!-- JSON-LD: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Se pot reface doar aripioarele lipsa din gura de ventilatie?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Da. In multe cazuri se poate reproduce doar aripioara lipsa sau piesa mica rupta, daca restul ansamblului este bun. Ajuta mult un model identic de pe alta gura de ventilatie."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Ce masuratori sint cele mai utile pentru o grila de aer auto?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Cele mai utile sint latimea si inaltimea grilei, grosimea ramei, distanta dintre cleme, dimensiunea aripioarei si poze clare ale punctelor de prindere."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Ce material se foloseste de obicei la gura de ventilatie auto?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Pentru multe piese de interior auto se poate folosi PETG. Pentru grilele de bord, potrivirea si tolerantele conteaza foarte mult, nu doar materialul."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Pot cere refacerea doar a clemelor sau a butonului de reglaj?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Da. Daca problema este doar la cleme, la buton sau la un ax mic, acestea pot fi tratate separat in cerere, fara sa refaci toata grila."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body data-page="seo-hub">
+  <header class="topbar">
+    <a href="/index.html" class="logo" aria-label="Cere3D">
+      <img src="/assets/logo-cere3d.svg" alt="Cere3D" class="logo-img" />
+    </a>
+    <a href="/cere.html" class="topbar-cta">Posteaza cererea →</a>
+  </header>
+
+  <div class="container">
+    <div class="crumbs">
+      <a href="/index.html">Acasa</a><span>›</span>
+      <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a><span>›</span>
+      <a href="/piese-plastic-auto.html">Piese plastic auto</a><span>›</span>
+      <strong>Gura ventilatie auto</strong>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-badge">Piesa mica auto</div>
+    <h1>Gura ventilatie auto <em>sparta sau incompleta</em></h1>
+    <p class="hero-sub">
+      Daca lipseste o aripioara, s-a rupt o clema sau grila de aer nu mai sta corect in bord, nu inseamna neaparat ca trebuie schimbat tot ansamblul.
+      In multe cazuri se poate reface exact componenta mica care a cedat.
+    </p>
+
+    <div class="hero-cta-wrap">
+      <a href="/cere.html" class="btn-primary">
+        <span>Posteaza cererea gratuit</span>
+        <span>→</span>
+      </a>
+      <a href="#ce-se-strica" class="btn-secondary">Vezi ce se strica</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">Aripioare</span>
+        <span class="stat-label">Se pot cere separat</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Cleme</span>
+        <span class="stat-label">Frecvent rupte la demontare</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Model pereche</span>
+        <span class="stat-label">Ajuta enorm la potrivire</span>
+      </div>
+    </div>
+
+    <div class="anchor-nav">
+      <a href="/piese-plastic-auto.html" class="anchor-link">Categoria auto</a>
+      <a href="#ce-se-strica" class="anchor-link">Ce se strica</a>
+      <a href="#ce-verifici" class="anchor-link">Ce verifici</a>
+      <a href="#pagini-inrudite" class="anchor-link">Pagini inrudite</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="ce-se-strica">
+    <div class="container">
+      <div class="section-tag">Probleme frecvente</div>
+      <h2 class="section-title">Ce cedeaza de obicei la o gura de ventilatie auto</h2>
+      <p class="section-lead">
+        La grilele de ventilatie, o piesa foarte mica poate face toata componenta inutila. Aici conteaza sa identifici exact ce lipseste sau ce nu mai tine.
+      </p>
+
+      <div class="problem-grid">
+        <div class="problem-card">
+          <span class="problem-icon">🌬️</span>
+          <h3>Aripioare rupte sau lipsa</h3>
+          <p>Se rup la reglaj, la curatare sau din cauza plasticului imbatranit. Uneori se poate reproduce doar elementul lipsa.</p>
+        </div>
+
+        <div class="problem-card">
+          <span class="problem-icon">🧷</span>
+          <h3>Cleme de fixare rupte</h3>
+          <p>Grila nu mai sta bine in bord si incepe sa joace sau sa iasa la denivelari.</p>
+        </div>
+
+        <div class="problem-card">
+          <span class="problem-icon">🧩</span>
+          <h3>Rama exterioara fisurata</h3>
+          <p>Fisurile apar mai ales la colturi sau in zonele unde se face clipsarea in bord.</p>
+        </div>
+
+        <div class="problem-card">
+          <span class="problem-icon">🎛️</span>
+          <h3>Buton sau slider de reglaj rupt</h3>
+          <p>Piesa este mica, dar fara ea nu mai poti orienta fluxul de aer sau inchide grila.</p>
+        </div>
+
+        <div class="problem-card">
+          <span class="problem-icon">🔁</span>
+          <h3>Ax sau pivot la aripioare</h3>
+          <p>Daca axul cedeaza, aripioarele se misca liber sau cad complet din ansamblu.</p>
+        </div>
+
+        <div class="problem-card">
+          <span class="problem-icon">🪛</span>
+          <h3>Probleme dupa demontare</h3>
+          <p>Uneori piesa era buna, dar s-au rupt clemele la scoatere. In astfel de cazuri e util sa mentionezi exact ce s-a deteriorat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm" id="ce-verifici">
+    <div class="container">
+      <div class="section-tag">Foarte util in cerere</div>
+      <h2 class="section-title">Ce poze si detalii ajuta ca piesa sa se potriveasca bine</h2>
+
+      <div class="split-grid">
+        <div class="measure-card">
+          <h3>Pozele care clarifica rapid problema</h3>
+          <ul>
+            <li>poza din fata a grilei complete</li>
+            <li>poza din spate, unde se vad clemele si zonele de prindere</li>
+            <li>poza cu piesa montata in bord</li>
+            <li>poza detaliata a aripioarei, clemei sau butonului rupt</li>
+            <li>poza a piesei pereche de pe cealalta parte, daca exista</li>
+          </ul>
+        </div>
+
+        <div class="measure-card">
+          <h3>Masuratori utile</h3>
+          <div class="spec-grid">
+            <div class="spec-item">
+              <strong>Latime si inaltime grila</strong>
+              <span>Ca piesa refacuta sa aiba scara corecta.</span>
+            </div>
+            <div class="spec-item">
+              <strong>Distanta intre cleme</strong>
+              <span>Esentiala ca sa intre corect in bord.</span>
+            </div>
+            <div class="spec-item">
+              <strong>Dimensiunea aripioarei</strong>
+              <span>Ajuta cind vrei doar componenta lipsa.</span>
+            </div>
+            <div class="spec-item">
+              <strong>Grosimea ramei</strong>
+              <span>Important la colturile si muchiile vizibile.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Ce merita cerut</div>
+      <h2 class="section-title">Cind refaci doar o componenta si cind are sens toata piesa</h2>
+
+      <div class="split-grid">
+        <div class="info-card">
+          <h3>De obicei refaci doar componenta mica daca</h3>
+          <ul>
+            <li>rama si carcasa sint bune</li>
+            <li>lipseste doar o aripioara sau un buton</li>
+            <li>s-au rupt una-doua cleme, dar restul ansamblului este intact</li>
+            <li>ai un model identic pe partea cealalta</li>
+          </ul>
+        </div>
+
+        <div class="fit-card">
+          <h3>Are sens ansamblu mai mare daca</h3>
+          <ul>
+            <li>rama este fisurata in mai multe locuri</li>
+            <li>clemele si aripioarele sint rupte simultan</li>
+            <li>piesa a fost deja lipita si geometria nu mai este corecta</li>
+            <li>mecanismul intern de orientare are mai multe elemente lipsa</li>
+          </ul>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Exemple orientative</div>
+      <h2 class="section-title">Situatii in care utilizatorii ajung cel mai des aici</h2>
+      <p class="section-lead">Exemplele sint orientative si te ajuta sa descrii problema mai precis.</p>
+
+      <div class="examples-grid">
+        <div class="example-card">
+          <span class="example-status status-done">Caz frecvent</span>
+          <h3>Aripioara lipsa la grila centrala</h3>
+          <p>Utilizatorul nu vrea sa cumpere tot ansamblul si cauta doar componenta lipsa dupa modelul pereche.</p>
+          <div class="example-meta">
+            <span><strong>Zona:</strong> bord</span>
+            <span><strong>Tip:</strong> aripioara</span>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <span class="example-status status-done">Caz frecvent</span>
+          <h3>Cleme rupte la demontare</h3>
+          <p>Grila nu mai sta fixa dupa scoatere, iar problema este doar la sistemul de clipsare.</p>
+          <div class="example-meta">
+            <span><strong>Zona:</strong> prindere</span>
+            <span><strong>Tip:</strong> cleme</span>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <span class="example-status status-open">Analiza necesara</span>
+          <h3>Rama fisurata si buton rupt</h3>
+          <p>Piesa are mai multe probleme simultan si trebuie evaluat daca se trateaza local sau se reface o parte mai mare din ansamblu.</p>
+          <div class="example-meta">
+            <span><strong>Zona:</strong> grila completa</span>
+            <span><strong>Tip:</strong> mixt</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Ai aripioare rupte sau grila nu mai sta in bord?</h2>
+        <p>Posteaza cererea si spune clar daca ai nevoie doar de o componenta mica sau de evaluarea intregii guri de ventilatie.</p>
+        <a href="/cere.html" class="btn-primary" style="font-size:18px; padding:18px 44px;">
+          Posteaza cererea gratuit →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="pagini-inrudite">
+    <div class="container">
+      <div class="section-tag">Linkuri interne utile</div>
+      <h2 class="section-title">Pagini inrudite din clusterul auto</h2>
+      <p class="section-lead">Daca problema reala nu este fix la grila de ventilatie, intra direct pe pagina mai apropiata de piesa.</p>
+
+      <div class="related-grid">
+        <article class="related-card">
+          <h3>Piese plastic auto</h3>
+          <p>Pagina parinte pentru toate piesele auto din plastic care nu se mai gasesc usor.</p>
+          <a href="/piese-plastic-auto.html">Vezi categoria →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Clipuri tapiterie auto</h3>
+          <p>Pentru clipsuri mici si prinderi de interior care nu tin de grila de aer.</p>
+          <a href="/clipuri-tapiterie-auto.html">Vezi pagina →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Maner usa interior auto</h3>
+          <p>Pentru manere si prinderi de portiera cu alta geometrie si alta solicitare.</p>
+          <a href="/maner-usa-interior-auto.html">Vezi pagina →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Suport cotiera auto</h3>
+          <p>Pentru piese de forta si zone de sprijin mai solicitate decit o aripioara sau o clema.</p>
+          <a href="/suport-cotiera-auto.html">Vezi pagina →</a>
+        </article>
+
+        <article class="related-card">
+          <h3>Hub principal refacere piese</h3>
+          <p>Daca vrei sa vezi toate categoriile create pina acum, pleaca din hub-ul principal.</p>
+          <a href="/refacere-piese-plastic.html">Vezi hub-ul →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-tag">Intrebari frecvente</div>
+      <h2 class="section-title">FAQ pentru gura de ventilatie auto</h2>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">
+            Se pot reface doar aripioarele lipsa din gura de ventilatie?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Da. In multe cazuri se poate reproduce doar aripioara lipsa, daca restul ansamblului este bun. Un model identic de pe alta grila ajuta foarte mult.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Ce masuratori sint cele mai utile pentru o grila de aer auto?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Cele mai utile sint latimea si inaltimea grilei, grosimea ramei, distanta dintre cleme si dimensiunea aripioarei sau a piesei lipsa.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Ce material se foloseste de obicei la gura de ventilatie auto?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Pentru multe piese de interior auto se poate folosi PETG. La aceasta piesa conteaza insa foarte mult si tolerantele, ca mecanismul sa se miste corect dupa montaj.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Pot cere refacerea doar a clemelor sau a butonului de reglaj?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Da. Daca problema este doar la cleme, la buton sau la un ax mic, acestea pot fi cerute separat, fara sa refaci toata grila.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="/index.html" class="footer-logo">Cere<span>3D</span></a>
+      <a href="/refacere-piese-plastic.html" class="footer-seo-link">Refacere piese din plastic</a>
+      <a href="/piese-plastic-auto.html" class="footer-seo-link">Piese plastic auto</a>
+      <a href="/clipuri-tapiterie-auto.html" class="footer-seo-link">Clipuri tapiterie auto</a>
+      <span class="footer-copy">
+        © <span id="an-curent"></span> Cere3D. Gura ventilatie auto refacuta la comanda.
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-q').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i){
+          i.classList.remove('open');
+        });
+        if(!isOpen) item.classList.add('open');
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function(){
+      const yearSpan = document.getElementById('an-curent');
+      if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+    });
+  </script>
+
+  <!-- SEO Internal Links: printare 3D -->
+  <nav class="seo-internal-links" aria-label="Pagini principale printare 3D" style="display:none;">
+    <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+    <a href="/">Printare 3D Romania - Cere3D</a>
+    <a href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a>
+    <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a>
+    <a href="/cat-costa-un-obiect-printat-3d.html">Cat costa printare 3D</a>
+    <a href="/ce-material-sa-aleg-pentru-printare-3d.html">Materiale printare 3D</a>
+  </nav>
+</body>
+</html>

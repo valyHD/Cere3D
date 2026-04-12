@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Consent Mode v2 (default denied) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+
+    gtag('js', new Date());
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FY3LRNBF2"></script>
+
+  <!-- Consent UI + loader logic -->
+  <script type="module" src="/consent.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Refacere Piese Din Plastic | Piese Rupte, Piese Lipsa si Printare 3D la Comanda – Cere3D</title>
+  <meta name="description" content="Cauti refacere piese din plastic, piese rupte care nu se mai gasesc sau printare 3D la comanda? Cere3D te duce spre categoriile potrivite: auto, electrocasnice, mobila, unelte, electronice, cadouri si obiecte personalizate." />
+  <link rel="canonical" href="https://cere3d.ro/refacere-piese-plastic.html" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Refacere Piese Din Plastic | Cere3D" />
+  <meta property="og:description" content="Hub principal Cere3D pentru refacere piese din plastic, piese care nu se mai gasesc si printare 3D la comanda pentru obiecte personalizate." />
+  <meta property="og:url" content="https://cere3d.ro/refacere-piese-plastic.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://cere3d.ro/assets/og-cere3d2.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Refacere Piese Din Plastic | Cere3D" />
+  <meta name="twitter:description" content="Hub principal pentru piese din plastic rupte, piese lipsa, alternative locale si obiecte personalizate printate 3D." />
+  <meta name="twitter:image" content="https://cere3d.ro/assets/og-cere3d2.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/seo-hub.css" />
+
+  <style>
+    .mini-nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+      justify-content:center;
+    }
+    .pillar-grid,
+    .check-grid,
+    .reason-grid,
+    .topic-grid,
+    .popular-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+      gap:16px;
+      margin-top:34px;
+    }
+    .pillar-card,
+    .check-card,
+    .reason-card,
+    .topic-card,
+    .link-panel,
+    .popular-card{
+      background:rgba(255,255,255,.88);
+      border:1px solid rgba(11,19,38,.08);
+      border-radius:18px;
+      box-shadow:var(--hub-shadow);
+      padding:24px;
+    }
+    .pillar-card h3,
+    .check-card h3,
+    .reason-card h3,
+    .topic-card h3,
+    .link-panel h3,
+    .popular-card h3{
+      font-family:Manrope, system-ui, sans-serif;
+      font-weight:950;
+      color:#122a55;
+      font-size:20px;
+      margin-bottom:10px;
+    }
+    .pillar-card p,
+    .check-card p,
+    .reason-card p,
+    .topic-card p,
+    .link-panel p,
+    .link-panel li,
+    .popular-card p,
+    .popular-card li{
+      color:rgba(11,19,38,.74);
+      line-height:1.7;
+      font-size:15px;
+    }
+    .pill-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:16px;
+    }
+    .soft-link{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(11,19,38,.05);
+      border:1px solid rgba(11,19,38,.08);
+      color:#122a55;
+      font-weight:800;
+      font-size:14px;
+      text-decoration:none;
+      transition:transform .14s ease, background .14s ease;
+    }
+    .soft-link:hover{
+      transform:translateY(-1px);
+      background:rgba(11,19,38,.08);
+    }
+    .section-note{
+      max-width:780px;
+      color:rgba(11,19,38,.72);
+      font-size:16px;
+      line-height:1.75;
+      margin-top:16px;
+    }
+    .link-columns{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+      gap:16px;
+      margin-top:22px;
+    }
+    .link-panel ul,
+    .popular-card ul{
+      padding-left:18px;
+      margin-top:10px;
+    }
+    .link-panel li + li,
+    .popular-card li + li{
+      margin-top:8px;
+    }
+    .warn-box{
+      margin-top:26px;
+      padding:18px 20px;
+      border-radius:16px;
+      background:rgba(255,122,42,.08);
+      border:1px solid rgba(255,122,42,.18);
+      color:#122a55;
+      font-weight:600;
+    }
+    .topic-card .topic-tag,
+    .popular-card .topic-tag{
+      display:inline-block;
+      margin-bottom:10px;
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:#ff7a2a;
+    }
+    .popular-card a{
+      color:#122a55;
+      font-weight:800;
+      text-decoration:none;
+    }
+    .popular-card a:hover{
+      text-decoration:underline;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {
+        "@type":"ListItem",
+        "position":1,
+        "name":"Cere3D",
+        "item":"https://cere3d.ro/"
+      },
+      {
+        "@type":"ListItem",
+        "position":2,
+        "name":"Refacere piese din plastic",
+        "item":"https://cere3d.ro/refacere-piese-plastic.html"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"CollectionPage",
+    "name":"Refacere piese din plastic",
+    "headline":"Refacere piese din plastic, piese care nu se mai gasesc si printare 3D la comanda",
+    "description":"Hub principal Cere3D pentru utilizatori care cauta refacere de piese din plastic, alternative locale pentru piese lipsa si obiecte personalizate realizate prin printare 3D.",
+    "url":"https://cere3d.ro/refacere-piese-plastic.html",
+    "isPartOf":{
+      "@type":"WebSite",
+      "name":"Cere3D",
+      "url":"https://cere3d.ro/"
+    },
+    "about":[
+      "refacere piese plastic",
+      "piese plastic auto",
+      "piese plastic electrocasnice",
+      "piese plastic la comanda",
+      "printare 3d la comanda",
+      "piesa plastic nu se mai gaseste"
+    ],
+    "publisher":{
+      "@type":"Organization",
+      "name":"Cere3D",
+      "url":"https://cere3d.ro/"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Ce tipuri de piese din plastic merita cel mai des refacute?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Cel mai des merita refacute clipsuri, clapete, manere, capace, ghidaje, suporturi, rame si alte piese mici sau medii care nu tin direct de siguranta activa, dar blocheaza folosirea normala a obiectului."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Daca piesa nu se mai gaseste deloc, se poate reproduce?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Da, in multe cazuri piesa se poate reproduce dupa modelul vechi, poze clare si cateva masuratori. Ajuta mult si o explicatie simpla despre locul unde vine si ce rol avea piesa originala."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Cum stiu daca trebuie sa intru pe o pagina de refacere sau pe una de printare 3D la comanda?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Daca ai o piesa rupta sau lipsa pe care vrei sa o inlocuiesti, intentia este de refacere. Daca vrei un obiect nou, personalizat, suport, decor sau cadou, intentia este de printare 3D la comanda."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Ce trebuie sa pun in cerere ca sa primesc oferte mai bune?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Cele mai utile sunt 3-4 poze clare, dimensiuni de baza, modelul aparatului sau al masinii si o descriere simpla a problemei sau a obiectului dorit."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body data-page="seo-hub">
+  <header class="topbar">
+    <a href="/index.html" class="logo" aria-label="Cere3D">
+      <img src="/assets/logo-cere3d.svg" alt="Cere3D" class="logo-img" />
+    </a>
+    <a href="/cere.html" class="topbar-cta">Posteaza cererea →</a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-badge">Hub principal Cere3D</div>
+    <h1>Refacere <em>piese din plastic</em>, piese lipsa si printare 3D la comanda</h1>
+    <p class="hero-sub">
+      Daca ai o piesa rupta, lipsa sau greu de gasit, aici alegi categoria potrivita.
+      Iar daca nu cauti o piesa de schimb, ci un obiect nou, util sau decorativ,
+      tot de aici poti merge spre huburile de printare 3D la comanda pentru obiecte personalizate.
+    </p>
+
+    <div class="hero-cta-wrap">
+      <a href="/cere.html" class="btn-primary">
+        <span>Posteaza cererea gratuit</span>
+        <span>→</span>
+      </a>
+      <a href="#categorii" class="btn-secondary">Vezi categoriile</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">Refacere</span>
+        <span class="stat-label">Piese auto, electrocasnice, unelte, casa</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Custom</span>
+        <span class="stat-label">Obiecte utile, decor si cadouri</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">3–4 poze</span>
+        <span class="stat-label">Sunt de obicei suficiente pentru pornire</span>
+      </div>
+    </div>
+
+    <div class="mini-nav">
+      <a href="/piese-plastic-auto.html" class="soft-link">Piese plastic auto</a>
+      <a href="/piese-plastic-electrocasnice.html" class="soft-link">Piese plastic electrocasnice</a>
+      <a href="/piese-plastic-la-comanda.html" class="soft-link">Piese la comanda</a>
+      <a href="/printare-3d-la-comanda-obiecte-personalizate.html" class="soft-link">Printare 3D la comanda</a>
+      <a href="/printare-3d-cadouri-personalizate.html" class="soft-link">Cadouri personalizate</a>
+      <a href="/piesa-plastic-nu-se-mai-gaseste.html" class="soft-link">Piesa nu se mai gaseste</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Cum este organizat hubul</div>
+      <h2 class="section-title">Aici separi trei intentii foarte diferite</h2>
+      <p class="section-lead">
+        Ca sa eviti canibalizare si pagini care se bat intre ele, hubul principal trebuie sa trimita clar in directia buna.
+      </p>
+
+      <div class="reason-grid">
+        <div class="reason-card">
+          <h3>1. Refacere piesa rupta</h3>
+          <p>
+            Ai o piesa existenta care s-a fisurat, s-a rupt la prinderi sau nu se mai gaseste separat.
+            Aici intra auto, electrocasnice, unelte, mobila, electronice si alte piese functionale.
+          </p>
+        </div>
+
+        <div class="reason-card">
+          <h3>2. Piesa nu se mai gaseste deloc</h3>
+          <p>
+            Nu stii exact categoria, dar scenariul este clar: piesa lipseste, aparatul inca merge,
+            iar tu cauti o alternativa locala dupa modelul vechi sau dupa poze.
+          </p>
+        </div>
+
+        <div class="reason-card">
+          <h3>3. Obiect nou, facut la comanda</h3>
+          <p>
+            Nu vrei o reparatie, ci un obiect nou: suport, decor, cadou, display sau piesa personalizata.
+            Pentru asta exista huburi comerciale separate, legate mai jos.
+          </p>
+        </div>
+      </div>
+
+      <p class="section-note">
+        Tocmai de aceea aceasta pagina trebuie sa functioneze ca hub real, nu doar ca introducere generica.
+        Mai jos ai atat categoriile de refacere, cat si legaturile naturale catre zonele comerciale noi.
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm" id="piese-cautate">
+    <div class="container">
+      <div class="section-tag">Piese cautate frecvent</div>
+      <h2 class="section-title">Tipuri frecvente de piese din plastic care se rup</h2>
+      <p class="section-lead">
+        Daca ai ajuns aici dintr-o cautare foarte concreta, mergi direct pe pagina cea mai apropiata de problema reala.
+      </p>
+
+      <div class="popular-grid">
+        <article class="popular-card">
+          <span class="topic-tag">Auto</span>
+          <h3>Piese auto cautate des</h3>
+          <ul>
+            <li><a href="/clipuri-tapiterie-auto.html">Clipuri tapiterie auto rupte</a></li>
+            <li><a href="/gura-ventilatie-auto.html">Gura ventilatie auto sparta</a></li>
+            <li><a href="/maner-usa-interior-auto.html">Maner usa interior auto rupt</a></li>
+            <li><a href="/suport-cotiera-auto.html">Suport cotiera auto rupt</a></li>
+            <li><a href="/grila-bara-fata-rupt.html">Grila bara fata rupta</a></li>
+            <li><a href="/capac-tablou-bord.html">Capac tablou de bord crapat sau lipsa</a></li>
+            <li><a href="/support-oglinda-retrovizoare.html">Suport oglinda retrovizoare interioara rupt</a></li>
+          </ul>
+        </article>
+
+        <article class="popular-card">
+          <span class="topic-tag">Electrocasnice</span>
+          <h3>Piese de electrocasnice foarte cautate</h3>
+          <ul>
+            <li><a href="/clapeta-hublou-masina-spalat.html">Clapeta hublou masina de spalat rupta</a></li>
+            <li><a href="/sertar-detergent-masina-spalat.html">Sertar detergent masina de spalat</a></li>
+            <li><a href="/maner-frigider-plastic.html">Maner frigider plastic rupt</a></li>
+            <li><a href="/sertar-frigider-rupt.html">Sertar frigider rupt sau fisurat</a></li>
+            <li><a href="/picior-masina-spalat-frigider.html">Picior reglabil masina de spalat sau frigider rupt</a></li>
+            <li><a href="/buton-aragaz-rupt.html">Buton aragaz sau cuptor rupt</a></li>
+            <li><a href="/capac-masina-cafea-plastic.html">Capac masina cafea plastic</a></li>
+            <li><a href="/paleta-robot-bucatarie.html">Paleta robot bucatarie</a></li>
+            <li><a href="/perie-aspirator-piesa-rupta.html">Perie aspirator piesa rupta</a></li>
+          </ul>
+        </article>
+
+        <article class="popular-card">
+          <span class="topic-tag">Casa, electronice si altele</span>
+          <h3>Alte piese importante din cluster</h3>
+          <ul>
+            <li><a href="/maner-mobila-plastic-rupt.html">Maner mobila plastic rupt</a></li>
+            <li><a href="/picior-scaun-plastic-rupt.html">Picior scaun plastic rupt</a></li>
+            <li><a href="/rola-jaluzea-rupt.html">Rola jaluzea rupta</a></li>
+            <li><a href="/capac-priza-intrerupator-plastic.html">Capac priza sau intrerupator plastic</a></li>
+            <li><a href="/capac-baterie-plastic-rupt.html">Capac baterie plastic rupt</a></li>
+            <li><a href="/suport-monitor-plastic-rupt.html">Suport monitor plastic rupt</a></li>
+            <li><a href="/piese-plastic-imprimanta.html">Piese plastic imprimanta</a></li>
+            <li><a href="/maner-carja-plastic-rupt.html">Maner carja plastic rupt</a></li>
+            <li><a href="/roti-angrenaje-plastic-industrial.html">Roti si angrenaje plastic industrial</a></li>
+          </ul>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="categorii">
+    <div class="container">
+      <div class="section-tag">Categorii principale de refacere</div>
+      <h2 class="section-title">Alege categoria cea mai apropiata de piesa ta</h2>
+      <p class="section-lead">
+        Acestea sunt huburile principale care trebuie sa ramina la maximum 3 clickuri de homepage.
+      </p>
+
+      <div class="topic-grid">
+        <article class="topic-card">
+          <span class="topic-tag">Auto</span>
+          <h3><a href="/piese-plastic-auto.html">Piese plastic auto</a></h3>
+          <p>Pentru clipsuri, ornamente, manere, guri de ventilatie, suporturi, capace si alte piese de interior sau exterior auto.</p>
+          <div class="pill-links">
+            <a href="/clipuri-tapiterie-auto.html" class="soft-link">Clipuri tapiterie</a>
+            <a href="/gura-ventilatie-auto.html" class="soft-link">Gura ventilatie</a>
+            <a href="/maner-usa-interior-auto.html" class="soft-link">Maner usa interior</a>
+            <a href="/suport-cotiera-auto.html" class="soft-link">Suport cotiera</a>
+            <a href="/grila-bara-fata-rupt.html" class="soft-link">Grila bara fata</a>
+            <a href="/capac-tablou-bord.html" class="soft-link">Capac tablou bord</a>
+            <a href="/support-oglinda-retrovizoare.html" class="soft-link">Suport oglinda</a>
+          </div>
+        </article>
+
+        <article class="topic-card">
+          <span class="topic-tag">Electrocasnice</span>
+          <h3><a href="/piese-plastic-electrocasnice.html">Piese plastic electrocasnice</a></h3>
+          <p>Pentru masini de spalat, frigidere si alte aparate unde o piesa mica de plastic poate bloca folosirea normala.</p>
+          <div class="pill-links">
+            <a href="/clapeta-hublou-masina-spalat.html" class="soft-link">Clapeta hublou</a>
+            <a href="/sertar-detergent-masina-spalat.html" class="soft-link">Sertar detergent</a>
+            <a href="/maner-frigider-plastic.html" class="soft-link">Maner frigider</a>
+            <a href="/sertar-frigider-rupt.html" class="soft-link">Sertar frigider</a>
+            <a href="/picior-masina-spalat-frigider.html" class="soft-link">Picior reglabil</a>
+            <a href="/buton-aragaz-rupt.html" class="soft-link">Buton aragaz</a>
+          </div>
+        </article>
+
+        <article class="topic-card">
+          <span class="topic-tag">Unelte si scule</span>
+          <h3><a href="/piese-plastic-unelte.html">Piese plastic unelte</a></h3>
+          <p>Pentru carcase, capace, manere, protectii si alte piese exterioare de la unelte electrice si aparate de lucru.</p>
+          <div class="pill-links">
+            <a href="/maner-polizor-plastic-rupt.html" class="soft-link">Maner polizor</a>
+            <a href="/capac-protectie-fierastrau.html" class="soft-link">Capac protectie fierastrau</a>
+            <a href="/piese-plastic-masina-gaurit.html" class="soft-link">Piese masina gaurit</a>
+            <a href="/suport-plastic-aparat-sudura.html" class="soft-link">Suport aparat sudura</a>
+          </div>
+        </article>
+
+        <article class="topic-card">
+          <span class="topic-tag">Mobila si casa</span>
+          <h3><a href="/piese-plastic-mobila.html">Piese plastic mobila</a></h3>
+          <p>Pentru manere, picioare, ghidaje, role, capace si accesorii de interior care trebuie sa se potriveasca vizual si functional.</p>
+          <div class="pill-links">
+            <a href="/maner-mobila-plastic-rupt.html" class="soft-link">Maner mobila</a>
+            <a href="/picior-scaun-plastic-rupt.html" class="soft-link">Picior scaun</a>
+            <a href="/rola-jaluzea-rupt.html" class="soft-link">Rola jaluzea</a>
+            <a href="/capac-priza-intrerupator-plastic.html" class="soft-link">Capac priza</a>
+          </div>
+        </article>
+
+        <article class="topic-card">
+          <span class="topic-tag">Bicicleta si sport</span>
+          <h3><a href="/piese-plastic-bicicleta.html">Piese plastic bicicleta</a></h3>
+          <p>Pentru capace, ghidaje, suporti, carcase si accesorii non-critice de bicicleta, trotineta sau echipament sportiv.</p>
+          <div class="pill-links">
+            <a href="/piese-trotineta-electrica-plastic.html" class="soft-link">Piese trotineta electrica</a>
+            <a href="/piese-echipament-sport-rupt.html" class="soft-link">Piese echipament sport</a>
+          </div>
+        </article>
+
+        <article class="topic-card">
+          <span class="topic-tag">Electronice si IT</span>
+          <h3><a href="/carcasa-plastic-aparat-electronic.html">Carcasa plastic aparat electronic</a></h3>
+          <p>Pentru capace, carcase, usite, clipsuri, suporturi si piese de plastic exterioare de la aparate electronice.</p>
+          <div class="pill-links">
+            <a href="/capac-baterie-plastic-rupt.html" class="soft-link">Capac baterie</a>
+            <a href="/suport-monitor-plastic-rupt.html" class="soft-link">Suport monitor</a>
+            <a href="/piese-plastic-imprimanta.html" class="soft-link">Piese imprimanta</a>
+          </div>
+        </article>
+
+        <article class="topic-card">
+          <span class="topic-tag">Medical si ingrijire</span>
+          <h3><a href="/piese-plastic-aparat-medical-casnic.html">Piese plastic aparat medical casnic</a></h3>
+          <p>Pentru capace, suporti, clipsuri si piese auxiliare exterioare, cu limbaj prudent si delimitare fata de componente critice.</p>
+          <div class="pill-links">
+            <a href="/piese-scaun-rotile-plastic.html" class="soft-link">Piese scaun cu rotile</a>
+            <a href="/maner-carja-plastic-rupt.html" class="soft-link">Maner carja</a>
+          </div>
+        </article>
+
+        <article class="topic-card">
+          <span class="topic-tag">Industrie si profesional</span>
+          <h3><a href="/piese-plastic-echipament-industrial.html">Piese plastic echipament industrial</a></h3>
+          <p>Pentru ghidaje, suporti, capace, distantiere, carcase si alte piese greu de gasit la utilaje sau echipamente profesionale.</p>
+          <div class="pill-links">
+            <a href="/roti-angrenaje-plastic-industrial.html" class="soft-link">Roti si angrenaje</a>
+            <a href="/suport-senzor-industrial-plastic.html" class="soft-link">Suport senzor</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Probleme apropiate din acelasi cluster</div>
+      <h2 class="section-title">Cand nu cauti doar o categorie, ci o situatie concreta</h2>
+      <p class="section-lead">
+        Uneori utilizatorul nu stie cum se numeste piesa, dar stie perfect problema: nu se mai gaseste.
+      </p>
+
+      <div class="pillar-grid">
+        <article class="pillar-card">
+          <h3>Piesa plastic nu se mai gaseste</h3>
+          <p>
+            Pagina-problema pentru scenariul general in care componenta lipseste din comert,
+            originalul nu mai apare la vanzare, iar utilizatorul cauta o solutie practica.
+          </p>
+          <div class="pill-links">
+            <a href="/piesa-plastic-nu-se-mai-gaseste.html" class="soft-link">Pagina principala</a>
+            <a href="/piesa-aparat-vechi-nu-se-mai-face.html" class="soft-link">Aparat vechi</a>
+            <a href="/piesa-import-greu-de-gasit.html" class="soft-link">Import greu de gasit</a>
+            <a href="/alternativa-piesa-originala-plastic.html" class="soft-link">Alternativa original</a>
+          </div>
+        </article>
+
+        <article class="pillar-card">
+          <h3>Piese plastic la comanda</h3>
+          <p>
+            Daca nu ai neaparat o piesa rupta, ci vrei una noua, facuta de la zero dupa schita,
+            model, idee sau nevoie functionala, aceasta este ramura potrivita.
+          </p>
+          <div class="pill-links">
+            <a href="/piese-plastic-la-comanda.html" class="soft-link">Hub piese la comanda</a>
+            <a href="/suport-personalizat-plastic.html" class="soft-link">Suport personalizat</a>
+            <a href="/adaptor-plastic-la-comanda.html" class="soft-link">Adaptor plastic</a>
+            <a href="/carcasa-proiect-plastic-personalizata.html" class="soft-link">Carcasa proiect</a>
+            <a href="/prototip-piesa-plastic-rapid.html" class="soft-link">Prototip rapid</a>
+          </div>
+        </article>
+
+        <article class="pillar-card">
+          <h3>Printare 3D la comanda pentru obiecte</h3>
+          <p>
+            Pentru cautari comerciale directe, unde omul vrea un obiect nou, util, decorativ sau pentru cadou,
+            fara intentie de reparatie, trimitem catre hubul nou dedicat.
+          </p>
+          <div class="pill-links">
+            <a href="/printare-3d-la-comanda-obiecte-personalizate.html" class="soft-link">Hub printare 3D la comanda</a>
+            <a href="/obiecte-personalizate-printare-3d.html" class="soft-link">Obiecte personalizate</a>
+            <a href="/printare-3d-cadouri-personalizate.html" class="soft-link">Cadouri personalizate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-tag">Ramuri comerciale conectate natural</div>
+      <h2 class="section-title">Daca nu ai o piesa rupta, ci vrei ceva nou, pleci de aici</h2>
+      <p class="section-lead">
+        Ca sa nu amesteci intentia de reparatie cu intentia de comanda custom, hubul principal trimite explicit si spre zonele comerciale.
+      </p>
+
+      <div class="link-columns">
+        <div class="link-panel">
+          <h3>Obiecte si comenzi custom</h3>
+          <p>
+            Pentru suporturi, accesorii utile, obiecte decorative, setup-uri, mici serii si idei personalizate.
+          </p>
+          <ul>
+            <li><a href="/printare-3d-la-comanda-obiecte-personalizate.html">Printare 3D la comanda obiecte personalizate</a></li>
+            <li><a href="/obiecte-personalizate-printare-3d.html">Obiecte personalizate printare 3D</a></li>
+            <li><a href="/accesorii-gaming-printate-3d.html">Accesorii gaming printate 3D</a></li>
+            <li><a href="/suport-telefon-birou-printat-3d.html">Suport telefon birou printat 3D</a></li>
+            <li><a href="/organizatoare-birou-printare-3d.html">Organizatoare birou printare 3D</a></li>
+          </ul>
+        </div>
+
+        <div class="link-panel">
+          <h3>Cadouri si decor personalizat</h3>
+          <p>
+            Pentru cadouri unice, nume, mesaje, figurine, rame, decoratiuni si piese pentru evenimente.
+          </p>
+          <ul>
+            <li><a href="/printare-3d-cadouri-personalizate.html">Printare 3D cadouri personalizate</a></li>
+            <li><a href="/figurina-personalizata-3d.html">Figurina personalizata 3D</a></li>
+            <li><a href="/rama-foto-personalizata-3d.html">Rama foto personalizata 3D</a></li>
+            <li><a href="/suport-poza-polaroid-3d.html">Suport poza polaroid 3D</a></li>
+            <li><a href="/litere-3d-personalizate.html">Litere 3D personalizate</a></li>
+            <li><a href="/nume-personalizat-printat-3d.html">Nume personalizat printat 3D</a></li>
+          </ul>
+        </div>
+
+        <div class="link-panel">
+          <h3>Evenimente, gaming si birou</h3>
+          <p>
+            Pentru meniuri, numere de masa, display-uri, organizare de birou si obiecte mici care trebuie sa arate bine si sa fie utile.
+          </p>
+          <ul>
+            <li><a href="/suport-meniu-eveniment-printat-3d.html">Suport meniu eveniment printat 3D</a></li>
+            <li><a href="/organizatoare-birou-printare-3d.html">Organizatoare birou printare 3D</a></li>
+            <li><a href="/suport-carti-vizita-printat-3d.html">Suport carti de vizita printat 3D</a></li>
+            <li><a href="/suport-controller-gaming-printat-3d.html">Suport controller gaming printat 3D</a></li>
+            <li><a href="/stand-console-joc-printat-3d.html">Stand console joc printat 3D</a></li>
+          </ul>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-tag">Ce ajuta cel mai mult</div>
+      <h2 class="section-title">Cum postezi o cerere care primeste raspunsuri mai bune</h2>
+
+      <div class="check-grid">
+        <div class="check-card">
+          <h3>Poze utile</h3>
+          <p>Fa poze din fata, spate si lateral. Daca piesa vine intr-un loc anume, pune si o poza cu zona unde se monteaza.</p>
+        </div>
+        <div class="check-card">
+          <h3>Masuratori de baza</h3>
+          <p>Lungime, latime, grosime, distanta dintre gauri, diametre si alte cote-cheie. Nu trebuie desen tehnic perfect.</p>
+        </div>
+        <div class="check-card">
+          <h3>Context clar</h3>
+          <p>Scrie modelul masinii sau aparatului, ce s-a rupt, daca mai ai piesa veche si daca vrei reproducere sau o varianta intarita.</p>
+        </div>
+      </div>
+
+      <div class="warn-box">
+        Pentru piese cu rol critic de siguranta, forta mare repetata, temperaturi ridicate sau geometrie sensibila, analiza trebuie facuta punctual.
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Vezi si alte piese similare</div>
+      <h2 class="section-title">Pagini utile din clusterul deja construit</h2>
+      <p class="section-lead">
+        Mai jos sunt cele mai utile ramificatii daca vrei sa cobori rapid spre o zona mai specifica.
+      </p>
+
+      <div class="link-columns">
+        <div class="link-panel">
+          <h3>Refacere auto, electrocasnice si casa</h3>
+          <ul>
+            <li><a href="/piese-plastic-auto.html">Piese plastic auto</a></li>
+            <li><a href="/piese-plastic-electrocasnice.html">Piese plastic electrocasnice</a></li>
+            <li><a href="/piese-plastic-mobila.html">Piese plastic mobila</a></li>
+            <li><a href="/piese-plastic-unelte.html">Piese plastic unelte</a></li>
+            <li><a href="/carcasa-plastic-aparat-electronic.html">Carcasa plastic aparat electronic</a></li>
+          </ul>
+        </div>
+
+        <div class="link-panel">
+          <h3>Situatii si alternative</h3>
+          <ul>
+            <li><a href="/piesa-plastic-nu-se-mai-gaseste.html">Piesa plastic nu se mai gaseste</a></li>
+            <li><a href="/piesa-aparat-vechi-nu-se-mai-face.html">Piesa aparat vechi nu se mai face</a></li>
+            <li><a href="/piesa-import-greu-de-gasit.html">Piesa import greu de gasit</a></li>
+            <li><a href="/alternativa-piesa-originala-plastic.html">Alternativa piesa originala plastic</a></li>
+            <li><a href="/piese-plastic-la-comanda.html">Piese plastic la comanda</a></li>
+          </ul>
+        </div>
+
+        <div class="link-panel">
+          <h3>Obiecte noi, cadouri si trafic comercial</h3>
+          <ul>
+            <li><a href="/printare-3d-la-comanda-obiecte-personalizate.html">Printare 3D la comanda obiecte personalizate</a></li>
+            <li><a href="/printare-3d-cadouri-personalizate.html">Printare 3D cadouri personalizate</a></li>
+            <li><a href="/obiecte-personalizate-printare-3d.html">Obiecte personalizate printare 3D</a></li>
+            <li><a href="/accesorii-gaming-printate-3d.html">Accesorii gaming printate 3D</a></li>
+            <li><a href="/decoratiuni-personalizate-printare-3d.html">Decoratiuni personalizate printare 3D</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Intrebari frecvente</div>
+      <h2 class="section-title">Ce vrea sa stie omul care ajunge pe hubul principal</h2>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">
+            Ce tipuri de piese din plastic merita cel mai des refacute?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Cel mai des merita refacute clipsuri, clapete, manere, suporturi, capace, ghidaje, rame si alte componente mici sau medii care blocheaza folosirea normala a obiectului.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Daca piesa nu se mai gaseste deloc, se poate reproduce?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            In multe cazuri da. O piesa veche, chiar crapata, plus cateva poze si masuratori de baza sunt suficiente pentru a evalua daca merita refacerea.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Cum stiu daca trebuie sa intru pe refacere sau pe printare 3D la comanda?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Daca inlocuiesti o piesa existenta, ramai pe ramura de refacere. Daca vrei un obiect nou, util, decorativ sau pentru cadou, mergi pe huburile comerciale de printare 3D la comanda.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Ce trebuie sa pun in cerere ca sa primesc oferte mai bune?
+            <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            Pune poze clare din mai multe unghiuri, modelul aparatului sau masinii, cateva masuratori si o descriere scurta a rolului piesei sau a obiectului dorit.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Ai piesa sau ideea? Ai deja punctul corect de pornire</h2>
+        <p>
+          Daca este o piesa rupta, mergi spre categoria potrivita. Daca este un obiect nou, util sau decorativ,
+          mergi spre huburile comerciale. Iar daca nu esti sigur, posteaza direct cererea si explica simplu problema.
+        </p>
+        <a href="/cere.html" class="btn-primary" style="font-size:18px; padding:18px 42px;">
+          Posteaza cererea gratuit →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">Pagini care sustin hub-ul</div>
+      <h2 class="section-title">Trasee rapide din hub-ul principal</h2>
+      <div class="link-grid">
+        <div class="link-panel">
+          <h3>Intri direct pe categorie</h3>
+          <ul>
+            <li><a href="/piese-plastic-auto.html">Piese plastic auto</a></li>
+            <li><a href="/piese-plastic-electrocasnice.html">Piese plastic electrocasnice</a></li>
+            <li><a href="/piese-plastic-mobila.html">Piese plastic mobila</a></li>
+            <li><a href="/piese-plastic-unelte.html">Piese plastic unelte</a></li>
+          </ul>
+        </div>
+        <div class="link-panel">
+          <h3>Intri pe intentie</h3>
+          <ul>
+            <li><a href="/piesa-plastic-nu-se-mai-gaseste.html">Piesa plastic nu se mai gaseste</a></li>
+            <li><a href="/refacere-piesa-dupa-poza.html">Refacere piesa dupa poza</a></li>
+            <li><a href="/copie-piesa-plastic-rupta.html">Copie piesa plastic rupta</a></li>
+            <li><a href="/alternativa-piesa-originala-plastic.html">Alternativa la piesa originala</a></li>
+          </ul>
+        </div>
+        <div class="link-panel">
+          <h3>Ce faci daca nu e piesa rupta</h3>
+          <ul>
+            <li><a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a></li>
+            <li><a href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a></li>
+            <li><a href="/cereri.html">Cereri reale de printare 3D</a></li>
+            <li><a href="/cere.html">Posteaza cererea gratuit</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="/index.html" class="footer-logo">Cere<span>3D</span></a>
+      <a href="/piese-plastic-auto.html" class="footer-seo-link">Piese plastic auto</a>
+      <a href="/piese-plastic-electrocasnice.html" class="footer-seo-link">Piese plastic electrocasnice</a>
+      <a href="/printare-3d-la-comanda-obiecte-personalizate.html" class="footer-seo-link">Printare 3D la comanda</a>
+            <a class="footer-seo-link" href="/printare-3d-la-comanda.html">
+        Printare 3D la comanda
+      </a>
+      <span class="footer-copy">
+        © <span id="an-curent"></span> Cere3D. Hub principal pentru refacere piese din plastic si printare 3D la comanda.
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-q').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var item = btn.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i){
+          i.classList.remove('open');
+        });
+        if(!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      var yearSpan = document.getElementById('an-curent');
+      if(yearSpan){
+        yearSpan.textContent = new Date().getFullYear();
+      }
+    });
+  </script>
+
+  <!-- SEO Internal Links: printare 3D -->
+  <nav class="seo-internal-links" aria-label="Pagini principale printare 3D" style="display:none;">
+    <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+    <a href="/">Printare 3D Romania - Cere3D</a>
+    <a href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a>
+    <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a>
+    <a href="/cat-costa-un-obiect-printat-3d.html">Cat costa printare 3D</a>
+    <a href="/ce-material-sa-aleg-pentru-printare-3d.html">Materiale printare 3D</a>
+  </nav>
+</body>
+</html>

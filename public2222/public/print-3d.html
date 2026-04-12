@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    gtag('js', new Date());
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FY3LRNBF2"></script>
+  <script type="module" src="/consent.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Print 3D in Romania | Cere3D - Comanda printare 3D pentru piese, prototipuri si obiecte</title>
+  <meta name="description" content="Cauti print 3D rapid si clar? Pe Cere3D poti cere printare 3D pentru piese, obiecte personalizate, prototipuri si proiecte. Trimiti model, poza sau idee si primesti raspuns.">
+  <link rel="canonical" href="https://cere3d.ro/print-3d.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cere3D">
+  <meta property="og:title" content="Print 3D in Romania | Cere3D">
+  <meta property="og:description" content="Servicii de print 3D pentru piese, obiecte personalizate, prototipuri si proiecte. Trimiti modelul, poza sau ideea si pornesti comanda.">
+  <meta property="og:url" content="https://cere3d.ro/print-3d.html">
+  <meta property="og:image" content="https://cere3d.ro/assets/og-cere3d2.png">
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/seo-hub.css">
+
+  <style>
+    .topbar-nav{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .topbar-link{
+ 
+      font-weight:700;
+      font-size:14px;
+      padding:8px 12px;
+      border:1px solid var(--line);
+      border-radius:10px;
+      background:rgba(255,255,255,.03);
+      transition:.2s ease;
+    }
+    .topbar-link:hover{
+ 
+      border-color:rgba(255,255,255,.2);
+      transform:translateY(-1px);
+    }
+
+    .hero.hero-split{
+      text-align:left;
+      padding:92px 24px 54px;
+    }
+    .hero-grid{
+      max-width:1200px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:28px;
+      align-items:start;
+    }
+    .hero-panel{
+      position:relative;
+      z-index:1;
+    }
+    .hero-panel h1{
+      max-width:760px;
+    }
+    .hero-panel .hero-sub{
+      max-width:760px;
+    }
+    .hero-mini-nav{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:10px;
+    }
+    .mini-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      box-shadow:var(--shadow);
+    }
+    .mini-card small{
+      display:block;
+
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      margin-bottom:8px;
+      font-size:11px;
+    }
+    .mini-card h3{
+      font-family:var(--font-display);
+      font-size:1.05rem;
+      line-height:1.3;
+      margin-bottom:8px;
+    }
+    .mini-card p{
+ 
+      font-size:.96rem;
+      line-height:1.6;
+      margin-bottom:12px;
+    }
+    .mini-card a{
+
+      font-weight:800;
+    }
+
+    .breadcrumbs{
+      max-width:1200px;
+      margin:0 auto 18px;
+    
+      font-size:14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .breadcrumbs a{ color:var(--muted); }
+    .breadcrumbs span{ color:var(--dim); }
+
+    .quick-intent{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+      margin-top:28px;
+    }
+    .intent-box{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:18px;
+      background:rgba(255,255,255,.03);
+    }
+    .intent-box h3{
+      font-size:1rem;
+      margin-bottom:8px;
+      font-family:var(--font-display);
+    }
+    .intent-box p{
+ 
+      font-size:.95rem;
+      margin-bottom:10px;
+    }
+    .intent-box a{
+
+      font-weight:700;
+    }
+
+    .section-shell{
+      max-width:1200px;
+      margin:0 auto;
+      padding:0 24px;
+    }
+    .alt-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+    .stack-card{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:24px;
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));
+      box-shadow:var(--shadow);
+    }
+    .stack-card h3{
+      font-family:var(--font-display);
+      font-size:1.15rem;
+      margin-bottom:12px;
+    }
+
+    .stack-card ul{
+      padding-left:18px;
+      display:grid;
+      gap:8px;
+    }
+
+    .steps-rail{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+    .step-rail-card{
+      position:relative;
+      padding:22px 18px 18px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      overflow:hidden;
+    }
+    .step-rail-card::before{
+      content:attr(data-step);
+      position:absolute;
+      top:10px;
+      right:12px;
+      font-family:var(--font-display);
+      font-size:2rem;
+      line-height:1;
+      color:rgba(255,255,255,.08);
+    }
+    .step-rail-card h3{
+      font-family:var(--font-display);
+      font-size:1rem;
+      margin-bottom:8px;
+      padding-right:40px;
+    }
+    .step-rail-card p{
+      font-size:.95rem;
+    }
+
+    .compare-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+    .compare-card{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:24px;
+      background:rgba(255,255,255,.03);
+    }
+    .compare-card h3{
+      font-family:var(--font-display);
+      margin-bottom:10px;
+    }
+    .compare-card ul{
+      display:grid;
+      gap:10px;
+      padding-left:18px;
+    }
+
+    .link-cluster{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+    .cluster-card{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:18px;
+      background:rgba(255,255,255,.03);
+    }
+    .cluster-card h3{
+      font-family:var(--font-display);
+      font-size:1.02rem;
+      margin-bottom:8px;
+    }
+    .cluster-card p{
+      margin-bottom:10px;
+      font-size:.95rem;
+    }
+    .cluster-card a{
+      display:block;
+      font-weight:700;
+      margin-top:8px;
+    }
+
+    .faq-note{
+      max-width:760px;
+      margin:0 auto 18px;
+      text-align:center;
+    }
+
+    .cta-wide{
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:30px;
+      background:
+        radial-gradient(420px 180px at 12% 0%, rgba(91,124,250,.18), transparent 60%),
+        radial-gradient(420px 220px at 88% 100%, rgba(242,106,27,.16), transparent 60%),
+        rgba(255,255,255,.04);
+      box-shadow:var(--shadow2);
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:24px;
+      align-items:center;
+    }
+    .cta-wide h2{
+      font-size:clamp(1.7rem, 3vw, 2.6rem);
+      line-height:1.12;
+      margin-bottom:12px;
+    }
+    .cta-wide p{
+
+      max-width:700px;
+    }
+    .cta-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:flex-start;
+      margin-top:18px;
+    }
+    .cta-side{
+      border-left:1px solid var(--line);
+      padding-left:24px;
+    }
+    .cta-side ul{
+      display:grid;
+      gap:10px;
+      padding-left:18px;
+
+    }
+
+    footer .footer-links{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin-top:12px;
+    }
+    footer .footer-links a{
+ 
+      font-size:14px;
+    }
+
+    @media (max-width: 1080px){
+      .hero-grid,
+      .cta-wide,
+      .alt-grid,
+      .compare-grid{
+        grid-template-columns:1fr;
+      }
+      .cta-side{
+        border-left:none;
+        padding-left:0;
+        border-top:1px solid var(--line);
+        padding-top:20px;
+      }
+      .quick-intent,
+      .steps-rail,
+      .link-cluster{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
+    @media (max-width: 720px){
+      .topbar{
+        height:auto;
+        padding:14px 18px;
+        align-items:flex-start;
+        gap:10px;
+      }
+      .topbar-nav{
+        width:100%;
+      }
+      .hero.hero-split{
+        padding:84px 18px 44px;
+      }
+      .hero-grid,
+      .hero-mini-nav,
+      .quick-intent,
+      .steps-rail,
+      .link-cluster{
+        grid-template-columns:1fr;
+      }
+      .section-shell{
+        padding:0 18px;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"WebPage",
+        "@id":"https://cere3d.ro/print-3d.html#webpage",
+        "url":"https://cere3d.ro/print-3d.html",
+        "name":"Print 3D in Romania | Cere3D",
+        "description":"Pagina dedicata cautarii print 3D pentru piese, prototipuri, obiecte personalizate si proiecte.",
+        "isPartOf":{
+          "@id":"https://cere3d.ro/#website"
+        },
+        "breadcrumb":{
+          "@id":"https://cere3d.ro/print-3d.html#breadcrumb"
+        },
+        "inLanguage":"ro"
+      },
+      {
+        "@type":"WebSite",
+        "@id":"https://cere3d.ro/#website",
+        "url":"https://cere3d.ro/",
+        "name":"Cere3D",
+        "inLanguage":"ro"
+      },
+      {
+        "@type":"BreadcrumbList",
+        "@id":"https://cere3d.ro/print-3d.html#breadcrumb",
+        "itemListElement":[
+          {
+            "@type":"ListItem",
+            "position":1,
+            "name":"Acasa",
+            "item":"https://cere3d.ro/"
+          },
+          {
+            "@type":"ListItem",
+            "position":2,
+            "name":"Printare 3D la comanda",
+            "item":"https://cere3d.ro/printare-3d-la-comanda.html"
+          },
+          {
+            "@type":"ListItem",
+            "position":3,
+            "name":"Print 3D",
+            "item":"https://cere3d.ro/print-3d.html"
+          }
+        ]
+      },
+      {
+        "@type":"FAQPage",
+        "@id":"https://cere3d.ro/print-3d.html#faq",
+        "mainEntity":[
+          {
+            "@type":"Question",
+            "name":"Ce inseamna print 3D pe Cere3D?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Pe Cere3D, print 3D inseamna ca poti cere realizarea unei piese, a unui prototip sau a unui obiect personalizat. Poti veni cu model 3D, cu poza, cu dimensiuni sau doar cu ideea proiectului."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Pot cere print 3D daca nu am fisier STL?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Da. Daca nu ai fisier 3D, poti trimite o poza, o schita, o piesa veche sau o descriere. In multe cazuri, proiectul poate fi modelat inainte de printare."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Print 3D merge doar pentru obiecte decorative?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Nu. Printarea 3D este folosita si pentru piese functionale, adaptoare, suporturi, carcase, prototipuri, componente pentru proiecte si multe alte aplicatii practice."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Cum pornesc o comanda de print 3D?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Pornesti simplu: intri pe pagina Cere, descrii ce ai nevoie, incarci poze sau modelul daca il ai, iar apoi poti primi raspuns pentru proiectul tau."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Care este diferenta intre print 3D si refacere piese din plastic?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Print 3D este clusterul pentru obiecte noi, prototipuri, piese noi si proiecte personalizate. Refacerea pieselor din plastic este clusterul pentru situatii in care o piesa s-a rupt, lipseste sau nu se mai gaseste."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body data-page="seo-hub">
+
+  <header class="topbar">
+    <a href="/index.html" class="logo" aria-label="Cere3D">
+      <img src="/assets/logo-cere3d.svg" alt="Cere3D" class="logo-img">
+    </a>
+
+    <nav class="topbar-nav" aria-label="Navigatie principala">
+      <a href="/cereri.html" class="topbar-link">Cereri</a>
+      <a href="/cere.html" class="topbar-link">Cere Un Obiect 3D</a>
+      <a href="/cere.html" class="topbar-cta">Posteaza cererea →</a>
+    </nav>
+  </header>
+
+  <section class="hero hero-split">
+    <div class="breadcrumbs">
+      <a href="/index.html">Acasa</a>
+      <span>•</span>
+      <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+      <span>•</span>
+      <span>Print 3D</span>
+    </div>
+
+    <div class="hero-grid">
+      <div class="hero-panel">
+        <div class="hero-badge">Keyword direct • print 3d</div>
+        <h1>Print 3D pentru piese, prototipuri si obiecte personalizate</h1>
+        <p class="hero-sub">
+          Daca ai cautat simplu <strong>print 3D</strong>, cel mai probabil vrei una dintre cele trei variante:
+          sa printezi o piesa utila, sa faci un prototip sau sa comanzi un obiect personalizat.
+          Pe Cere3D poti porni cererea chiar daca ai deja fisierul 3D, ai doar o poza sau pornesti de la o idee.
+        </p>
+
+        <div class="hero-cta-wrap">
+          <a href="/cere.html" class="btn-primary">
+            <span>Cere un obiect 3D</span>
+            <span>→</span>
+          </a>
+          <a href="/cereri.html" class="btn-secondary">Vezi cereri</a>
+        </div>
+
+        <div class="quick-intent">
+          <div class="intent-box">
+            <h3>Ai un model 3D?</h3>
+            <p>Trimiti STL, STEP sau alt fisier si pornesti rapid comanda.</p>
+            <a href="/printare-3d-online.html">Vezi printare 3D online →</a>
+          </div>
+          <div class="intent-box">
+            <h3>Ai doar o poza?</h3>
+            <p>Potrivita pentru proiecte care trebuie modelate inainte de print.</p>
+            <a href="/refacere-piesa-dupa-poza.html">Vezi pagina dupa poza →</a>
+          </div>
+          <div class="intent-box">
+            <h3>Ai nevoie de piesa noua?</h3>
+            <p>Suporturi, adaptoare, carcase, conectori si alte componente utile.</p>
+            <a href="/printare-3d-piese.html">Vezi piese printate 3D →</a>
+          </div>
+          <div class="intent-box">
+            <h3>Vrei ceva personalizat?</h3>
+            <p>Cadouri, accesorii, obiecte decorative si proiecte create la comanda.</p>
+            <a href="/printare-3d-obiecte-personalizate.html">Vezi obiecte personalizate →</a>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-mini-nav" aria-label="Acces rapid">
+        <div class="mini-card">
+          <small>Hub principal</small>
+          <h3>Printare 3D la comanda</h3>
+          <p>Pagina principala a clusterului nou, cu ramurile mari pentru piese, prototipuri, cadouri si servicii.</p>
+          <a href="/printare-3d-la-comanda.html">Intra in hub →</a>
+        </div>
+
+        <div class="mini-card">
+          <small>Servicii nationale</small>
+          <h3>Servicii printare 3D in Romania</h3>
+          <p>Hub comercial pentru comenzi din toata tara, cu legaturi catre pagini pe intentie reala si clienti diferiti.</p>
+          <a href="/servicii-printare-3d-romania.html">Vezi serviciile →</a>
+        </div>
+
+        <div class="mini-card">
+          <small>Pentru proiecte noi</small>
+          <h3>Modelare si proiectare 3D</h3>
+          <p>Daca nu ai fisierul pregatit, poti merge spre zona de modelare si proiectare pentru printare.</p>
+          <a href="/modelare-3d-la-comanda.html">Vezi modelare 3D →</a>
+        </div>
+
+        <div class="mini-card">
+          <small>Pentru urgenta</small>
+          <h3>Comanda si raspuns rapid</h3>
+          <p>Pentru situatii in care vrei sa pornesti direct cererea si sa clarifici repede materialul sau dimensiunile.</p>
+          <a href="/comanda-printare-3d.html">Porneste comanda →</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-shell">
+      <div class="section-tag">Ce cauta oamenii de fapt</div>
+      <h2 class="section-title">Cand cineva scrie "print 3D", intentia poate fi foarte diferita</h2>
+      <p class="section-lead">
+        Tocmai de aceea pagina asta nu repeta un hub generic. Ea organizeaza cautarea scurta in trasee clare,
+        ca omul sa ajunga repede la pagina potrivita si sa inteleaga ce poate cere concret.
+      </p>
+
+      <div class="alt-grid">
+        <article class="stack-card">
+          <h3>1. Vrei sa printezi ceva ce exista deja</h3>
+          <p>
+            Ai un fisier 3D, un model trimis de designer sau ai primit un STL de la cineva.
+            In cazul asta, accentul cade pe executie: dimensiune, material, rezistenta, termen si livrare.
+          </p>
+          <ul>
+            <li><a href="/printare-3d-online.html">Printare 3D online</a> pentru comenzi la distanta</li>
+            <li><a href="/fisier-3d-pentru-printare.html">Fisier 3D pentru printare</a> daca vrei sa lucrezi pe baza modelului tau</li>
+            <li><a href="/pret-printare-3d-la-comanda.html">Pret printare 3D la comanda</a> daca vrei sa intelegi costul</li>
+          </ul>
+        </article>
+
+        <article class="stack-card">
+          <h3>2. Vrei sa faci ceva nou, nu doar sa il printezi</h3>
+          <p>
+            Poate ai doar o idee, o schita, o piesa veche sau cateva poze. Aici intervine partea de modelare,
+            proiectare si verificare inainte de print.
+          </p>
+          <ul>
+            <li><a href="/modelare-3d-la-comanda.html">Modelare 3D la comanda</a></li>
+            <li><a href="/proiectare-si-printare-3d.html">Proiectare si printare 3D</a></li>
+            <li><a href="/printare-3d-prototip.html">Printare 3D prototip</a> pentru testare si iteratii</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-shell">
+      <div class="section-tag">Proces simplu</div>
+      <h2 class="section-title">Cum pornesti un proiect de print 3D pe Cere3D</h2>
+
+      <div class="steps-rail">
+        <article class="step-rail-card" data-step="01">
+          <h3>Spui ce vrei sa obtii</h3>
+          <p>Poate fi o piesa noua, un prototip, un obiect personalizat, un suport, o carcasa sau un set de componente.</p>
+        </article>
+
+        <article class="step-rail-card" data-step="02">
+          <h3>Trimiti ce ai deja</h3>
+          <p>Poti porni cu fisier 3D, poza, schita, cote, masuratori sau cu o descriere simpla a proiectului.</p>
+        </article>
+
+        <article class="step-rail-card" data-step="03">
+          <h3>Clarifici materialul si folosirea</h3>
+          <p>Este important daca obiectul va sta in casa, in masina, la exterior, in contact cu caldura sau in uz repetat.</p>
+        </article>
+
+        <article class="step-rail-card" data-step="04">
+          <h3>Postezi cererea</h3>
+          <p>Intri pe <a href="/cere.html">Cere</a>, descrii ce ai nevoie si poti continua discutia pe baza proiectului tau concret.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-shell">
+      <div class="section-tag">Diferentiere SEO si de intentie</div>
+      <h2 class="section-title">Print 3D nu inseamna acelasi lucru cu refacere piese din plastic</h2>
+
+      <div class="compare-grid">
+        <article class="compare-card">
+          <h3>Clusterul "print 3D"</h3>
+          <ul>
+            <li>obiect nou</li>
+            <li>prototip</li>
+            <li>cadou personalizat</li>
+            <li>piesa noua functionala</li>
+            <li>suport, adaptor, carcasa, accesoriu</li>
+            <li>proiect pornit de la fisier, idee sau schita</li>
+          </ul>
+        </article>
+
+        <article class="compare-card">
+          <h3>Clusterul "refacere piese din plastic"</h3>
+          <ul>
+            <li>piesa rupta</li>
+            <li>piesa lipsa</li>
+            <li>piesa veche care nu se mai gaseste</li>
+            <li>inlocuire dupa model existent</li>
+            <li>copiere dupa o piesa uzata</li>
+            <li>solutie pentru reparatie sau inlocuire</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="section-cta" style="margin-top:20px;">
+        <a href="/refacere-piese-plastic.html" class="btn-secondary">Vezi si clusterul de refacere piese din plastic</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-shell">
+      <div class="section-tag">Ce poti cere</div>
+      <h2 class="section-title">Exemple reale de proiecte care intra natural in cautarea "print 3D"</h2>
+
+      <div class="cards-grid">
+        <article class="card">
+          <h3>Piese si componente utile</h3>
+          <p>Adaptoare, conectori, piese mecanice, suporturi de fixare, carcase si alte componente noi create pentru o utilizare concreta.</p>
+          <a href="/printare-3d-piese.html">Exploreaza pagina de piese →</a>
+        </article>
+
+        <article class="card">
+          <h3>Prototipuri si testare</h3>
+          <p>Modele de test, validare de forma, prototip functional, iteratii rapide pentru produs nou sau proiect tehnic.</p>
+          <a href="/printare-3d-prototip.html">Vezi prototipurile →</a>
+        </article>
+
+        <article class="card">
+          <h3>Obiecte personalizate</h3>
+          <p>Decoratiuni, accesorii, cadouri, obiecte utile pentru casa sau birou, proiecte personalizate pentru uz personal.</p>
+          <a href="/printare-3d-obiecte-personalizate.html">Vezi obiectele personalizate →</a>
+        </article>
+
+        <article class="card">
+          <h3>Comenzi pentru firme</h3>
+          <p>Serii mici, display, prototipuri, componente tehnice, piese pentru ateliere si proiecte pentru productie sau mentenanta.</p>
+          <a href="/printare-3d-pentru-firme.html">Vezi printare 3D pentru firme →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-shell">
+      <div class="section-tag">Interlinking util</div>
+      <h2 class="section-title">Unde mergi mai departe, in functie de proiectul tau</h2>
+
+      <div class="link-cluster">
+        <article class="cluster-card">
+          <h3>Vrei un serviciu national clar</h3>
+          <p>Porneste din hubul comercial mare si vezi tipurile de clienti, servicii si pagini de intentie.</p>
+          <a href="/servicii-printare-3d-romania.html">Servicii printare 3D in Romania</a>
+          <a href="/printare-3d-la-comanda-romania.html">Printare 3D la comanda Romania</a>
+        </article>
+
+        <article class="cluster-card">
+          <h3>Vrei sa comanzi online</h3>
+          <p>Bun pentru cazurile in care trimiti model, poze sau dimensiuni si vrei sa mergi direct spre executie.</p>
+          <a href="/printare-3d-online.html">Printare 3D online</a>
+          <a href="/comanda-printare-3d.html">Comanda printare 3D</a>
+        </article>
+
+        <article class="cluster-card">
+          <h3>Vrei obiecte noi, nu reparatii</h3>
+          <p>Intra in paginile care tin de obiecte personalizate, decor, accesorii si cadouri printate 3D.</p>
+          <a href="/printare-3d-cadouri.html">Printare 3D cadouri</a>
+          <a href="/printare-3d-accesorii.html">Printare 3D accesorii</a>
+        </article>
+
+        <article class="cluster-card">
+          <h3>Ai nevoie de proiectare</h3>
+          <p>Daca nu ai modelul gata, cel mai bun traseu este catre zona de modelare si proiectare.</p>
+          <a href="/modelare-3d-la-comanda.html">Modelare 3D la comanda</a>
+          <a href="/proiectare-si-printare-3d.html">Proiectare si printare 3D</a>
+        </article>
+
+        <article class="cluster-card">
+          <h3>Ai doar o poza</h3>
+          <p>Pentru proiectele pornite din imagini, exemple, cote sau piese vechi, mergi spre paginile dedicate.</p>
+          <a href="/printare-3d-dupa-poza.html">Printare 3D dupa poza</a>
+          <a href="/modelare-3d-dupa-poza.html">Modelare 3D dupa poza</a>
+        </article>
+
+        <article class="cluster-card">
+          <h3>Te intereseaza piese rare sau rupte</h3>
+          <p>Aici intri deja in clusterul complementar de refacere si inlocuire, nu doar in zona de obiecte noi.</p>
+          <a href="/piesa-rupta-printare-3d.html">Piesa rupta printare 3D</a>
+          <a href="/piesa-nu-se-mai-gaseste-solutii.html">Piesa nu se mai gaseste - solutii</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-shell">
+      <div class="section-tag">FAQ</div>
+      <h2 class="section-title" style="text-align:center;">Intrebari frecvente despre print 3D</h2>
+      <p class="faq-note">
+        Pagina aceasta este pentru cautarea scurta "print 3D", asa ca raspunde rapid la intrebarile de baza
+        pe care le are omul inainte sa posteze cererea.
+      </p>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">Ce inseamna print 3D pe Cere3D?<span>+</span></button>
+          <div class="faq-a">
+            <p>Inseamna ca poti cere realizarea unei piese, a unui prototip sau a unui obiect personalizat. Nu este obligatoriu sa ai modelul pregatit de la inceput.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Pot cere print 3D daca nu am fisier STL?<span>+</span></button>
+          <div class="faq-a">
+            <p>Da. Poti porni de la poza, schita, cote sau descriere. Pentru multe proiecte, partea de modelare se rezolva inainte de printare.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Print 3D merge pentru piese functionale sau doar pentru decor?<span>+</span></button>
+          <div class="faq-a">
+            <p>Merge si pentru piese functionale. De aceea exista pagini separate pentru <a href="/printare-3d-piese.html">piese</a>, <a href="/printare-3d-piese-mecanice.html">piese mecanice</a>, <a href="/printare-3d-adaptoare.html">adaptoare</a> si alte componente practice.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Cum stiu ce pagina sa aleg din cluster?<span>+</span></button>
+          <div class="faq-a">
+            <p>Daca vrei ceva nou, ramai in clusterul de printare 3D. Daca ai o piesa rupta sau lipsa, intra in clusterul de <a href="/refacere-piese-plastic.html">refacere piese plastic</a>. Daca ai nevoie de modelare, mergi in <a href="/modelare-3d-la-comanda.html">modelare 3D la comanda</a>.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Care este primul pas daca vreau sa cer print 3D acum?<span>+</span></button>
+          <div class="faq-a">
+            <p>Cel mai simplu pas este sa intri pe <a href="/cere.html">Cere Un Obiect 3D</a>, sa scrii pe scurt ce ai nevoie si sa adaugi orice informatie utila: poza, dimensiuni, model 3D sau explicatie.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-bottom:84px;">
+    <div class="section-shell">
+      <div class="cta-wide">
+        <div>
+          <div class="section-tag">Porneste de aici</div>
+          <h2>Daca ai cautat print 3D, urmatorul pas este sa transformi cautarea intr-un proiect clar</h2>
+          <p>
+            Spune ce vrei sa obtii, arata ce ai deja si descrie unde se foloseste piesa sau obiectul.
+            Cu cat cererea este mai clara, cu atat ajungi mai repede la o solutie potrivita pentru printare 3D.
+          </p>
+          <div class="cta-actions">
+            <a href="/cere.html" class="btn-primary">
+              <span>Cere Un Obiect 3D</span>
+              <span>→</span>
+            </a>
+            <a href="/cereri.html" class="btn-secondary">Vezi cererile existente</a>
+          </div>
+        </div>
+
+        <aside class="cta-side">
+          <ul>
+            <li>Ai fisierul? mergi rapid spre executie.</li>
+            <li>Ai doar o poza? poti merge spre modelare.</li>
+            <li>Ai o piesa rupta? exista cluster separat pentru refacere.</li>
+            <li>Ai o idee de produs? mergi spre proiectare si prototip.</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="/index.html" class="footer-logo">Cere<span>3D</span></a>
+      <a href="/servicii-printare-3d-romania.html" class="footer-seo-link">Servicii printare 3D in Romania</a>
+      <span class="footer-copy">© <span id="an-curent"></span> Cere3D. Marketplace pentru printare 3D la comanda.</span>
+
+      <div class="footer-links">
+        <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+        <a href="/printare-3d-online.html">Printare 3D online</a>
+        <a href="/modelare-3d-la-comanda.html">Modelare 3D la comanda</a>
+        <a href="/refacere-piese-plastic.html">Refacere piese plastic</a>
+        <a href="/cereri.html">Cereri</a>
+        <a href="/cere.html">Cere Un Obiect 3D</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-q').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+        if(!isOpen) item.classList.add('open');
+      });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const yearSpan = document.getElementById("an-curent");
+      if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+    });
+  </script>
+
+  <!-- SEO Internal Links: printare 3D -->
+  <nav class="seo-internal-links" aria-label="Pagini principale printare 3D" style="display:none;">
+    <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+    <a href="/">Printare 3D Romania - Cere3D</a>
+    <a href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a>
+    <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a>
+    <a href="/cat-costa-un-obiect-printat-3d.html">Cat costa printare 3D</a>
+    <a href="/ce-material-sa-aleg-pentru-printare-3d.html">Materiale printare 3D</a>
+  </nav>
+</body>
+</html>

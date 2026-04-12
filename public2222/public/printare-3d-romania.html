@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    gtag('js', new Date());
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FY3LRNBF2"></script>
+  <script type="module" src="/consent.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Printare 3D Romania | Cere3D - Platforma pentru cereri de printare 3D in toata tara</title>
+  <meta name="description" content="Cauti printare 3D in Romania? Cere3D este platforma unde postezi o cerere pentru piese, prototipuri sau obiecte personalizate, iar proiectul tau poate merge mai departe pe baza modelului, pozei sau ideii tale.">
+  <link rel="canonical" href="https://cere3d.ro/printare-3d-romania.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cere3D">
+  <meta property="og:title" content="Printare 3D Romania | Cere3D">
+  <meta property="og:description" content="Platforma pentru cereri de printare 3D in Romania. Postezi gratuit cererea pentru piese, prototipuri sau obiecte personalizate.">
+  <meta property="og:url" content="https://cere3d.ro/printare-3d-romania.html">
+  <meta property="og:image" content="https://cere3d.ro/assets/og-cere3d2.png">
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700;800&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/seo-hub.css">
+
+  <style>
+    :root{
+      --page-bg:#f3f7fd;
+      --surface:#ffffff;
+      --surface-soft:#f7faff;
+      --surface-alt:#edf4ff;
+      --surface-accent:#fff4ea;
+      --line:rgba(17,40,79,.10);
+      --line-strong:rgba(17,40,79,.16);
+      --ink:#11284f;
+      --muted:rgba(17,40,79,.78);
+      --dim:rgba(17,40,79,.60);
+      --blue:#214e9a;
+      --blue-soft:#dfeafc;
+      --orange:#f26a1b;
+      --orange-soft:#fff0e3;
+      --shadow:0 14px 34px rgba(17,40,79,.10);
+      --shadow2:0 24px 56px rgba(17,40,79,.12);
+    }
+
+    body{
+      background:
+        radial-gradient(920px 460px at 10% -10%, rgba(33,78,154,.09), transparent 56%),
+        radial-gradient(760px 340px at 94% 2%, rgba(242,106,27,.10), transparent 50%),
+        linear-gradient(180deg, #f9fbff 0%, var(--page-bg) 100%);
+      color:var(--ink);
+    }
+
+    a{
+      color:var(--blue);
+      transition:.18s ease;
+    }
+    a:hover{
+      color:var(--orange);
+    }
+
+    .topbar{
+      background:rgba(255,255,255,.84);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .topbar-nav{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .topbar-link{
+      color:var(--blue);
+      font-weight:800;
+      font-size:14px;
+      padding:9px 14px;
+      border-radius:10px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.90);
+      font-family:'Manrope', sans-serif;
+    }
+    .topbar-link:hover{
+      color:var(--orange);
+      box-shadow:var(--shadow);
+      transform:translateY(-1px);
+    }
+
+    .topbar-cta{
+      color:var(--blue);
+      font-family:'Manrope', sans-serif;
+      font-weight:800;
+      background:linear-gradient(135deg, var(--orange-soft), #ffe3cb);
+      border:1px solid rgba(242,106,27,.22);
+    }
+    .topbar-cta:hover{
+      color:var(--orange);
+      transform:translateY(-1px);
+    }
+
+    .breadcrumbs{
+      max-width:1180px;
+      margin:0 auto 18px;
+      color:var(--dim);
+      font-size:14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .breadcrumbs a{ color:var(--dim); }
+    .breadcrumbs a:hover{ color:var(--orange); }
+
+    .hero{
+      text-align:left;
+      padding:88px 24px 58px;
+    }
+
+    .hero-wrap{
+      max-width:1180px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:26px;
+      align-items:start;
+    }
+
+    .hero-copy{
+      background:linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.72));
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:34px;
+      box-shadow:var(--shadow2);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-copy::before{
+      content:"";
+      position:absolute;
+      inset:auto auto -80px -60px;
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(33,78,154,.10), transparent 68%);
+      pointer-events:none;
+    }
+
+    .hero-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:9px 14px;
+      border-radius:999px;
+      background:var(--blue-soft);
+      border:1px solid rgba(33,78,154,.16);
+      color:var(--blue);
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-family:'Manrope', sans-serif;
+      font-weight:800;
+      margin-bottom:18px;
+    }
+
+    .hero h1{
+      font-family:'Syne', sans-serif;
+      font-size:clamp(38px,5vw,62px);
+      line-height:1.02;
+      letter-spacing:-.04em;
+      color:var(--ink);
+      margin:0 0 16px;
+      max-width:760px;
+    }
+
+    .hero-sub{
+      font-size:18px;
+      line-height:1.72;
+      color:var(--muted);
+      max-width:760px;
+      margin:0 0 24px;
+      font-family:'DM Sans', sans-serif;
+    }
+
+    .hero-note{
+      background:var(--surface-alt);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px 18px 16px;
+      margin-bottom:24px;
+    }
+    .hero-note strong{
+      display:block;
+      color:var(--ink);
+      font-family:'Manrope', sans-serif;
+      margin-bottom:8px;
+      font-size:15px;
+    }
+    .hero-note p{
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.65;
+      margin:0;
+    }
+
+    .hero-cta-wrap{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:22px;
+    }
+
+    .btn-primary{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:52px;
+      padding:0 20px;
+      border-radius:14px;
+      border:1px solid rgba(242,106,27,.22);
+      background:linear-gradient(135deg, #ffe8d5, #ffd7b4);
+      color:var(--blue);
+      font-family:'Manrope', sans-serif;
+      font-weight:800;
+      box-shadow:var(--shadow);
+    }
+    .btn-primary:hover{
+      color:var(--orange);
+      transform:translateY(-1px);
+    }
+
+    .btn-secondary{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:52px;
+      padding:0 20px;
+      border-radius:14px;
+      border:1px solid var(--line-strong);
+      background:rgba(255,255,255,.88);
+      color:var(--blue);
+      font-family:'Manrope', sans-serif;
+      font-weight:800;
+    }
+    .btn-secondary:hover{
+      color:var(--orange);
+      transform:translateY(-1px);
+    }
+
+    .hero-points{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+    }
+
+    .hero-point{
+      background:rgba(255,255,255,.80);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px;
+      min-height:118px;
+    }
+    .hero-point h3{
+      font-family:'Manrope', sans-serif;
+      color:var(--ink);
+      font-size:15px;
+      margin-bottom:8px;
+    }
+    .hero-point p{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .hero-side{
+      display:grid;
+      gap:16px;
+    }
+
+    .side-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.88), rgba(250,252,255,.82));
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+
+    .side-card h3{
+      font-family:'Manrope', sans-serif;
+      font-size:18px;
+      color:var(--ink);
+      margin-bottom:10px;
+    }
+
+    .side-card p{
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.68;
+      margin-bottom:14px;
+    }
+
+    .side-card ul{
+      display:grid;
+      gap:8px;
+      padding-left:18px;
+      margin-bottom:14px;
+    }
+
+    .side-card li{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .section{
+      padding:76px 0;
+    }
+
+    .container{
+      max-width:1180px;
+      margin:0 auto;
+      padding:0 24px;
+    }
+
+    .section-tag{
+      display:inline-block;
+      margin-bottom:12px;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.09em;
+      text-transform:uppercase;
+      color:var(--blue);
+      font-family:'Manrope', sans-serif;
+    }
+
+    .section-title{
+      font-family:'Syne', sans-serif;
+      font-size:clamp(30px,4vw,48px);
+      line-height:1.08;
+      letter-spacing:-.04em;
+      color:var(--ink);
+      margin-bottom:16px;
+      max-width:920px;
+    }
+
+    .section-lead{
+      max-width:860px;
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.72;
+      font-family:'DM Sans', sans-serif;
+    }
+
+    .highlight-band{
+      margin-top:30px;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:18px;
+    }
+
+    .band-main,
+    .band-side{
+      background:rgba(255,255,255,.86);
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .band-main{
+      padding:28px;
+    }
+
+    .band-main h3,
+    .band-side h3{
+      font-family:'Manrope', sans-serif;
+      color:var(--ink);
+      font-size:24px;
+      margin-bottom:12px;
+    }
+
+    .band-main p,
+    .band-side p{
+      color:var(--muted);
+      line-height:1.7;
+      font-size:16px;
+      margin-bottom:14px;
+    }
+
+    .band-list{
+      display:grid;
+      gap:12px;
+      margin-top:16px;
+    }
+
+    .band-list-item{
+      background:var(--surface-soft);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px;
+    }
+    .band-list-item strong{
+      display:block;
+      color:var(--ink);
+      font-family:'Manrope', sans-serif;
+      margin-bottom:6px;
+    }
+    .band-list-item span{
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.6;
+    }
+
+    .band-side{
+      padding:24px;
+    }
+
+    .states-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+      margin-top:34px;
+    }
+
+    .state-card{
+      background:rgba(255,255,255,.88);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+
+    .state-card h3{
+      font-family:'Manrope', sans-serif;
+      color:var(--ink);
+      font-size:18px;
+      margin-bottom:10px;
+    }
+
+    .state-card p{
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.66;
+      margin-bottom:12px;
+    }
+
+    .state-card a{
+      font-weight:800;
+      font-family:'Manrope', sans-serif;
+    }
+
+    .process-layout{
+      display:grid;
+      grid-template-columns:.95fr 1.05fr;
+      gap:20px;
+      margin-top:34px;
+      align-items:start;
+    }
+
+    .process-panel,
+    .timeline{
+      background:rgba(255,255,255,.88);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:26px;
+      box-shadow:var(--shadow);
+    }
+
+    .process-panel h3,
+    .timeline h3{
+      font-family:'Manrope', sans-serif;
+      font-size:22px;
+      color:var(--ink);
+      margin-bottom:12px;
+    }
+
+    .process-panel p,
+    .timeline p{
+      color:var(--muted);
+      line-height:1.7;
+      font-size:16px;
+    }
+
+    .process-cta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:20px;
+    }
+
+    .timeline-steps{
+      display:grid;
+      gap:14px;
+      margin-top:18px;
+    }
+
+    .timeline-step{
+      display:grid;
+      grid-template-columns:64px 1fr;
+      gap:14px;
+      align-items:start;
+      background:var(--surface-soft);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+    }
+
+    .timeline-step .nr{
+      width:64px;
+      height:64px;
+      border-radius:18px;
+      background:var(--orange-soft);
+      border:1px solid rgba(242,106,27,.18);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family:'Syne', sans-serif;
+      font-size:26px;
+      color:var(--blue);
+    }
+
+    .timeline-step h4{
+      font-family:'Manrope', sans-serif;
+      font-size:17px;
+      color:var(--ink);
+      margin-bottom:6px;
+    }
+
+    .timeline-step p{
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.65;
+      margin:0;
+    }
+
+    .geo-layout{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin-top:32px;
+    }
+
+    .geo-card{
+      background:rgba(255,255,255,.88);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .geo-card h3{
+      font-family:'Manrope', sans-serif;
+      color:var(--ink);
+      font-size:21px;
+      margin-bottom:10px;
+    }
+
+    .geo-card p{
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.7;
+      margin-bottom:14px;
+    }
+
+    .geo-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:16px;
+    }
+
+    .geo-tag{
+      display:inline-flex;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:999px;
+      background:var(--surface-alt);
+      border:1px solid var(--line);
+      color:var(--blue);
+      font-size:14px;
+      font-weight:800;
+      font-family:'Manrope', sans-serif;
+    }
+
+    .project-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+      margin-top:34px;
+    }
+
+    .project-card{
+      background:rgba(255,255,255,.88);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .project-card h3{
+      font-family:'Manrope', sans-serif;
+      font-size:20px;
+      color:var(--ink);
+      margin-bottom:10px;
+    }
+
+    .project-card p{
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.68;
+      margin-bottom:12px;
+    }
+
+    .project-card ul{
+      display:grid;
+      gap:8px;
+      padding-left:18px;
+      margin-bottom:12px;
+    }
+
+    .project-card li{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .compare-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin-top:34px;
+    }
+
+    .compare-card{
+      background:rgba(255,255,255,.88);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:26px;
+      box-shadow:var(--shadow);
+    }
+
+    .compare-card h3{
+      font-family:'Manrope', sans-serif;
+      font-size:22px;
+      color:var(--ink);
+      margin-bottom:12px;
+    }
+
+    .compare-card ul{
+      display:grid;
+      gap:8px;
+      padding-left:18px;
+    }
+
+    .compare-card li{
+      color:var(--muted);
+      line-height:1.66;
+      font-size:15px;
+    }
+
+    .faq-wrap{
+      margin-top:34px;
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:18px;
+      align-items:start;
+    }
+
+    .faq-intro{
+      background:rgba(255,255,255,.88);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:26px;
+      box-shadow:var(--shadow);
+    }
+
+    .faq-intro h3{
+      font-family:'Manrope', sans-serif;
+      color:var(--ink);
+      font-size:22px;
+      margin-bottom:12px;
+    }
+
+    .faq-intro p{
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.7;
+      margin-bottom:14px;
+    }
+
+    .faq-list{
+      margin:0;
+    }
+
+    .faq-item{
+      background:rgba(255,255,255,.88);
+      border:1px solid var(--line);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+    }
+
+    .faq-q{
+      color:var(--ink);
+      font-family:'Manrope', sans-serif;
+      font-weight:800;
+      letter-spacing:-.02em;
+    }
+
+    .faq-q span{
+      color:var(--blue);
+    }
+
+    .faq-a p{
+      color:var(--muted);
+      line-height:1.72;
+    }
+
+    .final-cta{
+      background:
+        radial-gradient(500px 220px at 8% 0%, rgba(33,78,154,.10), transparent 55%),
+        radial-gradient(440px 220px at 94% 100%, rgba(242,106,27,.10), transparent 55%),
+        rgba(255,255,255,.90);
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:32px;
+      box-shadow:var(--shadow2);
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:22px;
+      align-items:center;
+    }
+
+    .final-cta h2{
+      font-family:'Syne', sans-serif;
+      font-size:clamp(30px,4vw,46px);
+      line-height:1.06;
+      letter-spacing:-.04em;
+      color:var(--ink);
+      margin-bottom:14px;
+    }
+
+    .final-cta p{
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.74;
+      margin-bottom:16px;
+    }
+
+    .final-cta-side{
+      background:rgba(255,255,255,.72);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:22px;
+    }
+
+    .final-cta-side h3{
+      font-family:'Manrope', sans-serif;
+      color:var(--ink);
+      font-size:20px;
+      margin-bottom:12px;
+    }
+
+    .final-cta-side ul{
+      display:grid;
+      gap:9px;
+      padding-left:18px;
+    }
+
+    .final-cta-side li{
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.62;
+    }
+
+    footer{
+      background:rgba(255,255,255,.76);
+      border-top:1px solid var(--line);
+    }
+
+    .footer-logo{
+      font-family:'Syne', sans-serif;
+      color:var(--ink);
+    }
+
+    .footer-logo span{
+      color:var(--orange);
+    }
+
+    .footer-seo-link{
+      color:var(--blue);
+      font-weight:800;
+      font-family:'Manrope', sans-serif;
+    }
+
+    .footer-copy{
+      color:var(--muted);
+    }
+
+    .footer-links{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin-top:12px;
+    }
+
+    .footer-links a{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .footer-links a:hover,
+    .footer-seo-link:hover{
+      color:var(--orange);
+    }
+
+    @media (max-width:1080px){
+      .hero-wrap,
+      .highlight-band,
+      .process-layout,
+      .geo-layout,
+      .faq-wrap,
+      .final-cta,
+      .compare-grid{
+        grid-template-columns:1fr;
+      }
+      .states-grid,
+      .project-grid{
+        grid-template-columns:1fr 1fr;
+      }
+      .hero-points{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:760px){
+      .topbar{
+        height:auto;
+        padding:14px 18px;
+        align-items:flex-start;
+        gap:12px;
+      }
+      .hero{
+        padding:82px 18px 52px;
+      }
+      .container{
+        padding:0 18px;
+      }
+      .states-grid,
+      .project-grid{
+        grid-template-columns:1fr;
+      }
+      .timeline-step{
+        grid-template-columns:1fr;
+      }
+      .timeline-step .nr{
+        width:56px;
+        height:56px;
+      }
+      .hero-copy{
+        padding:26px 20px;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"WebSite",
+        "@id":"https://cere3d.ro/#website",
+        "url":"https://cere3d.ro/",
+        "name":"Cere3D",
+        "inLanguage":"ro"
+      },
+      {
+        "@type":"WebPage",
+        "@id":"https://cere3d.ro/printare-3d-romania.html#webpage",
+        "url":"https://cere3d.ro/printare-3d-romania.html",
+        "name":"Printare 3D Romania | Cere3D",
+        "description":"Pagina nationala pentru printare 3D in Romania, cu accent pe postarea cererii, comenzi online, livrare si tipuri de proiecte.",
+        "isPartOf":{"@id":"https://cere3d.ro/#website"},
+        "breadcrumb":{"@id":"https://cere3d.ro/printare-3d-romania.html#breadcrumb"},
+        "inLanguage":"ro"
+      },
+      {
+        "@type":"BreadcrumbList",
+        "@id":"https://cere3d.ro/printare-3d-romania.html#breadcrumb",
+        "itemListElement":[
+          {
+            "@type":"ListItem",
+            "position":1,
+            "name":"Acasa",
+            "item":"https://cere3d.ro/"
+          },
+          {
+            "@type":"ListItem",
+            "position":2,
+            "name":"Servicii printare 3D in Romania",
+            "item":"https://cere3d.ro/servicii-printare-3d-romania.html"
+          },
+          {
+            "@type":"ListItem",
+            "position":3,
+            "name":"Printare 3D Romania",
+            "item":"https://cere3d.ro/printare-3d-romania.html"
+          }
+        ]
+      },
+      {
+        "@type":"FAQPage",
+        "@id":"https://cere3d.ro/printare-3d-romania.html#faq",
+        "mainEntity":[
+          {
+            "@type":"Question",
+            "name":"Ce este Cere3D?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Cere3D este o platforma unde poti posta o cerere pentru printare 3D. Poti descrie piesa, prototipul sau obiectul dorit, iar proiectul tau poate fi analizat pe baza modelului 3D, pozei, schitei sau descrierii."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Pot posta o cerere de printare 3D daca nu sunt din Bucuresti?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Da. Pagina este construita pentru cautari nationale. Daca esti din alt oras, poti porni cererea online si poti explica proiectul tau direct in platforma."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Ce fel de proiecte pot cere prin printare 3D?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Poti cere piese functionale, prototipuri, adaptoare, suporturi, carcase, obiecte personalizate, accesorii, decoratiuni si multe alte proiecte realizate la comanda."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Cum pornesc corect o cerere de printare 3D?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Intrii pe pagina Cere, descrii clar ce vrei sa obtii, atasezi poze, modelul 3D sau dimensiunile daca le ai si trimiti cererea. Poti intra si pe Cereri pentru a vedea exemple deja publicate."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body data-page="seo-hub">
+
+  <header class="topbar">
+    <a href="/index.html" class="logo" aria-label="Cere3D">
+      <img src="/assets/logo-cere3d.svg" alt="Cere3D" class="logo-img">
+    </a>
+
+    <nav class="topbar-nav" aria-label="Navigatie principala">
+      <a href="/cereri.html" class="topbar-link">Cereri</a>
+      <a href="/cere.html" class="topbar-link">Cere Un Obiect 3D</a>
+      <a href="/cere.html" class="topbar-cta">Posteaza cererea →</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="breadcrumbs">
+      <a href="/index.html">Acasa</a>
+      <span>•</span>
+      <a href="/servicii-printare-3d-romania.html">Servicii printare 3D in Romania</a>
+      <span>•</span>
+      <span>Printare 3D Romania</span>
+    </div>
+
+    <div class="hero-wrap">
+      <div class="hero-copy">
+        <div class="hero-badge">acoperire nationala • cereri online • printare 3d romania</div>
+        <h1>Printare 3D in Romania pentru clienti care vor sa posteze o cerere clara si sa porneasca proiectul</h1>
+        <p class="hero-sub">
+          Daca ai cautat <strong>printare 3D Romania</strong>, cel mai important lucru nu este doar sa citesti despre serviciu,
+          ci sa ajungi repede in locul unde poti explica proiectul tau. Cere3D este platforma unde postezi gratuit o cerere
+          pentru piese, prototipuri, obiecte personalizate sau alte proiecte printate 3D.
+        </p>
+
+        <div class="hero-note">
+          <strong>Ce face platforma Cere3D</strong>
+          <p>
+            Platforma te ajuta sa transformi o nevoie vaga intr-o cerere concreta. Poti porni de la model 3D, de la poza,
+            de la schita sau doar de la ideea obiectului. In loc sa ramai blocat in cautari generale, mergi direct spre actiune:
+            descrii proiectul si il postezi.
+          </p>
+        </div>
+
+        <div class="hero-cta-wrap">
+          <a href="/cere.html" class="btn-primary">
+            <span>Posteaza o cerere gratuit</span>
+            <span>→</span>
+          </a>
+          <a href="/cereri.html" class="btn-secondary">Vezi cereri existente</a>
+        </div>
+
+        <div class="hero-points">
+          <article class="hero-point">
+            <h3>Ai modelul 3D</h3>
+            <p>Poti porni cererea rapid si explica materialul, dimensiunile si scopul piesei.</p>
+          </article>
+          <article class="hero-point">
+            <h3>Ai doar o poza</h3>
+            <p>Poti descrie proiectul si arata ce vrei sa obtii chiar daca nu ai fisierul final.</p>
+          </article>
+          <article class="hero-point">
+            <h3>Ai doar ideea</h3>
+            <p>Poti explica folosirea reala a obiectului si porni discutia de la nevoie, nu de la jargon tehnic.</p>
+          </article>
+        </div>
+      </div>
+
+      <aside class="hero-side">
+        <article class="side-card">
+          <h3>De ce pagina asta este pentru tine</h3>
+          <p>
+            Pagina este scrisa pentru clientul din Romania care cauta unde sa isi posteze cererea de printare 3D,
+            nu pentru cineva care vrea doar definitii generale.
+          </p>
+          <ul>
+            <li>vrei sa ceri o piesa noua</li>
+            <li>vrei sa pornesti un prototip</li>
+            <li>vrei sa descrii un obiect personalizat</li>
+            <li>vrei sa trimiti cererea online, din orice oras</li>
+          </ul>
+          <a href="/cere.html">Intra direct in pagina de postare →</a>
+        </article>
+
+        <article class="side-card">
+          <h3>Ce sa faci acum</h3>
+          <p>
+            Daca proiectul tau este real, nu astepta sa intelegi tot procesul tehnic din prima. Posteaza cererea si explica
+            pe scurt ce vrei sa obtii.
+          </p>
+          <ul>
+            <li>adauga poze, model sau schita</li>
+            <li>spune unde se foloseste piesa sau obiectul</li>
+            <li>mentioneaza daca ai nevoie de una sau mai multe bucati</li>
+            <li>intra in Cereri ca sa vezi exemple similare</li>
+          </ul>
+          <a href="/cereri.html">Vezi cererile deja publicate →</a>
+        </article>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">punctul de pornire corect</div>
+      <h2 class="section-title">Pentru cautarea "printare 3D Romania", cel mai util raspuns este sa stii unde postezi proiectul tau</h2>
+      <p class="section-lead">
+        Multi clienti cauta national pentru ca nu stiu exact in ce oras sa caute, vor o solutie online sau vor sa explice
+        rapid proiectul fara sa piarda timp. De aceea aceasta pagina este construita in jurul actiunii principale:
+        <strong>sa postezi o cerere clara</strong>.
+      </p>
+
+      <div class="highlight-band">
+        <div class="band-main">
+          <h3>Ce inseamna concret sa postezi o cerere pe Cere3D</h3>
+          <p>
+            In loc sa cauti doar "printare 3D Romania" si sa ramai cu mai multe pagini deschise, aici faci pasul care conteaza:
+            descrii proiectul tau. Platforma Cere3D este gandita pentru oameni care au o nevoie reala si vor sa o puna in miscare.
+          </p>
+
+          <div class="band-list">
+            <div class="band-list-item">
+              <strong>Pentru piese si componente</strong>
+              <span>Suporturi, adaptoare, carcase, conectori, piese functionale si alte proiecte utile pot fi descrise clar in cerere.</span>
+            </div>
+            <div class="band-list-item">
+              <strong>Pentru prototipuri</strong>
+              <span>Daca testezi un produs nou sau un model de lucru, poti porni cererea chiar daca proiectul este inca in faza de clarificare.</span>
+            </div>
+            <div class="band-list-item">
+              <strong>Pentru obiecte personalizate</strong>
+              <span>Daca vrei un obiect unic, decorativ sau util, poti porni de la idee si sa arati ce vrei sa obtii.</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="band-side">
+          <h3>Butonul care conteaza cel mai mult</h3>
+          <p>
+            Daca ai ajuns aici pentru ca vrei efectiv sa faci ceva, nu doar sa citesti, cel mai util pas este sa mergi in pagina
+            de postare a cererii.
+          </p>
+          <div class="hero-cta-wrap" style="margin:0;">
+            <a href="/cere.html" class="btn-primary">Posteaza o cerere gratuit →</a>
+            <a href="/cereri.html" class="btn-secondary">Asteapta si vezi cereri</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">situatii reale</div>
+      <h2 class="section-title">Daca esti din Romania si vrei sa postezi o cerere, de obicei te afli intr-una dintre situatiile de mai jos</h2>
+
+      <div class="states-grid">
+        <article class="state-card">
+          <h3>Ai deja modelul 3D</h3>
+          <p>In cazul asta esti aproape de actiune. Cererea ta poate porni rapid daca explici ce obiect vrei si unde va fi folosit.</p>
+          <a href="/printare-3d-online.html">Vezi si printare 3D online →</a>
+        </article>
+
+        <article class="state-card">
+          <h3>Ai doar poze sau exemplu</h3>
+          <p>Nu esti blocat. Poti totusi posta cererea si explica forma, dimensiunile sau proiectul pe care vrei sa il obtii.</p>
+          <a href="/refacere-piesa-dupa-poza.html">Vezi si pagina dupa poza →</a>
+        </article>
+
+        <article class="state-card">
+          <h3>Vrei o piesa noua</h3>
+          <p>Daca proiectul este pentru un obiect nou, un suport, un adaptor sau o componenta noua, ramai in clusterul de printare 3D.</p>
+          <a href="/printare-3d-piese.html">Vezi paginile de piese →</a>
+        </article>
+
+        <article class="state-card">
+          <h3>Vrei obiect personalizat</h3>
+          <p>Daca proiectul tau este mai degraba personal, decorativ sau de cadou, poti merge spre paginile dedicate obiectelor custom.</p>
+          <a href="/printare-3d-obiecte-personalizate.html">Vezi obiecte personalizate →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">proces national, dar simplu</div>
+      <h2 class="section-title">Cum folosesti platforma daca vrei printare 3D in Romania</h2>
+
+      <div class="process-layout">
+        <div class="process-panel">
+          <h3>Nu trebuie sa stii tot. Trebuie doar sa spui clar ce vrei.</h3>
+          <p>
+            Platforma nu este facuta doar pentru clienti tehnici. Este facuta si pentru oameni care au o nevoie concreta si vor sa o
+            formuleze bine. Cererea buna nu este cea mai tehnica, ci cea mai clara.
+          </p>
+          <p>
+            De aceea este util sa spui: ce obiect vrei, unde se foloseste, daca ai model sau poza si daca ai nevoie de o singura bucata
+            sau de mai multe.
+          </p>
+          <div class="process-cta">
+            <a href="/cere.html" class="btn-primary">Posteaza cererea acum</a>
+            <a href="/cereri.html" class="btn-secondary">Vezi cum arata alte cereri</a>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <h3>Pasii practici pentru clientul care vrea sa posteze</h3>
+
+          <div class="timeline-steps">
+            <div class="timeline-step">
+              <div class="nr">1</div>
+              <div>
+                <h4>Intri in pagina de postare</h4>
+                <p>Primul pas real este sa intri pe <a href="/cere.html">Cere Un Obiect 3D</a>, nu sa ramai doar la cautarea generala.</p>
+              </div>
+            </div>
+
+            <div class="timeline-step">
+              <div class="nr">2</div>
+              <div>
+                <h4>Descrii proiectul</h4>
+                <p>Spui ce vrei sa obtii: piesa, prototip, obiect util, accesoriu, componenta sau cadou personalizat.</p>
+              </div>
+            </div>
+
+            <div class="timeline-step">
+              <div class="nr">3</div>
+              <div>
+                <h4>Atasezi ce ai disponibil</h4>
+                <p>Poti avea model 3D, poza, schita, dimensiuni, exemple sau pur si simplu o explicatie buna.</p>
+              </div>
+            </div>
+
+            <div class="timeline-step">
+              <div class="nr">4</div>
+              <div>
+                <h4>Te uiti si la alte cereri</h4>
+                <p>Pagina <a href="/cereri.html">Cereri</a> te ajuta sa intelegi cum formuleaza alti clienti proiecte similare.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">acoperire nationala</div>
+      <h2 class="section-title">Printare 3D in Romania inseamna si acces online, si relevanta pentru orasele mari</h2>
+      <p class="section-lead">
+        Daca cauti national, este normal sa vrei sa vezi daca proiectul tau are sens indiferent de orasul din care pornesti.
+        De aceea este util sa folosesti platforma si sa mergi spre paginile locale doar daca te ajuta sa intelegi mai bine traseul tau.
+      </p>
+
+      <div class="geo-layout">
+        <article class="geo-card">
+          <h3>Vrei perspectiva nationala</h3>
+          <p>
+            Daca principalul tau interes este sa postezi proiectul si sa mergi mai departe online, cel mai bun traseu ramane
+            cel national si comercial, nu neaparat cautarea stricta pe oras.
+          </p>
+          <div class="geo-tags">
+            <a class="geo-tag" href="/servicii-printare-3d-romania.html">Servicii printare 3D in Romania</a>
+            <a class="geo-tag" href="/printare-3d-la-comanda-romania.html">Printare 3D la comanda Romania</a>
+            <a class="geo-tag" href="/printare-3d-online.html">Printare 3D online</a>
+          </div>
+        </article>
+
+        <article class="geo-card">
+          <h3>Vrei sa vezi si pagini pe orase</h3>
+          <p>
+            Daca te ajuta sa cauti mai local, exista si hub de orase si pagini individuale pentru orase mari din Romania.
+            Acestea sunt utile mai ales daca vrei sa te raportezi la zona ta.
+          </p>
+          <div class="geo-tags">
+            <a class="geo-tag" href="/printare-3d-romania-orase.html">Romania - orase</a>
+            <a class="geo-tag" href="/printare-3d-bucuresti.html">Bucuresti</a>
+            <a class="geo-tag" href="/printare-3d-cluj.html">Cluj</a>
+            <a class="geo-tag" href="/printare-3d-timisoara.html">Timisoara</a>
+            <a class="geo-tag" href="/printare-3d-iasi.html">Iasi</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">ce poti cere</div>
+      <h2 class="section-title">Tipuri de proiecte pentru care merita sa postezi o cerere de printare 3D</h2>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <h3>Piese noi si componente utile</h3>
+          <p>Pentru piese functionale, suporturi, conectori, adaptoare, carcase si alte proiecte practice, nu doar decorative.</p>
+          <ul>
+            <li>proiecte noi</li>
+            <li>componente pentru uz real</li>
+            <li>nevoie de clarificare pe material si folosire</li>
+          </ul>
+          <a href="/printare-3d-piese-mecanice.html">Vezi piese mecanice →</a>
+        </article>
+
+        <article class="project-card">
+          <h3>Prototipuri si validare</h3>
+          <p>Pentru produse noi, teste de forma, modele de lucru sau prototipuri functionale care trebuie descrise clar in cerere.</p>
+          <ul>
+            <li>test de concept</li>
+            <li>iteratii</li>
+            <li>proiecte pentru antreprenori sau firme</li>
+          </ul>
+          <a href="/printare-3d-prototip.html">Vezi zona de prototip →</a>
+        </article>
+
+        <article class="project-card">
+          <h3>Obiecte personalizate</h3>
+          <p>Pentru obiecte unicat, accesorii, decoratiuni sau cadouri la comanda, cand vrei sa explici ideea si rezultatul dorit.</p>
+          <ul>
+            <li>obiecte pentru casa</li>
+            <li>cadouri</li>
+            <li>proiecte personale sau hobby</li>
+          </ul>
+          <a href="/printare-3d-cadouri.html">Vezi si pagina de cadouri →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">separare de intentie</div>
+      <h2 class="section-title">Daca ai cautat printare 3D in Romania, e bine sa stii si cand NU trebuie sa ramai in acest cluster</h2>
+
+      <div class="compare-grid">
+        <article class="compare-card">
+          <h3>Ramai in clusterul de printare 3D cand vrei</h3>
+          <ul>
+            <li>un obiect nou</li>
+            <li>un prototip</li>
+            <li>o piesa noua pentru un proiect</li>
+            <li>un accesoriu, suport sau componenta personalizata</li>
+            <li>sa pornesti de la idee, model sau schita</li>
+          </ul>
+        </article>
+
+        <article class="compare-card">
+          <h3>Mergi spre refacere piese plastic cand ai</h3>
+          <ul>
+            <li>o piesa rupta</li>
+            <li>o piesa lipsa</li>
+            <li>o piesa veche care nu se mai gaseste</li>
+            <li>o nevoie de copiere dupa exemplu existent</li>
+            <li>o situatie de reparatie sau inlocuire</li>
+          </ul>
+          <p style="margin-top:14px;">
+            In astfel de cazuri, iti este mai util sa mergi spre <a href="/refacere-piese-plastic.html">refacere piese plastic</a>
+            sau spre <a href="/piesa-rupta-printare-3d.html">piesa rupta printare 3D</a>.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-tag">intrebari de la clienti</div>
+      <h2 class="section-title">Intrebari frecvente inainte sa postezi o cerere de printare 3D in Romania</h2>
+
+      <div class="faq-wrap">
+        <aside class="faq-intro">
+          <h3>Ce vrei sa obtii dupa ce citesti pagina</h3>
+          <p>
+            Nu doar sa intelegi ce este printarea 3D, ci sa stii exact unde trebuie sa dai click pentru a-ti porni proiectul.
+          </p>
+          <p>
+            Daca inca eziti, intra si in pagina de <a href="/cereri.html">Cereri</a>. Vezi exemple, formulare reale si modul in care
+            alti clienti si-au explicat proiectele.
+          </p>
+          <div class="hero-cta-wrap" style="margin:0;">
+            <a href="/cere.html" class="btn-primary">Posteaza o cerere gratuit</a>
+            <a href="/cereri.html" class="btn-secondary">Vezi cereri existente</a>
+          </div>
+        </aside>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q">Ce este Cere3D?<span>+</span></button>
+            <div class="faq-a">
+              <p>Cere3D este platforma unde postezi o cerere pentru printare 3D. Poti descrie piesa, prototipul sau obiectul dorit si poti porni de la model 3D, poza, schita sau idee.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">Pot posta o cerere daca nu sunt din Bucuresti?<span>+</span></button>
+            <div class="faq-a">
+              <p>Da. Pagina aceasta este construita special pentru cautarea nationala. Daca esti din alt oras, poti merge direct spre <a href="/cere.html">pagina de postare</a> si sa explici proiectul tau online.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">Ce fel de proiecte pot cere prin printare 3D?<span>+</span></button>
+            <div class="faq-a">
+              <p>Poti cere piese functionale, prototipuri, carcase, adaptoare, suporturi, obiecte personalizate, accesorii si alte proiecte la comanda. Daca vrei sa explorezi ramurile, vezi <a href="/printare-3d-piese.html">piese</a>, <a href="/printare-3d-prototip.html">prototip</a> si <a href="/printare-3d-obiecte-personalizate.html">obiecte personalizate</a>.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">Ce fac daca am doar o poza sau doar ideea?<span>+</span></button>
+            <div class="faq-a">
+              <p>Tot poti porni cererea. Este suficient sa descrii ce vrei sa obtii si sa arati ce ai disponibil. Pentru trasee mai apropiate de modelare, vezi si <a href="/modelare-3d-la-comanda.html">modelare 3D la comanda</a> sau <a href="/printare-3d-dupa-poza.html">printare 3D dupa poza</a>.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">Cum pornesc corect o cerere?<span>+</span></button>
+            <div class="faq-a">
+              <p>Cel mai corect este sa intri pe <a href="/cere.html">Cere Un Obiect 3D</a>, sa scrii ce obiect sau piesa vrei, sa spui unde se foloseste si sa atasezi poze sau modelul daca le ai. Poti verifica si <a href="/cereri.html">Cereri</a> pentru inspiratie.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-bottom:90px;">
+    <div class="container">
+      <div class="final-cta">
+        <div>
+          <div class="section-tag">actiunea finala</div>
+          <h2>Daca ai ajuns pana aici, cel mai bun pas este sa postezi proiectul tau de printare 3D</h2>
+          <p>
+            Cautarea nationala este utila doar daca te duce la urmatorul pas. Iar urmatorul pas este simplu:
+            intri in pagina de postare, descrii piesa, prototipul sau obiectul dorit si pornesti cererea.
+            Daca vrei sa vezi mai intai cum arata alte exemple, intra in pagina de cereri existente.
+          </p>
+          <div class="hero-cta-wrap">
+            <a href="/cere.html" class="btn-primary">Posteaza o cerere gratuit →</a>
+            <a href="/cereri.html" class="btn-secondary">Vezi cereri si exemple</a>
+          </div>
+        </div>
+
+        <aside class="final-cta-side">
+          <h3>Ce castigi daca faci click acum</h3>
+          <ul>
+            <li>iti clarifici proiectul imediat</li>
+            <li>nu mai ramai blocat in cautari generale</li>
+            <li>transformi ideea intr-o cerere concreta</li>
+            <li>poti explica rapid ce vrei sa obtii</li>
+            <li>vezi si cereri existente ca sa intelegi traseul</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="/index.html" class="footer-logo">Cere<span>3D</span></a>
+      <a href="/servicii-printare-3d-romania.html" class="footer-seo-link">Servicii printare 3D in Romania</a>
+      <span class="footer-copy">© <span id="an-curent"></span> Cere3D. Platforma pentru cereri de printare 3D in Romania.</span>
+
+      <div class="footer-links">
+        <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+        <a href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a>
+        <a href="/printare-3d-la-comanda-romania.html">Printare 3D la comanda Romania</a>
+        <a href="/printare-3d-romania-orase.html">Printare 3D Romania orase</a>
+        <a href="/printare-3d-online.html">Printare 3D online</a>
+        <a href="/cereri.html">Cereri</a>
+        <a href="/cere.html">Cere Un Obiect 3D</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-q').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+        if(!isOpen) item.classList.add('open');
+      });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const yearSpan = document.getElementById("an-curent");
+      if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+    });
+  </script>
+
+  <!-- SEO Internal Links: printare 3D -->
+  <nav class="seo-internal-links" aria-label="Pagini principale printare 3D" style="display:none;">
+    <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+    <a href="/">Printare 3D Romania - Cere3D</a>
+    <a href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a>
+    <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a>
+    <a href="/cat-costa-un-obiect-printat-3d.html">Cat costa printare 3D</a>
+    <a href="/ce-material-sa-aleg-pentru-printare-3d.html">Materiale printare 3D</a>
+  </nav>
+</body>
+</html>

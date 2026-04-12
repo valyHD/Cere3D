@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cere3d.ro/sitemap.xml

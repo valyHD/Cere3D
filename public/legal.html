@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <!-- Consent Mode v2 (default denied) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  // default: blocat pana la consimtamant
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    analytics_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied'
+  });
+
+  gtag('js', new Date());
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1FY3LRNBF2"></script>
+
+<!-- Consent UI + loader logic -->
+<script type="module" src="/consent.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cere3D — Legal (Privacy, Terms, Cookies)</title>
+  <meta name="description" content="Cere3D - pagina LEGAL: Politica de confidentialitate, Termeni si conditii, Cookies." />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    :root{
+      --bg0:#0a0f1c;
+      --bg1:#0b1326;
+      --card:#0f1b33;
+      --line:#22314f;
+      --txt1:#e7f0ff;
+      --txt2:#b9c8e6;
+      --muted:#23407a;
+      --accent:#00e0ff;
+      --accent2:#884aff;
+      --warn:#ffcc66;
+      --ok:#00ff78;
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --radius: 18px;
+      --radius2: 14px;
+      --max: 1040px;
+    }
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  background: #0a0f1c; /* simplu, neutru */
+  color:var(--txt1);
+}
+
+
+    /* topbar */
+    .topbar{
+      position:sticky; top:0; z-index:30;
+      background: rgba(10,15,28,.75);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(34,49,79,.7);
+    }
+    .wrap{ max-width: var(--max); margin:0 auto; padding: 0 18px; }
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 0;
+      gap: 14px;
+    }
+    .logo{
+      display:flex; align-items:center; gap:12px;
+      text-decoration:none; color:var(--txt1);
+      font-weight: 900;
+      letter-spacing:.4px;
+      padding: 0px 20px;
+    }
+    .logo img{ width:32px; height:32px; }
+    .logo span{
+      display:inline-flex; align-items:baseline; gap:8px;
+      font-size: 16px;
+    }
+    .logo b{
+      font-size: 17px;
+      transform: skewX(-12deg);
+      display:inline-block;
+    }
+    .nav{
+      display:flex; align-items:center; gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .nav a{
+      text-decoration:none;
+      color: var(--txt2);
+      padding: 8px 12px;
+      border: 1px solid rgba(34,49,79,.7);
+      border-radius: 999px;
+      background: rgba(15,27,51,.45);
+      transition: .15s ease;
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .nav a:hover{
+      color: var(--txt1);
+      border-color: rgba(0,224,255,.55);
+      box-shadow: 0 0 0 3px rgba(0,224,255,.10);
+    }
+
+    /* hero */
+    .hero{
+      padding: 40px 0 18px;
+    }
+    .hero-card{
+      background: linear-gradient(180deg, rgba(15,27,51,.78), rgba(15,27,51,.45));
+      border: 1px solid rgba(34,49,79,.85);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      overflow:hidden;
+      position:relative;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(500px 160px at 30% 0%, rgba(0,224,255,.18), transparent 60%),
+                  radial-gradient(500px 160px at 80% 30%, rgba(136,74,255,.16), transparent 60%);
+      pointer-events:none;
+    }
+    .hero-grid{
+      position:relative;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items:start;
+    }
+    @media (max-width: 900px){
+      .hero-grid{ grid-template-columns: 1fr; }
+    }
+    h1{
+      margin:0 0 10px;
+      font-size: 28px;
+      letter-spacing:.2px;
+    }
+    .subtitle{
+      margin:0;
+      color: var(--txt2);
+      line-height:1.55;
+      max-width: 70ch;
+    }
+    .pillrow{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top: 14px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(34,49,79,.8);
+      background: rgba(10,15,28,.35);
+      color: var(--txt2);
+      font-weight: 800;
+      font-size: 12.5px;
+    }
+    .dot{
+      width:8px; height:8px; border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px rgba(0,224,255,.12);
+    }
+.meta-box{
+  border: 1px solid rgba(34,49,79,.85);
+  border-radius: var(--radius2);
+  background: rgba(10,15,28,.35);
+  padding: 14px;
+
+  display: grid;
+  grid-template-columns: 1fr;     /* mobil */
+  gap: 10px 18px;
+}
+    .meta-kv{
+      display:grid;
+      grid-template-columns: 130px 1fr;
+      gap:10px;
+      padding: 8px 0;
+      border-bottom: 1px dashed rgba(34,49,79,.55);
+    }
+    .meta-kv:last-child{ border-bottom:0; }
+    .k{ color: var(--muted); font-weight: 800; font-size: 13px; }
+    .v{ color: var(--txt1); font-weight: 700; font-size: 13px; word-break: break-word; }
+
+    /* content */
+    .content{
+      padding: 18px 0 60px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 280px 1fr;
+      gap: 18px;
+      align-items:start;
+    }
+    @media (max-width: 900px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .toc{
+      position:sticky; top: 86px;
+      border: 1px solid rgba(34,49,79,.85);
+      border-radius: var(--radius);
+      background: rgba(15,27,51,.55);
+      box-shadow: 0 12px 34px rgba(0,0,0,.35);
+      padding: 14px;
+    }
+    @media (max-width: 900px){
+      .toc{ position:relative; top:auto; }
+    }
+    .toc h3{
+      margin: 4px 0 10px;
+      font-size: 14px;
+      color: var(--txt1);
+      letter-spacing:.2px;
+    }
+    .toc a{
+      display:block;
+      text-decoration:none;
+      padding: 10px 10px;
+      border-radius: 12px;
+      color: var(--txt2);
+      border: 1px solid rgba(34,49,79,.65);
+      background: rgba(10,15,28,.25);
+      margin-bottom: 10px;
+      font-weight: 800;
+      transition: .15s ease;
+      font-size: 13px;
+    }
+    .toc a:hover{
+      color: var(--txt1);
+      border-color: rgba(0,224,255,.55);
+      box-shadow: 0 0 0 3px rgba(0,224,255,.10);
+    }
+    .note{
+      margin-top: 10px;
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .section{
+      border: 1px solid rgba(34,49,79,.85);
+      border-radius: var(--radius);
+      background: rgba(15,27,51,.55);
+      box-shadow: 0 12px 34px rgba(0,0,0,.35);
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+    .section h2{
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing:.2px;
+    }
+    .section h3{
+      margin: 16px 0 8px;
+      font-size: 15px;
+      color: var(--txt1);
+    }
+    .section p{
+      margin: 8px 0;
+      color: var(--txt2);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+    .section ul{
+      margin: 10px 0 0 18px;
+      color: var(--txt2);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+    .section li{ margin: 6px 0; }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 8px 12px;
+      border-radius: 12px;
+      font-weight: 900;
+      color: #0b1222;
+      background: linear-gradient(90deg, rgba(0,224,255,.95), rgba(136,74,255,.85));
+      margin: 8px 0 6px;
+    }
+    .warn{
+      border: 1px solid rgba(255,204,102,.5);
+      background: rgba(255,204,102,.10);
+      padding: 12px 12px;
+      border-radius: 14px;
+      color: var(--txt2);
+      line-height: 1.65;
+      margin-top: 12px;
+      font-size: 13.5px;
+    }
+    .warn b{ color: var(--warn); }
+    .footer{
+      border-top: 1px solid rgba(34,49,79,.7);
+      padding: 26px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .footer a{ color: var(--txt2); text-decoration: underline; }
+    .small{ font-size: 12.5px; color: var(--muted); }
+    code.inline{
+      background: rgba(10,15,28,.35);
+      border: 1px solid rgba(34,49,79,.65);
+      padding: 2px 7px;
+      border-radius: 10px;
+      color: var(--txt1);
+      font-weight: 800;
+      font-size: 12.5px;
+    }
+
+.legal-page{
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(0,224,255,.16), transparent 60%),
+    radial-gradient(1000px 500px at 90% 0%, rgba(136,74,255,.16), transparent 55%),
+    radial-gradient(900px 600px at 50% 110%, rgba(120,80,255,.14), transparent 62%),
+    linear-gradient(180deg, #0a1022 0%, #0b1730 40%, #0e1b3f 70%, #1a1340 100%);
+}
+
+/* strat blur care “topeste” orice limita/linie */
+.legal-page::before{
+  content:"";
+  position: fixed;
+  inset: -80px;
+  pointer-events: none;
+  background:
+    radial-gradient(700px 420px at 30% 20%, rgba(255,255,255,.06), transparent 62%),
+    radial-gradient(900px 540px at 70% 55%, rgba(255,255,255,.05), transparent 68%);
+  filter: blur(18px);
+  opacity: .9;
+}
+.meta-box{
+  border: 1px solid rgba(34,49,79,.85);
+  border-radius: var(--radius2);
+  background: rgba(10,15,28,.35);
+  padding: 14px;
+
+  display: grid;
+  grid-template-columns: 1fr;     /* mobil */
+  gap: 10px 18px;
+}
+
+@media (min-width: 760px){
+  .meta-box{
+    grid-template-columns: 1fr 1fr; /* 2 coloane pe desktop */
+  }
+}
+
+.meta-kv{
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 10px;
+  align-items: start;
+
+  padding: 8px 0;
+  border-bottom: 1px dashed rgba(34,49,79,.55);
+}
+
+.meta-kv:nth-last-child(-n + 2){
+  border-bottom: 0; /* ultimele 2, ca ai 2 coloane pe desktop */
+}
+
+@media (max-width: 759px){
+  .meta-kv:nth-last-child(-n + 2){
+    border-bottom: 1px dashed rgba(34,49,79,.55);
+  }
+  .meta-kv:last-child{ border-bottom: 0; }
+}
+
+.k{
+  color: var(--muted);
+  font-weight: 800;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.v{
+  color: var(--txt1);
+  font-weight: 700;
+  font-size: 13px;
+  min-width: 0;
+
+  /* asta rezolva email/link lung */
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.meta-link{
+  color: var(--txt1);
+  text-decoration: underline;
+  font-weight: 900;
+}
+
+.meta-sep{
+  opacity: .6;
+  margin: 0 8px;
+}
+.hero{ padding: 34px 0 18px; }
+.topbar-inner{ padding: 12px 0; }
+.logo img{ width:30px; height:30px; }
+
+/* in HERO, meta-box ramane pe 1 coloana, altfel se ingusteaza prea tare */
+.meta-hero{
+  grid-template-columns: 1fr !important;
+}
+.v{
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+  </style>
+</head>
+
+<body>
+<div class="legal-page">
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="logo" href="/">
+        <span><b>CERE</b> <span style="opacity:.9">3D</span></span>
+      </a>
+
+      <nav class="nav" aria-label="Navigatie">
+        <a href="/cereri.html">Vezi cererile</a>
+        <a href="/cere.html">Posteaza o cerere</a>
+        <a href="/ghid.html">Ghid</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-card">
+          <div class="hero-grid">
+            <div>
+              <h1>LEGAL — Privacy Policy, Terms & Cookies</h1>
+              <p class="subtitle">
+                Aceasta pagina descrie modul in care platforma <b>Cere3D</b> colecteaza si foloseste datele,
+                precum si regulile de utilizare. Prin folosirea site-ului <code class="inline">cere3d.ro</code>,
+                esti de acord cu continutul de mai jos.
+              </p>
+
+              <div class="pillrow">
+                <span class="pill"><span class="dot"></span> GDPR / UE</span>
+                <span class="pill"><span class="dot" style="background:var(--accent2)"></span> Platforma de intermediere</span>
+                <span class="pill"><span class="dot" style="background:var(--ok)"></span> Fara plati in platforma</span>
+              </div>
+
+              <div class="warn">
+                <b>Important:</b> Cere3D este o platforma de conectare intre utilizatori. Nu vindem produse,
+                nu incasam plati si nu garantam executia lucrarilor. Intelegerile se fac direct intre utilizatori.
+              </div>
+            </div>
+
+<aside class="meta-box meta-hero">
+  <div class="meta-kv">
+    <div class="k">Website</div>
+    <div class="v">cere3d.ro</div>
+  </div>
+
+  <div class="meta-kv">
+    <div class="k">Email contact</div>
+    <div class="v">
+<a class="meta-link" href="mailto:noreply.cere3d@gmail.com">
+  noreply.cere3d<wbr>@gmail<wbr>.com
+</a>    </div>
+  </div>
+
+  <div class="meta-kv">
+    <div class="k">Ultima actualizare</div>
+    <div class="v">2026</div>
+  </div>
+
+  <div class="meta-kv">
+    <div class="k">Document</div>
+    <div class="v">/legal<wbr>.html</div>
+
+  </div>
+</aside>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="wrap">
+        <div class="grid">
+
+          <aside class="toc" aria-label="Cuprins">
+            <h3>Cuprins</h3>
+            <a href="#privacy">1. Privacy Policy</a>
+            <a href="#terms">2. Terms & Conditions</a>
+            <a href="#cookies">3. Cookies Policy</a>
+            <a href="#contact">4. Contact</a>
+            <div class="note">
+              Recomandare: pastreaza aceasta pagina la footer in toate paginile:
+              <code class="inline">Legal</code>.
+            </div>
+          </aside>
+
+          <div>
+
+            <article class="section" id="privacy">
+              <div class="badge">Privacy Policy (Politica de confidentialitate)</div>
+
+              <h3>1. Cine suntem</h3>
+              <p>
+                <b>Cere3D</b> este o platforma online care faciliteaza legatura dintre persoane care au nevoie de printare 3D
+                si persoane care ofera servicii de printare 3D.
+              </p>
+
+              <h3>2. Ce date colectam</h3>
+              <p>Putem colecta urmatoarele tipuri de date:</p>
+              <ul>
+                <li>Date de cont: nume, email, avatar (daca este ales).</li>
+                <li>Continut generat de utilizatori: cereri publice, oferte, mesaje private (DM), fisiere si imagini incarcate.</li>
+                <li>Date tehnice: adresa IP, tip browser, date de autentificare si securitate (prin Firebase).</li>
+              </ul>
+              <p>
+                Nu solicitam si nu avem nevoie de date sensibile precum CNP, date bancare sau adresa fizica.
+              </p>
+
+              <h3>3. De ce colectam aceste date</h3>
+              <p>Datele sunt folosite exclusiv pentru:</p>
+              <ul>
+                <li>crearea si administrarea conturilor;</li>
+                <li>publicarea cererilor si ofertelor;</li>
+                <li>comunicarea intre utilizatori (chat public si mesaje private);</li>
+                <li>securitatea platformei si prevenirea abuzurilor;</li>
+                <li>suport si rezolvarea problemelor tehnice.</li>
+              </ul>
+
+              <h3>4. Unde sunt stocate datele</h3>
+              <p>
+                Datele sunt stocate folosind <b>Google Firebase (Google Cloud Platform)</b>, in centre de date din Uniunea Europeana
+                sau conforme cu standardele GDPR si transferurile legale aplicabile.
+              </p>
+
+              <h3>5. Cat timp pastram datele</h3>
+              <p>
+                Pastram datele cat timp contul este activ, pana la stergerea lui sau cat timp este necesar pentru functionarea platformei,
+                respectand obligatiile legale aplicabile.
+              </p>
+
+              <h3>6. Drepturile tale (GDPR)</h3>
+              <p>Ai urmatoarele drepturi:</p>
+              <ul>
+                <li>dreptul de acces la date;</li>
+                <li>dreptul de rectificare;</li>
+                <li>dreptul de stergere („dreptul de a fi uitat”);</li>
+                <li>dreptul de restrictionare a prelucrarii;</li>
+                <li>dreptul de opozitie (in anumite situatii);</li>
+                <li>dreptul de portabilitate (in anumite situatii).</li>
+              </ul>
+
+              <p>
+                Pentru orice solicitare legata de datele tale, ne poti contacta la:
+                <a href="mailto:noreply.cere3d@gmail.com" style="color:var(--txt1);text-decoration:underline;">noreply.cere3d@gmail.com</a>
+              </p>
+            </article>
+
+            <article class="section" id="terms">
+              <div class="badge">Terms & Conditions (Termeni si conditii)</div>
+
+              <h3>1. Rolul platformei</h3>
+              <p>
+                Cere3D este o <b>platforma de intermediere</b> care conecteaza utilizatori. Cere3D:
+              </p>
+              <ul>
+                <li>NU produce obiecte;</li>
+                <li>NU livreaza produse;</li>
+                <li>NU incaseaza plati in platforma;</li>
+                <li>NU garanteaza calitatea, termenul sau pretul lucrarilor.</li>
+              </ul>
+              <p>
+                Responsabilitatea revine exclusiv utilizatorilor implicati (client si printator).
+              </p>
+
+              <h3>2. Utilizarea platformei</h3>
+              <p>Este interzis:</p>
+              <ul>
+                <li>continut ilegal, periculos sau care incalca drepturi de autor;</li>
+                <li>cereri pentru obiecte interzise (ex: arme, componente ilegale, continut care incalca legea);</li>
+                <li>spam, inselatorii, hartuire, abuz;</li>
+                <li>incercari de acces neautorizat, atacuri sau exploatarea vulnerabilitatilor.</li>
+                <li>Nu sunt permise cereri pentru obiecte care promoveaza ura, ideologii extremiste, simboluri naziste sau continut ilegal.</li>
+
+              </ul>
+              <p>
+                Ne rezervam dreptul de a suspenda sau sterge conturi si continut care incalca aceste reguli.
+              </p>
+
+              <h3>3. Oferte si intelegeri</h3>
+              <p>
+                Toate ofertele, preturile si intelegerile se stabilesc direct intre utilizatori.
+                Cere3D nu este parte in tranzactie si nu raspunde pentru eventuale conflicte.
+              </p>
+
+              <h3>4. Raspundere</h3>
+              <p>
+                Cere3D nu este raspunzator pentru: calitatea produselor, livrare, plati, intarzieri,
+                pierderi sau orice disputa intre utilizatori. Platforma este oferita „asa cum este”.
+              </p>
+
+              <h3>5. Continut incarcat</h3>
+              <p>
+                Utilizatorii sunt responsabili pentru fisierele incarcate si pentru drepturile de autor asupra acestora.
+                Prin incarcarea continutului, confirmi ca ai dreptul sa il folosesti si ca nu incalca legea.
+              </p>
+            </article>
+
+            <article class="section" id="cookies">
+              <div class="badge">Cookies Policy</div>
+
+              <h3>1. Ce sunt cookie-urile</h3>
+              <p>
+                Cookie-urile sunt fisiere mici stocate in browser pentru functionarea corecta a site-ului si pentru securitate.
+              </p>
+
+              <h3>2. Ce cookie-uri folosim</h3>
+              <p>
+                Cere3D foloseste cookie-uri strict necesare pentru:
+              </p>
+              <ul>
+                <li>autentificare si mentinerea sesiunii;</li>
+                <li>securitate si protectie anti-abuz;</li>
+                <li>functionarea tehnica a serviciilor Firebase/Google.</li>
+              </ul>
+              <p>
+                In acest moment, Cere3D nu foloseste cookie-uri de marketing sau tracking agresiv.
+              </p>
+
+              <h3>3. Controlul cookie-urilor</h3>
+              <p>
+                Poti controla sau sterge cookie-urile din setarile browserului tau. Dezactivarea anumitor cookie-uri poate afecta autentificarea.
+              </p>
+            </article>
+
+            <article class="section" id="contact">
+              <div class="badge">Contact</div>
+              <p>
+                Pentru intrebari legate de aceasta pagina sau de datele tale:
+              </p>
+              <ul>
+                <li>
+                  Email:
+                  <a href="mailto:noreply.cere3d@gmail.com" style="color:var(--txt1);text-decoration:underline;">noreply.cere3d@gmail.com</a>
+                </li>
+              </ul>
+
+              <div class="warn">
+                <b>Modificari:</b> Ne rezervam dreptul de a actualiza aceasta pagina. Orice modificare va fi afisata aici, impreuna cu data actualizarii.
+              </div>
+
+              <p class="small" style="margin-top:12px;">
+                Nota: Daca vei introduce plati in platforma sau conturi de firma/printatori verificati, va trebui sa extindem aceasta pagina
+                (ex: procesare plati, facturare, politici de retur unde se aplica, moderare, raportare, etc.).
+              </p>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© <span id="year"></span> Cere3D</span>
+    <span class="footer-links">
+      <a href="/legal.html">Legal · Privacy · Terms · Cookies</a>
+      <a class="footer-seo-link" href="/refacere-piese-plastic.html">
+        Refacere piese din plastic
+      </a>
+      <a class="footer-seo-link" href="/printare-3d-la-comanda.html">
+        Printare 3D la comanda
+      </a>
+      <a class="footer-seo-link" href="/servicii-printare-3d-romania.html">
+        Servicii printare 3d Romania
+      </a>
+      <a class="footer-seo-link" href="/comenzi-si-ofertare-printare-3d.html">
+        Comanda printare 3D
+      </a>
+      <a class="footer-seo-link" href="/aplicatii-printare-3d-utile.html">
+        Aplicatii printare 3D
+      </a>
+      <a class="footer-seo-link" href="/idei-si-utilizari-printare-3d.html">
+        Idei si Utilizari Printare 3D
+      </a>
+    </span>
+  </div>
+</footer>
+</div>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+  <button id="floatingBackBtn" class="floating-back-btn" aria-label="Inapoi">
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5">
+    <path d="M15 18l-6-6 6-6"/>
+  </svg>
+</button>
+
+<script>
+(function initFloatingBack(){
+  const btn = document.getElementById("floatingBackBtn");
+  if (!btn) return;
+
+  btn.addEventListener("click", () => {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.href = "/";
+    }
+  });
+})();
+</script>
+
+  <!-- SEO Internal Links: printare 3D -->
+  <nav class="seo-internal-links" aria-label="Pagini principale printare 3D" style="display:none;">
+    <a href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+    <a href="/">Printare 3D Romania - Cere3D</a>
+    <a href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a>
+    <a href="/refacere-piese-plastic.html">Refacere piese din plastic</a>
+    <a href="/cat-costa-un-obiect-printat-3d.html">Cat costa printare 3D</a>
+    <a href="/ce-material-sa-aleg-pentru-printare-3d.html">Materiale printare 3D</a>
+  </nav>
+</body>
+</html>
