@@ -164,10 +164,26 @@ function makeSlug(s) {
     .replace(/(^-|-$)/g, "")
     .slice(0, 100);
 }
+function makeNewsSlug(title, articleUrl) {
+  const base = makeSlug(title);
+  if (base) return base;
+  return "stire-" + hashId(articleUrl || title).slice(0, 12);
+}
 
 function hashId(s) {
   return crypto.createHash("sha1").update(String(s || "")).digest("hex").slice(0, 24);
 }
+function sanitizeDownloadFileName(name) {
+  const clean = (name || "file")
+    .toString()
+    .replace(/[\r\n]/g, "")
+    .replace(/[\\/]+/g, "-")
+    .replace(/[\x00-\x1f\x7f]/g, "")
+    .trim();
+
+  return clean || "file";
+}
+
 
 function pickImageFromItem(item) {
   if (item?.enclosure?.url) return item.enclosure.url;
@@ -208,7 +224,7 @@ function buildNewsDoc(feed, item) {
 
   return {
     title,
-    slug: makeSlug(title),
+    slug: makeNewsSlug(title, articleUrl),
     excerpt,
     content,
     sourceName: feed.sourceName,
@@ -547,7 +563,7 @@ exports.dl = onRequest(
       }
 
       const path = (req.query.path || "").toString();
-      const name = (req.query.name || "file").toString();
+      const safeName = sanitizeDownloadFileName(req.query.name || "file");
 
       if (!path || path.includes("..") || path.startsWith("/")) {
         res.status(400).send("Bad path");
@@ -567,7 +583,7 @@ exports.dl = onRequest(
       const ct = meta?.contentType || "application/octet-stream";
 
       res.set("Content-Type", ct);
-      res.set("Content-Disposition", `attachment; filename="${name.replace(/"/g, "")}"`);
+      res.set("Content-Disposition", `attachment; filename="${safeName.replace(/"/g, "")}"; filename*=UTF-8''${encodeURIComponent(safeName)}`);
       res.set("Cache-Control", "private, max-age=60");
 
       file
@@ -713,13 +729,18 @@ exports.syncCommunityNews = onSchedule(
 
           const docId = hashId(articleUrl);
           const ref = db.collection("communityNews").doc(docId);
-          const snap = await ref.get();
 
-          if (snap.exists) continue;
 
           const payload = buildNewsDoc(feed, item);
-          await ref.set(payload);
-          inserted++;
+
+          try {
+            await ref.create(payload);
+            inserted++;
+          } catch (err) {
+            if (err && err.code === 6) continue; // ALREADY_EXISTS
+            throw err;
+          }
+
         }
       } catch (err) {
         console.error("[syncCommunityNews] feed failed:", feed.sourceName, err);
