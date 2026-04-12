@@ -2,6 +2,7 @@ import { db } from "./firebase-init.js";
 import {
   doc,
   getDoc,
+  getDocs,
   collection,
   query,
   where,
@@ -65,6 +66,23 @@ function timeAgo(ms){
   if (d < 30) return `acum ${d} zile`;
   const dt = new Date(ms);
   return dt.toLocaleDateString("ro-RO", { year:"numeric", month:"2-digit", day:"2-digit" });
+}
+
+async function getLatestPresenceMs(uid){
+  try{
+    const snap = await getDocs(query(
+      collection(db, "presence"),
+      where("uid", "==", uid)
+    ));
+    let latest = 0;
+    snap.forEach((d) => {
+      const ms = tsMs(d.data()?.lastSeen);
+      if (ms > latest) latest = ms;
+    });
+    return latest;
+  }catch{
+    return 0;
+  }
 }
 
 export async function initProfilPage(){
@@ -151,12 +169,14 @@ export async function initProfilPage(){
     setText("u_ratingCount", `(${ratingCount} recenzii)`);
 
     const memberSince = fmtMemberSince(tsMs(u.createdAt));
-    const lastActiveMs =
+    const fallbackLastActiveMs =
       tsMs(u.printerLastActiveAt) ||
       tsMs(u.lastActiveAt) ||
       tsMs(u.lastSeenAt) ||
       tsMs(u.updatedAt) ||
       0;
+    const latestPresenceMs = await getLatestPresenceMs(uid);
+    const lastActiveMs = Math.max(fallbackLastActiveMs, latestPresenceMs);
 
     let solvedCount = Number(u.printerSolvedCount || 0);
     if (!solvedCount) {
