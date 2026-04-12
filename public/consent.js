@@ -297,10 +297,8 @@ function applyConsent(consent) {
    Boot
    ======================= */
 function boot() {
-  // Optimizari globale (SEO + performanta) pentru toate paginile care incarca consent.js.
-  // Ruleaza lazy ca sa nu blocheze rendering-ul.
+  // Optimizari globale (SEO + performanta)
   import("/site-optimizer.js").catch(() => {});
-
   ensureFooterLink();
 
   const saved = readConsent();

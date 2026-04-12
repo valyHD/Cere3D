@@ -267,7 +267,6 @@ function renderTopPrinterCard(u, rank) {
   const solvedMonth = getMonthlySolved(u);
   const solvedTotal = getTotalSolved(u);
   const isOnline = !!u.__isOnline;
-  const lastActiveMs = getLastSeenMs(u);
 
   const rankClass = rank === 1 ? "pr-rank-1" : rank === 2 ? "pr-rank-2" : rank === 3 ? "pr-rank-3" : "pr-rank-other";
   const rankLabel = rank === 1 ? "🥇 #1 Luna aceasta" : rank === 2 ? "🥈 #2 Luna aceasta" : rank === 3 ? "🥉 #3 Luna aceasta" : `#${rank} Luna aceasta`;
@@ -289,9 +288,7 @@ function renderTopPrinterCard(u, rank) {
             <a class="pr-name-link" href="/profil-printator.html?uid=${encodeURIComponent(uid)}" itemprop="name">${name}</a>
             ${isOnline ? `<span class="pr-chip pr-chip-green"><span class="pr-online-dot"></span>Online</span>` : ""}
           </div>
-          <div class="pr-meta-line">
-            📍 ${city}${isOnline ? " · activ acum" : lastActiveMs ? ` · vazut ${esc(timeAgo(lastActiveMs))}` : " · fara activitate recenta"}
-          </div>
+          <div class="pr-meta-line">📍 ${city}</div>
         </div>
       </div>
 

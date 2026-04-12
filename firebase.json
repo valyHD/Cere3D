@@ -5,6 +5,108 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "redirects": [
+      {
+        "source": "/print-3d.html",
+        "destination": "/printare-3d.html",
+        "type": 301
+      },
+      {
+        "source": "/printare-3d-romania.html",
+        "destination": "/printare-3d.html",
+        "type": 301
+      },
+      {
+        "source": "/accesorii-gaming-3d.html",
+        "destination": "/accesorii-gaming-printate-3d.html",
+        "type": 301
+      },
+      {
+        "source": "/bust-printare-3d.html",
+        "destination": "/bust-personalizat-printare-3d.html",
+        "type": 301
+      },
+      {
+        "source": "/cadou-corporate-3d.html",
+        "destination": "/cadou-corporate-printare-3d.html",
+        "type": 301
+      },
+      {
+        "source": "/cadou-cupllu-personalizat-3d.html",
+        "destination": "/cadou-cuplu-personalizat-3d.html",
+        "type": 301
+      },
+      {
+        "source": "/carcasa-proiect-plastic.html",
+        "destination": "/carcasa-proiect-plastic-personalizata.html",
+        "type": 301
+      },
+      {
+        "source": "/decoratiuni-copil-printare-3d.html",
+        "destination": "/decoratiuni-camera-copil-printare-3d.html",
+        "type": 301
+      },
+      {
+        "source": "/decoratiuni-printare-3d.html",
+        "destination": "/decoratiuni-personalizate-printare-3d.html",
+        "type": 301
+      },
+      {
+        "source": "/figurina-3d.html",
+        "destination": "/figurina-personalizata-3d.html",
+        "type": 301
+      },
+      {
+        "source": "/figurina-poza-3d.html",
+        "destination": "/figurina-dupa-poza-3d.html",
+        "type": 301
+      },
+      {
+        "source": "/litere-3d.html",
+        "destination": "/litere-3d-personalizate.html",
+        "type": 301
+      },
+      {
+        "source": "/nume-printat-3d.html",
+        "destination": "/nume-personalizat-printat-3d.html",
+        "type": 301
+      },
+      {
+        "source": "/cat-costa-printarea-3d.html",
+        "destination": "/calcul-pret-printare-3d.html",
+        "type": 301
+      },
+      {
+        "source": "/cutie-proiect-electronic-printata-3d.html",
+        "destination": "/cutie-proiect-electonic-printata-3d.html",
+        "type": 301
+      },
+      {
+        "source": "/printare-3d-prototip-produs.html",
+        "destination": "/printare-3d-prototip.html",
+        "type": 301
+      },
+      {
+        "source": "/printare-3d-reclama-locala.html",
+        "destination": "/printare-3d-pentru-branding-local.html",
+        "type": 301
+      },
+      {
+        "source": "/printare-3d-stand-expozitional.html",
+        "destination": "/printare-3d-pentru-expozitii-locale.html",
+        "type": 301
+      },
+      {
+        "source": "/semn-nume-birou-printat-3d.html",
+        "destination": "/nume-personalizat-printat-3d.html",
+        "type": 301
+      },
+      {
+        "source": "/suport-webcam-printat-3d.html",
+        "destination": "/suporturi-router-si-webcam-printate-3d.html",
+        "type": 301
+      }
     ]
   }
 }
