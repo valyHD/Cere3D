@@ -281,17 +281,20 @@ async function getReviewStats(uid) {
   }
 }
 
-async function isUserOnline(uid) {
+async function getLatestPresenceMs(uid) {
   try {
-    const cutoff = Timestamp.fromMillis(Date.now() - 5 * 60 * 1000);
     const snap = await getDocs(query(
       collection(db, "presence"),
-      where("uid", "==", uid),
-      where("lastSeen", ">=", cutoff)
+      where("uid", "==", uid)
     ));
-    return !snap.empty;
+    let latest = 0;
+    snap.forEach((d) => {
+      const ms = tsMs(d.data()?.lastSeen);
+      if (ms > latest) latest = ms;
+    });
+    return latest;
   } catch {
-    return false;
+    return 0;
   }
 }
 
@@ -921,7 +924,16 @@ export async function initProfilPrintatorPage(uid) {
 
     initShareButton(u, uid);
 
-    const online = await isUserOnline(uid);
+    const latestPresenceMs = await getLatestPresenceMs(uid);
+    const fallbackLastActiveMs = Math.max(
+      tsMs(u.printerLastActiveAt),
+      tsMs(u.lastActiveAt),
+      tsMs(u.lastSeenAt),
+      tsMs(u.updatedAt)
+    );
+    const resolvedLastActiveMs = Math.max(latestPresenceMs, fallbackLastActiveMs);
+    const online = resolvedLastActiveMs > 0 && (Date.now() - resolvedLastActiveMs) <= (5 * 60 * 1000);
+
     if (online) {
       const chip = $("ppOnlineChip");
       if (chip) chip.style.display = "";
@@ -943,13 +955,12 @@ export async function initProfilPrintatorPage(uid) {
     if (metaPills) {
       const city = u.printerCity || u.city;
       const joined = tsMs(u.printerJoinedAt || u.createdAt);
-      const lastActive = tsMs(u.printerLastActiveAt || u.lastActiveAt);
 
       metaPills.innerHTML = `
         ${city ? `<span class="pp-meta-pill">📍 ${esc(city)}</span>` : ""}
         ${joined ? `<span class="pp-meta-pill">🗓️ Printator din ${fmtDate(joined)}</span>` : ""}
         <span class="pp-meta-pill green">✔ ${solvedTotalReal} cereri rezolvate</span>
-        ${lastActive ? `<span class="pp-meta-pill blue">⏱ ${online ? "Activ acum" : timeAgo(lastActive)}</span>` : ""}
+        ${resolvedLastActiveMs ? `<span class="pp-meta-pill blue">⏱ ${online ? "Activ acum" : `Vazut ${timeAgo(resolvedLastActiveMs)}`}</span>` : ""}
       `;
     }
 
@@ -961,8 +972,7 @@ export async function initProfilPrintatorPage(uid) {
 
     const statLastActive = $("statLastActive");
     if (statLastActive) {
-      const laMs = tsMs(u.printerLastActiveAt || u.lastActiveAt);
-      statLastActive.textContent = online ? "Acum online" : timeAgo(laMs);
+      statLastActive.textContent = online ? "Acum online" : resolvedLastActiveMs ? `Vazut ${timeAgo(resolvedLastActiveMs)}` : "—";
     }
 
     const statRating = $("statRating");

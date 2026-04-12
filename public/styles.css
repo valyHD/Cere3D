@@ -6359,3 +6359,12 @@ input, textarea, select, button{
     flex:1 1 100%;
   }
 }
+
+/* Prefer reduced motion: mai putina miscare, randare mai ieftina */
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after{
+  animation:none !important;
+  transition:none !important;
+  scroll-behavior:auto !important;
+}

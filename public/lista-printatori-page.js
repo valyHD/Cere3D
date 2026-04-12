@@ -39,6 +39,16 @@ function tsMs(x) {
   } catch { return 0; }
 }
 
+function getLastSeenMs(u) {
+  return Math.max(
+    Number(u.__lastSeen || 0),
+    tsMs(u.printerLastActiveAt),
+    tsMs(u.lastActiveAt),
+    tsMs(u.lastSeenAt),
+    tsMs(u.updatedAt)
+  );
+}
+
 function timeAgo(ms) {
   if (!ms) return "—";
   const diff = Date.now() - ms;
@@ -117,7 +127,7 @@ function renderCard(u) {
   const ratingCount = Number(u.__ratingCount || 0);
   const solved = Number(u.printerSolvedCount || 0);
   const isOnline = !!u.__isOnline;
-  const lastActive = tsMs(u.printerLastActiveAt || u.lastActiveAt);
+  const lastActive = getLastSeenMs(u);
 
   return `
     <article class="lp-card" itemscope itemtype="https://schema.org/Person">
@@ -133,9 +143,9 @@ function renderCard(u) {
           <div class="lp-name-row">
             <a class="lp-name" href="/profil-printator.html?uid=${encodeURIComponent(uid)}" itemprop="name">${name}</a>
             <span class="lp-chip">🖨️</span>
-            ${isOnline ? `<span class="lp-chip lp-chip-online"><span class="lp-online-dot"></span>Online</span>` : ""}
+            ${isOnline ? `<span class="lp-chip lp-chip-online"><span class="lp-online-dot"></span>Online</span>` : `<span class="lp-chip">Ultima activitate</span>`}
           </div>
-          <div class="lp-meta">📍 ${city}${lastActive ? ` · ${esc(timeAgo(lastActive))}` : ""}</div>
+          <div class="lp-meta">📍 ${city}${isOnline ? " · activ acum" : lastActive ? ` · vazut ${esc(timeAgo(lastActive))}` : " · fara activitate recenta"}</div>
         </div>
       </div>
 
@@ -203,7 +213,13 @@ export async function initListaPrintatoriPage() {
       item.__ratingCount = count;
       // Online
       item.__isOnline = onlineMap.has(item.uid);
-      item.__lastSeen = onlineMap.get(item.uid) || 0;
+      item.__lastSeen = Math.max(
+        onlineMap.get(item.uid) || 0,
+        tsMs(item.printerLastActiveAt),
+        tsMs(item.lastActiveAt),
+        tsMs(item.lastSeenAt),
+        tsMs(item.updatedAt)
+      );
     }));
 
     allList = rawList;
