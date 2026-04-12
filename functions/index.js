@@ -164,6 +164,11 @@ function makeSlug(s) {
     .replace(/(^-|-$)/g, "")
     .slice(0, 100);
 }
+function makeNewsSlug(title, articleUrl) {
+  const base = makeSlug(title);
+  if (base) return base;
+  return "stire-" + hashId(articleUrl || title).slice(0, 12);
+}
 
 function makeNewsSlug(title, articleUrl) {
   const base = makeSlug(title);
@@ -174,6 +179,17 @@ function makeNewsSlug(title, articleUrl) {
 function hashId(s) {
   return crypto.createHash("sha1").update(String(s || "")).digest("hex").slice(0, 24);
 }
+function sanitizeDownloadFileName(name) {
+  const clean = (name || "file")
+    .toString()
+    .replace(/[\r\n]/g, "")
+    .replace(/[\\/]+/g, "-")
+    .replace(/[\x00-\x1f\x7f]/g, "")
+    .trim();
+
+  return clean || "file";
+}
+
 
 function sanitizeDownloadFileName(name) {
   const clean = (name || "file")

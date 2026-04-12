@@ -412,7 +412,6 @@ function initOwnerFlags({ cerereRef, cerereData }) {
         cerereData.solved = solved;
         cerereData.status = solved ? "solved" : "open";
 
-
         if (!solved) {
           cerereData.selectedMakerUid = null;
           cerereData.selectedMakerName = null;
@@ -422,7 +421,6 @@ function initOwnerFlags({ cerereRef, cerereData }) {
         }
 
         renderFlagsRow(cerereData);
-    updatePublicOffersInfo(Number(cerereData?.offersCount || 0));
         updateHint();
 
         if (ownerStatus) ownerStatus.textContent = "Salvat.";
@@ -445,6 +443,7 @@ function initOferteSystem({ cerereId, cerereRef, cerereData }) {
   const offersList = document.getElementById("offersList");
   const publicOffersCountPill = document.getElementById("publicOffersCountPill");
   const publicOffersInfoText = document.getElementById("publicOffersInfoText");
+
   if (!printerOfferCard && !ownerOffersCard && !offersList) {
     console.warn("[oferte] lipsesc elementele din HTML (printerOfferCard/ownerOffersCard/offersList)");
     return;
@@ -463,7 +462,7 @@ function initOferteSystem({ cerereId, cerereRef, cerereData }) {
   const chosenMeta = document.getElementById("chosenMeta");
   const btnGoDmChosen = document.getElementById("btnGoDmChosen");
 
-  const updatePublicOffersInfo = (count) => {
+  function updatePublicOffersInfo(count) {
     const safeCount = Math.max(0, Number(count || 0) || 0);
     const label = safeCount === 1 ? "oferta" : "oferte";
 
@@ -474,16 +473,20 @@ function initOferteSystem({ cerereId, cerereRef, cerereData }) {
     if (publicOffersInfoText) {
       publicOffersInfoText.textContent = `Clientul a primit: ${safeCount} ${label}`;
     }
-  };
+  }
 
-  updatePublicOffersInfo(Number(cerereData?.offersCount || 0));
+  function renderPublicCountFromDoc() {
+    updatePublicOffersInfo(Number(cerereData?.offersCount || 0));
+  }
 
-  const setOfferMsg = (txt, ok = false) => {
+  function setOfferMsg(txt, ok = false) {
     if (!offerStatus) return;
     offerStatus.textContent = txt || "";
     offerStatus.style.color = ok ? "#00ff78" : "";
     offerStatus.style.fontWeight = ok ? "900" : "";
-  };
+  }
+
+  renderPublicCountFromDoc();
 
   async function showChosen(uid, name, price) {
     if (!chosenBox) return;
@@ -516,8 +519,6 @@ function initOferteSystem({ cerereId, cerereRef, cerereData }) {
   }
 
   const renderOffersForOwner = async (items) => {
-    updatePublicOffersInfo(items.length);
-
     const countPill = document.getElementById("offersCountPill");
     if (countPill) {
       countPill.style.display = items.length ? "" : "none";
@@ -694,7 +695,6 @@ function initOferteSystem({ cerereId, cerereRef, cerereData }) {
   };
 
   let unsubOffers = null;
-  let offersActive = false;
 
   const stopOffersListener = () => {
     if (typeof unsubOffers === "function") {
@@ -706,14 +706,19 @@ function initOferteSystem({ cerereId, cerereRef, cerereData }) {
   const startOffersListener = () => {
     if (unsubOffers) return;
 
-    const q = query(collection(db, "cereri", cerereId, "oferte"), orderBy("price", "asc"));
+    const qOffers = query(
+      collection(db, "cereri", cerereId, "oferte"),
+      orderBy("price", "asc")
+    );
+
     console.log("[oferte] start listener", { cerereId });
 
     unsubOffers = onSnapshot(
-      q,
+      qOffers,
       async (snap) => {
         const items = [];
         snap.forEach((d) => items.push(d.data() || {}));
+
         console.log("[oferte] snapshot items", items.length);
         await renderOffersForOwner(items);
       },
@@ -743,83 +748,101 @@ function initOferteSystem({ cerereId, cerereRef, cerereData }) {
       if (chosenBox) chosenBox.style.display = "none";
     }
 
-    if (isOwner && !offersActive) {
-      offersActive = true;
+    if (isOwner) {
       startOffersListener();
-    } else if (!isOwner && offersActive) {
-      offersActive = false;
+    } else {
       stopOffersListener();
     }
 
     if (showOfferForm) {
-      (async () => {
-        try {
-          const myOfferRef = doc(db, "cereri", cerereId, "oferte", me.uid);
-          const mySnap = await getDoc(myOfferRef);
+      try {
+        const myOfferRef = doc(db, "cereri", cerereId, "oferte", me.uid);
+        const mySnap = await getDoc(myOfferRef);
 
-          if (mySnap.exists()) {
-            const o = mySnap.data() || {};
-            if (offerPrice) offerPrice.value = String(o.price || "");
-            if (offerNote) offerNote.value = o.note || "";
-            setOfferMsg("Ai deja o oferta salvata. O poti modifica si salva din nou.", true);
-          }
-
-          if (btnSaveOffer) {
-            btnSaveOffer.onclick = async () => {
-              const price = Number((offerPrice?.value || "").trim());
-              const note = (offerNote?.value || "").toString().trim();
-
-              if (!Number.isFinite(price) || price <= 0) {
-                setOfferMsg("Scrie un pret valid (ex: 100).");
-                return;
-              }
-
-              try {
-                setOfferMsg("Se salveaza...");
-                const u = await getUserPublic(me.uid);
-
-                const myOfferRef2 = doc(db, "cereri", cerereId, "oferte", me.uid);
-                const snapNow = await getDoc(myOfferRef2);
-                const existsAlready = snapNow.exists();
-
-                const payload = {
-                  printerUid: me.uid,
-                  printerName: (u?.name || me.displayName || "User").toString(),
-                  price,
-                  currency: "RON",
-                  note,
-                  updatedAt: serverTimestamp()
-                };
-                if (!existsAlready) payload.createdAt = serverTimestamp();
-
-                await setDoc(myOfferRef2, payload, { merge: true });
-
-                await updateDoc(cerereRef, {
-                  hasAnyOffer: true,
-                  offersCount: existsAlready ? increment(0) : increment(1),
-                  ownerUnreadOffers: increment(1),
-                  lastActivityAt: serverTimestamp(),
-                  updatedAt: serverTimestamp(),
-                  activityStatus: cerereData?.ownerHasReplied ? "in_discutie" : "are_interes"
-                });
-
-                cerereData.hasAnyOffer = true;
-                cerereData.offersCount = Number(cerereData.offersCount || 0) + (existsAlready ? 0 : 1);
-                cerereData.ownerUnreadOffers = Number(cerereData.ownerUnreadOffers || 0) + 1;
-                cerereData.activityStatus = cerereData?.ownerHasReplied ? "in_discutie" : "are_interes";
-
-                console.log("[oferte] saved", { cerereId, uid: me.uid, price, existsAlready });
-                setOfferMsg("Oferta salvata. Autorul o vede in lista.", true);
-              } catch (e) {
-                console.error(e);
-                setOfferMsg("Eroare: " + (e?.message || e));
-              }
-            };
-          }
-        } catch (e) {
-          console.warn("[oferte] load my offer failed:", e);
+        if (mySnap.exists()) {
+          const o = mySnap.data() || {};
+          if (offerPrice) offerPrice.value = String(o.price || "");
+          if (offerNote) offerNote.value = o.note || "";
+          setOfferMsg("Ai deja o oferta salvata. O poti modifica si salva din nou.", true);
         }
-      })();
+
+        if (btnSaveOffer) {
+          btnSaveOffer.onclick = async () => {
+            const price = Number((offerPrice?.value || "").trim());
+            const note = (offerNote?.value || "").toString().trim();
+
+            if (!Number.isFinite(price) || price <= 0) {
+              setOfferMsg("Scrie un pret valid (ex: 100).");
+              return;
+            }
+
+            const prevOffersCount = Number(cerereData.offersCount || 0);
+            let nextOffersCount = prevOffersCount;
+
+            try {
+              setOfferMsg("Se salveaza...");
+              const u = await getUserPublic(me.uid);
+
+              const myOfferRef2 = doc(db, "cereri", cerereId, "oferte", me.uid);
+              const snapNow = await getDoc(myOfferRef2);
+              const existsAlready = snapNow.exists();
+
+              nextOffersCount = Math.max(
+                0,
+                prevOffersCount + (existsAlready ? 0 : 1)
+              );
+
+              const payload = {
+                printerUid: me.uid,
+                printerName: (u?.name || me.displayName || "User").toString(),
+                price,
+                currency: "RON",
+                note,
+                updatedAt: serverTimestamp()
+              };
+              if (!existsAlready) payload.createdAt = serverTimestamp();
+
+              await setDoc(myOfferRef2, payload, { merge: true });
+
+              // update optimist imediat in UI local
+              cerereData.hasAnyOffer = true;
+              cerereData.offersCount = nextOffersCount;
+              cerereData.ownerUnreadOffers = Number(cerereData.ownerUnreadOffers || 0) + 1;
+              cerereData.activityStatus = cerereData?.ownerHasReplied ? "in_discutie" : "are_interes";
+              updatePublicOffersInfo(cerereData.offersCount);
+
+              await updateDoc(cerereRef, {
+                hasAnyOffer: true,
+                offersCount: existsAlready ? increment(0) : increment(1),
+                ownerUnreadOffers: increment(1),
+                lastActivityAt: serverTimestamp(),
+                updatedAt: serverTimestamp(),
+                activityStatus: cerereData?.ownerHasReplied ? "in_discutie" : "are_interes"
+              });
+
+              console.log("[oferte] saved", {
+                cerereId,
+                uid: me.uid,
+                price,
+                existsAlready,
+                localOffersCount: cerereData.offersCount
+              });
+
+              setOfferMsg("Oferta salvata.", true);
+            } catch (e) {
+              console.error(e);
+
+              // revert local daca a picat requestul
+              cerereData.offersCount = prevOffersCount;
+              updatePublicOffersInfo(cerereData.offersCount);
+
+              setOfferMsg("Eroare: " + (e?.message || e));
+            }
+          };
+        }
+      } catch (e) {
+        console.warn("[oferte] load my offer failed:", e);
+      }
     }
   };
 
@@ -829,8 +852,9 @@ function initOferteSystem({ cerereId, cerereRef, cerereData }) {
 
   onSnapshot(cerereRef, async (snap) => {
     if (!snap.exists()) return;
-    Object.assign(cerereData, snap.data() || {});
 
+    Object.assign(cerereData, snap.data() || {});
+    renderPublicCountFromDoc();
     renderFlagsRow(cerereData);
 
     const solved = !!(cerereData.solved || cerereData.status === "solved");
@@ -864,7 +888,9 @@ function initOferteSystem({ cerereId, cerereRef, cerereData }) {
       flagSolved.checked = solved;
       const hasChosen = !!cerereData.selectedMakerUid;
       flagSolved.disabled = !hasChosen && !solved;
-      flagSolved.title = !hasChosen ? "Alege un printator din Oferte ca sa poti marca Rezolvat." : "";
+      flagSolved.title = !hasChosen
+        ? "Alege un printator din Oferte ca sa poti marca Rezolvat."
+        : "";
     }
 
     if (typeof window.__cerereUpdateSolvedHint === "function") {
@@ -873,6 +899,7 @@ function initOferteSystem({ cerereId, cerereRef, cerereData }) {
 
     console.log("[cerere] state changed", {
       cerereId,
+      offersCount: cerereData.offersCount || 0,
       solved,
       selectedMakerUid: cerereData.selectedMakerUid || null
     });
@@ -882,7 +909,22 @@ function initOferteSystem({ cerereId, cerereRef, cerereData }) {
       !!auth.currentUser && cerereData?.createdBy && auth.currentUser.uid === cerereData.createdBy
     );
 
-    await applyState(auth.currentUser);
+    const me = auth.currentUser;
+    const isOwner = !!me && cerereData?.createdBy && me.uid === cerereData.createdBy;
+    const isSolved = !!(cerereData?.solved || cerereData?.status === "solved");
+
+    if (ownerOffersCard) ownerOffersCard.style.display = isOwner ? "" : "none";
+    if (printerOfferCard) printerOfferCard.style.display = !!me && !isOwner && !isSolved ? "" : "none";
+
+    if (isSolved && cerereData?.selectedMakerUid) {
+      await showChosen(
+        cerereData.selectedMakerUid,
+        cerereData.selectedMakerName || "User",
+        cerereData.selectedOfferPrice || 0
+      );
+    } else {
+      if (chosenBox) chosenBox.style.display = "none";
+    }
   });
 }
 
@@ -1051,7 +1093,10 @@ export async function initCerereDetail() {
     : null;
 
   const showDims = hasAnyDimsMeaningful(dim);
-  const showCond = hasAnyCondsMeaningful(cond) || hasMaterialMeaningful(cerereData) || hasRefUrlMeaningful(cerereData);
+  const showCond =
+    hasAnyCondsMeaningful(cond) ||
+    hasMaterialMeaningful(cerereData) ||
+    hasRefUrlMeaningful(cerereData);
 
   if (dimsCard) dimsCard.style.display = showDims ? "" : "none";
   if (condCard) condCard.style.display = showCond ? "" : "none";
@@ -1092,9 +1137,9 @@ export async function initCerereDetail() {
       const isOwner = !!me && cerereData.createdBy && me.uid === cerereData.createdBy;
       btnEdit.style.display = isOwner ? "inline-flex" : "none";
       if (isOwner) {
-        btnEdit.onclick = () => (
-          location.href = `/editare-cerere.html?id=${encodeURIComponent(id)}`
-        );
+        btnEdit.onclick = () => {
+          location.href = `/editare-cerere.html?id=${encodeURIComponent(id)}`;
+        };
       }
     });
   }
@@ -1276,7 +1321,9 @@ export async function initCerereDetail() {
       `);
     }
 
-    condEl.innerHTML = rows.length ? rows.join("") : `<div class="small-muted">Nu sunt alte detalii.</div>`;
+    condEl.innerHTML = rows.length
+      ? rows.join("")
+      : `<div class="small-muted">Nu sunt alte detalii.</div>`;
   }
 
   if (sideTitle) sideTitle.textContent = title || "—";

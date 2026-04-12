@@ -1,4 +1,4 @@
-:root{
+﻿:root{
   --bg: #f4f6fb;
   --card: #ffffff;
   --text: #0f1f3a;
@@ -833,7 +833,7 @@ background: linear-gradient(180deg, var(--blue2), var(--blue));
   font-size: 13px;
 }
 
-/* cereri grid un pic mai “pagina intreaga” */
+/* cereri grid un pic mai â€œpagina intreagaâ€ */
 .requests-grid-wide{
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -2068,7 +2068,7 @@ body.auth-loading #navUserWrap{
   padding:2px 8px;
   border-radius:999px;
 }
-/* ===== My Posts dropdown rows – culoare dupa status ===== */
+/* ===== My Posts dropdown rows â€“ culoare dupa status ===== */
 
 .my-post-row{
   display:flex;
@@ -2091,25 +2091,25 @@ body.auth-loading #navUserWrap{
 
 /* ===== CULORI IDENTICE cu badge ===== */
 
-/* ALBASTRU – default */
+/* ALBASTRU â€“ default */
 .my-post-open{
   background: rgba(0,140,255,.12);
   border-color: rgba(0,140,255,.35);
 }
 
-/* MOV – urgent */
+/* MOV â€“ urgent */
 .my-post-urgent{
   background: rgba(155,80,255,.16);
   border-color: rgba(155,80,255,.40);
 }
 
-/* PORTOCALIU – platesc bine */
+/* PORTOCALIU â€“ platesc bine */
 .my-post-highpay{
   background: rgba(255,150,0,.18);
   border-color: rgba(255,150,0,.45);
 }
 
-/* VERDE – rezolvat */
+/* VERDE â€“ rezolvat */
 .my-post-solved{
   background: rgba(0,180,120,.18);
   border-color: rgba(0,180,120,.45);
@@ -2188,7 +2188,7 @@ body.auth-loading #navUserWrap{
   filter: brightness(1.03);
 }
 /* =========================
-   CERERI — responsive polish
+   CERERI â€” responsive polish
    (adauga la final in styles.css)
    ========================= */
 
@@ -2247,7 +2247,7 @@ body.auth-loading #navUserWrap{
   overflow: hidden;
   border-radius: 16px;
 
-  /* daca ai deja background/border, asta doar le “calmeaza” */
+  /* daca ai deja background/border, asta doar le â€œcalmeazaâ€ */
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.08);
 
@@ -2272,7 +2272,7 @@ body.auth-loading #navUserWrap{
   white-space: nowrap;
 }
 
-/* meta pills: sa se “rupa” frumos pe randuri */
+/* meta pills: sa se â€œrupaâ€ frumos pe randuri */
 .request-meta,
 .request-tags{
   display: flex;
@@ -2354,7 +2354,7 @@ body.auth-loading #navUserWrap{
 .media-img{
   width:100%;
   aspect-ratio: 4 / 3;     /* asta e cheia */
-  height:auto;             /* nu mai “explodeaza” */
+  height:auto;             /* nu mai â€œexplodeazaâ€ */
   object-fit:cover;
   display:block;
 }
@@ -2550,7 +2550,7 @@ body.auth-loading #navUserWrap{
 }
 
 /* optional: mai mult spatiu sus ca sa nu se simta inghesuit */
-.request-top{ padding-right: 90px; } /* spatiu pentru 2–3 iconite */
+.request-top{ padding-right: 90px; } /* spatiu pentru 2â€“3 iconite */
 /* fire icon premium */
 .ab-fire{
   background: rgba(255,59,59,0.15);
@@ -3320,7 +3320,7 @@ input, textarea, select{
   padding-right: 6px; /* sa nu taie scrollbar-ul */
 }
 
-/* optional – scrollbar mai curat */
+/* optional â€“ scrollbar mai curat */
 .dm-list::-webkit-scrollbar {
   width: 8px;
 }
@@ -4194,7 +4194,7 @@ color: #fff !important;
   border-radius: 999px;
 }
 
-/* animație subtilă */
+/* animaÈ›ie subtilÄƒ */
 @keyframes pulseGlow {
   0% { box-shadow: 0 0 0 0 rgba(249,115,22,.6); }
   70% { box-shadow: 0 0 0 8px rgba(249,115,22,0); }
@@ -4255,7 +4255,7 @@ color: #fff !important;
   gap: 10px;
   flex: 0 0 auto;
   vertical-align: top;   /* elimina spatiul de baseline */
-  line-height: 1;        /* elimina “linia” de jos */
+  line-height: 1;        /* elimina â€œliniaâ€ de jos */
 }
 
 .detail-author .author-av,
@@ -5179,7 +5179,7 @@ input, textarea, select, button{
   border-radius: 16px !important;
 }
 /* ===============================
-   SAFETY SECTION – CARD ALB CLAR
+   SAFETY SECTION â€“ CARD ALB CLAR
    =============================== */
 
 #safetySection{
@@ -5830,7 +5830,7 @@ input, textarea, select, button{
   .hero{
     min-height: 560px;              /* creste baza */
     height: min(72vh, 620px);       /* ia din ecran, dar nu exagera */
-    align-items: flex-start;        /* textul sus, ca sa nu “taie” jos */
+    align-items: flex-start;        /* textul sus, ca sa nu â€œtaieâ€ jos */
   }
 
   .hero-bg{
@@ -6070,7 +6070,7 @@ input, textarea, select, button{
   transform: scale(1.08);
 }
 
-/* 🔥 FIRE */
+/* ðŸ”¥ FIRE */
 .auto-badge.ab-fire{
   background: linear-gradient(135deg,#ff3b3b,#ff8c00);
   box-shadow: 0 0 10px rgba(255,80,0,.6);
@@ -6082,7 +6082,7 @@ input, textarea, select, button{
   fill:#fff;
 }
 
-/* 💰 MONEY */
+/* ðŸ’° MONEY */
 .auto-badge.ab-money{
   background: linear-gradient(135deg,#ffcc00,#ff9900);
   box-shadow: 0 0 10px rgba(255,180,0,.6);
@@ -6094,7 +6094,7 @@ input, textarea, select, button{
   fill:#fff;
 }
 
-/* 💬 CHAT */
+/* ðŸ’¬ CHAT */
 .auto-badge.ab-chat{
   background: linear-gradient(135deg,#4e9cff,#0066ff);
   box-shadow: 0 0 10px rgba(0,100,255,.5);
@@ -6173,9 +6173,9 @@ input, textarea, select, button{
 @media (max-width: 556px) {
   .hero {
     min-height: 85vh;
-    overflow: hidden;   /* <- taie conținutul când nu încape */
+    overflow: hidden;   /* <- taie conÈ›inutul cÃ¢nd nu Ã®ncape */
     display: flex;
-    align-items: center; /* <- împinge layout-ul, dar nu rezolvă lipsa de spațiu */
+    align-items: center; /* <- Ã®mpinge layout-ul, dar nu rezolvÄƒ lipsa de spaÈ›iu */
   }
 }
 
@@ -6188,18 +6188,18 @@ input, textarea, select, button{
 @media (max-width: 556px){
   .hero{
     min-height: auto !important;
-    height: auto !important;                 /* lasă-l să crească după conținut */
+    height: auto !important;                 /* lasÄƒ-l sÄƒ creascÄƒ dupÄƒ conÈ›inut */
     padding: clamp(22px, 6vh, 40px) 18px !important;
 
-    align-items: flex-start !important;      /* începe de sus */
-    overflow: visible !important;            /* NU mai tăia textul */
+    align-items: flex-start !important;      /* Ã®ncepe de sus */
+    overflow: visible !important;            /* NU mai tÄƒia textul */
   }
 
   .hero-left{
     padding: 0 !important;
   }
 
-  /* fonturi fluide (ca să încapă și pe ecrane scunde) */
+  /* fonturi fluide (ca sÄƒ Ã®ncapÄƒ È™i pe ecrane scunde) */
   .hero-left h1{
     font-size: clamp(22px, 6.4vw, 32px) !important;
     line-height: 1.14 !important;
