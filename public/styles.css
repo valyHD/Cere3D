@@ -6360,7 +6360,6 @@ input, textarea, select, button{
   }
 }
 
-
 /* Prefer reduced motion: mai putina miscare, randare mai ieftina */
 .reduce-motion *,
 .reduce-motion *::before,
@@ -6369,4 +6368,3 @@ input, textarea, select, button{
   transition:none !important;
   scroll-behavior:auto !important;
 }
-

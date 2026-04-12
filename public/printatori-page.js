@@ -176,6 +176,10 @@ function getLastSeenMs(u) {
   );
 }
 
+function isOnlineNowFromMs(ms) {
+  return !!ms && (Date.now() - ms) <= (5 * 60 * 1000);
+}
+
 function sortLiveAndRecentPrinters(list) {
   return [...list].sort((a, b) => {
     // intai online
@@ -267,6 +271,7 @@ function renderTopPrinterCard(u, rank) {
   const solvedMonth = getMonthlySolved(u);
   const solvedTotal = getTotalSolved(u);
   const isOnline = !!u.__isOnline;
+  const lastActiveMs = getLastSeenMs(u);
 
   const rankClass = rank === 1 ? "pr-rank-1" : rank === 2 ? "pr-rank-2" : rank === 3 ? "pr-rank-3" : "pr-rank-other";
   const rankLabel = rank === 1 ? "🥇 #1 Luna aceasta" : rank === 2 ? "🥈 #2 Luna aceasta" : rank === 3 ? "🥉 #3 Luna aceasta" : `#${rank} Luna aceasta`;
@@ -288,7 +293,9 @@ function renderTopPrinterCard(u, rank) {
             <a class="pr-name-link" href="/profil-printator.html?uid=${encodeURIComponent(uid)}" itemprop="name">${name}</a>
             ${isOnline ? `<span class="pr-chip pr-chip-green"><span class="pr-online-dot"></span>Online</span>` : ""}
           </div>
-          <div class="pr-meta-line">📍 ${city}</div>
+          <div class="pr-meta-line">
+            📍 ${city}${isOnline ? " · activ acum" : lastActiveMs ? ` · vazut ${esc(timeAgo(lastActiveMs))}` : " · fara activitate recenta"}
+          </div>
         </div>
       </div>
 
@@ -384,8 +391,15 @@ async function loadPrinters(topGrid, grid, countStat, resolvedMonthStat, reviews
     // Presence map
     const onlineMap = await getOnlinePresenceMap();
     for (const item of list) {
-      item.__onlineLastSeen = onlineMap.get(item.uid) || 0;
-      item.__isOnline = !!item.__onlineLastSeen;
+      const resolvedLastSeen = Math.max(
+        onlineMap.get(item.uid) || 0,
+        tsMs(item.printerLastActiveAt),
+        tsMs(item.lastActiveAt),
+        tsMs(item.lastSeenAt),
+        tsMs(item.updatedAt)
+      );
+      item.__onlineLastSeen = resolvedLastSeen;
+      item.__isOnline = isOnlineNowFromMs(resolvedLastSeen);
     }
 
     // Enrich data — solved count + reviews (parallel per user)
