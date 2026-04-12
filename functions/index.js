@@ -170,6 +170,12 @@ function makeNewsSlug(title, articleUrl) {
   return "stire-" + hashId(articleUrl || title).slice(0, 12);
 }
 
+function makeNewsSlug(title, articleUrl) {
+  const base = makeSlug(title);
+  if (base) return base;
+  return "stire-" + hashId(articleUrl || title).slice(0, 12);
+}
+
 function hashId(s) {
   return crypto.createHash("sha1").update(String(s || "")).digest("hex").slice(0, 24);
 }
@@ -184,6 +190,17 @@ function sanitizeDownloadFileName(name) {
   return clean || "file";
 }
 
+
+function sanitizeDownloadFileName(name) {
+  const clean = (name || "file")
+    .toString()
+    .replace(/[\r\n]/g, "")
+    .replace(/[\\/]+/g, "-")
+    .replace(/[\x00-\x1f\x7f]/g, "")
+    .trim();
+
+  return clean || "file";
+}
 
 function pickImageFromItem(item) {
   if (item?.enclosure?.url) return item.enclosure.url;
@@ -729,18 +746,17 @@ exports.syncCommunityNews = onSchedule(
 
           const docId = hashId(articleUrl);
           const ref = db.collection("communityNews").doc(docId);
-
-
           const payload = buildNewsDoc(feed, item);
 
           try {
             await ref.create(payload);
             inserted++;
           } catch (err) {
-            if (err && err.code === 6) continue; // ALREADY_EXISTS
+            if (err && (err.code === 6 || err.code === "already-exists")) {
+              continue;
+            }
             throw err;
           }
-
         }
       } catch (err) {
         console.error("[syncCommunityNews] feed failed:", feed.sourceName, err);
