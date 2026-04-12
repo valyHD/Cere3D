@@ -1,4 +1,4 @@
-// consent.js (Cere3D) - Consent Mode v2 + blocare reala Pixel pana la accept
+﻿// consent.js (Cere3D) - Consent Mode v2 + blocare reala Pixel pana la accept
 const LS_KEY = "cere3d_consent_v2";
 
 const GA_ID = "G-1FY3LRNBF2";
@@ -122,7 +122,7 @@ function ensureFooterLink() {
   // daca exista deja, nu mai adaug
   if (document.getElementById("cookieSettingsLink")) return;
 
-  const sep = document.createTextNode(" · ");
+  const sep = document.createTextNode(" Â· ");
   const a = document.createElement("a");
   a.href = "#";
   a.id = "cookieSettingsLink";
@@ -194,7 +194,7 @@ function makeSettingsModal() {
           <div class="cookie-modal-title">Setari cookies</div>
           <div class="cookie-modal-sub">Poti schimba oricand. Esentiale sunt mereu active.</div>
         </div>
-        <button class="cookie-x" id="cookieCloseX" type="button">✕</button>
+        <button class="cookie-x" id="cookieCloseX" type="button">âœ•</button>
       </div>
 
       <div class="cookie-modal-body">
@@ -286,7 +286,7 @@ function applyConsent(consent) {
   // 1) Google consent update (v2)
   updateGoogleConsent(consent);
 
-  // 2) Configure tags (GA + Ads) – pot rula si cu denied (cookieless)
+  // 2) Configure tags (GA + Ads) â€“ pot rula si cu denied (cookieless)
   configGoogleTagsOnce();
 
   // 3) Meta Pixel doar daca marketing e acceptat
@@ -297,6 +297,8 @@ function applyConsent(consent) {
    Boot
    ======================= */
 function boot() {
+  // Optimizari globale (SEO + performanta)
+  import("/site-optimizer.js").catch(() => {});
   ensureFooterLink();
 
   const saved = readConsent();
