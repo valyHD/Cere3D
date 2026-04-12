@@ -176,6 +176,10 @@ function getLastSeenMs(u) {
   );
 }
 
+function isOnlineNowFromMs(ms) {
+  return !!ms && (Date.now() - ms) <= (5 * 60 * 1000);
+}
+
 function sortLiveAndRecentPrinters(list) {
   return [...list].sort((a, b) => {
     // intai online
@@ -387,8 +391,15 @@ async function loadPrinters(topGrid, grid, countStat, resolvedMonthStat, reviews
     // Presence map
     const onlineMap = await getOnlinePresenceMap();
     for (const item of list) {
-      item.__onlineLastSeen = onlineMap.get(item.uid) || 0;
-      item.__isOnline = !!item.__onlineLastSeen;
+      const resolvedLastSeen = Math.max(
+        onlineMap.get(item.uid) || 0,
+        tsMs(item.printerLastActiveAt),
+        tsMs(item.lastActiveAt),
+        tsMs(item.lastSeenAt),
+        tsMs(item.updatedAt)
+      );
+      item.__onlineLastSeen = resolvedLastSeen;
+      item.__isOnline = isOnlineNowFromMs(resolvedLastSeen);
     }
 
     // Enrich data — solved count + reviews (parallel per user)

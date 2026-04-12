@@ -49,6 +49,10 @@ function getLastSeenMs(u) {
   );
 }
 
+function isOnlineNowFromMs(ms) {
+  return !!ms && (Date.now() - ms) <= (5 * 60 * 1000);
+}
+
 function timeAgo(ms) {
   if (!ms) return "—";
   const diff = Date.now() - ms;
@@ -212,7 +216,6 @@ export async function initListaPrintatoriPage() {
       item.__ratingAvg = avg;
       item.__ratingCount = count;
       // Online
-      item.__isOnline = onlineMap.has(item.uid);
       item.__lastSeen = Math.max(
         onlineMap.get(item.uid) || 0,
         tsMs(item.printerLastActiveAt),
@@ -220,6 +223,7 @@ export async function initListaPrintatoriPage() {
         tsMs(item.lastSeenAt),
         tsMs(item.updatedAt)
       );
+      item.__isOnline = isOnlineNowFromMs(item.__lastSeen);
     }));
 
     allList = rawList;
