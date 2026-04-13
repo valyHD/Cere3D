@@ -277,15 +277,15 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
   const aspectRatio = maxDimMm / Math.max(1, minDimMm);
 
   const baseByType = {
-    wearable: 120,
-    fluid: 105,
-    auto: 110,
-    bracket: 70,
-    case: 85,
-    decor: 60,
-    prototype: 130,
-    repair: 90,
-    general: 75,
+    wearable: 55,
+    fluid: 52,
+    auto: 58,
+    bracket: 38,
+    case: 45,
+    decor: 30,
+    prototype: 62,
+    repair: 48,
+    general: 36,
   };
   const materialMult = {
     PLA: 1,
@@ -322,10 +322,19 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
     return 0.72;
   })();
   const effectiveVolCm3 = Math.max(1, volCm3 * geometryFillFactor);
-  const sizeFactor = 0.95 + Math.pow(effectiveVolCm3 / 55, 0.45);
-  const qtyFactor = 1 + Math.log2(Math.max(1, qty)) * 0.42;
+  const sizeFactor = 0.72 + Math.pow(effectiveVolCm3 / 90, 0.42);
+  const qtyFactor = 1 + Math.log2(Math.max(1, qty)) * 0.22;
+  const volumeCalibrationMult = (() => {
+    if (effectiveVolCm3 <= 80){
+      return clamp(0.42 + (effectiveVolCm3 / 80) * 0.38, 0.42, 0.8);
+    }
+    if (effectiveVolCm3 <= 300){
+      return clamp(0.8 + ((effectiveVolCm3 - 80) / 220) * 0.2, 0.8, 1);
+    }
+    return 1;
+  })();
 
-  const complexityText = clamp((description.length / 240) + (needs.length * 0.12), 0.6, 1.7);
+  const complexityText = clamp((description.length / 260) + (needs.length * 0.11), 0.5, 1.35);
   const imageSignal = imageCount
     ? clamp((avgContrast / 55) * 0.45 + (avgSharpness / 35) * 0.55, 0.55, 1.45)
     : 1;
@@ -340,15 +349,15 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
     1.8
   );
   const modelingCost = title || description
-    ? clamp(20 + description.length * 0.08 + imageCount * 4, 20, 190)
-    : clamp(35 + imageCount * 9, 35, 220);
-  const setupCost = clamp(18 + Math.max(0, (maxDimMm - 120) * 0.05), 18, 140);
+    ? clamp(12 + description.length * 0.06 + imageCount * 3, 12, 130)
+    : clamp(22 + imageCount * 7, 22, 160);
+  const setupCost = clamp(10 + Math.max(0, (maxDimMm - 120) * 0.04), 10, 95);
   const riskCost = (imageCount && !(title || description)) ? 35 : 0;
   const segmentationRiskCost = maxDimMm >= 320 ? Math.round(clamp(18 + (maxDimMm - 320) * 0.12, 0, 95)) : 0;
   const postProcessRiskCost = /figurina|statuet|bust|miniatur|detali/.test(text)
     ? Math.round(clamp(12 + maxDimMm * 0.03, 0, 80))
     : 0;
-  const failureRiskCost = (aspectRatio >= 5 || maxDimMm >= 360) ? 22 : 0;
+  const failureRiskCost = (aspectRatio >= 5 || maxDimMm >= 360) ? 14 : 0;
 
   const multiplicativeCore = base
     * sizeFactor
@@ -359,7 +368,8 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
     * detailDemandMult
     * urgencyMult
     * tallPartMult
-    * slenderRiskMult;
+    * slenderRiskMult
+    * volumeCalibrationMult;
 
   const estimated = multiplicativeCore
     + modelingCost
@@ -442,6 +452,7 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
         { label: "Piesa inalta", value: tallPartMult },
         { label: "Risc geometrie", value: slenderRiskMult },
         { label: "Volum efectiv", value: geometryFillFactor },
+        { label: "Calibrare volum mic", value: volumeCalibrationMult },
       ],
       scenarioInsights,
     },
