@@ -56,7 +56,121 @@ function safeNum(v, fallback){
   return Number.isFinite(n) ? n : fallback;
 }
 
-function estimateFromInput({ title, description, material, qty, l, w, h, imageCount, avgMp }){
+function weightedChoice(items, rand){
+  const total = items.reduce((s, it) => s + Math.max(0, it.weight || 0), 0);
+  if (total <= 0) return items[0];
+  let r = rand() * total;
+  for (const it of items){
+    r -= Math.max(0, it.weight || 0);
+    if (r <= 0) return it;
+  }
+  return items[items.length - 1];
+}
+
+function mulberry32(seed){
+  let a = seed >>> 0;
+  return function(){
+    a |= 0; a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function hashString(s){
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++){
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+
+function buildScenarioInsights({ text, basePrice, pieceType, objective, hasDimensions, imageCount, description, qty, material, maxDimMm }){
+  const scenarioDefs = [
+    { key: "support", label: "Suport / prindere functionala", keywords: ["suport", "prindere", "clema", "bracket"], baseW: 1.1, priceMult: 0.92 },
+    { key: "auto", label: "Piesa auto de inlocuire", keywords: ["auto", "masina", "grila", "ventilatie", "motor"], baseW: 1.05, priceMult: 1.16 },
+    { key: "enclosure", label: "Carcasa / capac", keywords: ["carcasa", "capa", "cover", "cutie"], baseW: 0.95, priceMult: 1.04 },
+    { key: "decor", label: "Decor / figurina", keywords: ["decor", "figurina", "miniatur", "bust"], baseW: 0.8, priceMult: 1.1 },
+    { key: "prototype", label: "Prototip tehnic", keywords: ["prototip", "test", "iteratie", "validare"], baseW: 1.2, priceMult: 1.2 },
+    { key: "repair", label: "Refacere piesa rupta", keywords: ["rupt", "refac", "inlocuire"], baseW: 1.15, priceMult: 1.08 },
+  ];
+
+  const seed = hashString(`${text}|${material}|${qty}|${maxDimMm}|${imageCount}`);
+  const rand = mulberry32(seed);
+  const scenarioStats = {};
+
+  for (const s of scenarioDefs){
+    let kwHits = 0;
+    for (const kw of s.keywords) if (hasKeyword(text, kw)) kwHits += 1;
+    const signalFromDetectedType = pieceType.label.toLowerCase().includes(s.label.split(" ")[0].toLowerCase()) ? 0.25 : 0;
+    const signalFromObjective = objective.key === "repair" && s.key === "repair" ? 0.4 : (objective.key === "prototype" && s.key === "prototype" ? 0.35 : 0);
+    const signalFromData = (hasDimensions ? 0.18 : 0) + (imageCount >= 2 ? 0.12 : imageCount ? 0.05 : -0.08) + Math.min(0.2, description.length / 1200);
+    scenarioStats[s.key] = {
+      def: s,
+      weight: Math.max(0.05, s.baseW + kwHits * 0.32 + signalFromDetectedType + signalFromObjective + signalFromData),
+      samples: [],
+    };
+  }
+
+  const choices = Object.values(scenarioStats);
+  for (let i = 0; i < 1000; i++){
+    const chosen = weightedChoice(choices, rand);
+    const uncertainty = hasDimensions ? 0.12 : 0.3;
+    const randomFactor = 1 + ((rand() * 2 - 1) * uncertainty);
+    const detailNoise = 1 + ((rand() * 2 - 1) * (description.length > 140 ? 0.07 : 0.16));
+    const imageNoise = 1 + ((rand() * 2 - 1) * (imageCount >= 3 ? 0.05 : 0.14));
+    const samplePrice = Math.max(25, basePrice * chosen.def.priceMult * randomFactor * detailNoise * imageNoise);
+    chosen.samples.push(samplePrice);
+  }
+
+  const ranked = Object.values(scenarioStats).map((s) => {
+    const n = s.samples.length || 1;
+    const sorted = [...s.samples].sort((a, b) => a - b);
+    const avg = s.samples.reduce((sum, v) => sum + v, 0) / n;
+    const p10 = sorted[Math.floor((n - 1) * 0.1)] || avg;
+    const p90 = sorted[Math.floor((n - 1) * 0.9)] || avg;
+    return {
+      label: s.def.label,
+      probability: s.weight / choices.reduce((w, c) => w + c.weight, 0),
+      avgPrice: Math.round(avg),
+      p10: Math.round(p10),
+      p90: Math.round(p90),
+    };
+  }).sort((a, b) => b.probability - a.probability);
+
+  const likely = ranked.slice(0, 3);
+  const ambiguityQuestions = [];
+  if (!hasDimensions){
+    ambiguityQuestions.push("Lungime × latime × inaltime aproximative (mm)?");
+  }
+  if (!/interior|exterior|caldur|temperatur|soare|motor/.test(text)){
+    ambiguityQuestions.push("Unde va fi folosita piesa (interior/exterior, temperaturi ridicate)?");
+  }
+  if (!/surub|filet|click|clips|tolerant|joc/.test(text)){
+    ambiguityQuestions.push("Exista puncte de fixare, filet sau tolerante critice?");
+  }
+  if (imageCount < 2){
+    ambiguityQuestions.push("Poti adauga 2-3 poze din unghiuri diferite + poza langa o rigla?");
+  }
+
+  const coverage = clamp(
+    (hasDimensions ? 35 : 10)
+    + Math.min(30, description.length / 8)
+    + Math.min(20, imageCount * 6)
+    + Math.min(15, qty >= 2 ? 8 : 4),
+    15, 95
+  );
+
+  return {
+    likely,
+    ambiguityQuestions: ambiguityQuestions.slice(0, 4),
+    simulationCount: 1000,
+    dataCoverage: Math.round(coverage),
+  };
+}
+
+function estimateFromInput({ title, description, material, qty, l, w, h, imageCount, avgMp, hasDimensions }){
   const text = normalizeText(`${title} ${description}`);
 
   const pieceType = scoreFromKeywords(text, [
@@ -175,10 +289,23 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
     38
     + Math.min(25, description.length / 10)
     + (imageCount ? Math.min(18, imageCount * 4) : 0)
+    + (hasDimensions ? 11 : 2)
     + (volCm3 > 1 ? 9 : 0),
     40,
     92
   );
+  const scenarioInsights = buildScenarioInsights({
+    text,
+    basePrice: estimated,
+    pieceType,
+    objective,
+    hasDimensions,
+    imageCount,
+    description,
+    qty,
+    material,
+    maxDimMm,
+  });
 
   return {
     pieceType,
@@ -221,6 +348,7 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
         { label: "Risc geometrie", value: slenderRiskMult },
         { label: "Volum efectiv", value: geometryFillFactor },
       ],
+      scenarioInsights,
     },
   };
 }
@@ -276,6 +404,13 @@ function renderResult(res){
       ? res.analysisSignals.keywordSignals.objective.map((g) => `${g.label} (${g.hits.join(", ")})`).join(" · ")
       : "general"}</div>
     <div class="quote-needs"><strong>Ce vede in poze (metadate):</strong> ${res.analysisSignals.imageAnalysis.imageCount} imagine(i), ~${res.analysisSignals.imageAnalysis.avgMp} MP mediu, acoperire: ${res.analysisSignals.imageAnalysis.coverage}, impact: ${res.analysisSignals.imageAnalysis.confidenceImpact}.</div>
+    <div class="quote-needs"><strong>Analiza probabilistica (${res.analysisSignals.scenarioInsights.simulationCount} scenarii):</strong> ${res.analysisSignals.scenarioInsights.likely.map((s) =>
+      `${s.label} (${Math.round(s.probability * 100)}% | interval probabil ${s.p10}-${s.p90} RON)`
+    ).join(" · ")}</div>
+    <div class="quote-needs"><strong>Nivel acoperire date:</strong> ${res.analysisSignals.scenarioInsights.dataCoverage}%</div>
+    ${res.analysisSignals.scenarioInsights.ambiguityQuestions.length
+      ? `<div class="quote-needs"><strong>Intrebari pe care sistemul si le pune pentru acuratete mai buna:</strong> ${res.analysisSignals.scenarioInsights.ambiguityQuestions.join(" · ")}</div>`
+      : ""}
     ${res.analysisSignals.riskNotes.length
       ? `<div class="quote-needs"><strong>Observatii/riscuri detectate:</strong> ${res.analysisSignals.riskNotes.join(" · ")}</div>`
       : ""}
@@ -295,9 +430,13 @@ function init(){
     const description = ($("q_description")?.value || "").trim();
     const material = $("q_material")?.value || "PLA";
     const qty = safeNum($("q_qty")?.value, 1);
-    const l = safeNum($("q_l")?.value, 60);
-    const w = safeNum($("q_w")?.value, 40);
-    const h = safeNum($("q_h")?.value, 20);
+    const lRaw = $("q_l")?.value;
+    const wRaw = $("q_w")?.value;
+    const hRaw = $("q_h")?.value;
+    const hasDimensions = !!(String(lRaw || "").trim() && String(wRaw || "").trim() && String(hRaw || "").trim());
+    const l = safeNum(lRaw, 60);
+    const w = safeNum(wRaw, 40);
+    const h = safeNum(hRaw, 20);
     const photos = $("q_photos")?.files || [];
 
     if (!title && !description && !photos.length) {
@@ -314,6 +453,7 @@ function init(){
       l: Math.max(1, l), w: Math.max(1, w), h: Math.max(1, h),
       imageCount: meta.count,
       avgMp: meta.avgMp,
+      hasDimensions,
     });
 
     renderResult(result);
