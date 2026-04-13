@@ -31,7 +31,7 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
     { key: "auto", label: "Piesa auto", keywords: ["auto", "masina", "grila", "motor", "tablou", "ventilatie"] },
     { key: "bracket", label: "Suport / prindere", keywords: ["suport", "prindere", "bracket", "clema"] },
     { key: "case", label: "Carcasa", keywords: ["carcasa", "capa", "cover", "cutie"] },
-    { key: "decor", label: "Decor / cadou", keywords: ["decor", "cadou", "vaza", "figurina"] },
+    { key: "decor", label: "Decor / cadou", keywords: ["decor", "cadou", "vaza", "figurina", "statueta", "bust"] },
     { key: "prototype", label: "Prototip functional", keywords: ["prototip", "test", "mvp", "validare"] },
     { key: "repair", label: "Refacere piesa", keywords: ["rupt", "refac", "inlocuire", "nu se mai gaseste"] },
   ]);
@@ -44,6 +44,9 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
 
   const needs = parseNeeds(text);
   const volCm3 = Math.max(1, (l * w * h) / 1000);
+  const maxDimMm = Math.max(l, w, h);
+  const minDimMm = Math.min(l, w, h);
+  const aspectRatio = maxDimMm / Math.max(1, minDimMm);
 
   const baseByType = {
     auto: 110,
@@ -62,17 +65,37 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
     Nylon: 1.6,
   };
 
+  const detailDemandMult = (() => {
+    if (/(detali|fina|miniatur|figurina|statuet|bust)/.test(text)) return 1.2;
+    if (/(test rapid|brut|draft)/.test(text)) return 0.9;
+    return 1;
+  })();
+  const urgencyMult = /(urgent|azi|maine|rapid)/.test(text) ? 1.15 : 1;
+  const tallPartMult = maxDimMm >= 300 ? (1 + (maxDimMm - 300) / 500) : 1;
+  const slenderRiskMult = aspectRatio >= 4 ? 1.1 : 1;
+
   const base = baseByType[pieceType.key] || baseByType.general;
-  const sizeFactor = 1 + clamp(volCm3 / 120, 0, 1.8);
+  // Fara plafonare agresiva, ca sa reactioneze corect la piese foarte mari/inalte.
+  const sizeFactor = 0.95 + Math.pow(volCm3 / 45, 0.62);
   const qtyFactor = 1 + Math.log2(Math.max(1, qty)) * 0.35;
 
   const complexityText = clamp((description.length / 240) + (needs.length * 0.12), 0.6, 1.7);
   const imageBoost = imageCount ? clamp(1 + Math.min(0.2, imageCount * 0.03) + Math.min(0.12, avgMp * 0.015), 1, 1.35) : 1;
 
   const materialFactor = materialMult[material] || 1;
-  const estimated = base * sizeFactor * qtyFactor * complexityText * materialFactor;
+  const estimated = base
+    * sizeFactor
+    * qtyFactor
+    * complexityText
+    * materialFactor
+    * imageBoost
+    * detailDemandMult
+    * urgencyMult
+    * tallPartMult
+    * slenderRiskMult;
   const low = Math.round(estimated * 0.82);
   const high = Math.round(estimated * 1.22);
+  const printHours = Math.max(1, Math.round((volCm3 * 0.09 + maxDimMm * 0.03) * detailDemandMult));
 
   const confidence = clamp(
     38
@@ -90,6 +113,7 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
     priceRange: { low, high },
     confidence: Math.round(confidence),
     volCm3: Math.round(volCm3),
+    printHours,
   };
 }
 
@@ -127,6 +151,7 @@ function renderResult(res){
       <div class="quote-kpi"><span>Piesa detectata</span><strong>${res.pieceType.label}</strong></div>
       <div class="quote-kpi"><span>Scop detectat</span><strong>${res.objective.label}</strong></div>
       <div class="quote-kpi"><span>Volum estimat</span><strong>${res.volCm3} cm³</strong></div>
+      <div class="quote-kpi"><span>Timp printare</span><strong>~${res.printHours}h</strong></div>
       <div class="quote-kpi"><span>Incredere analiza</span><strong>${res.confidence}%</strong></div>
     </div>
     <div class="quote-price">
