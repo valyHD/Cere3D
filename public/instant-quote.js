@@ -30,6 +30,31 @@ function scoreFromKeywords(text, map){
   return best;
 }
 
+function inferMaterialFromText(text, selectedMaterial){
+  const rules = [
+    { material: "PETG", score: 1.4, regex: /(apa|lichid|umeze|hidro|exterior|uv|soare|rezistent la apa|etans)/ },
+    { material: "TPU", score: 1.5, regex: /(flexib|elastic|garnitur|amortiz|banda|moale)/ },
+    { material: "ABS", score: 1.3, regex: /(motor|capota|temperaturi? ridicate|caldur|peste 70|auto)/ },
+    { material: "Nylon", score: 1.35, regex: /(uzura|frecare|angrenaj|roata dintata|rulment|industrial)/ },
+    { material: "PLA", score: 1.1, regex: /(decor|figurina|display|prototip vizual|estetic)/ },
+  ];
+
+  let best = { material: selectedMaterial, confidence: 0 };
+  for (const r of rules){
+    const hits = (text.match(new RegExp(r.regex.source, "g")) || []).length;
+    const conf = hits * r.score;
+    if (conf > best.confidence){
+      best = { material: r.material, confidence: conf };
+    }
+  }
+
+  const inferred = best.confidence >= 1.2 ? best.material : selectedMaterial;
+  return {
+    inferred,
+    confidence: clamp(best.confidence / 3, 0, 1),
+  };
+}
+
 function parseNeeds(text){
   const needs = [];
   if (/(rezist|durab|solid|puternic)/.test(text)) needs.push("Rezistenta mecanica ridicata");
@@ -37,6 +62,9 @@ function parseNeeds(text){
   if (/(finis|aspect|estetic|frumos|decor)/.test(text)) needs.push("Aspect estetic / finisaj");
   if (/(rapid|urgent|azi|maine)/.test(text)) needs.push("Livrare rapida");
   if (/(preciz|tolerant|fix|exact)/.test(text)) needs.push("Precizie dimensionala");
+  if (/(transparent|translucid|clar|sticla)/.test(text)) needs.push("Transparenta optica");
+  if (/(filet|insurub|etans|fara scurgeri)/.test(text)) needs.push("Etansare / filet functional");
+  if (/(masca|fata|ochi|nas|gura|frunte|purtare)/.test(text)) needs.push("Ergonomie pentru contact cu fata");
   return needs.length ? needs : ["Necesitati generale (fara constrangeri explicite)"];
 }
 
@@ -88,6 +116,8 @@ function hashString(s){
 
 function buildScenarioInsights({ text, basePrice, pieceType, objective, hasDimensions, imageCount, description, qty, material, maxDimMm }){
   const scenarioDefs = [
+    { key: "wearable", label: "Masca / piesa purtabila", keywords: ["masca", "fata", "ochi", "nas", "gura", "frunte"], baseW: 1.2, priceMult: 1.1 },
+    { key: "fluid", label: "Tub / racord fluide", keywords: ["tub", "teava", "furtun", "apa", "fluid", "filet", "etans"], baseW: 1.15, priceMult: 1.08 },
     { key: "support", label: "Suport / prindere functionala", keywords: ["suport", "prindere", "clema", "bracket"], baseW: 1.1, priceMult: 0.92 },
     { key: "auto", label: "Piesa auto de inlocuire", keywords: ["auto", "masina", "grila", "ventilatie", "motor"], baseW: 1.05, priceMult: 1.16 },
     { key: "enclosure", label: "Carcasa / capac", keywords: ["carcasa", "capa", "cover", "cutie"], baseW: 0.95, priceMult: 1.04 },
@@ -150,6 +180,12 @@ function buildScenarioInsights({ text, basePrice, pieceType, objective, hasDimen
   if (!/surub|filet|click|clips|tolerant|joc/.test(text)){
     ambiguityQuestions.push("Exista puncte de fixare, filet sau tolerante critice?");
   }
+  if (/masca|fata|ochi|nas|gura|frunte/.test(text) && !/moale|captuse|burete|elastic/.test(text)){
+    ambiguityQuestions.push("Masca atinge direct pielea? Ai nevoie de margini moi/captusite pentru confort?");
+  }
+  if (/tub|apa|fluid|filet|etans/.test(text) && !/presiune|bar|debit/.test(text)){
+    ambiguityQuestions.push("Ce presiune/debit are fluidul si ce tip de etansare iti trebuie?");
+  }
   if (imageCount < 2){
     ambiguityQuestions.push("Poti adauga 2-3 poze din unghiuri diferite + poza langa o rigla?");
   }
@@ -174,6 +210,8 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
   const text = normalizeText(`${title} ${description}`);
 
   const pieceType = scoreFromKeywords(text, [
+    { key: "wearable", label: "Masca / piesa purtabila", keywords: ["masca", "fata", "ochi", "nas", "gura", "frunte", "viziera"] },
+    { key: "fluid", label: "Tub / conectica fluide", keywords: ["tub", "teava", "furtun", "apa", "fluid", "curbat", "90", "filet"] },
     { key: "auto", label: "Piesa auto", keywords: ["auto", "masina", "grila", "motor", "tablou", "ventilatie"] },
     { key: "bracket", label: "Suport / prindere", keywords: ["suport", "prindere", "bracket", "clema"] },
     { key: "case", label: "Carcasa", keywords: ["carcasa", "capa", "cover", "cutie"] },
@@ -189,6 +227,8 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
   ]);
   const keywordSignals = {
     pieceType: extractMatchedKeywords(text, [
+      { label: "Masca / piesa purtabila", keywords: ["masca", "fata", "ochi", "nas", "gura", "frunte", "viziera"] },
+      { label: "Tub / conectica fluide", keywords: ["tub", "teava", "furtun", "apa", "fluid", "curbat", "90", "filet"] },
       { label: "Piesa auto", keywords: ["auto", "masina", "grila", "motor", "tablou", "ventilatie"] },
       { label: "Suport / prindere", keywords: ["suport", "prindere", "bracket", "clema"] },
       { label: "Carcasa", keywords: ["carcasa", "capa", "cover", "cutie"] },
@@ -211,6 +251,8 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
   const aspectRatio = maxDimMm / Math.max(1, minDimMm);
 
   const baseByType = {
+    wearable: 120,
+    fluid: 105,
     auto: 110,
     bracket: 70,
     case: 85,
@@ -226,6 +268,8 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
     TPU: 1.35,
     Nylon: 1.6,
   };
+  const materialInference = inferMaterialFromText(text, material);
+  const inferredMaterialFactor = materialMult[materialInference.inferred] || 1;
 
   const detailDemandMult = (() => {
     if (/(detali|fina|miniatur|figurina|statuet|bust)/.test(text)) return 1.2;
@@ -251,7 +295,12 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
   const complexityText = clamp((description.length / 240) + (needs.length * 0.12), 0.6, 1.7);
   const imageBoost = imageCount ? clamp(1 + Math.min(0.2, imageCount * 0.03) + Math.min(0.12, avgMp * 0.015), 1, 1.35) : 1;
 
-  const materialFactor = materialMult[material] || 1;
+  const materialFactor = clamp(
+    (materialMult[material] || 1) * (1 - materialInference.confidence * 0.45)
+      + inferredMaterialFactor * (materialInference.confidence * 0.45),
+    0.9,
+    1.8
+  );
   const modelingCost = title || description
     ? clamp(20 + description.length * 0.08 + imageCount * 4, 20, 190)
     : clamp(35 + imageCount * 9, 35, 220);
@@ -339,9 +388,11 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
         ...(geometryFillFactor < 0.5 ? ["Forma detectata pare partial goala/segmentata: volumul efectiv a fost ajustat pentru o estimare mai realista."] : []),
         ...(/figurina|statuet|bust|miniatur|detali/.test(text) ? ["Obiect decorativ cu detalii fine: probabil necesita slefuire/finisaj."] : []),
         ...((imageCount && !(title || description)) ? ["Doar poze fara text: risc mai mare de interpretare gresita."] : []),
+        ...(materialInference.inferred !== material ? [`Material posibil mai potrivit decat ${material}: ${materialInference.inferred} (dedus din cerinte text).`] : []),
+        ...(!hasDimensions ? ["Dimensiunile lipsesc sau pot fi inexacte: estimarea compenseaza cu marja mai larga."] : []),
       ],
       multipliers: [
-        { label: "Material", value: materialFactor },
+        { label: materialInference.inferred !== material ? `Material (selectat ${material}, intuit ${materialInference.inferred})` : "Material", value: materialFactor },
         { label: "Detaliu", value: detailDemandMult },
         { label: "Urgenta", value: urgencyMult },
         { label: "Piesa inalta", value: tallPartMult },
