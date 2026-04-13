@@ -32,7 +32,7 @@ function scoreFromKeywords(text, map){
 
 function inferMaterialFromText(text, selectedMaterial){
   const rules = [
-    { material: "PETG", score: 1.4, regex: /(apa|lichid|umeze|hidro|exterior|uv|soare|rezistent la apa|etans)/ },
+    { material: "PETG", score: 1.6, regex: /(apa|lichid|umeze|hidro|exterior|uv|soare|rezistent la apa|etans|transparent|translucid|clar|filet)/ },
     { material: "TPU", score: 1.5, regex: /(flexib|elastic|garnitur|amortiz|banda|moale)/ },
     { material: "ABS", score: 1.3, regex: /(motor|capota|temperaturi? ridicate|caldur|peste 70|auto)/ },
     { material: "Nylon", score: 1.35, regex: /(uzura|frecare|angrenaj|roata dintata|rulment|industrial)/ },
@@ -53,6 +53,32 @@ function inferMaterialFromText(text, selectedMaterial){
     inferred,
     confidence: clamp(best.confidence / 3, 0, 1),
   };
+}
+
+function buildMaterialAdvice({ text, selectedMaterial, inferredMaterial, needs, pieceType }){
+  const needsTransparency = /transparent|translucid|clar|sticla/.test(text) || needs.includes("Transparenta optica");
+  const needsFluidSeal = /apa|fluid|etans|filet|presiune|debit/.test(text) || pieceType.key === "fluid";
+  const needsFlex = /flexib|elastic|garnitur|amortiz|moale/.test(text);
+
+  let recommendation = inferredMaterial || selectedMaterial;
+  const reasons = [];
+
+  if (needsTransparency && needsFluidSeal){
+    recommendation = "PETG";
+    reasons.push("PETG transparent este, in general, alegerea potrivita pentru piese rigide cu apa + filet.");
+  }
+  if (needsFlex){
+    reasons.push("TPU e util pentru garnituri sau zone flexibile, nu pentru tot tubul filetat.");
+  }
+  if (!needsFlex && recommendation === "TPU"){
+    recommendation = "PETG";
+    reasons.push("Pentru piesa rigida curbata la 90° cu filet, TPU poate deforma filetul.");
+  }
+  if (!reasons.length){
+    reasons.push(`${recommendation} pare potrivit pe baza textului introdus.`);
+  }
+
+  return { recommendation, reasons };
 }
 
 function parseNeeds(text){
@@ -206,7 +232,7 @@ function buildScenarioInsights({ text, basePrice, pieceType, objective, hasDimen
   };
 }
 
-function estimateFromInput({ title, description, material, qty, l, w, h, imageCount, avgMp, hasDimensions }){
+function estimateFromInput({ title, description, material, qty, l, w, h, imageCount, avgMp, avgBrightness = 0, avgContrast = 0, avgSharpness = 0, hasDimensions }){
   const text = normalizeText(`${title} ${description}`);
 
   const pieceType = scoreFromKeywords(text, [
@@ -269,6 +295,13 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
     Nylon: 1.6,
   };
   const materialInference = inferMaterialFromText(text, material);
+  const materialAdvice = buildMaterialAdvice({
+    text,
+    selectedMaterial: material,
+    inferredMaterial: materialInference.inferred,
+    needs,
+    pieceType,
+  });
   const inferredMaterialFactor = materialMult[materialInference.inferred] || 1;
 
   const detailDemandMult = (() => {
@@ -293,7 +326,12 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
   const qtyFactor = 1 + Math.log2(Math.max(1, qty)) * 0.42;
 
   const complexityText = clamp((description.length / 240) + (needs.length * 0.12), 0.6, 1.7);
-  const imageBoost = imageCount ? clamp(1 + Math.min(0.2, imageCount * 0.03) + Math.min(0.12, avgMp * 0.015), 1, 1.35) : 1;
+  const imageSignal = imageCount
+    ? clamp((avgContrast / 55) * 0.45 + (avgSharpness / 35) * 0.55, 0.55, 1.45)
+    : 1;
+  const imageBoost = imageCount
+    ? clamp(1 + Math.min(0.2, imageCount * 0.03) + Math.min(0.12, avgMp * 0.015) + (imageSignal - 1) * 0.08, 1, 1.38)
+    : 1;
 
   const materialFactor = clamp(
     (materialMult[material] || 1) * (1 - materialInference.confidence * 0.45)
@@ -338,6 +376,7 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
     38
     + Math.min(25, description.length / 10)
     + (imageCount ? Math.min(18, imageCount * 4) : 0)
+    + (imageCount ? clamp((imageSignal - 1) * 12, -4, 8) : 0)
     + (hasDimensions ? 11 : 2)
     + (volCm3 > 1 ? 9 : 0),
     40,
@@ -365,6 +404,7 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
     volCm3: Math.round(volCm3),
     volM3,
     printHours,
+    materialAdvice,
     priceBreakdown: {
       corePrintCost: Math.round(multiplicativeCore),
       modelingCost: Math.round(modelingCost),
@@ -379,8 +419,11 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
       imageAnalysis: {
         imageCount,
         avgMp: Number(avgMp.toFixed(2)),
+        avgBrightness,
+        avgContrast,
+        avgSharpness,
         coverage: imageCount >= 3 ? "Buna" : imageCount >= 1 ? "Partiala" : "Fara imagini",
-        confidenceImpact: imageCount ? "Creste increderea estimarii" : "Fara suport vizual",
+        confidenceImpact: imageCount ? (imageSignal >= 1.05 ? "Creste mult increderea estimarii" : "Creste increderea estimarii") : "Fara suport vizual",
       },
       riskNotes: [
         ...(maxDimMm >= 320 ? [`Dimensiunea maxima ${maxDimMm}mm sugereaza printare in bucati si asamblare.`] : []),
@@ -389,6 +432,7 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
         ...(/figurina|statuet|bust|miniatur|detali/.test(text) ? ["Obiect decorativ cu detalii fine: probabil necesita slefuire/finisaj."] : []),
         ...((imageCount && !(title || description)) ? ["Doar poze fara text: risc mai mare de interpretare gresita."] : []),
         ...(materialInference.inferred !== material ? [`Material posibil mai potrivit decat ${material}: ${materialInference.inferred} (dedus din cerinte text).`] : []),
+        ...(materialAdvice.recommendation !== materialInference.inferred ? [`Pentru contextul detectat, sugestia finala de material este ${materialAdvice.recommendation}.`] : []),
         ...(!hasDimensions ? ["Dimensiunile lipsesc sau pot fi inexacte: estimarea compenseaza cu marja mai larga."] : []),
       ],
       multipliers: [
@@ -404,28 +448,80 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
   };
 }
 
+async function analyzeImage(url){
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => {
+      const w = img.naturalWidth || 0;
+      const h = img.naturalHeight || 0;
+      if (!w || !h){
+        resolve({ w, h, brightness: 0, contrast: 0, sharpness: 0 });
+        return;
+      }
+      const maxSide = 420;
+      const scale = Math.min(1, maxSide / Math.max(w, h));
+      const cw = Math.max(1, Math.round(w * scale));
+      const ch = Math.max(1, Math.round(h * scale));
+      const canvas = document.createElement("canvas");
+      canvas.width = cw;
+      canvas.height = ch;
+      const ctx = canvas.getContext("2d", { willReadFrequently: true });
+      if (!ctx){
+        resolve({ w, h, brightness: 0, contrast: 0, sharpness: 0 });
+        return;
+      }
+      ctx.drawImage(img, 0, 0, cw, ch);
+      const data = ctx.getImageData(0, 0, cw, ch).data;
+      let sum = 0;
+      let sumSq = 0;
+      let edge = 0;
+      let prev = 0;
+      let px = 0;
+      for (let i = 0; i < data.length; i += 4){
+        const lum = (0.2126 * data[i]) + (0.7152 * data[i + 1]) + (0.0722 * data[i + 2]);
+        sum += lum;
+        sumSq += lum * lum;
+        if (px > 0) edge += Math.abs(lum - prev);
+        prev = lum;
+        px += 1;
+      }
+      const mean = sum / Math.max(1, px);
+      const variance = Math.max(0, (sumSq / Math.max(1, px)) - (mean * mean));
+      const contrast = Math.sqrt(variance);
+      const sharpness = edge / Math.max(1, px);
+      resolve({ w, h, brightness: mean, contrast, sharpness });
+    };
+    img.onerror = () => resolve({ w: 0, h: 0, brightness: 0, contrast: 0, sharpness: 0 });
+    img.src = url;
+  });
+}
+
 async function readImagesMeta(files){
   const imgs = Array.from(files || []).filter(f => f.type?.startsWith("image/"));
   if (!imgs.length) return { count: 0, avgMp: 0 };
 
-  const metas = await Promise.all(imgs.map((file) => new Promise((resolve) => {
+  const metas = await Promise.all(imgs.map((file) => new Promise(async (resolve) => {
     const url = URL.createObjectURL(file);
-    const img = new Image();
-    img.onload = () => {
-      resolve({ w: img.naturalWidth || 0, h: img.naturalHeight || 0 });
+    try {
+      const info = await analyzeImage(url);
+      resolve(info);
       URL.revokeObjectURL(url);
-    };
-    img.onerror = () => {
-      resolve({ w: 0, h: 0 });
+    } catch {
+      resolve({ w: 0, h: 0, brightness: 0, contrast: 0, sharpness: 0 });
       URL.revokeObjectURL(url);
-    };
-    img.src = url;
+    }
   })));
 
   const avgPx = metas.reduce((s, m) => s + (m.w * m.h), 0) / metas.length;
+  const avgBrightness = metas.reduce((s, m) => s + m.brightness, 0) / metas.length;
+  const avgContrast = metas.reduce((s, m) => s + m.contrast, 0) / metas.length;
+  const avgSharpness = metas.reduce((s, m) => s + m.sharpness, 0) / metas.length;
   return {
     count: metas.length,
     avgMp: avgPx ? (avgPx / 1000000) : 0,
+    avgBrightness: Number(avgBrightness.toFixed(1)),
+    avgContrast: Number(avgContrast.toFixed(1)),
+    avgSharpness: Number(avgSharpness.toFixed(1)),
   };
 }
 
@@ -454,7 +550,8 @@ function renderResult(res){
       : "fara cuvinte-cheie clare"} | <strong>Scop:</strong> ${res.analysisSignals.keywordSignals.objective.length
       ? res.analysisSignals.keywordSignals.objective.map((g) => `${g.label} (${g.hits.join(", ")})`).join(" · ")
       : "general"}</div>
-    <div class="quote-needs"><strong>Ce vede in poze (metadate):</strong> ${res.analysisSignals.imageAnalysis.imageCount} imagine(i), ~${res.analysisSignals.imageAnalysis.avgMp} MP mediu, acoperire: ${res.analysisSignals.imageAnalysis.coverage}, impact: ${res.analysisSignals.imageAnalysis.confidenceImpact}.</div>
+    <div class="quote-needs"><strong>Ce vede in poze (metadate):</strong> ${res.analysisSignals.imageAnalysis.imageCount} imagine(i), ~${res.analysisSignals.imageAnalysis.avgMp} MP mediu, claritate ~${res.analysisSignals.imageAnalysis.avgSharpness}, contrast ~${res.analysisSignals.imageAnalysis.avgContrast}, acoperire: ${res.analysisSignals.imageAnalysis.coverage}, impact: ${res.analysisSignals.imageAnalysis.confidenceImpact}.</div>
+    <div class="quote-needs"><strong>Sugestie material:</strong> ${res.materialAdvice.recommendation} · ${res.materialAdvice.reasons.join(" ")}</div>
     <div class="quote-needs"><strong>Analiza probabilistica (${res.analysisSignals.scenarioInsights.simulationCount} scenarii):</strong> ${res.analysisSignals.scenarioInsights.likely.map((s) =>
       `${s.label} (${Math.round(s.probability * 100)}% | interval probabil ${s.p10}-${s.p90} RON)`
     ).join(" · ")}</div>
@@ -504,6 +601,9 @@ function init(){
       l: Math.max(1, l), w: Math.max(1, w), h: Math.max(1, h),
       imageCount: meta.count,
       avgMp: meta.avgMp,
+      avgBrightness: meta.avgBrightness,
+      avgContrast: meta.avgContrast,
+      avgSharpness: meta.avgSharpness,
       hasDimensions,
     });
 
