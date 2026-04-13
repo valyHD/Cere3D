@@ -225,6 +225,138 @@ async function parseStlFile(file){
   };
 }
 
+async function inflateDeflateRaw(data){
+  if (typeof DecompressionStream === "undefined") return null;
+  const ds = new DecompressionStream("deflate-raw");
+  const stream = new Blob([data]).stream().pipeThrough(ds);
+  return new Uint8Array(await new Response(stream).arrayBuffer());
+}
+
+async function extractFirst3mfModelXml(buf){
+  const bytes = new Uint8Array(buf);
+  if (bytes.length < 30 || bytes[0] !== 0x50 || bytes[1] !== 0x4B) return null;
+
+  const dv = new DataView(buf);
+  const decoder = new TextDecoder("utf-8");
+  let offset = 0;
+
+  while (offset + 30 <= bytes.length){
+    const sig = dv.getUint32(offset, true);
+    if (sig !== 0x04034B50) break;
+    const method = dv.getUint16(offset + 8, true);
+    const compressedSize = dv.getUint32(offset + 18, true);
+    const fileNameLen = dv.getUint16(offset + 26, true);
+    const extraLen = dv.getUint16(offset + 28, true);
+    const nameStart = offset + 30;
+    const nameEnd = nameStart + fileNameLen;
+    const dataStart = nameEnd + extraLen;
+    const dataEnd = dataStart + compressedSize;
+    if (dataEnd > bytes.length) break;
+
+    const fileName = decoder.decode(bytes.slice(nameStart, nameEnd));
+    const normalizedName = fileName.toLowerCase();
+    if (normalizedName.endsWith(".model") && normalizedName.includes("3d/")){
+      const raw = bytes.slice(dataStart, dataEnd);
+      if (method === 0){
+        return decoder.decode(raw);
+      }
+      if (method === 8){
+        const inflated = await inflateDeflateRaw(raw);
+        return inflated ? decoder.decode(inflated) : null;
+      }
+    }
+    offset = dataEnd;
+  }
+  return null;
+}
+
+function parse3mfModelXml(xmlText, fileName){
+  if (!xmlText) return null;
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(xmlText, "application/xml");
+  if (doc.querySelector("parsererror")) return null;
+
+  const meshNodes = Array.from(doc.getElementsByTagName("mesh"));
+  if (!meshNodes.length) return null;
+
+  const vertices = [];
+  const allTriangles = [];
+  let triCount = 0;
+
+  for (const mesh of meshNodes){
+    const localVertices = Array.from(mesh.querySelectorAll("vertices > vertex")).map((v) => ([
+      safeNum(v.getAttribute("x"), 0),
+      safeNum(v.getAttribute("y"), 0),
+      safeNum(v.getAttribute("z"), 0),
+    ]));
+    const localTriangles = Array.from(mesh.querySelectorAll("triangles > triangle")).map((t) => ([
+      safeNum(t.getAttribute("v1"), -1),
+      safeNum(t.getAttribute("v2"), -1),
+      safeNum(t.getAttribute("v3"), -1),
+    ]));
+
+    vertices.push(...localVertices);
+    for (const [i1, i2, i3] of localTriangles){
+      const v0 = localVertices[i1];
+      const v1 = localVertices[i2];
+      const v2 = localVertices[i3];
+      if (!v0 || !v1 || !v2) continue;
+      allTriangles.push([v0, v1, v2]);
+    }
+    triCount += localTriangles.length;
+  }
+
+  if (!allTriangles.length || !vertices.length) return null;
+
+  let minX = Infinity, minY = Infinity, minZ = Infinity;
+  let maxX = -Infinity, maxY = -Infinity, maxZ = -Infinity;
+  let areaMm2 = 0;
+  let signedVolumeMm3 = 0;
+
+  for (const [x, y, z] of vertices){
+    minX = Math.min(minX, x); maxX = Math.max(maxX, x);
+    minY = Math.min(minY, y); maxY = Math.max(maxY, y);
+    minZ = Math.min(minZ, z); maxZ = Math.max(maxZ, z);
+  }
+  for (const [v0, v1, v2] of allTriangles){
+    areaMm2 += triArea(v0, v1, v2);
+    signedVolumeMm3 += triSignedVolume(v0, v1, v2);
+  }
+
+  const spanX = Math.max(0.1, maxX - minX);
+  const spanY = Math.max(0.1, maxY - minY);
+  const spanZ = Math.max(0.1, maxZ - minZ);
+  const bboxVolumeCm3 = (spanX * spanY * spanZ) / 1000;
+  const volumeCm3 = Math.abs(signedVolumeMm3) / 1000;
+  const shapeHint = classifyStlGeometry({ spanX, spanY, spanZ, volumeCm3, triangleCount: triCount });
+
+  return {
+    hasStl: true,
+    sourceType: "3MF",
+    fileName,
+    triangleCount: triCount,
+    spanX: Math.round(spanX),
+    spanY: Math.round(spanY),
+    spanZ: Math.round(spanZ),
+    bboxVolumeCm3: Math.round(bboxVolumeCm3),
+    volumeCm3: Math.round(volumeCm3),
+    areaCm2: Math.round(areaMm2 / 100),
+    shapeHint,
+  };
+}
+
+async function parseModelFile(file){
+  if (!file) return null;
+  const ext = (file.name.split(".").pop() || "").toLowerCase();
+  if (ext === "stl") return parseStlFile(file);
+  if (ext === "3mf"){
+    const buf = await file.arrayBuffer();
+    const xml = await extractFirst3mfModelXml(buf);
+    return parse3mfModelXml(xml, file.name);
+  }
+  return parseStlFile(file);
+}
+
 function weightedChoice(items, rand){
   const total = items.reduce((s, it) => s + Math.max(0, it.weight || 0), 0);
   if (total <= 0) return items[0];
@@ -559,6 +691,7 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
       stlAnalysis: stlData
         ? {
             enabled: true,
+            sourceType: stlData.sourceType || "STL",
             fileName: stlData.fileName,
             triangleCount: stlData.triangleCount,
             bbox: `${stlData.spanX}×${stlData.spanY}×${stlData.spanZ} mm`,
@@ -574,7 +707,7 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
         ...(/figurina|statuet|bust|miniatur|detali/.test(text) ? ["Obiect decorativ cu detalii fine: probabil necesita slefuire/finisaj."] : []),
         ...((imageCount && !(title || description)) ? ["Doar poze fara text: risc mai mare de interpretare gresita."] : []),
         ...(materialInference.inferred !== material ? [`Material posibil mai potrivit decat ${material}: ${materialInference.inferred} (dedus din cerinte text).`] : []),
-        ...(stlData ? [`Fisier STL analizat (${stlData.triangleCount} triunghiuri) pentru volum/dimensiuni mai realiste.`] : []),
+        ...(stlData ? [`Fisier ${stlData.sourceType || "STL"} analizat (${stlData.triangleCount} triunghiuri) pentru volum/dimensiuni mai realiste.`] : []),
         ...(materialAdvice.recommendation !== materialInference.inferred ? [`Pentru contextul detectat, sugestia finala de material este ${materialAdvice.recommendation}.`] : []),
         ...(!hasDimensions ? ["Dimensiunile lipsesc sau pot fi inexacte: estimarea compenseaza cu marja mai larga."] : []),
       ],
@@ -696,8 +829,8 @@ function renderResult(res){
       : "general"}</div>
     <div class="quote-needs"><strong>Ce vede in poze (metadate):</strong> ${res.analysisSignals.imageAnalysis.imageCount} imagine(i), ~${res.analysisSignals.imageAnalysis.avgMp} MP mediu, claritate ~${res.analysisSignals.imageAnalysis.avgSharpness}, contrast ~${res.analysisSignals.imageAnalysis.avgContrast}, acoperire: ${res.analysisSignals.imageAnalysis.coverage}, impact: ${res.analysisSignals.imageAnalysis.confidenceImpact}.</div>
     ${res.analysisSignals.stlAnalysis.enabled
-      ? `<div class="quote-needs"><strong>Ce a extras din STL:</strong> ${res.analysisSignals.stlAnalysis.fileName} · ${res.analysisSignals.stlAnalysis.triangleCount} triunghiuri · gabarit ${res.analysisSignals.stlAnalysis.bbox} · volum mesh ~${res.analysisSignals.stlAnalysis.estimatedVolumeCm3} cm³ · suprafata ~${res.analysisSignals.stlAnalysis.estimatedAreaCm2} cm² · tip dedus: ${res.analysisSignals.stlAnalysis.inferredShape}.</div>`
-      : `<div class="quote-needs"><strong>Analiza STL:</strong> Fara STL incarcat. Pentru estimare mai reala, adauga fisierul STL daca il ai.</div>`}
+      ? `<div class="quote-needs"><strong>Ce a extras din ${res.analysisSignals.stlAnalysis.sourceType}:</strong> ${res.analysisSignals.stlAnalysis.fileName} · ${res.analysisSignals.stlAnalysis.triangleCount} triunghiuri · gabarit ${res.analysisSignals.stlAnalysis.bbox} · volum mesh ~${res.analysisSignals.stlAnalysis.estimatedVolumeCm3} cm³ · suprafata ~${res.analysisSignals.stlAnalysis.estimatedAreaCm2} cm² · tip dedus: ${res.analysisSignals.stlAnalysis.inferredShape}.</div>`
+      : `<div class="quote-needs"><strong>Analiza STL/3MF:</strong> Fara fisier incarcat. Pentru estimare mai reala, adauga STL sau 3MF daca il ai.</div>`}
     <div class="quote-needs"><strong>Sugestie material:</strong> ${res.materialAdvice.recommendation} · ${res.materialAdvice.reasons.join(" ")}</div>
     <div class="quote-needs"><strong>Analiza probabilistica (${res.analysisSignals.scenarioInsights.simulationCount} scenarii):</strong> ${res.analysisSignals.scenarioInsights.likely.map((s) =>
       `${s.label} (${Math.round(s.probability * 100)}% | interval probabil ${s.p10}-${s.p90} RON)`
@@ -736,13 +869,13 @@ function init(){
     const stlFile = $("q_stl")?.files?.[0] || null;
 
     if (!title && !description && !photos.length && !stlFile) {
-      alert("Adauga macar text scurt, poze sau fisier STL pentru estimare.");
+      alert("Adauga macar text scurt, poze sau fisier STL/3MF pentru estimare.");
       return;
     }
 
     const [meta, stlData] = await Promise.all([
       readImagesMeta(photos),
-      parseStlFile(stlFile),
+      parseModelFile(stlFile),
     ]);
     const result = estimateFromInput({
       title: title || "Piesa din poza",
