@@ -2,12 +2,28 @@ function $(id){ return document.getElementById(id); }
 
 function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
 
+function normalizeText(text){
+  return (text || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
+function escapeRegex(str){
+  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function hasKeyword(text, kw){
+  const pattern = new RegExp(`(^|[^a-z0-9])${escapeRegex(kw)}([^a-z0-9]|$)`, "i");
+  return pattern.test(text);
+}
+
 function scoreFromKeywords(text, map){
   let best = { key: "general", label: "Piesa generala", score: 0 };
   for (const item of map){
     let s = 0;
     for (const kw of item.keywords){
-      if (text.includes(kw)) s += 1;
+      if (hasKeyword(text, kw)) s += 1;
     }
     if (s > best.score) best = { key: item.key, label: item.label, score: s };
   }
@@ -27,7 +43,7 @@ function parseNeeds(text){
 function extractMatchedKeywords(text, groups){
   const out = [];
   for (const g of groups){
-    const hits = g.keywords.filter((kw) => text.includes(kw));
+    const hits = g.keywords.filter((kw) => hasKeyword(text, kw));
     if (hits.length){
       out.push({ label: g.label, hits });
     }
@@ -41,7 +57,7 @@ function safeNum(v, fallback){
 }
 
 function estimateFromInput({ title, description, material, qty, l, w, h, imageCount, avgMp }){
-  const text = `${title} ${description}`.toLowerCase();
+  const text = normalizeText(`${title} ${description}`);
 
   const pieceType = scoreFromKeywords(text, [
     { key: "auto", label: "Piesa auto", keywords: ["auto", "masina", "grila", "motor", "tablou", "ventilatie"] },
@@ -107,8 +123,15 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
   const slenderRiskMult = aspectRatio >= 4 ? 1.1 : 1;
 
   const base = baseByType[pieceType.key] || baseByType.general;
-  // Crestere mai vizibila pentru piese mari (ex: 200mm vs 2000mm trebuie sa fie clar diferit).
-  const sizeFactor = 0.8 + Math.pow(volCm3 / 35, 0.75);
+  const geometryFillFactor = (() => {
+    if (pieceType.key === "decor" && aspectRatio >= 4) return 0.2;
+    if (pieceType.key === "decor") return 0.35;
+    if (aspectRatio >= 6) return 0.28;
+    if (aspectRatio >= 4) return 0.4;
+    return 0.72;
+  })();
+  const effectiveVolCm3 = Math.max(1, volCm3 * geometryFillFactor);
+  const sizeFactor = 0.95 + Math.pow(effectiveVolCm3 / 55, 0.45);
   const qtyFactor = 1 + Math.log2(Math.max(1, qty)) * 0.42;
 
   const complexityText = clamp((description.length / 240) + (needs.length * 0.12), 0.6, 1.7);
@@ -146,7 +169,7 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
     + failureRiskCost;
   const low = Math.round(estimated * 0.82);
   const high = Math.round(estimated * 1.22);
-  const printHours = Math.max(1, Math.round((volCm3 * 0.09 + maxDimMm * 0.03) * detailDemandMult));
+  const printHours = Math.max(1, Math.round((effectiveVolCm3 * 0.0032 + maxDimMm * 0.025) * detailDemandMult * Math.max(1, qty * 0.85)));
 
   const confidence = clamp(
     38
@@ -186,6 +209,7 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
       riskNotes: [
         ...(maxDimMm >= 320 ? [`Dimensiunea maxima ${maxDimMm}mm sugereaza printare in bucati si asamblare.`] : []),
         ...(aspectRatio >= 5 ? ["Geometrie alungita: risc de deformare/instabilitate la print."] : []),
+        ...(geometryFillFactor < 0.5 ? ["Forma detectata pare partial goala/segmentata: volumul efectiv a fost ajustat pentru o estimare mai realista."] : []),
         ...(/figurina|statuet|bust|miniatur|detali/.test(text) ? ["Obiect decorativ cu detalii fine: probabil necesita slefuire/finisaj."] : []),
         ...((imageCount && !(title || description)) ? ["Doar poze fara text: risc mai mare de interpretare gresita."] : []),
       ],
@@ -195,6 +219,7 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
         { label: "Urgenta", value: urgencyMult },
         { label: "Piesa inalta", value: tallPartMult },
         { label: "Risc geometrie", value: slenderRiskMult },
+        { label: "Volum efectiv", value: geometryFillFactor },
       ],
     },
   };
@@ -283,7 +308,7 @@ function init(){
     const meta = await readImagesMeta(photos);
     const result = estimateFromInput({
       title: title || "Piesa din poza",
-      description: description || "Estimare automata bazata pe imagini si dimensiuni.",
+      description: description || "Estimare bazata pe imagini si dimensiuni.",
       material,
       qty: Math.max(1, qty),
       l: Math.max(1, l), w: Math.max(1, w), h: Math.max(1, h),
