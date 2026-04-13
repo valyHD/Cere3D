@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Instant Quote | Estimare pret printare 3D | Cere3D</title>
+  <meta name="description" content="Simuleaza postarea, analizeaza text + imagini si primeste un pret estimativ inainte sa publici cererea de printare 3D." />
+  <link rel="canonical" href="https://cere3d.ro/instant-quote.html" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    .iq-wrap{max-width:900px;margin:24px auto 60px;padding:0 16px}
+    .iq-head{margin:14px 0 20px}
+    .iq-head h1{font-size:1.65rem;margin:0 0 8px}
+    .iq-head p{color:#6b7280;margin:0}
+    .iq-card{background:#fff;border:1px solid #e5e7eb;border-radius:18px;padding:20px;box-shadow:0 10px 24px rgba(2,6,23,.05)}
+    .iq-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .iq-field{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+    .iq-field label{font-weight:700;font-size:.9rem}
+    .iq-field input,.iq-field textarea,.iq-field select{border:1px solid #d1d5db;border-radius:10px;padding:10px 12px;font:inherit}
+    .iq-field textarea{min-height:110px;resize:vertical}
+    .iq-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+    .btn-primary{background:#2563eb;color:#fff;border:0;border-radius:10px;padding:11px 16px;font-weight:800;cursor:pointer}
+    .btn-ghost{background:#f8fafc;color:#0f172a;border:1px solid #cbd5e1;border-radius:10px;padding:11px 16px;font-weight:700;cursor:pointer}
+    .quote-result{margin-top:16px;padding:16px;border-radius:14px;background:#eff6ff;border:1px solid #bfdbfe}
+    .quote-kpi-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .quote-kpi{background:#fff;border-radius:10px;padding:10px;border:1px solid #dbeafe}
+    .quote-kpi span{display:block;font-size:.75rem;color:#64748b;text-transform:uppercase}
+    .quote-kpi strong{font-size:1rem}
+    .quote-price{margin-top:10px;background:#fff;border:1px solid #dbeafe;border-radius:10px;padding:12px}
+    .quote-price-label{font-size:.8rem;color:#475569;font-weight:700;text-transform:uppercase}
+    .quote-price-value{font-size:1.4rem;color:#1d4ed8;font-weight:900}
+    .quote-price p{margin:.35rem 0 0;color:#64748b;font-size:.86rem}
+    .quote-needs{margin-top:8px;color:#1e293b}
+    @media (max-width:760px){.iq-grid,.quote-kpi-row{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="/">Cere3D</a>
+      <nav class="nav" aria-label="Meniu principal">
+        <a href="/">Acasa</a>
+        <a href="/cereri.html">Cereri</a>
+        <a href="/cere.html">Posteaza cerere</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="iq-wrap">
+    <section class="iq-head">
+      <h1>Instant Quote (estimare pret inainte de postare)</h1>
+      <p>Scrii ce piesa ai nevoie, incarci imagini (optional) si primesti interval orientativ de pret. Sistemul simuleaza analiza unei postari: recunoaste tipul piesei si intentia ta din text, imagini sau ambele.</p>
+    </section>
+
+    <section class="iq-card">
+      <form id="instantQuoteForm">
+        <div class="iq-field">
+          <label for="q_title">Titlu cerere</label>
+          <input id="q_title" type="text" placeholder="ex: Clema grila ventilatie auto rupta" required />
+        </div>
+
+        <div class="iq-field">
+          <label for="q_description">Descriere</label>
+          <textarea id="q_description" placeholder="Descrie ce piesa e, unde se foloseste, ce rezistenta iti trebuie, ce dimensiuni aproximative are." required></textarea>
+        </div>
+
+        <div class="iq-grid">
+          <div class="iq-field">
+            <label for="q_material">Material estimat</label>
+            <select id="q_material">
+              <option>PLA</option><option>PETG</option><option>ABS</option><option>TPU</option><option>Nylon</option>
+            </select>
+          </div>
+          <div class="iq-field">
+            <label for="q_qty">Cantitate</label>
+            <input id="q_qty" type="number" min="1" value="1" />
+          </div>
+        </div>
+
+        <div class="iq-grid">
+          <div class="iq-field"><label for="q_l">Lungime (mm)</label><input id="q_l" type="number" min="1" value="60" /></div>
+          <div class="iq-field"><label for="q_w">Latime (mm)</label><input id="q_w" type="number" min="1" value="40" /></div>
+        </div>
+
+        <div class="iq-grid">
+          <div class="iq-field"><label for="q_h">Inaltime (mm)</label><input id="q_h" type="number" min="1" value="20" /></div>
+          <div class="iq-field"><label for="q_county">Judet (optional)</label><input id="q_county" type="text" placeholder="ex: Bihor" /></div>
+        </div>
+
+        <div class="iq-field">
+          <label for="q_photos">Poze / schite (optional)</label>
+          <input id="q_photos" type="file" accept="image/*" multiple />
+        </div>
+
+        <div class="iq-field">
+          <label for="q_ref">Link referinta (optional)</label>
+          <input id="q_ref" type="url" placeholder="https://..." />
+        </div>
+
+        <div class="iq-actions">
+          <button class="btn-primary" type="submit">Analizeaza si estimeaza pretul</button>
+          <button id="goToPostBtn" class="btn-ghost" type="button" hidden>Continua catre postare cerere</button>
+        </div>
+      </form>
+
+      <div id="quoteResult" class="quote-result" hidden></div>
+    </section>
+  </main>
+
+  <script type="module" src="/instant-quote.js"></script>
+</body>
+</html>
