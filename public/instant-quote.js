@@ -242,9 +242,17 @@ async function parseStlFile(file){
 
 async function inflateDeflateRaw(data){
   if (typeof DecompressionStream === "undefined") return null;
-  const ds = new DecompressionStream("deflate-raw");
-  const stream = new Blob([data]).stream().pipeThrough(ds);
-  return new Uint8Array(await new Response(stream).arrayBuffer());
+  const formats = ["deflate-raw", "deflate"];
+  for (const format of formats){
+    try {
+      const ds = new DecompressionStream(format);
+      const stream = new Blob([data]).stream().pipeThrough(ds);
+      return new Uint8Array(await new Response(stream).arrayBuffer());
+    } catch (_err){
+      // continua cu urmatorul format disponibil in browser
+    }
+  }
+  return null;
 }
 
 async function extractFirst3mfModelXml(buf){
@@ -333,12 +341,14 @@ function parse3mfModelXml(xmlText, fileName){
   let triCount = 0;
 
   for (const mesh of meshNodes){
-    const localVertices = Array.from(mesh.querySelectorAll("vertices > vertex")).map((v) => ([
+    const verticesNode = mesh.getElementsByTagName("vertices")[0];
+    const trianglesNode = mesh.getElementsByTagName("triangles")[0];
+    const localVertices = Array.from(verticesNode ? verticesNode.getElementsByTagName("vertex") : []).map((v) => ([
       safeNum(v.getAttribute("x"), 0),
       safeNum(v.getAttribute("y"), 0),
       safeNum(v.getAttribute("z"), 0),
     ]));
-    const localTriangles = Array.from(mesh.querySelectorAll("triangles > triangle")).map((t) => ([
+    const localTriangles = Array.from(trianglesNode ? trianglesNode.getElementsByTagName("triangle") : []).map((t) => ([
       safeNum(t.getAttribute("v1"), -1),
       safeNum(t.getAttribute("v2"), -1),
       safeNum(t.getAttribute("v3"), -1),
