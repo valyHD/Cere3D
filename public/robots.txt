@@ -1,4 +1,12 @@
 User-agent: *
 Allow: /
+Disallow: /admin-rapoarte.html
+Disallow: /auth.html
+Disallow: /cont.html
+Disallow: /cererile-mele.html
+Disallow: /editare-cerere.html
+Disallow: /mesaje.html
+Disallow: /post.html
+Disallow: /stire.html
 
 Sitemap: https://cere3d.ro/sitemap.xml
