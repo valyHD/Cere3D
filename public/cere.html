@@ -502,6 +502,10 @@
       <span class="trust-pill">✔ Răspunsuri de la oameni reali</span>
     </div>
 
+    <div style="max-width:680px;margin:0 auto 14px;padding:0 16px;">
+      <a href="/instant-quote.html" style="display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:1px solid #bfdbfe;background:#eff6ff;color:#1d4ed8;font-weight:800;text-decoration:none;">⚡ Instant Quote: estimeaza pretul inainte sa postezi</a>
+    </div>
+
     <!-- Files note (shown after auth redirect) -->
     <p id="filesNote" class="small-muted" style="display:none;">
       Notă: fișierele (poze / model 3D) trebuie reselecate după autentificare.
@@ -826,9 +830,31 @@
   });
 
   const p = new URLSearchParams(location.search);
-  if (p.get("autopost") === "1") {
+  if (p.get("autopost") === "1" || p.get("instant") === "1") {
     const note = document.getElementById("filesNote");
     if (note) note.style.display = "block";
+  }
+
+  try {
+    const rawDraft = localStorage.getItem("instantQuoteDraft");
+    if (rawDraft) {
+      const draft = JSON.parse(rawDraft);
+      if (draft?.title && titleInput && !titleInput.value.trim()) titleInput.value = draft.title;
+      if (draft?.description && descInput && !descInput.value.trim()) descInput.value = draft.description;
+      const refInput = document.getElementById("c_refurl");
+      if (draft?.referenceUrl && refInput && !refInput.value.trim()) refInput.value = draft.referenceUrl;
+      const countyInput = document.getElementById("c_county");
+      if (draft?.county && countyInput && !countyInput.value) countyInput.value = draft.county;
+
+      const note = document.getElementById("filesNote");
+      if (note && draft?.fromInstantQuote) {
+        note.textContent = `Notă: datele au fost aduse din Instant Quote (${draft.estimatedLow || "?"}-${draft.estimatedHigh || "?"} RON estimativ). Pozele/modelul trebuie încărcate din nou la postare.`;
+        note.style.display = "block";
+      }
+      localStorage.removeItem("instantQuoteDraft");
+    }
+  } catch (e) {
+    console.warn("[cere] instant quote draft parse failed", e);
   }
 </script>
 
