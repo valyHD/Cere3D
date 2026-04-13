@@ -28,9 +28,9 @@ let started = false;
 let lastPingMs = 0;
 let uidCached = null;
 
-async function pingPresence() {
+async function pingPresence({ force = false } = {}) {
   const now = Date.now();
-  if (now - lastPingMs < 20000) return;
+  if (!force && now - lastPingMs < 20000) return;
   lastPingMs = now;
 
   const sid = getSessionId();
@@ -51,7 +51,14 @@ async function pingPresence() {
   // optional: daca e logat, tine "ultima activitate" si pe profil
   if (uidCached) {
     try {
-      await setDoc(doc(db, "users", uidCached), { lastActiveAt: serverTimestamp() }, { merge: true });
+      await setDoc(
+        doc(db, "users", uidCached),
+        {
+          lastActiveAt: serverTimestamp(),
+          lastSeenAt: serverTimestamp()
+        },
+        { merge: true }
+      );
     } catch {}
   }
 }
@@ -62,10 +69,10 @@ export function initPresence() {
 
   onAuthStateChanged(auth, (u) => {
     uidCached = u?.uid || null;
-    pingPresence();
+    pingPresence({ force: true });
   });
 
-  pingPresence();
+  pingPresence({ force: true });
   setInterval(() => pingPresence(), 25000);
 
   document.addEventListener("visibilitychange", () => {
