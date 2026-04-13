@@ -24,6 +24,17 @@ function parseNeeds(text){
   return needs.length ? needs : ["Necesitati generale (fara constrangeri explicite)"];
 }
 
+function extractMatchedKeywords(text, groups){
+  const out = [];
+  for (const g of groups){
+    const hits = g.keywords.filter((kw) => text.includes(kw));
+    if (hits.length){
+      out.push({ label: g.label, hits });
+    }
+  }
+  return out;
+}
+
 function safeNum(v, fallback){
   const n = Number(v);
   return Number.isFinite(n) ? n : fallback;
@@ -46,6 +57,21 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
     { key: "new", label: "Produs nou / custom", keywords: ["nou", "custom", "personalizat", "de la zero"] },
     { key: "prototype", label: "Prototipare", keywords: ["prototip", "test", "iteratie", "validare"] },
   ]);
+  const keywordSignals = {
+    pieceType: extractMatchedKeywords(text, [
+      { label: "Piesa auto", keywords: ["auto", "masina", "grila", "motor", "tablou", "ventilatie"] },
+      { label: "Suport / prindere", keywords: ["suport", "prindere", "bracket", "clema"] },
+      { label: "Carcasa", keywords: ["carcasa", "capa", "cover", "cutie"] },
+      { label: "Decor / cadou", keywords: ["decor", "cadou", "vaza", "figurina", "statueta", "bust"] },
+      { label: "Prototip functional", keywords: ["prototip", "test", "mvp", "validare"] },
+      { label: "Refacere piesa", keywords: ["rupt", "refac", "inlocuire", "nu se mai gaseste"] },
+    ]),
+    objective: extractMatchedKeywords(text, [
+      { label: "Reparatie / inlocuire", keywords: ["rupt", "refac", "inlocuire", "repar"] },
+      { label: "Produs nou / custom", keywords: ["nou", "custom", "personalizat", "de la zero"] },
+      { label: "Prototipare", keywords: ["prototip", "test", "iteratie", "validare"] },
+    ]),
+  };
 
   const needs = parseNeeds(text);
   const volCm3 = Math.max(1, (l * w * h) / 1000);
@@ -94,8 +120,13 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
     : clamp(35 + imageCount * 9, 35, 220);
   const setupCost = clamp(18 + Math.max(0, (maxDimMm - 120) * 0.05), 18, 140);
   const riskCost = (imageCount && !(title || description)) ? 35 : 0;
+  const segmentationRiskCost = maxDimMm >= 320 ? Math.round(clamp(18 + (maxDimMm - 320) * 0.12, 0, 95)) : 0;
+  const postProcessRiskCost = /figurina|statuet|bust|miniatur|detali/.test(text)
+    ? Math.round(clamp(12 + maxDimMm * 0.03, 0, 80))
+    : 0;
+  const failureRiskCost = (aspectRatio >= 5 || maxDimMm >= 360) ? 22 : 0;
 
-  const estimated = base
+  const multiplicativeCore = base
     * sizeFactor
     * qtyFactor
     * complexityText
@@ -104,10 +135,15 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
     * detailDemandMult
     * urgencyMult
     * tallPartMult
-    * slenderRiskMult
+    * slenderRiskMult;
+
+  const estimated = multiplicativeCore
     + modelingCost
     + setupCost
-    + riskCost;
+    + riskCost
+    + segmentationRiskCost
+    + postProcessRiskCost
+    + failureRiskCost;
   const low = Math.round(estimated * 0.82);
   const high = Math.round(estimated * 1.22);
   const printHours = Math.max(1, Math.round((volCm3 * 0.09 + maxDimMm * 0.03) * detailDemandMult));
@@ -131,9 +167,35 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
     volM3,
     printHours,
     priceBreakdown: {
+      corePrintCost: Math.round(multiplicativeCore),
       modelingCost: Math.round(modelingCost),
       setupCost: Math.round(setupCost),
       riskCost: Math.round(riskCost),
+      segmentationRiskCost,
+      postProcessRiskCost,
+      failureRiskCost,
+    },
+    analysisSignals: {
+      keywordSignals,
+      imageAnalysis: {
+        imageCount,
+        avgMp: Number(avgMp.toFixed(2)),
+        coverage: imageCount >= 3 ? "Buna" : imageCount >= 1 ? "Partiala" : "Fara imagini",
+        confidenceImpact: imageCount ? "Creste increderea estimarii" : "Fara suport vizual",
+      },
+      riskNotes: [
+        ...(maxDimMm >= 320 ? [`Dimensiunea maxima ${maxDimMm}mm sugereaza printare in bucati si asamblare.`] : []),
+        ...(aspectRatio >= 5 ? ["Geometrie alungita: risc de deformare/instabilitate la print."] : []),
+        ...(/figurina|statuet|bust|miniatur|detali/.test(text) ? ["Obiect decorativ cu detalii fine: probabil necesita slefuire/finisaj."] : []),
+        ...((imageCount && !(title || description)) ? ["Doar poze fara text: risc mai mare de interpretare gresita."] : []),
+      ],
+      multipliers: [
+        { label: "Material", value: materialFactor },
+        { label: "Detaliu", value: detailDemandMult },
+        { label: "Urgenta", value: urgencyMult },
+        { label: "Piesa inalta", value: tallPartMult },
+        { label: "Risc geometrie", value: slenderRiskMult },
+      ],
     },
   };
 }
@@ -181,8 +243,18 @@ function renderResult(res){
       <div class="quote-price-value">${res.priceRange.low} - ${res.priceRange.high} RON</div>
       <p>Interval orientativ, calculat din text + imagini + dimensiuni. Pretul final vine din ofertele reale primite dupa postare.</p>
     </div>
-    <div class="quote-needs"><strong>Costuri incluse:</strong> modelare/verificare ~${res.priceBreakdown.modelingCost} RON · setup/exploatare ~${res.priceBreakdown.setupCost} RON${res.priceBreakdown.riskCost ? ` · risc estimare din poze ~${res.priceBreakdown.riskCost} RON` : ""}</div>
+    <div class="quote-needs"><strong>Costuri incluse:</strong> print efectiv ~${res.priceBreakdown.corePrintCost} RON · modelare/verificare ~${res.priceBreakdown.modelingCost} RON · setup/exploatare ~${res.priceBreakdown.setupCost} RON${res.priceBreakdown.riskCost ? ` · risc estimare din poze ~${res.priceBreakdown.riskCost} RON` : ""}${res.priceBreakdown.segmentationRiskCost ? ` · segmentare piesa mare ~${res.priceBreakdown.segmentationRiskCost} RON` : ""}${res.priceBreakdown.postProcessRiskCost ? ` · post-procesare detalii ~${res.priceBreakdown.postProcessRiskCost} RON` : ""}${res.priceBreakdown.failureRiskCost ? ` · buffer risc esec ~${res.priceBreakdown.failureRiskCost} RON` : ""}</div>
     <div class="quote-needs"><strong>Ce a inteles sistemul ca iti doresti:</strong> ${res.needs.join(" · ")}</div>
+    <div class="quote-needs"><strong>Ce a extras din text:</strong> ${res.analysisSignals.keywordSignals.pieceType.length
+      ? res.analysisSignals.keywordSignals.pieceType.map((g) => `${g.label} (${g.hits.join(", ")})`).join(" · ")
+      : "fara cuvinte-cheie clare"} | <strong>Scop:</strong> ${res.analysisSignals.keywordSignals.objective.length
+      ? res.analysisSignals.keywordSignals.objective.map((g) => `${g.label} (${g.hits.join(", ")})`).join(" · ")
+      : "general"}</div>
+    <div class="quote-needs"><strong>Ce vede in poze (metadate):</strong> ${res.analysisSignals.imageAnalysis.imageCount} imagine(i), ~${res.analysisSignals.imageAnalysis.avgMp} MP mediu, acoperire: ${res.analysisSignals.imageAnalysis.coverage}, impact: ${res.analysisSignals.imageAnalysis.confidenceImpact}.</div>
+    ${res.analysisSignals.riskNotes.length
+      ? `<div class="quote-needs"><strong>Observatii/riscuri detectate:</strong> ${res.analysisSignals.riskNotes.join(" · ")}</div>`
+      : ""}
+    <div class="quote-needs"><strong>Multiplicatori folositi:</strong> ${res.analysisSignals.multipliers.map((m) => `${m.label} x${m.value.toFixed(2)}`).join(" · ")}</div>
   `;
 }
 
