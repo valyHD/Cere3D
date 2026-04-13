@@ -110,6 +110,121 @@ function safeNum(v, fallback){
   return Number.isFinite(n) ? n : fallback;
 }
 
+function triArea(v0, v1, v2){
+  const ax = v1[0] - v0[0];
+  const ay = v1[1] - v0[1];
+  const az = v1[2] - v0[2];
+  const bx = v2[0] - v0[0];
+  const by = v2[1] - v0[1];
+  const bz = v2[2] - v0[2];
+  const cx = ay * bz - az * by;
+  const cy = az * bx - ax * bz;
+  const cz = ax * by - ay * bx;
+  return 0.5 * Math.sqrt((cx * cx) + (cy * cy) + (cz * cz));
+}
+
+function triSignedVolume(v0, v1, v2){
+  return (
+    (v0[0] * ((v1[1] * v2[2]) - (v1[2] * v2[1])))
+    - (v0[1] * ((v1[0] * v2[2]) - (v1[2] * v2[0])))
+    + (v0[2] * ((v1[0] * v2[1]) - (v1[1] * v2[0])))
+  ) / 6;
+}
+
+function classifyStlGeometry({ spanX, spanY, spanZ, volumeCm3, triangleCount }){
+  const maxSpan = Math.max(spanX, spanY, spanZ, 1);
+  const minSpan = Math.max(0.1, Math.min(spanX, spanY, spanZ));
+  const ratio = maxSpan / minSpan;
+  const isFlat = minSpan <= 4 && ratio >= 8;
+  const isTall = ratio >= 4 && !isFlat;
+  const isTiny = maxSpan < 30 && volumeCm3 < 8;
+  const isComplex = triangleCount >= 6000;
+
+  if (isFlat) return { key: "bracket", label: "Piesa plata / suport", keywords: ["suport", "prindere", "placa", "clema"] };
+  if (isTall) return { key: "fluid", label: "Piesa alungita", keywords: ["tub", "racord", "conector", "curbat"] };
+  if (isTiny) return { key: "repair", label: "Piesa mica de inlocuire", keywords: ["inlocuire", "refacere", "piesa mica"] };
+  if (isComplex) return { key: "decor", label: "Geometrie complexa", keywords: ["figurina", "decor", "detalii"] };
+  return { key: "general", label: "Piesa tehnica generala", keywords: ["prototip", "carcasa", "piesa functionala"] };
+}
+
+async function parseStlFile(file){
+  if (!file) return null;
+  const buf = await file.arrayBuffer();
+  if (!buf || buf.byteLength < 84) return null;
+
+  const bytes = new Uint8Array(buf);
+  const header = new TextDecoder("utf-8").decode(bytes.slice(0, Math.min(bytes.length, 160)));
+  const looksAscii = /^\s*solid[\s\S]*facet\s+normal/i.test(header);
+  const dv = new DataView(buf);
+
+  const triangles = [];
+  const readTri = (v0, v1, v2) => {
+    if (![v0, v1, v2].flat().every((n) => Number.isFinite(n))) return;
+    triangles.push([v0, v1, v2]);
+  };
+
+  if (looksAscii){
+    const text = new TextDecoder("utf-8").decode(bytes);
+    const matches = [...text.matchAll(/vertex\s+([\-+eE0-9.]+)\s+([\-+eE0-9.]+)\s+([\-+eE0-9.]+)/g)];
+    for (let i = 0; i + 2 < matches.length; i += 3){
+      const v0 = [Number(matches[i][1]), Number(matches[i][2]), Number(matches[i][3])];
+      const v1 = [Number(matches[i + 1][1]), Number(matches[i + 1][2]), Number(matches[i + 1][3])];
+      const v2 = [Number(matches[i + 2][1]), Number(matches[i + 2][2]), Number(matches[i + 2][3])];
+      readTri(v0, v1, v2);
+    }
+  } else {
+    const triCount = dv.getUint32(80, true);
+    const expectedLen = 84 + (triCount * 50);
+    if (expectedLen <= buf.byteLength && triCount > 0){
+      let offset = 84;
+      for (let i = 0; i < triCount; i++){
+        offset += 12;
+        const v0 = [dv.getFloat32(offset, true), dv.getFloat32(offset + 4, true), dv.getFloat32(offset + 8, true)]; offset += 12;
+        const v1 = [dv.getFloat32(offset, true), dv.getFloat32(offset + 4, true), dv.getFloat32(offset + 8, true)]; offset += 12;
+        const v2 = [dv.getFloat32(offset, true), dv.getFloat32(offset + 4, true), dv.getFloat32(offset + 8, true)]; offset += 12;
+        offset += 2;
+        readTri(v0, v1, v2);
+      }
+    }
+  }
+
+  if (!triangles.length) return null;
+
+  let minX = Infinity, minY = Infinity, minZ = Infinity;
+  let maxX = -Infinity, maxY = -Infinity, maxZ = -Infinity;
+  let areaMm2 = 0;
+  let signedVolumeMm3 = 0;
+  for (const [v0, v1, v2] of triangles){
+    for (const v of [v0, v1, v2]){
+      minX = Math.min(minX, v[0]); maxX = Math.max(maxX, v[0]);
+      minY = Math.min(minY, v[1]); maxY = Math.max(maxY, v[1]);
+      minZ = Math.min(minZ, v[2]); maxZ = Math.max(maxZ, v[2]);
+    }
+    areaMm2 += triArea(v0, v1, v2);
+    signedVolumeMm3 += triSignedVolume(v0, v1, v2);
+  }
+
+  const spanX = Math.max(0.1, maxX - minX);
+  const spanY = Math.max(0.1, maxY - minY);
+  const spanZ = Math.max(0.1, maxZ - minZ);
+  const bboxVolumeCm3 = (spanX * spanY * spanZ) / 1000;
+  const volumeCm3 = Math.abs(signedVolumeMm3) / 1000;
+  const shapeHint = classifyStlGeometry({ spanX, spanY, spanZ, volumeCm3, triangleCount: triangles.length });
+
+  return {
+    hasStl: true,
+    fileName: file.name,
+    triangleCount: triangles.length,
+    spanX: Math.round(spanX),
+    spanY: Math.round(spanY),
+    spanZ: Math.round(spanZ),
+    bboxVolumeCm3: Math.round(bboxVolumeCm3),
+    volumeCm3: Math.round(volumeCm3),
+    areaCm2: Math.round(areaMm2 / 100),
+    shapeHint,
+  };
+}
+
 function weightedChoice(items, rand){
   const total = items.reduce((s, it) => s + Math.max(0, it.weight || 0), 0);
   if (total <= 0) return items[0];
@@ -232,8 +347,9 @@ function buildScenarioInsights({ text, basePrice, pieceType, objective, hasDimen
   };
 }
 
-function estimateFromInput({ title, description, material, qty, l, w, h, imageCount, avgMp, avgBrightness = 0, avgContrast = 0, avgSharpness = 0, hasDimensions }){
-  const text = normalizeText(`${title} ${description}`);
+function estimateFromInput({ title, description, material, qty, l, w, h, imageCount, avgMp, avgBrightness = 0, avgContrast = 0, avgSharpness = 0, hasDimensions, stlData = null }){
+  const stlText = stlData?.shapeHint?.keywords?.join(" ") || "";
+  const text = normalizeText(`${title} ${description} ${stlText}`);
 
   const pieceType = scoreFromKeywords(text, [
     { key: "wearable", label: "Masca / piesa purtabila", keywords: ["masca", "fata", "ochi", "nas", "gura", "frunte", "viziera"] },
@@ -270,10 +386,14 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
   };
 
   const needs = parseNeeds(text);
-  const volCm3 = Math.max(1, (l * w * h) / 1000);
+  const dimVolCm3 = Math.max(1, (l * w * h) / 1000);
+  const stlVolCm3 = stlData?.volumeCm3 || 0;
+  const volCm3 = stlVolCm3 > 0
+    ? Math.max(1, hasDimensions ? ((stlVolCm3 * 0.82) + (dimVolCm3 * 0.18)) : stlVolCm3)
+    : dimVolCm3;
   const volM3 = volCm3 / 1000000;
-  const maxDimMm = Math.max(l, w, h);
-  const minDimMm = Math.min(l, w, h);
+  const maxDimMm = stlData ? Math.max(stlData.spanX || 0, stlData.spanY || 0, stlData.spanZ || 0, l, w, h) : Math.max(l, w, h);
+  const minDimMm = stlData ? Math.min(stlData.spanX || l, stlData.spanY || w, stlData.spanZ || h) : Math.min(l, w, h);
   const aspectRatio = maxDimMm / Math.max(1, minDimMm);
 
   const baseByType = {
@@ -388,6 +508,7 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
     + (imageCount ? Math.min(18, imageCount * 4) : 0)
     + (imageCount ? clamp((imageSignal - 1) * 12, -4, 8) : 0)
     + (hasDimensions ? 11 : 2)
+    + (stlData ? 16 : 0)
     + (volCm3 > 1 ? 9 : 0),
     40,
     92
@@ -435,6 +556,17 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
         coverage: imageCount >= 3 ? "Buna" : imageCount >= 1 ? "Partiala" : "Fara imagini",
         confidenceImpact: imageCount ? (imageSignal >= 1.05 ? "Creste mult increderea estimarii" : "Creste increderea estimarii") : "Fara suport vizual",
       },
+      stlAnalysis: stlData
+        ? {
+            enabled: true,
+            fileName: stlData.fileName,
+            triangleCount: stlData.triangleCount,
+            bbox: `${stlData.spanX}×${stlData.spanY}×${stlData.spanZ} mm`,
+            estimatedVolumeCm3: stlData.volumeCm3,
+            estimatedAreaCm2: stlData.areaCm2,
+            inferredShape: stlData.shapeHint.label,
+          }
+        : { enabled: false },
       riskNotes: [
         ...(maxDimMm >= 320 ? [`Dimensiunea maxima ${maxDimMm}mm sugereaza printare in bucati si asamblare.`] : []),
         ...(aspectRatio >= 5 ? ["Geometrie alungita: risc de deformare/instabilitate la print."] : []),
@@ -442,6 +574,7 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
         ...(/figurina|statuet|bust|miniatur|detali/.test(text) ? ["Obiect decorativ cu detalii fine: probabil necesita slefuire/finisaj."] : []),
         ...((imageCount && !(title || description)) ? ["Doar poze fara text: risc mai mare de interpretare gresita."] : []),
         ...(materialInference.inferred !== material ? [`Material posibil mai potrivit decat ${material}: ${materialInference.inferred} (dedus din cerinte text).`] : []),
+        ...(stlData ? [`Fisier STL analizat (${stlData.triangleCount} triunghiuri) pentru volum/dimensiuni mai realiste.`] : []),
         ...(materialAdvice.recommendation !== materialInference.inferred ? [`Pentru contextul detectat, sugestia finala de material este ${materialAdvice.recommendation}.`] : []),
         ...(!hasDimensions ? ["Dimensiunile lipsesc sau pot fi inexacte: estimarea compenseaza cu marja mai larga."] : []),
       ],
@@ -562,6 +695,9 @@ function renderResult(res){
       ? res.analysisSignals.keywordSignals.objective.map((g) => `${g.label} (${g.hits.join(", ")})`).join(" · ")
       : "general"}</div>
     <div class="quote-needs"><strong>Ce vede in poze (metadate):</strong> ${res.analysisSignals.imageAnalysis.imageCount} imagine(i), ~${res.analysisSignals.imageAnalysis.avgMp} MP mediu, claritate ~${res.analysisSignals.imageAnalysis.avgSharpness}, contrast ~${res.analysisSignals.imageAnalysis.avgContrast}, acoperire: ${res.analysisSignals.imageAnalysis.coverage}, impact: ${res.analysisSignals.imageAnalysis.confidenceImpact}.</div>
+    ${res.analysisSignals.stlAnalysis.enabled
+      ? `<div class="quote-needs"><strong>Ce a extras din STL:</strong> ${res.analysisSignals.stlAnalysis.fileName} · ${res.analysisSignals.stlAnalysis.triangleCount} triunghiuri · gabarit ${res.analysisSignals.stlAnalysis.bbox} · volum mesh ~${res.analysisSignals.stlAnalysis.estimatedVolumeCm3} cm³ · suprafata ~${res.analysisSignals.stlAnalysis.estimatedAreaCm2} cm² · tip dedus: ${res.analysisSignals.stlAnalysis.inferredShape}.</div>`
+      : `<div class="quote-needs"><strong>Analiza STL:</strong> Fara STL incarcat. Pentru estimare mai reala, adauga fisierul STL daca il ai.</div>`}
     <div class="quote-needs"><strong>Sugestie material:</strong> ${res.materialAdvice.recommendation} · ${res.materialAdvice.reasons.join(" ")}</div>
     <div class="quote-needs"><strong>Analiza probabilistica (${res.analysisSignals.scenarioInsights.simulationCount} scenarii):</strong> ${res.analysisSignals.scenarioInsights.likely.map((s) =>
       `${s.label} (${Math.round(s.probability * 100)}% | interval probabil ${s.p10}-${s.p90} RON)`
@@ -597,13 +733,17 @@ function init(){
     const w = safeNum(wRaw, 40);
     const h = safeNum(hRaw, 20);
     const photos = $("q_photos")?.files || [];
+    const stlFile = $("q_stl")?.files?.[0] || null;
 
-    if (!title && !description && !photos.length) {
-      alert("Adauga macar text scurt sau poze pentru estimare.");
+    if (!title && !description && !photos.length && !stlFile) {
+      alert("Adauga macar text scurt, poze sau fisier STL pentru estimare.");
       return;
     }
 
-    const meta = await readImagesMeta(photos);
+    const [meta, stlData] = await Promise.all([
+      readImagesMeta(photos),
+      parseStlFile(stlFile),
+    ]);
     const result = estimateFromInput({
       title: title || "Piesa din poza",
       description: description || "Estimare bazata pe imagini si dimensiuni.",
@@ -616,6 +756,7 @@ function init(){
       avgContrast: meta.avgContrast,
       avgSharpness: meta.avgSharpness,
       hasDimensions,
+      stlData,
     });
 
     renderResult(result);
