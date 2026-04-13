@@ -262,6 +262,35 @@ async function extractFirst3mfModelXml(buf){
   const dv = new DataView(buf);
   const decoder = new TextDecoder("utf-8");
   const isLikelyModelEntry = (name) => name.endsWith(".model") && !name.includes(".rels");
+  const getUint64LE = (offset) => {
+    const low = dv.getUint32(offset, true);
+    const high = dv.getUint32(offset + 4, true);
+    return (BigInt(high) << 32n) + BigInt(low);
+  };
+  const toSafeNumber = (n) => {
+    if (typeof n === "bigint") return (n <= BigInt(Number.MAX_SAFE_INTEGER)) ? Number(n) : null;
+    return Number.isFinite(n) ? n : null;
+  };
+  const parseZip64Extra = (start, len) => {
+    let ptr = start;
+    const end = Math.min(bytes.length, start + len);
+    const out = {};
+    while (ptr + 4 <= end){
+      const headerId = dv.getUint16(ptr, true);
+      const dataSize = dv.getUint16(ptr + 2, true);
+      const dataStart = ptr + 4;
+      const dataEnd = dataStart + dataSize;
+      if (dataEnd > end) break;
+      if (headerId === 0x0001){
+        let r = dataStart;
+        if (r + 8 <= dataEnd) { out.uncompressedSize = toSafeNumber(getUint64LE(r)); r += 8; }
+        if (r + 8 <= dataEnd) { out.compressedSize = toSafeNumber(getUint64LE(r)); r += 8; }
+        if (r + 8 <= dataEnd) { out.localHeaderOffset = toSafeNumber(getUint64LE(r)); r += 8; }
+      }
+      ptr = dataEnd;
+    }
+    return out;
+  };
   const unpackEntry = async (method, data) => {
     if (method === 0) return decoder.decode(data);
     if (method === 8){
@@ -310,21 +339,33 @@ async function extractFirst3mfModelXml(buf){
     for (let entry = 0; entry < totalEntries && cdOffset + 46 <= bytes.length; entry++){
       if (dv.getUint32(cdOffset, true) !== 0x02014B50) break;
       const method = dv.getUint16(cdOffset + 10, true);
-      const compressedSize = dv.getUint32(cdOffset + 20, true);
+      let compressedSize = dv.getUint32(cdOffset + 20, true);
       const fileNameLen = dv.getUint16(cdOffset + 28, true);
       const extraLen = dv.getUint16(cdOffset + 30, true);
       const commentLen = dv.getUint16(cdOffset + 32, true);
-      const localHeaderOffset = dv.getUint32(cdOffset + 42, true);
+      let localHeaderOffset = dv.getUint32(cdOffset + 42, true);
       const nameStart = cdOffset + 46;
       const nameEnd = nameStart + fileNameLen;
       const fileName = decoder.decode(bytes.slice(nameStart, nameEnd)).toLowerCase();
+      const zip64 = parseZip64Extra(nameEnd, extraLen);
+      if (compressedSize === 0xFFFFFFFF && Number.isFinite(zip64.compressedSize)) compressedSize = zip64.compressedSize;
+      if (localHeaderOffset === 0xFFFFFFFF && Number.isFinite(zip64.localHeaderOffset)) localHeaderOffset = zip64.localHeaderOffset;
 
       if (isLikelyModelEntry(fileName)){
         if (localHeaderOffset + 30 > bytes.length) return null;
+        if (dv.getUint32(localHeaderOffset, true) !== 0x04034B50) return null;
+        const gpFlag = dv.getUint16(localHeaderOffset + 6, true);
+        const localMethod = dv.getUint16(localHeaderOffset + 8, true);
+        if (localMethod !== method) return null;
         const localNameLen = dv.getUint16(localHeaderOffset + 26, true);
         const localExtraLen = dv.getUint16(localHeaderOffset + 28, true);
         const dataStart = localHeaderOffset + 30 + localNameLen + localExtraLen;
-        const dataEnd = dataStart + compressedSize;
+        const sizeFromLocal = dv.getUint32(localHeaderOffset + 18, true);
+        const effectiveCompressedSize = (compressedSize === 0xFFFFFFFF || compressedSize <= 0)
+          ? sizeFromLocal
+          : compressedSize;
+        if ((gpFlag & 0x08) && (!effectiveCompressedSize || effectiveCompressedSize <= 0)) return null;
+        const dataEnd = dataStart + effectiveCompressedSize;
         if (dataEnd > bytes.length) return null;
         const unpacked = await unpackEntry(method, bytes.slice(dataStart, dataEnd));
         if (unpacked && /<\s*model[\s>]/i.test(unpacked)) return unpacked;
@@ -341,7 +382,7 @@ function parse3mfModelXml(xmlText, fileName){
   const doc = parser.parseFromString(xmlText, "application/xml");
   if (doc.querySelector("parsererror")) return null;
 
-  const meshNodes = Array.from(doc.getElementsByTagName("mesh"));
+  const meshNodes = Array.from(doc.getElementsByTagName("*")).filter((n) => n.localName === "mesh");
   if (!meshNodes.length) return null;
 
   const vertices = [];
@@ -349,14 +390,15 @@ function parse3mfModelXml(xmlText, fileName){
   let triCount = 0;
 
   for (const mesh of meshNodes){
-    const verticesNode = mesh.getElementsByTagName("vertices")[0];
-    const trianglesNode = mesh.getElementsByTagName("triangles")[0];
-    const localVertices = Array.from(verticesNode ? verticesNode.getElementsByTagName("vertex") : []).map((v) => ([
+    const children = Array.from(mesh.children || []);
+    const verticesNode = children.find((n) => n.localName === "vertices");
+    const trianglesNode = children.find((n) => n.localName === "triangles");
+    const localVertices = Array.from(verticesNode ? verticesNode.children : []).filter((n) => n.localName === "vertex").map((v) => ([
       safeNum(v.getAttribute("x"), 0),
       safeNum(v.getAttribute("y"), 0),
       safeNum(v.getAttribute("z"), 0),
     ]));
-    const localTriangles = Array.from(trianglesNode ? trianglesNode.getElementsByTagName("triangle") : []).map((t) => ([
+    const localTriangles = Array.from(trianglesNode ? trianglesNode.children : []).filter((n) => n.localName === "triangle").map((t) => ([
       safeNum(t.getAttribute("v1"), -1),
       safeNum(t.getAttribute("v2"), -1),
       safeNum(t.getAttribute("v3"), -1),
