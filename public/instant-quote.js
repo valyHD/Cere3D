@@ -261,6 +261,7 @@ async function extractFirst3mfModelXml(buf){
 
   const dv = new DataView(buf);
   const decoder = new TextDecoder("utf-8");
+  const isLikelyModelEntry = (name) => name.endsWith(".model") && !name.includes(".rels");
   const unpackEntry = async (method, data) => {
     if (method === 0) return decoder.decode(data);
     if (method === 8){
@@ -275,6 +276,7 @@ async function extractFirst3mfModelXml(buf){
   while (offset + 30 <= bytes.length){
     const sig = dv.getUint32(offset, true);
     if (sig !== 0x04034B50) break;
+    const generalPurposeFlag = dv.getUint16(offset + 6, true);
     const method = dv.getUint16(offset + 8, true);
     const compressedSize = dv.getUint32(offset + 18, true);
     const fileNameLen = dv.getUint16(offset + 26, true);
@@ -287,9 +289,14 @@ async function extractFirst3mfModelXml(buf){
 
     const fileName = decoder.decode(bytes.slice(nameStart, nameEnd));
     const normalizedName = fileName.toLowerCase();
-    if (normalizedName.endsWith(".model") && normalizedName.includes("3d/")){
+    if (isLikelyModelEntry(normalizedName)){
+      if (generalPurposeFlag & 0x08){
+        // marimea reala poate fi in data descriptor, deci continuam prin central directory
+        break;
+      }
       const raw = bytes.slice(dataStart, dataEnd);
-      return unpackEntry(method, raw);
+      const unpacked = await unpackEntry(method, raw);
+      if (unpacked && /<\s*model[\s>]/i.test(unpacked)) return unpacked;
     }
     offset = Math.max(dataEnd, offset + 30);
   }
@@ -312,14 +319,15 @@ async function extractFirst3mfModelXml(buf){
       const nameEnd = nameStart + fileNameLen;
       const fileName = decoder.decode(bytes.slice(nameStart, nameEnd)).toLowerCase();
 
-      if (fileName.endsWith(".model") && fileName.includes("3d/")){
+      if (isLikelyModelEntry(fileName)){
         if (localHeaderOffset + 30 > bytes.length) return null;
         const localNameLen = dv.getUint16(localHeaderOffset + 26, true);
         const localExtraLen = dv.getUint16(localHeaderOffset + 28, true);
         const dataStart = localHeaderOffset + 30 + localNameLen + localExtraLen;
         const dataEnd = dataStart + compressedSize;
         if (dataEnd > bytes.length) return null;
-        return unpackEntry(method, bytes.slice(dataStart, dataEnd));
+        const unpacked = await unpackEntry(method, bytes.slice(dataStart, dataEnd));
+        if (unpacked && /<\s*model[\s>]/i.test(unpacked)) return unpacked;
       }
       cdOffset = nameEnd + extraLen + commentLen;
     }
