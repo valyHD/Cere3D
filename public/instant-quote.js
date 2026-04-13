@@ -24,6 +24,11 @@ function parseNeeds(text){
   return needs.length ? needs : ["Necesitati generale (fara constrangeri explicite)"];
 }
 
+function safeNum(v, fallback){
+  const n = Number(v);
+  return Number.isFinite(n) ? n : fallback;
+}
+
 function estimateFromInput({ title, description, material, qty, l, w, h, imageCount, avgMp }){
   const text = `${title} ${description}`.toLowerCase();
 
@@ -44,6 +49,7 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
 
   const needs = parseNeeds(text);
   const volCm3 = Math.max(1, (l * w * h) / 1000);
+  const volM3 = volCm3 / 1000000;
   const maxDimMm = Math.max(l, w, h);
   const minDimMm = Math.min(l, w, h);
   const aspectRatio = maxDimMm / Math.max(1, minDimMm);
@@ -75,14 +81,20 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
   const slenderRiskMult = aspectRatio >= 4 ? 1.1 : 1;
 
   const base = baseByType[pieceType.key] || baseByType.general;
-  // Fara plafonare agresiva, ca sa reactioneze corect la piese foarte mari/inalte.
-  const sizeFactor = 0.95 + Math.pow(volCm3 / 45, 0.62);
-  const qtyFactor = 1 + Math.log2(Math.max(1, qty)) * 0.35;
+  // Crestere mai vizibila pentru piese mari (ex: 200mm vs 2000mm trebuie sa fie clar diferit).
+  const sizeFactor = 0.8 + Math.pow(volCm3 / 35, 0.75);
+  const qtyFactor = 1 + Math.log2(Math.max(1, qty)) * 0.42;
 
   const complexityText = clamp((description.length / 240) + (needs.length * 0.12), 0.6, 1.7);
   const imageBoost = imageCount ? clamp(1 + Math.min(0.2, imageCount * 0.03) + Math.min(0.12, avgMp * 0.015), 1, 1.35) : 1;
 
   const materialFactor = materialMult[material] || 1;
+  const modelingCost = title || description
+    ? clamp(20 + description.length * 0.08 + imageCount * 4, 20, 190)
+    : clamp(35 + imageCount * 9, 35, 220);
+  const setupCost = clamp(18 + Math.max(0, (maxDimMm - 120) * 0.05), 18, 140);
+  const riskCost = (imageCount && !(title || description)) ? 35 : 0;
+
   const estimated = base
     * sizeFactor
     * qtyFactor
@@ -92,7 +104,10 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
     * detailDemandMult
     * urgencyMult
     * tallPartMult
-    * slenderRiskMult;
+    * slenderRiskMult
+    + modelingCost
+    + setupCost
+    + riskCost;
   const low = Math.round(estimated * 0.82);
   const high = Math.round(estimated * 1.22);
   const printHours = Math.max(1, Math.round((volCm3 * 0.09 + maxDimMm * 0.03) * detailDemandMult));
@@ -113,7 +128,13 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
     priceRange: { low, high },
     confidence: Math.round(confidence),
     volCm3: Math.round(volCm3),
+    volM3,
     printHours,
+    priceBreakdown: {
+      modelingCost: Math.round(modelingCost),
+      setupCost: Math.round(setupCost),
+      riskCost: Math.round(riskCost),
+    },
   };
 }
 
@@ -151,6 +172,7 @@ function renderResult(res){
       <div class="quote-kpi"><span>Piesa detectata</span><strong>${res.pieceType.label}</strong></div>
       <div class="quote-kpi"><span>Scop detectat</span><strong>${res.objective.label}</strong></div>
       <div class="quote-kpi"><span>Volum estimat</span><strong>${res.volCm3} cm³</strong></div>
+      <div class="quote-kpi"><span>Volum estimat m³</span><strong>${res.volM3.toFixed(6)} m³</strong></div>
       <div class="quote-kpi"><span>Timp printare</span><strong>~${res.printHours}h</strong></div>
       <div class="quote-kpi"><span>Incredere analiza</span><strong>${res.confidence}%</strong></div>
     </div>
@@ -159,6 +181,7 @@ function renderResult(res){
       <div class="quote-price-value">${res.priceRange.low} - ${res.priceRange.high} RON</div>
       <p>Interval orientativ, calculat din text + imagini + dimensiuni. Pretul final vine din ofertele reale primite dupa postare.</p>
     </div>
+    <div class="quote-needs"><strong>Costuri incluse:</strong> modelare/verificare ~${res.priceBreakdown.modelingCost} RON · setup/exploatare ~${res.priceBreakdown.setupCost} RON${res.priceBreakdown.riskCost ? ` · risc estimare din poze ~${res.priceBreakdown.riskCost} RON` : ""}</div>
     <div class="quote-needs"><strong>Ce a inteles sistemul ca iti doresti:</strong> ${res.needs.join(" · ")}</div>
   `;
 }
@@ -174,20 +197,22 @@ function init(){
     const title = ($("q_title")?.value || "").trim();
     const description = ($("q_description")?.value || "").trim();
     const material = $("q_material")?.value || "PLA";
-    const qty = Number($("q_qty")?.value || 1);
-    const l = Number($("q_l")?.value || 50);
-    const w = Number($("q_w")?.value || 40);
-    const h = Number($("q_h")?.value || 20);
+    const qty = safeNum($("q_qty")?.value, 1);
+    const l = safeNum($("q_l")?.value, 60);
+    const w = safeNum($("q_w")?.value, 40);
+    const h = safeNum($("q_h")?.value, 20);
     const photos = $("q_photos")?.files || [];
 
-    if (!title || !description) {
-      alert("Completeaza titlul si descrierea pentru estimare.");
+    if (!title && !description && !photos.length) {
+      alert("Adauga macar text scurt sau poze pentru estimare.");
       return;
     }
 
     const meta = await readImagesMeta(photos);
     const result = estimateFromInput({
-      title, description, material,
+      title: title || "Piesa din poza",
+      description: description || "Estimare automata bazata pe imagini si dimensiuni.",
+      material,
       qty: Math.max(1, qty),
       l: Math.max(1, l), w: Math.max(1, w), h: Math.max(1, h),
       imageCount: meta.count,
