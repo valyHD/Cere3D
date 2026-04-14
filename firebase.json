@@ -14,7 +14,17 @@
       },
       {
         "source": "/printare-3d-romania.html",
-        "destination": "/printare-3d.html",
+        "destination": "/servicii-printare-3d-romania.html",
+        "type": 301
+      },
+      {
+        "source": "/print-3d-romania.html",
+        "destination": "/servicii-printare-3d-romania.html",
+        "type": 301
+      },
+      {
+        "source": "/printare-3d-la-comanda-romania.html",
+        "destination": "/servicii-printare-3d-romania.html",
         "type": 301
       },
       {
