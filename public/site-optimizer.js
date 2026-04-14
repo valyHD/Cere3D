@@ -12,7 +12,7 @@
   }
 
   function absoluteCanonical() {
-    const path = pathname();
+    const path = pathname().replace(/\/index\.html$/i, "/");
     const base = window.location.origin || SITE_ORIGIN;
     return `${base}${path}`;
   }
@@ -140,6 +140,16 @@
       robots.content = "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1";
     }
 
+    let googlebot = document.querySelector("meta[name='googlebot']");
+    if (!googlebot) {
+      googlebot = document.createElement("meta");
+      googlebot.name = "googlebot";
+      document.head.appendChild(googlebot);
+    }
+    if (!googlebot.getAttribute("content")) {
+      googlebot.content = "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1";
+    }
+
     if (!document.querySelector("link[rel='alternate'][hreflang='ro-RO']")) {
       const altRo = document.createElement("link");
       altRo.rel = "alternate";
@@ -183,6 +193,105 @@
         name: BRAND,
         url: SITE_ORIGIN
       }
+    });
+    document.head.appendChild(script);
+  }
+
+  function ensureBreadcrumbSchema() {
+    const hasSchema = [...document.querySelectorAll("script[type='application/ld+json']")]
+      .some((n) => /"@type"\s*:\s*"BreadcrumbList"/.test(n.textContent || ""));
+    if (hasSchema) return;
+
+    const slug = slugFromPath();
+    const pageName = humanizeSlug(slug);
+    const canonical = absoluteCanonical();
+
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: BRAND,
+          item: `${SITE_ORIGIN}/`
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: pageName,
+          item: canonical
+        }
+      ]
+    });
+    document.head.appendChild(script);
+  }
+
+  function ensureServiceSchema() {
+    const hasSchema = [...document.querySelectorAll("script[type='application/ld+json']")]
+      .some((n) => /"@type"\s*:\s*"Service"/.test(n.textContent || ""));
+    if (hasSchema) return;
+
+    const slug = slugFromPath();
+    const pageName = humanizeSlug(slug);
+    const description =
+      document.querySelector("meta[name='description']")?.getAttribute("content") ||
+      "Serviciu de printare 3D la comanda in Romania, pentru piese, obiecte personalizate si prototipuri.";
+
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: pageName,
+      serviceType: slugPrimaryKeywords(slug),
+      provider: {
+        "@type": "Organization",
+        name: BRAND,
+        url: SITE_ORIGIN
+      },
+      areaServed: {
+        "@type": "Country",
+        name: "Romania"
+      },
+      url: absoluteCanonical(),
+      description
+    });
+    document.head.appendChild(script);
+  }
+
+  function ensureFaqSchemaFromPage() {
+    const hasFaq = [...document.querySelectorAll("script[type='application/ld+json']")]
+      .some((n) => /"@type"\s*:\s*"FAQPage"/.test(n.textContent || ""));
+    if (hasFaq) return;
+
+    const faqNodes = [...document.querySelectorAll("details")]
+      .map((node) => {
+        const q = (node.querySelector("summary")?.textContent || "").trim();
+        const a = (node.querySelector("p, div, span")?.textContent || "").trim();
+        if (!q || !a || a.length < 20) return null;
+        return {
+          "@type": "Question",
+          name: q,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: a
+          }
+        };
+      })
+      .filter(Boolean)
+      .slice(0, 6);
+
+    if (faqNodes.length < 2) return;
+
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqNodes
     });
     document.head.appendChild(script);
   }
@@ -314,6 +423,9 @@
     ensureIndexingMeta();
     ensurePrimaryHeading();
     ensureWebPageSchema();
+    ensureBreadcrumbSchema();
+    ensureServiceSchema();
+    ensureFaqSchemaFromPage();
     ensureLocalBusinessSchema();
     ensureCrawlLinksBlock();
     optimizeImages();
