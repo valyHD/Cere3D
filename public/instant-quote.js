@@ -162,9 +162,7 @@ function inferShapeFromFileName(fileName){
   ]);
 }
 
-async function parseStlFile(file){
-  if (!file) return null;
-  const buf = await file.arrayBuffer();
+function parseStlBuffer(buf, fileName){
   if (!buf || buf.byteLength < 84) return null;
 
   const bytes = new Uint8Array(buf);
@@ -228,7 +226,7 @@ async function parseStlFile(file){
 
   return {
     hasStl: true,
-    fileName: file.name,
+    fileName: fileName || "model.stl",
     triangleCount: triangles.length,
     spanX: Math.round(spanX),
     spanY: Math.round(spanY),
@@ -238,6 +236,12 @@ async function parseStlFile(file){
     areaCm2: Math.round(areaMm2 / 100),
     shapeHint,
   };
+}
+
+async function parseStlFile(file){
+  if (!file) return null;
+  const buf = await file.arrayBuffer();
+  return parseStlBuffer(buf, file.name);
 }
 
 async function inflateDeflateRaw(data){
@@ -385,6 +389,62 @@ async function extractFirst3mfModelXml(buf){
         if (unpacked && /<\s*model[\s>]/i.test(unpacked)) return unpacked;
       }
       cdOffset = nameEnd + extraLen + commentLen;
+    }
+  }
+  return null;
+}
+
+async function extractFirst3mfEmbeddedStl(buf){
+  const bytes = new Uint8Array(buf);
+  if (bytes.length < 30 || bytes[0] !== 0x50 || bytes[1] !== 0x4B) return null;
+
+  const dv = new DataView(buf);
+  const decoder = new TextDecoder("utf-8");
+  const isStlEntry = (name) => name.endsWith(".stl") && !name.includes("__macosx/");
+  const unpackEntry = async (method, data) => {
+    if (method === 0) return data;
+    if (method === 8){
+      const inflated = await inflateDeflateRaw(data);
+      return inflated || null;
+    }
+    return null;
+  };
+
+  let offset = 0;
+  while (offset + 30 <= bytes.length){
+    const sig = dv.getUint32(offset, true);
+    if (sig !== 0x04034B50) break;
+    const generalPurposeFlag = dv.getUint16(offset + 6, true);
+    const method = dv.getUint16(offset + 8, true);
+    const compressedSize = dv.getUint32(offset + 18, true);
+    const fileNameLen = dv.getUint16(offset + 26, true);
+    const extraLen = dv.getUint16(offset + 28, true);
+    const nameStart = offset + 30;
+    const nameEnd = nameStart + fileNameLen;
+    const dataStart = nameEnd + extraLen;
+    if (nameEnd > bytes.length) break;
+    const lowerName = decoder.decode(bytes.slice(nameStart, nameEnd)).toLowerCase();
+
+    if ((generalPurposeFlag & 0x08) === 0){
+      const dataEnd = dataStart + compressedSize;
+      if (dataEnd > bytes.length) break;
+      if (isStlEntry(lowerName)){
+        const unpacked = await unpackEntry(method, bytes.slice(dataStart, dataEnd));
+        if (unpacked){
+          const stlName = lowerName.split("/").pop() || "embedded.stl";
+          return {
+            fileName: stlName,
+            buffer: unpacked.buffer.slice(unpacked.byteOffset, unpacked.byteOffset + unpacked.byteLength),
+          };
+        }
+      }
+      offset = Math.max(dataEnd, offset + 30);
+      continue;
+    }
+
+    offset += 30 + fileNameLen + extraLen;
+    while (offset + 4 <= bytes.length && dv.getUint32(offset, true) !== 0x04034B50){
+      offset += 1;
     }
   }
   return null;
@@ -578,7 +638,15 @@ async function parseModelFile(file){
   if (ext === "3mf"){
     const buf = await file.arrayBuffer();
     const xml = await extractFirst3mfModelXml(buf);
-    return withNameHint(parse3mfModelXml(xml, file.name), "3MF");
+    const parsed3mf = parse3mfModelXml(xml, file.name);
+    if (parsed3mf) return withNameHint(parsed3mf, "3MF");
+
+    const embeddedStl = await extractFirst3mfEmbeddedStl(buf);
+    if (embeddedStl){
+      const parsedStl = parseStlBuffer(embeddedStl.buffer, embeddedStl.fileName || file.name);
+      if (parsedStl) return withNameHint({ ...parsedStl, sourceType: "3MF (mesh STL inclus)" }, "3MF");
+    }
+    return null;
   }
   return withNameHint(await parseStlFile(file), "STL");
 }
