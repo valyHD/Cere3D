@@ -259,13 +259,11 @@ async function inflateDeflateRaw(data){
   return null;
 }
 
-async function extractFirst3mfModelXml(buf){
+function parseZipEntries(buf){
   const bytes = new Uint8Array(buf);
-  if (bytes.length < 30 || bytes[0] !== 0x50 || bytes[1] !== 0x4B) return null;
-
+  if (bytes.length < 22 || bytes[0] !== 0x50 || bytes[1] !== 0x4B) return [];
   const dv = new DataView(buf);
   const decoder = new TextDecoder("utf-8");
-  const isLikelyModelEntry = (name) => name.endsWith(".model") && !name.includes(".rels");
   const getUint64LE = (offset) => {
     const low = dv.getUint32(offset, true);
     const high = dv.getUint32(offset + 4, true);
@@ -295,46 +293,8 @@ async function extractFirst3mfModelXml(buf){
     }
     return out;
   };
-  const unpackEntry = async (method, data) => {
-    if (method === 0) return decoder.decode(data);
-    if (method === 8){
-      const inflated = await inflateDeflateRaw(data);
-      return inflated ? decoder.decode(inflated) : null;
-    }
-    return null;
-  };
 
-  let offset = 0;
-
-  while (offset + 30 <= bytes.length){
-    const sig = dv.getUint32(offset, true);
-    if (sig !== 0x04034B50) break;
-    const generalPurposeFlag = dv.getUint16(offset + 6, true);
-    const method = dv.getUint16(offset + 8, true);
-    const compressedSize = dv.getUint32(offset + 18, true);
-    const fileNameLen = dv.getUint16(offset + 26, true);
-    const extraLen = dv.getUint16(offset + 28, true);
-    const nameStart = offset + 30;
-    const nameEnd = nameStart + fileNameLen;
-    const dataStart = nameEnd + extraLen;
-    const dataEnd = dataStart + compressedSize;
-    if (dataEnd > bytes.length) break;
-
-    const fileName = decoder.decode(bytes.slice(nameStart, nameEnd));
-    const normalizedName = fileName.toLowerCase();
-    if (isLikelyModelEntry(normalizedName)){
-      if (generalPurposeFlag & 0x08){
-        // marimea reala poate fi in data descriptor, deci continuam prin central directory
-        break;
-      }
-      const raw = bytes.slice(dataStart, dataEnd);
-      const unpacked = await unpackEntry(method, raw);
-      if (unpacked && /<\s*model[\s>]/i.test(unpacked)) return unpacked;
-    }
-    offset = Math.max(dataEnd, offset + 30);
-  }
-
-  for (let i = bytes.length - 22; i >= Math.max(0, bytes.length - 65558); i--){
+  for (let i = bytes.length - 22; i >= Math.max(0, bytes.length - 131072); i--){
     if (dv.getUint32(i, true) !== 0x06054B50) continue;
     let totalEntries = dv.getUint16(i + 10, true);
     let centralDirOffset = dv.getUint32(i + 16, true);
@@ -352,54 +312,81 @@ async function extractFirst3mfModelXml(buf){
       }
     }
     if (!Number.isFinite(totalEntries) || !Number.isFinite(centralDirOffset)) continue;
-    let cdOffset = centralDirOffset;
 
+    const out = [];
+    let cdOffset = centralDirOffset;
     for (let entry = 0; entry < totalEntries && cdOffset + 46 <= bytes.length; entry++){
       if (dv.getUint32(cdOffset, true) !== 0x02014B50) break;
       const method = dv.getUint16(cdOffset + 10, true);
       let compressedSize = dv.getUint32(cdOffset + 20, true);
+      let uncompressedSize = dv.getUint32(cdOffset + 24, true);
       const fileNameLen = dv.getUint16(cdOffset + 28, true);
       const extraLen = dv.getUint16(cdOffset + 30, true);
       const commentLen = dv.getUint16(cdOffset + 32, true);
       let localHeaderOffset = dv.getUint32(cdOffset + 42, true);
       const nameStart = cdOffset + 46;
       const nameEnd = nameStart + fileNameLen;
+      if (nameEnd > bytes.length) break;
       const fileName = decoder.decode(bytes.slice(nameStart, nameEnd)).toLowerCase();
       const zip64 = parseZip64Extra(nameEnd, extraLen);
       if (compressedSize === 0xFFFFFFFF && Number.isFinite(zip64.compressedSize)) compressedSize = zip64.compressedSize;
+      if (uncompressedSize === 0xFFFFFFFF && Number.isFinite(zip64.uncompressedSize)) uncompressedSize = zip64.uncompressedSize;
       if (localHeaderOffset === 0xFFFFFFFF && Number.isFinite(zip64.localHeaderOffset)) localHeaderOffset = zip64.localHeaderOffset;
-
-      if (isLikelyModelEntry(fileName)){
-        if (localHeaderOffset + 30 > bytes.length) return null;
-        if (dv.getUint32(localHeaderOffset, true) !== 0x04034B50) return null;
-        const gpFlag = dv.getUint16(localHeaderOffset + 6, true);
-        const localMethod = dv.getUint16(localHeaderOffset + 8, true);
-        if (localMethod !== method) return null;
-        const localNameLen = dv.getUint16(localHeaderOffset + 26, true);
-        const localExtraLen = dv.getUint16(localHeaderOffset + 28, true);
-        const dataStart = localHeaderOffset + 30 + localNameLen + localExtraLen;
-        const sizeFromLocal = dv.getUint32(localHeaderOffset + 18, true);
-        const effectiveCompressedSize = (compressedSize === 0xFFFFFFFF || compressedSize <= 0)
-          ? sizeFromLocal
-          : compressedSize;
-        if ((gpFlag & 0x08) && (!effectiveCompressedSize || effectiveCompressedSize <= 0)) return null;
-        const dataEnd = dataStart + effectiveCompressedSize;
-        if (dataEnd > bytes.length) return null;
-        const unpacked = await unpackEntry(method, bytes.slice(dataStart, dataEnd));
-        if (unpacked && /<\s*model[\s>]/i.test(unpacked)) return unpacked;
-      }
+      out.push({ fileName, method, compressedSize, uncompressedSize, localHeaderOffset });
       cdOffset = nameEnd + extraLen + commentLen;
     }
+    if (out.length) return out;
+  }
+  return [];
+}
+
+function getZipEntryCompressedData(buf, entry){
+  const bytes = new Uint8Array(buf);
+  const dv = new DataView(buf);
+  if (!entry || !Number.isFinite(entry.localHeaderOffset)) return null;
+  const offset = entry.localHeaderOffset;
+  if (offset + 30 > bytes.length) return null;
+  if (dv.getUint32(offset, true) !== 0x04034B50) return null;
+  const fileNameLen = dv.getUint16(offset + 26, true);
+  const extraLen = dv.getUint16(offset + 28, true);
+  const dataStart = offset + 30 + fileNameLen + extraLen;
+  const compressedSize = Number(entry.compressedSize || 0);
+  if (!compressedSize || compressedSize < 0) return null;
+  const dataEnd = dataStart + compressedSize;
+  if (dataEnd > bytes.length) return null;
+  return bytes.slice(dataStart, dataEnd);
+}
+
+async function extractFirst3mfModelXml(buf){
+  const decoder = new TextDecoder("utf-8");
+  const isLikelyModelEntry = (name) => name.endsWith(".model") && !name.includes(".rels");
+  const unpackEntry = async (method, data) => {
+    if (method === 0) return decoder.decode(data);
+    if (method === 8){
+      const inflated = await inflateDeflateRaw(data);
+      return inflated ? decoder.decode(inflated) : null;
+    }
+    return null;
+  };
+
+  const entries = parseZipEntries(buf)
+    .filter((entry) => isLikelyModelEntry(entry.fileName))
+    .sort((a, b) => {
+      const ap = a.fileName.includes("/3d/3dmodel.model") ? -1 : 0;
+      const bp = b.fileName.includes("/3d/3dmodel.model") ? -1 : 0;
+      return ap - bp;
+    });
+  for (const entry of entries){
+    const raw = getZipEntryCompressedData(buf, entry);
+    if (!raw) continue;
+    const unpacked = await unpackEntry(entry.method, raw);
+    if (unpacked && /<\s*model[\s>]/i.test(unpacked)) return unpacked;
   }
   return null;
 }
 
 async function extractFirst3mfEmbeddedStl(buf){
-  const bytes = new Uint8Array(buf);
-  if (bytes.length < 30 || bytes[0] !== 0x50 || bytes[1] !== 0x4B) return null;
-
-  const dv = new DataView(buf);
-  const decoder = new TextDecoder("utf-8");
+  const entries = parseZipEntries(buf);
   const isStlEntry = (name) => name.endsWith(".stl") && !name.includes("__macosx/");
   const unpackEntry = async (method, data) => {
     if (method === 0) return data;
@@ -410,41 +397,17 @@ async function extractFirst3mfEmbeddedStl(buf){
     return null;
   };
 
-  let offset = 0;
-  while (offset + 30 <= bytes.length){
-    const sig = dv.getUint32(offset, true);
-    if (sig !== 0x04034B50) break;
-    const generalPurposeFlag = dv.getUint16(offset + 6, true);
-    const method = dv.getUint16(offset + 8, true);
-    const compressedSize = dv.getUint32(offset + 18, true);
-    const fileNameLen = dv.getUint16(offset + 26, true);
-    const extraLen = dv.getUint16(offset + 28, true);
-    const nameStart = offset + 30;
-    const nameEnd = nameStart + fileNameLen;
-    const dataStart = nameEnd + extraLen;
-    if (nameEnd > bytes.length) break;
-    const lowerName = decoder.decode(bytes.slice(nameStart, nameEnd)).toLowerCase();
-
-    if ((generalPurposeFlag & 0x08) === 0){
-      const dataEnd = dataStart + compressedSize;
-      if (dataEnd > bytes.length) break;
-      if (isStlEntry(lowerName)){
-        const unpacked = await unpackEntry(method, bytes.slice(dataStart, dataEnd));
-        if (unpacked){
-          const stlName = lowerName.split("/").pop() || "embedded.stl";
-          return {
-            fileName: stlName,
-            buffer: unpacked.buffer.slice(unpacked.byteOffset, unpacked.byteOffset + unpacked.byteLength),
-          };
-        }
-      }
-      offset = Math.max(dataEnd, offset + 30);
-      continue;
-    }
-
-    offset += 30 + fileNameLen + extraLen;
-    while (offset + 4 <= bytes.length && dv.getUint32(offset, true) !== 0x04034B50){
-      offset += 1;
+  for (const entry of entries){
+    if (!isStlEntry(entry.fileName)) continue;
+    const raw = getZipEntryCompressedData(buf, entry);
+    if (!raw) continue;
+    const unpacked = await unpackEntry(entry.method, raw);
+    if (unpacked){
+      const stlName = entry.fileName.split("/").pop() || "embedded.stl";
+      return {
+        fileName: stlName,
+        buffer: unpacked.buffer.slice(unpacked.byteOffset, unpacked.byteOffset + unpacked.byteLength),
+      };
     }
   }
   return null;
@@ -1145,7 +1108,33 @@ function renderResult(res){
 function init(){
   const form = $("instantQuoteForm");
   const toPostBtn = $("goToPostBtn");
+  const stlInput = $("q_stl");
+  const uploadBox = $("q_stl_progress");
+  const uploadLabel = $("q_stl_progress_label");
+  const uploadBar = $("q_stl_progress_bar");
   if (!form || !toPostBtn) return;
+  const setUploadUi = ({ hidden = false, label = "", progress = 0, indeterminate = false } = {}) => {
+    if (!uploadBox || !uploadLabel || !uploadBar) return;
+    uploadBox.hidden = hidden;
+    uploadLabel.textContent = label;
+    uploadBox.classList.toggle("is-indeterminate", !!indeterminate);
+    uploadBar.style.width = `${clamp(progress, 0, 100)}%`;
+  };
+
+  if (stlInput){
+    stlInput.addEventListener("change", () => {
+      const file = stlInput.files?.[0];
+      if (!file){
+        setUploadUi({ hidden: true });
+        return;
+      }
+      setUploadUi({
+        hidden: false,
+        label: `Fisier selectat: ${file.name} (${Math.max(1, Math.round(file.size / 1024))} KB).`,
+        progress: 100,
+      });
+    });
+  }
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -1169,10 +1158,28 @@ function init(){
       return;
     }
 
+    if (stlFile){
+      setUploadUi({
+        hidden: false,
+        label: `Se analizeaza ${stlFile.name}...`,
+        progress: 25,
+        indeterminate: true,
+      });
+    }
     const [meta, stlData] = await Promise.all([
       readImagesMeta(photos),
       parseModelFile(stlFile),
     ]);
+    if (stlFile){
+      setUploadUi({
+        hidden: false,
+        label: stlData
+          ? `Fisier incarcat si citit: ${stlFile.name}.`
+          : `Fisier incarcat, dar geometria nu a putut fi citita: ${stlFile.name}.`,
+        progress: 100,
+        indeterminate: false,
+      });
+    }
     const result = estimateFromInput({
       title: title || "Piesa din poza",
       description: description || "Estimare bazata pe imagini si dimensiuni.",
