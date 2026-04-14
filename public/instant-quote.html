@@ -32,6 +32,17 @@
     .quote-price-value{font-size:1.4rem;color:#1d4ed8;font-weight:900}
     .quote-price p{margin:.35rem 0 0;color:#64748b;font-size:.86rem}
     .quote-needs{margin-top:8px;color:#1e293b}
+    .upload-progress{margin-top:8px;padding:10px 12px;border:1px solid #dbeafe;border-radius:10px;background:#f8fbff}
+    .upload-progress[hidden]{display:none}
+    .upload-progress-label{font-size:.85rem;font-weight:700;color:#1e3a8a;margin-bottom:7px}
+    .upload-progress-track{height:8px;background:#dbeafe;border-radius:999px;overflow:hidden}
+    .upload-progress-bar{height:100%;width:0%;background:linear-gradient(90deg,#3b82f6,#2563eb);transition:width .2s ease}
+    .upload-progress.is-indeterminate .upload-progress-bar{width:35%;animation:iq-indeterminate 1.2s ease-in-out infinite}
+    @keyframes iq-indeterminate{
+      0%{transform:translateX(-120%)}
+      50%{transform:translateX(130%)}
+      100%{transform:translateX(320%)}
+    }
     @media (max-width:760px){.iq-grid,.quote-kpi-row{grid-template-columns:1fr}}
   </style>
 </head>
@@ -96,6 +107,12 @@
         <div class="iq-field">
           <label for="q_stl">Fisier STL sau 3MF (optional, recomandat pentru pret mai real)</label>
           <input id="q_stl" type="file" accept=".stl,.3mf,model/stl,application/sla,model/3mf,application/vnd.ms-package.3dmanufacturing-3dmodel+xml" />
+          <div id="q_stl_progress" class="upload-progress" hidden>
+            <div id="q_stl_progress_label" class="upload-progress-label">Fisier selectat.</div>
+            <div class="upload-progress-track">
+              <div id="q_stl_progress_bar" class="upload-progress-bar"></div>
+            </div>
+          </div>
         </div>
 
         <div class="iq-field">
