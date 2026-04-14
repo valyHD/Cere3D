@@ -321,77 +321,128 @@
     document.head.appendChild(script);
   }
 
-  function ensurePrimaryHeading() {
-    if (document.querySelector("h1")) return;
+function ensurePrimaryHeading() {
+  const p = pathname().toLowerCase();
 
-    const firstHeading = document.querySelector("main h2, article h2, h2");
-    if (firstHeading) {
-      const h1 = document.createElement("h1");
-      h1.innerHTML = firstHeading.innerHTML;
-      h1.className = firstHeading.className;
-      firstHeading.replaceWith(h1);
-      return;
-    }
+  // pagini unde NU vrem H1 injectat automat
+  const skipPages = [
+    "/cereri.html",
+    "/cere.html",
+    "/auth.html",
+    "/cont.html",
+    "/mesaje.html",
+    "/printatori.html"
+  ];
 
-    const hero = document.querySelector("main, article, body");
-    if (!hero) return;
+  if (skipPages.includes(p)) return;
+  if (document.querySelector("h1")) return;
 
-    const slug = slugFromPath();
+  const firstHeading = document.querySelector("main h2, article h2, h2");
+  if (firstHeading) {
     const h1 = document.createElement("h1");
-    h1.textContent = humanizeSlug(slug);
-    h1.style.margin = "0 0 16px";
-    hero.prepend(h1);
+    h1.innerHTML = firstHeading.innerHTML;
+    h1.className = firstHeading.className;
+    firstHeading.replaceWith(h1);
+    return;
   }
 
-  function ensureCrawlLinksBlock() {
-    if (document.querySelector("[data-seo-crawl-links='true']")) return;
-    const container = document.querySelector("main") || document.body;
-    if (!container) return;
+  const hero = document.querySelector("main, article");
+  if (!hero) return;
 
-    const section = document.createElement("section");
-    section.setAttribute("data-seo-crawl-links", "true");
-    section.setAttribute("aria-label", "Pagini populare pentru printare 3D");
-    section.style.margin = "28px 0";
-    section.style.padding = "14px";
-    section.style.border = "1px solid #e5e7eb";
-    section.style.borderRadius = "10px";
-    section.style.background = "#fff";
+  const slug = slugFromPath();
+  const h1 = document.createElement("h1");
+  h1.textContent = humanizeSlug(slug);
+  h1.style.margin = "0 0 16px";
+  hero.prepend(h1);
+}
 
-    const title = document.createElement("h2");
-    title.textContent = "Pagini populare printare 3D";
-    title.style.fontSize = "1.1rem";
-    title.style.margin = "0 0 8px";
+function ensureCrawlLinksBlock() {
+  if (document.querySelector("[data-seo-crawl-links='true']")) return;
 
-    const links = [
-      ["/printare-3d-la-comanda.html", "Printare 3D la comanda"],
-      ["/printare-3d-piese.html", "Printare 3D piese"],
-      ["/printare-3d-online.html", "Printare 3D online"],
-      ["/comanda-printare-3d.html", "Comanda printare 3D"],
-      ["/pret-printare-3d-la-comanda.html", "Pret printare 3D"],
-      ["/modelare-3d-la-comanda.html", "Modelare 3D la comanda"]
-    ];
+  const footer = document.querySelector("footer");
+  const container = footer?.parentElement || document.querySelector("main") || document.body;
+  if (!container) return;
 
-    const ul = document.createElement("ul");
-    ul.style.margin = "0";
-    ul.style.paddingLeft = "18px";
+  const section = document.createElement("section");
+  section.setAttribute("data-seo-crawl-links", "true");
+  section.setAttribute("aria-label", "Pagini utile pentru printare 3D");
+  section.style.margin = "20px 0 0";
+  section.style.padding = "10px 0 0";
+  section.style.borderTop = "1px solid rgba(255,255,255,0.06)";
+  section.style.fontSize = "0.82rem";
+  section.style.lineHeight = "1.7";
+  section.style.opacity = "0.72";
+  section.style.transition = "opacity 0.2s ease";
 
-    const current = pathname();
-    links.forEach(([href, label]) => {
-      if (href === current) return;
-      const li = document.createElement("li");
-      const a = document.createElement("a");
-      a.href = href;
-      a.textContent = label;
-      li.appendChild(a);
-      ul.appendChild(li);
+  const wrapper = document.createElement("div");
+  wrapper.style.maxWidth = "1100px";
+  wrapper.style.margin = "0 auto";
+  wrapper.style.padding = "0 16px";
+  wrapper.style.textAlign = "center";
+
+  const title = document.createElement("div");
+  title.textContent = "Pagini utile";
+  title.style.marginBottom = "6px";
+  title.style.fontSize = "0.78rem";
+  title.style.fontWeight = "500";
+  title.style.letterSpacing = "0.02em";
+  title.style.textTransform = "uppercase";
+  title.style.color = "rgb(82, 82, 82)";
+
+  const links = [
+    ["/printare-3d-la-comanda.html", "Printare 3D la comanda"],
+    ["/printare-3d-piese.html", "Printare 3D piese"],
+    ["/printare-3d-online.html", "Printare 3D online"],
+    ["/comanda-printare-3d.html", "Comanda printare 3D"],
+    ["/pret-printare-3d-la-comanda.html", "Pret printare 3D"],
+    ["/modelare-3d-la-comanda.html", "Modelare 3D la comanda"]
+  ];
+
+  const current = pathname();
+
+  const linksWrap = document.createElement("div");
+  linksWrap.style.display = "flex";
+  linksWrap.style.flexWrap = "wrap";
+  linksWrap.style.justifyContent = "center";
+  linksWrap.style.gap = "6px 14px";
+
+  links.forEach(([href, label]) => {
+    if (href === current) return;
+
+    const a = document.createElement("a");
+    a.href = href;
+    a.textContent = label;
+    a.style.color = "rgb(82, 82, 82)";
+    a.style.textDecoration = "none";
+    a.style.borderBottom = "1px solid transparent";
+    a.style.transition = "color 0.2s ease, border-color 0.2s ease";
+    a.style.whiteSpace = "nowrap";
+
+    a.addEventListener("mouseenter", () => {
+      a.style.color = "rgb(82, 82, 82)";
+      a.style.borderBottomColor = "rgba(255,255,255,0.22)";
     });
 
-    if (!ul.childElementCount) return;
+    a.addEventListener("mouseleave", () => {
+      a.style.color = "rgb(82, 82, 82)";
+      a.style.borderBottomColor = "transparent";
+    });
 
-    section.appendChild(title);
-    section.appendChild(ul);
+    linksWrap.appendChild(a);
+  });
+
+  if (!linksWrap.childElementCount) return;
+
+  wrapper.appendChild(title);
+  wrapper.appendChild(linksWrap);
+  section.appendChild(wrapper);
+
+  if (footer && footer.parentElement) {
+    footer.parentElement.insertBefore(section, footer);
+  } else {
     container.appendChild(section);
   }
+}
 
   function optimizeImages() {
     const images = [...document.querySelectorAll("img")];

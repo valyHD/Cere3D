@@ -4,133 +4,710 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Instant Quote | Estimare pret printare 3D | Cere3D</title>
-  <meta name="description" content="Simuleaza postarea, analizeaza text + imagini si primeste un pret estimativ inainte sa publici cererea de printare 3D." />
+  <meta
+    name="description"
+    content="Simuleaza postarea, analizeaza text + imagini si primeste un pret estimativ inainte sa publici cererea de printare 3D."
+  />
   <link rel="canonical" href="https://cere3d.ro/instant-quote.html" />
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
-  <link rel="stylesheet" href="/styles.css" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Cere3D" />
+  <meta property="og:title" content="Instant Quote | Estimare pret printare 3D | Cere3D" />
+  <meta
+    property="og:description"
+    content="Primesti rapid un pret orientativ inainte sa postezi cererea de printare 3D."
+  />
+  <meta property="og:url" content="https://cere3d.ro/instant-quote.html" />
+  <meta property="og:image" content="https://cere3d.ro/assets/og-cere3d5.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Instant Quote | Estimare pret printare 3D | Cere3D" />
+  <meta
+    name="twitter:description"
+    content="Primesti rapid un pret orientativ inainte sa postezi cererea de printare 3D."
+  />
+  <meta name="twitter:image" content="https://cere3d.ro/assets/og-cere3d5.png" />
+
+  <link rel="stylesheet" href="/styles.css?v=20260328-5" />
+
   <style>
-    .iq-wrap{max-width:900px;margin:24px auto 60px;padding:0 16px}
-    .iq-head{margin:14px 0 20px}
-    .iq-head h1{font-size:1.65rem;margin:0 0 8px}
-    .iq-head p{color:#6b7280;margin:0}
-    .iq-card{background:#fff;border:1px solid #e5e7eb;border-radius:18px;padding:20px;box-shadow:0 10px 24px rgba(2,6,23,.05)}
-    .iq-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    .iq-field{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
-    .iq-field label{font-weight:700;font-size:.9rem}
-    .iq-field input,.iq-field textarea,.iq-field select{border:1px solid #d1d5db;border-radius:10px;padding:10px 12px;font:inherit}
-    .iq-field textarea{min-height:110px;resize:vertical}
-    .iq-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
-    .btn-primary{background:#2563eb;color:#fff;border:0;border-radius:10px;padding:11px 16px;font-weight:800;cursor:pointer}
-    .btn-ghost{background:#f8fafc;color:#0f172a;border:1px solid #cbd5e1;border-radius:10px;padding:11px 16px;font-weight:700;cursor:pointer}
-    .quote-result{margin-top:16px;padding:16px;border-radius:14px;background:#eff6ff;border:1px solid #bfdbfe}
-    .quote-kpi-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-    .quote-kpi{background:#fff;border-radius:10px;padding:10px;border:1px solid #dbeafe}
-    .quote-kpi span{display:block;font-size:.75rem;color:#64748b;text-transform:uppercase}
-    .quote-kpi strong{font-size:1rem}
-    .quote-price{margin-top:10px;background:#fff;border:1px solid #dbeafe;border-radius:10px;padding:12px}
-    .quote-price-label{font-size:.8rem;color:#475569;font-weight:700;text-transform:uppercase}
-    .quote-price-value{font-size:1.4rem;color:#1d4ed8;font-weight:900}
-    .quote-price p{margin:.35rem 0 0;color:#64748b;font-size:.86rem}
-    .quote-needs{margin-top:8px;color:#1e293b}
-    .upload-progress{margin-top:8px;padding:10px 12px;border:1px solid #dbeafe;border-radius:10px;background:#f8fbff}
-    .upload-progress[hidden]{display:none}
-    .upload-progress-label{font-size:.85rem;font-weight:700;color:#1e3a8a;margin-bottom:7px}
-    .upload-progress-track{height:8px;background:#dbeafe;border-radius:999px;overflow:hidden}
-    .upload-progress-bar{height:100%;width:0%;background:linear-gradient(90deg,#3b82f6,#2563eb);transition:width .2s ease}
-    .upload-progress.is-indeterminate .upload-progress-bar{width:35%;animation:iq-indeterminate 1.2s ease-in-out infinite}
+    body{
+      background:
+        radial-gradient(1200px 500px at 50% -10%, rgba(37,99,235,.08), transparent 60%),
+        linear-gradient(180deg, #f8fbff 0%, #ffffff 30%, #f9fafb 100%);
+    }
+
+    .iq-page{
+      padding-top: 18px;
+      padding-bottom: 40px;
+    }
+
+    .iq-hero{
+      margin: 10px 0 16px;
+    }
+
+    .iq-hero-card{
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(800px 240px at 0% 0%, rgba(37,99,235,.12), transparent 60%),
+        linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+      border: 1px solid rgba(37,99,235,.12);
+      border-radius: 24px;
+      padding: 22px 20px;
+      box-shadow: 0 16px 50px rgba(15, 23, 42, 0.06);
+    }
+
+    .iq-hero-card::after{
+      content:"";
+      position:absolute;
+      inset:auto -80px -80px auto;
+      width:240px;
+      height:240px;
+      border-radius:50%;
+      background: radial-gradient(circle, rgba(249,115,22,.12), transparent 65%);
+      pointer-events:none;
+    }
+
+    .iq-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-bottom:10px;
+      padding:7px 12px;
+      border-radius:999px;
+      background: rgba(37,99,235,.08);
+      color:#1d4ed8;
+      font-size:.82rem;
+      font-weight:800;
+      letter-spacing:.01em;
+    }
+
+    .iq-title{
+      margin:0 0 10px;
+      font-size: clamp(1.55rem, 2.4vw, 2.15rem);
+      line-height:1.15;
+      color:#0f172a;
+    }
+
+    .iq-lead{
+      margin:0;
+      max-width:850px;
+      color:#475569;
+      font-size:1rem;
+      line-height:1.7;
+    }
+
+    .iq-mini-points{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .iq-mini-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid #e5e7eb;
+      color:#334155;
+      font-size:.88rem;
+      font-weight:700;
+      box-shadow:0 6px 18px rgba(15,23,42,.04);
+    }
+
+    .iq-layout{
+      display:grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
+      gap:16px;
+      align-items:start;
+    }
+
+    .iq-main-card,
+    .iq-side-card{
+      background:#fff;
+      border:1px solid #e5e7eb;
+      border-radius:22px;
+      box-shadow:0 12px 34px rgba(2,6,23,.05);
+    }
+
+    .iq-main-card{
+      padding:20px;
+    }
+
+    .iq-side-card{
+      padding:18px;
+      position:sticky;
+      top:90px;
+    }
+
+    .iq-section-title{
+      margin:0 0 4px;
+      font-size:1.05rem;
+      color:#0f172a;
+    }
+
+    .iq-section-sub{
+      margin:0 0 16px;
+      color:#64748b;
+      font-size:.92rem;
+      line-height:1.6;
+    }
+
+    .iq-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+
+    .iq-field{
+      display:flex;
+      flex-direction:column;
+      gap:7px;
+      margin-bottom:14px;
+    }
+
+    .iq-field label{
+      font-weight:800;
+      font-size:.92rem;
+      color:#0f172a;
+    }
+
+    .iq-field input,
+    .iq-field textarea,
+    .iq-field select{
+      width:100%;
+      border:1px solid #dbe1ea;
+      border-radius:14px;
+      padding:12px 14px;
+      font:inherit;
+      color:#0f172a;
+      background:#fff;
+      outline:none;
+      transition:border-color .18s ease, box-shadow .18s ease, transform .12s ease;
+    }
+
+    .iq-field textarea{
+      min-height:130px;
+      resize:vertical;
+    }
+
+    .iq-field input:focus,
+    .iq-field textarea:focus,
+    .iq-field select:focus{
+      border-color:#60a5fa;
+      box-shadow:0 0 0 4px rgba(37,99,235,.10);
+    }
+
+    .iq-help{
+      margin-top:2px;
+      font-size:.82rem;
+      color:#64748b;
+      line-height:1.5;
+    }
+
+    .iq-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:8px;
+    }
+
+    .btn-primary{
+      appearance:none;
+      border:0;
+      border-radius:14px;
+      padding:12px 18px;
+      background:linear-gradient(135deg,#2563eb 0%, #1d4ed8 100%);
+      color:#fff;
+      font-weight:800;
+      font-size:.96rem;
+      cursor:pointer;
+      box-shadow:0 12px 30px rgba(37,99,235,.20);
+      transition:transform .16s ease, box-shadow .16s ease, filter .16s ease;
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-1px);
+      filter:brightness(1.02);
+      box-shadow:0 16px 34px rgba(37,99,235,.24);
+    }
+
+    .btn-ghost{
+      appearance:none;
+      border:1px solid #cbd5e1;
+      border-radius:14px;
+      padding:12px 18px;
+      background:#fff;
+      color:#0f172a;
+      font-weight:800;
+      font-size:.96rem;
+      cursor:pointer;
+      transition:background .16s ease, border-color .16s ease, transform .16s ease;
+    }
+
+    .btn-ghost:hover{
+      background:#f8fafc;
+      border-color:#94a3b8;
+      transform:translateY(-1px);
+    }
+
+    .quote-result{
+      margin-top:16px;
+      padding:16px;
+      border-radius:18px;
+      background:
+        linear-gradient(180deg, #f8fbff 0%, #eff6ff 100%);
+      border:1px solid #bfdbfe;
+      box-shadow:0 10px 28px rgba(37,99,235,.08);
+    }
+
+    .quote-kpi-row{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px;
+    }
+
+    .quote-kpi{
+      background:#fff;
+      border-radius:14px;
+      padding:12px;
+      border:1px solid #dbeafe;
+    }
+
+    .quote-kpi span{
+      display:block;
+      font-size:.72rem;
+      color:#64748b;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+      margin-bottom:4px;
+      font-weight:800;
+    }
+
+    .quote-kpi strong{
+      font-size:1rem;
+      color:#0f172a;
+    }
+
+    .quote-price{
+      margin-top:10px;
+      background:#fff;
+      border:1px solid #dbeafe;
+      border-radius:14px;
+      padding:14px;
+    }
+
+    .quote-price-label{
+      font-size:.78rem;
+      color:#475569;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+      margin-bottom:4px;
+    }
+
+    .quote-price-value{
+      font-size:1.6rem;
+      color:#1d4ed8;
+      font-weight:900;
+      line-height:1.1;
+    }
+
+    .quote-price p{
+      margin:.45rem 0 0;
+      color:#64748b;
+      font-size:.88rem;
+      line-height:1.6;
+    }
+
+    .quote-needs{
+      margin-top:10px;
+      color:#1e293b;
+      line-height:1.6;
+      font-size:.92rem;
+    }
+
+    .upload-progress{
+      margin-top:8px;
+      padding:12px;
+      border:1px solid #dbeafe;
+      border-radius:14px;
+      background:#f8fbff;
+    }
+
+    .upload-progress[hidden]{
+      display:none;
+    }
+
+    .upload-progress-label{
+      font-size:.85rem;
+      font-weight:800;
+      color:#1e3a8a;
+      margin-bottom:8px;
+    }
+
+    .upload-progress-track{
+      height:9px;
+      background:#dbeafe;
+      border-radius:999px;
+      overflow:hidden;
+    }
+
+    .upload-progress-bar{
+      height:100%;
+      width:0%;
+      background:linear-gradient(90deg,#3b82f6,#2563eb);
+      transition:width .2s ease;
+    }
+
+    .upload-progress.is-indeterminate .upload-progress-bar{
+      width:35%;
+      animation:iq-indeterminate 1.2s ease-in-out infinite;
+    }
+
     @keyframes iq-indeterminate{
       0%{transform:translateX(-120%)}
       50%{transform:translateX(130%)}
       100%{transform:translateX(320%)}
     }
-    @media (max-width:760px){.iq-grid,.quote-kpi-row{grid-template-columns:1fr}}
+
+    .iq-side-title{
+      margin:0 0 10px;
+      font-size:1rem;
+      color:#0f172a;
+    }
+
+    .iq-steps{
+      display:grid;
+      gap:10px;
+    }
+
+    .iq-step{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding:12px;
+      border:1px solid #e5e7eb;
+      border-radius:16px;
+      background:linear-gradient(180deg,#fff 0%, #fafcff 100%);
+    }
+
+    .iq-step-num{
+      flex:0 0 auto;
+      width:28px;
+      height:28px;
+      border-radius:999px;
+      display:grid;
+      place-items:center;
+      font-size:.88rem;
+      font-weight:900;
+      color:#1d4ed8;
+      background:rgba(37,99,235,.10);
+    }
+
+    .iq-step strong{
+      display:block;
+      margin-bottom:3px;
+      color:#0f172a;
+      font-size:.92rem;
+    }
+
+    .iq-step p{
+      margin:0;
+      color:#64748b;
+      font-size:.86rem;
+      line-height:1.55;
+    }
+
+    .iq-note{
+      margin-top:14px;
+      padding:12px 13px;
+      border-radius:14px;
+      background:#fff7ed;
+      border:1px solid #fed7aa;
+      color:#9a3412;
+      font-size:.86rem;
+      line-height:1.6;
+    }
+
+    .iq-links{
+      margin-top:14px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .iq-links a{
+      text-decoration:none;
+      color:#2563eb;
+      font-weight:700;
+    }
+
+    .iq-links a:hover{
+      text-decoration:underline;
+    }
+
+    .site-footer{
+      margin-top:34px;
+    }
+
+    @media (max-width: 980px){
+      .iq-layout{
+        grid-template-columns:1fr;
+      }
+
+      .iq-side-card{
+        position:static;
+        top:auto;
+      }
+    }
+
+    @media (max-width:760px){
+      .iq-grid,
+      .quote-kpi-row{
+        grid-template-columns:1fr;
+      }
+
+      .iq-main-card,
+      .iq-side-card,
+      .iq-hero-card{
+        border-radius:18px;
+      }
+
+      .iq-main-card{
+        padding:16px;
+      }
+
+      .iq-side-card{
+        padding:16px;
+      }
+
+      .iq-title{
+        font-size:1.45rem;
+      }
+
+      .iq-mini-points{
+        gap:8px;
+      }
+
+      .iq-mini-pill{
+        font-size:.83rem;
+      }
+    }
   </style>
 
   <script defer src="/site-optimizer.js"></script>
 </head>
 <body>
   <header class="topbar">
-    <div class="topbar-inner">
-      <a class="brand" href="/">Cere3D</a>
+    <div class="wrap topbar-inner">
+      <a class="logo" href="/">
+        <img class="logo-img" src="/assets/logo-cere3d.svg" alt="Cere3D" />
+      </a>
+
       <nav class="nav" aria-label="Meniu principal">
-        <a href="/">Acasa</a>
-        <a href="/cereri.html">Cereri</a>
-        <a href="/cere.html">Posteaza cerere</a>
+        <a class="nav-link" href="/">Acasa</a>
+        <a class="nav-link" href="/ghid.html">Ghid</a>
+        <a class="nav-link" href="/cereri.html">Cereri</a>
+        <a class="nav-link" href="/cere.html">Cere un Obiect 3D</a>
       </nav>
     </div>
   </header>
 
-  <main class="iq-wrap">
-    <section class="iq-head">
-      <h1>Instant Quote (estimare pret inainte de postare)</h1>
-      <p>Scrii ce piesa ai nevoie, incarci imagini (optional) si primesti interval orientativ de pret. Sistemul simuleaza analiza unei postari: recunoaste tipul piesei si intentia ta din text, iar din poze foloseste semnale vizuale de baza (numar/claritate) pentru risc si incredere.</p>
+  <main class="wrap iq-page">
+    <section class="iq-hero">
+      <div class="iq-hero-card">
+        <div class="iq-badge">Estimare rapida inainte de postare</div>
+        <h1 class="iq-title">(BETA) Instant Quote pentru cereri de printare 3D</h1>
+        <p class="iq-lead">
+          Scrii ce piesa ai nevoie, incarci imagini sau fisiere daca ai, iar sistemul iti da un pret orientativ
+          inainte sa publici cererea. E util ca sa intelegi rapid daca proiectul tau pare simplu, mediu sau mai complex.
+        </p>
+
+        <div class="iq-mini-points">
+          <span class="iq-mini-pill">Text + imagini + fisiere</span>
+          <span class="iq-mini-pill">Pret orientativ, nu oferta finala</span>
+          <span class="iq-mini-pill">Continui direct spre postare</span>
+        </div>
+      </div>
     </section>
 
-    <section class="iq-card">
-      <form id="instantQuoteForm">
-        <div class="iq-field">
-          <label for="q_title">Titlu cerere</label>
-          <input id="q_title" type="text" placeholder="ex: Clema grila ventilatie auto rupta (optional daca ai poze)" />
-        </div>
+    <section class="iq-layout">
+      <div class="iq-main-card">
+        <h2 class="iq-section-title">Completeaza cererea pentru simulare</h2>
+        <p class="iq-section-sub">
+          Cu cat dai mai multe detalii utile, cu atat estimarea va fi mai apropiata de realitate.
+        </p>
 
-        <div class="iq-field">
-          <label for="q_description">Descriere</label>
-          <textarea id="q_description" placeholder="Descrie ce piesa e, unde se foloseste, ce rezistenta iti trebuie, ce dimensiuni aproximative are. (optional daca ai poze)"></textarea>
-        </div>
-
-        <div class="iq-grid">
+        <form id="instantQuoteForm">
           <div class="iq-field">
-            <label for="q_material">Material estimat</label>
-            <select id="q_material">
-              <option>PLA</option><option>PETG</option><option>ABS</option><option>TPU</option><option>Nylon</option>
-            </select>
+            <label for="q_title">Titlu cerere</label>
+            <input
+              id="q_title"
+              type="text"
+              placeholder="ex: Clema grila ventilatie auto rupta"
+            />
+            <div class="iq-help">Optional daca ai deja poze clare sau fisiere 3D.</div>
           </div>
+
           <div class="iq-field">
-            <label for="q_qty">Cantitate</label>
-            <input id="q_qty" type="number" min="1" value="1" />
+            <label for="q_description">Descriere</label>
+            <textarea
+              id="q_description"
+              placeholder="Descrie piesa, unde se foloseste, ce rezistenta iti trebuie, dimensiuni aproximative, termen sau alte detalii utile."
+            ></textarea>
           </div>
-        </div>
 
-        <div class="iq-grid">
-          <div class="iq-field"><label for="q_l">Lungime (mm)</label><input id="q_l" type="number" min="1" value="60" /></div>
-          <div class="iq-field"><label for="q_w">Latime (mm)</label><input id="q_w" type="number" min="1" value="40" /></div>
-        </div>
+          <div class="iq-grid">
+            <div class="iq-field">
+              <label for="q_material">Material estimat</label>
+              <select id="q_material">
+                <option>PLA</option>
+                <option>PETG</option>
+                <option>ABS</option>
+                <option>TPU</option>
+                <option>Nylon</option>
+              </select>
+            </div>
 
-        <div class="iq-grid">
-          <div class="iq-field"><label for="q_h">Inaltime (mm)</label><input id="q_h" type="number" min="1" value="20" /></div>
-          <div class="iq-field"><label for="q_county">Judet (optional)</label><input id="q_county" type="text" placeholder="ex: Bihor" /></div>
-        </div>
+            <div class="iq-field">
+              <label for="q_qty">Cantitate</label>
+              <input id="q_qty" type="number" min="1" value="1" />
+            </div>
+          </div>
 
-        <div class="iq-field">
-          <label for="q_photos">Poze / schite (optional)</label>
-          <input id="q_photos" type="file" accept="image/*" multiple />
-        </div>
+          <div class="iq-grid">
+            <div class="iq-field">
+              <label for="q_l">Lungime (mm)</label>
+              <input id="q_l" type="number" min="1" value="60" />
+            </div>
 
-        <div class="iq-field">
-          <label for="q_stl">Fisiere STL/3MF (optional, poti incarca mai multe pentru ansamblu)</label>
-          <input id="q_stl" type="file" accept=".stl,.3mf,model/stl,application/sla,model/3mf,application/vnd.ms-package.3dmanufacturing-3dmodel+xml" multiple />
-          <div id="q_stl_progress" class="upload-progress" hidden>
-            <div id="q_stl_progress_label" class="upload-progress-label">Fisier selectat.</div>
-            <div class="upload-progress-track">
-              <div id="q_stl_progress_bar" class="upload-progress-bar"></div>
+            <div class="iq-field">
+              <label for="q_w">Latime (mm)</label>
+              <input id="q_w" type="number" min="1" value="40" />
+            </div>
+          </div>
+
+          <div class="iq-grid">
+            <div class="iq-field">
+              <label for="q_h">Inaltime (mm)</label>
+              <input id="q_h" type="number" min="1" value="20" />
+            </div>
+
+            <div class="iq-field">
+              <label for="q_county">Judet</label>
+              <input id="q_county" type="text" placeholder="ex: Bihor" />
+            </div>
+          </div>
+
+          <div class="iq-field">
+            <label for="q_photos">Poze / schite</label>
+            <input id="q_photos" type="file" accept="image/*" multiple />
+            <div class="iq-help">Optional, dar pozele clare cresc increderea in estimare.</div>
+          </div>
+
+          <div class="iq-field">
+            <label for="q_stl">Fisiere STL / 3MF</label>
+            <input
+              id="q_stl"
+              type="file"
+              accept=".stl,.3mf,model/stl,application/sla,model/3mf,application/vnd.ms-package.3dmanufacturing-3dmodel+xml"
+              multiple
+            />
+            <div class="iq-help">
+              Optional. Poti incarca mai multe fisiere daca este un ansamblu din mai multe piese.
+            </div>
+
+            <div id="q_stl_progress" class="upload-progress" hidden>
+              <div id="q_stl_progress_label" class="upload-progress-label">Fisier selectat.</div>
+              <div class="upload-progress-track">
+                <div id="q_stl_progress_bar" class="upload-progress-bar"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="iq-field">
+            <label for="q_ref">Link referinta</label>
+            <input id="q_ref" type="url" placeholder="https://..." />
+            <div class="iq-help">Optional, daca ai un model, produs sau exemplu asemanator.</div>
+          </div>
+
+          <div class="iq-actions">
+            <button class="btn-primary" type="submit">Analizeaza si estimeaza pretul</button>
+            <button id="goToPostBtn" class="btn-ghost" type="button" hidden>
+              Continua catre postare cerere
+            </button>
+          </div>
+        </form>
+
+        <div id="quoteResult" class="quote-result" hidden></div>
+      </div>
+
+      <aside class="iq-side-card">
+        <h2 class="iq-side-title">Cum functioneaza</h2>
+
+        <div class="iq-steps">
+          <div class="iq-step">
+            <div class="iq-step-num">1</div>
+            <div>
+              <strong>Completezi rapid</strong>
+              <p>Adaugi text, dimensiuni, material, poze sau fisiere daca le ai.</p>
+            </div>
+          </div>
+
+          <div class="iq-step">
+            <div class="iq-step-num">2</div>
+            <div>
+              <strong>Primesti o estimare</strong>
+              <p>Sistemul calculeaza un interval orientativ in functie de complexitate si claritate.</p>
+            </div>
+          </div>
+
+          <div class="iq-step">
+            <div class="iq-step-num">3</div>
+            <div>
+              <strong>Continui spre publicare</strong>
+              <p>Daca iti convine, mergi mai departe si postezi cererea reala in platforma.</p>
             </div>
           </div>
         </div>
 
-        <div class="iq-field">
-          <label for="q_ref">Link referinta (optional)</label>
-          <input id="q_ref" type="url" placeholder="https://..." />
+        <div class="iq-note">
+          Estimarea este orientativa. Pretul final poate diferi in functie de tolerante, finisaj, material real,
+          timpi de executie si discutia cu printatorul.
         </div>
 
-        <div class="iq-actions">
-          <button class="btn-primary" type="submit">Analizeaza si estimeaza pretul</button>
-          <button id="goToPostBtn" class="btn-ghost" type="button" hidden>Continua catre postare cerere</button>
+        <div class="iq-links">
+          <a href="/cere.html">Posteaza direct o cerere</a>
+          <a href="/cereri.html">Vezi cereri publice</a>
+          <a href="/ghid.html">Vezi ghidul Cere3D</a>
         </div>
-      </form>
-
-      <div id="quoteResult" class="quote-result" hidden></div>
+      </aside>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>© <span id="year"></span> Cere3D</span>
+      <span class="footer-links">
+        <a href="/legal.html">Legal · Privacy · Terms · Cookies</a>
+        <a class="footer-seo-link" href="/refacere-piese-plastic.html">Refacere piese din plastic</a>
+        <a class="footer-seo-link" href="/printare-3d-la-comanda.html">Printare 3D la comanda</a>
+        <a class="footer-seo-link" href="/servicii-printare-3d-romania.html">Servicii printare 3D Romania</a>
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
   <script type="module" src="/instant-quote.js"></script>
 </body>
