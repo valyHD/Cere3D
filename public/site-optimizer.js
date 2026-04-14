@@ -43,6 +43,69 @@ function ensureWebPageSchema() {
   document.head.appendChild(script);
 }
 
+function ensureSocialMeta() {
+  const title = (document.title || "Printare 3D la comanda - Cere3D").trim();
+  const description =
+    document.querySelector("meta[name='description']")?.getAttribute("content") ||
+    "Printare 3D la comanda pentru piese tehnice, refacere piese rupte si obiecte personalizate.";
+  const url = window.location.origin + window.location.pathname;
+
+  const setMeta = (attr, key, value) => {
+    let n = document.querySelector(`meta[${attr}='${key}']`);
+    if (!n) {
+      n = document.createElement("meta");
+      n.setAttribute(attr, key);
+      document.head.appendChild(n);
+    }
+    if (!n.getAttribute("content")) n.setAttribute("content", value);
+  };
+
+  setMeta("property", "og:type", "website");
+  setMeta("property", "og:title", title);
+  setMeta("property", "og:description", description);
+  setMeta("property", "og:url", url);
+  setMeta("name", "twitter:card", "summary_large_image");
+  setMeta("name", "twitter:title", title);
+  setMeta("name", "twitter:description", description);
+}
+
+function ensureIndexingMeta() {
+  let robots = document.querySelector("meta[name='robots']");
+  if (!robots) {
+    robots = document.createElement("meta");
+    robots.name = "robots";
+    document.head.appendChild(robots);
+  }
+  if (!robots.getAttribute("content")) {
+    robots.content = "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1";
+  }
+}
+
+function ensureLocalBusinessSchema() {
+  const hasSchema = [...document.querySelectorAll("script[type='application/ld+json']")]
+    .some((n) => /"@type"\s*:\s*"(LocalBusiness|ProfessionalService|Organization)"/.test(n.textContent || ""));
+  if (hasSchema) return;
+
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Cere3D",
+    "url": window.location.origin,
+    "serviceType": "Printare 3D la comanda",
+    "areaServed": "Romania",
+    "knowsAbout": [
+      "printare 3d",
+      "refacere piese plastic",
+      "piese custom auto",
+      "decoratiuni si vaze printate 3d",
+      "prototipuri si piese functionale"
+    ]
+  });
+  document.head.appendChild(script);
+}
+
 function optimizeImages() {
   const images = [...document.querySelectorAll("img")];
   if (!images.length) return;
@@ -72,7 +135,10 @@ function reduceMotionCost() {
 function runOptimizations() {
   ensureCanonical();
   ensureBasicMetaDescription();
+  ensureSocialMeta();
+  ensureIndexingMeta();
   ensureWebPageSchema();
+  ensureLocalBusinessSchema();
   optimizeImages();
   reduceMotionCost();
 }
@@ -82,4 +148,3 @@ if (document.readyState === "loading") {
 } else {
   runOptimizations();
 }
-

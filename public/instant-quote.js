@@ -332,8 +332,22 @@ async function extractFirst3mfModelXml(buf){
 
   for (let i = bytes.length - 22; i >= Math.max(0, bytes.length - 65558); i--){
     if (dv.getUint32(i, true) !== 0x06054B50) continue;
-    const totalEntries = dv.getUint16(i + 10, true);
-    const centralDirOffset = dv.getUint32(i + 16, true);
+    let totalEntries = dv.getUint16(i + 10, true);
+    let centralDirOffset = dv.getUint32(i + 16, true);
+
+    if (totalEntries === 0xFFFF || centralDirOffset === 0xFFFFFFFF){
+      const zip64LocatorOffset = i - 20;
+      if (zip64LocatorOffset >= 0 && dv.getUint32(zip64LocatorOffset, true) === 0x07064B50){
+        const zip64EocdOffset = toSafeNumber(getUint64LE(zip64LocatorOffset + 8));
+        if (zip64EocdOffset && zip64EocdOffset + 56 <= bytes.length && dv.getUint32(zip64EocdOffset, true) === 0x06064B50){
+          const zip64Entries = toSafeNumber(getUint64LE(zip64EocdOffset + 32));
+          const zip64CdOffset = toSafeNumber(getUint64LE(zip64EocdOffset + 48));
+          if (Number.isFinite(zip64Entries)) totalEntries = zip64Entries;
+          if (Number.isFinite(zip64CdOffset)) centralDirOffset = zip64CdOffset;
+        }
+      }
+    }
+    if (!Number.isFinite(totalEntries) || !Number.isFinite(centralDirOffset)) continue;
     let cdOffset = centralDirOffset;
 
     for (let entry = 0; entry < totalEntries && cdOffset + 46 <= bytes.length; entry++){
@@ -382,37 +396,127 @@ function parse3mfModelXml(xmlText, fileName){
   const doc = parser.parseFromString(xmlText, "application/xml");
   if (doc.querySelector("parsererror")) return null;
 
-  const meshNodes = Array.from(doc.getElementsByTagName("*")).filter((n) => n.localName === "mesh");
-  if (!meshNodes.length) return null;
+  const modelNode = Array.from(doc.getElementsByTagName("*")).find((n) => n.localName === "model");
+  const unitToMm = {
+    micron: 0.001,
+    millimeter: 1,
+    centimeter: 10,
+    meter: 1000,
+    inch: 25.4,
+    foot: 304.8,
+  };
+  const mmFactor = unitToMm[(modelNode?.getAttribute("unit") || "millimeter").toLowerCase()] || 1;
+  const makeIdentity = () => [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0];
+  const parseTransform = (txt) => {
+    if (!txt) return makeIdentity();
+    const parts = txt.trim().split(/\s+/).map(Number).filter((n) => Number.isFinite(n));
+    if (parts.length !== 12) return makeIdentity();
+    return parts;
+  };
+  const applyTf = (v, t) => ([
+    (t[0] * v[0]) + (t[1] * v[1]) + (t[2] * v[2]) + t[9],
+    (t[3] * v[0]) + (t[4] * v[1]) + (t[5] * v[2]) + t[10],
+    (t[6] * v[0]) + (t[7] * v[1]) + (t[8] * v[2]) + t[11],
+  ]);
+  const mulTf = (a, b) => ([
+    (a[0] * b[0]) + (a[1] * b[3]) + (a[2] * b[6]),
+    (a[0] * b[1]) + (a[1] * b[4]) + (a[2] * b[7]),
+    (a[0] * b[2]) + (a[1] * b[5]) + (a[2] * b[8]),
+    (a[3] * b[0]) + (a[4] * b[3]) + (a[5] * b[6]),
+    (a[3] * b[1]) + (a[4] * b[4]) + (a[5] * b[7]),
+    (a[3] * b[2]) + (a[4] * b[5]) + (a[5] * b[8]),
+    (a[6] * b[0]) + (a[7] * b[3]) + (a[8] * b[6]),
+    (a[6] * b[1]) + (a[7] * b[4]) + (a[8] * b[7]),
+    (a[6] * b[2]) + (a[7] * b[5]) + (a[8] * b[8]),
+    (a[0] * b[9]) + (a[1] * b[10]) + (a[2] * b[11]) + a[9],
+    (a[3] * b[9]) + (a[4] * b[10]) + (a[5] * b[11]) + a[10],
+    (a[6] * b[9]) + (a[7] * b[10]) + (a[8] * b[11]) + a[11],
+  ]);
 
-  const vertices = [];
-  const allTriangles = [];
-  let triCount = 0;
-
-  for (const mesh of meshNodes){
-    const children = Array.from(mesh.children || []);
-    const verticesNode = children.find((n) => n.localName === "vertices");
-    const trianglesNode = children.find((n) => n.localName === "triangles");
-    const localVertices = Array.from(verticesNode ? verticesNode.children : []).filter((n) => n.localName === "vertex").map((v) => ([
-      safeNum(v.getAttribute("x"), 0),
-      safeNum(v.getAttribute("y"), 0),
-      safeNum(v.getAttribute("z"), 0),
-    ]));
-    const localTriangles = Array.from(trianglesNode ? trianglesNode.children : []).filter((n) => n.localName === "triangle").map((t) => ([
-      safeNum(t.getAttribute("v1"), -1),
-      safeNum(t.getAttribute("v2"), -1),
-      safeNum(t.getAttribute("v3"), -1),
-    ]));
-
-    vertices.push(...localVertices);
-    for (const [i1, i2, i3] of localTriangles){
-      const v0 = localVertices[i1];
-      const v1 = localVertices[i2];
-      const v2 = localVertices[i3];
-      if (!v0 || !v1 || !v2) continue;
-      allTriangles.push([v0, v1, v2]);
+  const objectNodes = Array.from(doc.getElementsByTagName("*")).filter((n) => n.localName === "object");
+  const objectMap = new Map();
+  for (const obj of objectNodes){
+    const objectId = obj.getAttribute("id");
+    if (!objectId) continue;
+    const objName =
+      obj.getAttribute("name") ||
+      obj.getAttribute("partnumber") ||
+      obj.getAttribute("type") ||
+      `object-${objectId}`;
+    const meshNode = Array.from(obj.children || []).find((n) => n.localName === "mesh");
+    const componentsNode = Array.from(obj.children || []).find((n) => n.localName === "components");
+    if (meshNode){
+      const children = Array.from(meshNode.children || []);
+      const verticesNode = children.find((n) => n.localName === "vertices");
+      const trianglesNode = children.find((n) => n.localName === "triangles");
+      const localVertices = Array.from(verticesNode ? verticesNode.children : [])
+        .filter((n) => n.localName === "vertex")
+        .map((v) => ([
+          safeNum(v.getAttribute("x"), 0) * mmFactor,
+          safeNum(v.getAttribute("y"), 0) * mmFactor,
+          safeNum(v.getAttribute("z"), 0) * mmFactor,
+        ]));
+      const localTriangles = Array.from(trianglesNode ? trianglesNode.children : [])
+        .filter((n) => n.localName === "triangle")
+        .map((t) => ([
+          safeNum(t.getAttribute("v1"), -1),
+          safeNum(t.getAttribute("v2"), -1),
+          safeNum(t.getAttribute("v3"), -1),
+        ]));
+      objectMap.set(objectId, { id: objectId, name: objName, vertices: localVertices, triangles: localTriangles, components: [] });
+      continue;
     }
-    triCount += localTriangles.length;
+
+    if (componentsNode){
+      const components = Array.from(componentsNode.children || [])
+        .filter((n) => n.localName === "component")
+        .map((n) => ({
+          objectId: n.getAttribute("objectid"),
+          transform: parseTransform(n.getAttribute("transform")),
+        }))
+        .filter((c) => !!c.objectId);
+      objectMap.set(objectId, { id: objectId, name: objName, vertices: [], triangles: [], components });
+    }
+  }
+
+  const allTriangles = [];
+  const vertices = [];
+  const objectNames = new Set();
+  const resolveObject = (objectId, baseTf, depth, stack) => {
+    if (!objectId || depth > 16) return;
+    if (stack.has(objectId)) return;
+    const obj = objectMap.get(objectId);
+    if (!obj) return;
+    objectNames.add(obj.name);
+    if (obj.triangles.length && obj.vertices.length){
+      for (const [i1, i2, i3] of obj.triangles){
+        const v0 = obj.vertices[i1];
+        const v1 = obj.vertices[i2];
+        const v2 = obj.vertices[i3];
+        if (!v0 || !v1 || !v2) continue;
+        const tv0 = applyTf(v0, baseTf);
+        const tv1 = applyTf(v1, baseTf);
+        const tv2 = applyTf(v2, baseTf);
+        allTriangles.push([tv0, tv1, tv2]);
+        vertices.push(tv0, tv1, tv2);
+      }
+    }
+    if (obj.components.length){
+      const nextStack = new Set(stack);
+      nextStack.add(objectId);
+      for (const comp of obj.components){
+        resolveObject(comp.objectId, mulTf(baseTf, comp.transform), depth + 1, nextStack);
+      }
+    }
+  };
+
+  const buildItems = Array.from(doc.getElementsByTagName("*")).filter((n) => n.localName === "item");
+  if (buildItems.length){
+    for (const it of buildItems){
+      resolveObject(it.getAttribute("objectid"), parseTransform(it.getAttribute("transform")), 0, new Set());
+    }
+  } else {
+    for (const objId of objectMap.keys()) resolveObject(objId, makeIdentity(), 0, new Set());
   }
 
   if (!allTriangles.length || !vertices.length) return null;
@@ -437,13 +541,15 @@ function parse3mfModelXml(xmlText, fileName){
   const spanZ = Math.max(0.1, maxZ - minZ);
   const bboxVolumeCm3 = (spanX * spanY * spanZ) / 1000;
   const volumeCm3 = Math.abs(signedVolumeMm3) / 1000;
-  const shapeHint = classifyStlGeometry({ spanX, spanY, spanZ, volumeCm3, triangleCount: triCount });
+  const shapeHint = classifyStlGeometry({ spanX, spanY, spanZ, volumeCm3, triangleCount: allTriangles.length });
+  const objectSummary = Array.from(objectNames).slice(0, 3).join(", ");
 
   return {
     hasStl: true,
     sourceType: "3MF",
     fileName,
-    triangleCount: triCount,
+    objectName: objectSummary || null,
+    triangleCount: allTriangles.length,
     spanX: Math.round(spanX),
     spanY: Math.round(spanY),
     spanZ: Math.round(spanZ),
@@ -818,6 +924,7 @@ function estimateFromInput({ title, description, material, qty, l, w, h, imageCo
             bbox: `${stlData.spanX}×${stlData.spanY}×${stlData.spanZ} mm`,
             estimatedVolumeCm3: stlData.volumeCm3,
             estimatedAreaCm2: stlData.areaCm2,
+            objectName: stlData.objectName || "",
             inferredShape: stlData.shapeHint.label,
           }
         : { enabled: false },
@@ -950,7 +1057,7 @@ function renderResult(res){
       : "general"}</div>
     <div class="quote-needs"><strong>Ce vede in poze (metadate):</strong> ${res.analysisSignals.imageAnalysis.imageCount} imagine(i), ~${res.analysisSignals.imageAnalysis.avgMp} MP mediu, claritate ~${res.analysisSignals.imageAnalysis.avgSharpness}, contrast ~${res.analysisSignals.imageAnalysis.avgContrast}, acoperire: ${res.analysisSignals.imageAnalysis.coverage}, impact: ${res.analysisSignals.imageAnalysis.confidenceImpact}.</div>
     ${res.analysisSignals.stlAnalysis.enabled
-      ? `<div class="quote-needs"><strong>Ce a extras din ${res.analysisSignals.stlAnalysis.sourceType}:</strong> ${res.analysisSignals.stlAnalysis.fileName} · ${res.analysisSignals.stlAnalysis.triangleCount} triunghiuri · gabarit ${res.analysisSignals.stlAnalysis.bbox} · volum mesh ~${res.analysisSignals.stlAnalysis.estimatedVolumeCm3} cm³ · suprafata ~${res.analysisSignals.stlAnalysis.estimatedAreaCm2} cm² · tip dedus: ${res.analysisSignals.stlAnalysis.inferredShape}.</div>`
+      ? `<div class="quote-needs"><strong>Ce a extras din ${res.analysisSignals.stlAnalysis.sourceType}:</strong> ${res.analysisSignals.stlAnalysis.fileName} · ${res.analysisSignals.stlAnalysis.triangleCount} triunghiuri · gabarit ${res.analysisSignals.stlAnalysis.bbox} · volum mesh ~${res.analysisSignals.stlAnalysis.estimatedVolumeCm3} cm³ · suprafata ~${res.analysisSignals.stlAnalysis.estimatedAreaCm2} cm²${res.analysisSignals.stlAnalysis.objectName ? ` · obiect detectat: ${res.analysisSignals.stlAnalysis.objectName}` : ""} · tip dedus: ${res.analysisSignals.stlAnalysis.inferredShape}.</div>`
       : `<div class="quote-needs"><strong>Analiza STL/3MF:</strong> ${res.analysisSignals.stlAnalysis.parseError || "Fara fisier incarcat. Pentru estimare mai reala, adauga STL sau 3MF daca il ai."}</div>`}
     <div class="quote-needs"><strong>Sugestie material:</strong> ${res.materialAdvice.recommendation} · ${res.materialAdvice.reasons.join(" ")}</div>
     <div class="quote-needs"><strong>Analiza probabilistica (${res.analysisSignals.scenarioInsights.simulationCount} scenarii):</strong> ${res.analysisSignals.scenarioInsights.likely.map((s) =>
