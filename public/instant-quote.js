@@ -614,6 +614,47 @@ async function parseModelFile(file){
   return withNameHint(await parseStlFile(file), "STL");
 }
 
+function aggregateModelData(models){
+  if (!Array.isArray(models) || !models.length) return null;
+  const valid = models.filter((m) => !!m?.hasStl);
+  if (!valid.length) return null;
+
+  const totalTriangles = valid.reduce((sum, m) => sum + Math.max(0, Number(m.triangleCount) || 0), 0);
+  const totalVolumeCm3 = valid.reduce((sum, m) => sum + Math.max(0, Number(m.volumeCm3) || 0), 0);
+  const totalAreaCm2 = valid.reduce((sum, m) => sum + Math.max(0, Number(m.areaCm2) || 0), 0);
+  const maxSpanX = valid.reduce((max, m) => Math.max(max, Number(m.spanX) || 0), 0);
+  const maxSpanY = valid.reduce((max, m) => Math.max(max, Number(m.spanY) || 0), 0);
+  const maxSpanZ = valid.reduce((max, m) => Math.max(max, Number(m.spanZ) || 0), 0);
+  const totalBBoxCm3 = valid.reduce((sum, m) => sum + Math.max(0, Number(m.bboxVolumeCm3) || 0), 0);
+  const topNames = valid.map((m) => m.fileName || "model.stl").slice(0, 3);
+  const firstShape = valid[0].shapeHint || { key: "general", label: "Piesa generala", keywords: [] };
+  const sourceTypeSet = new Set(valid.map((m) => m.sourceType || "STL"));
+
+  return {
+    hasStl: true,
+    sourceType: sourceTypeSet.size > 1 ? "STL/3MF" : (valid[0].sourceType || "STL"),
+    fileName: valid.length === 1 ? topNames[0] : `${valid.length} fisiere (${topNames.join(", ")}${valid.length > topNames.length ? ", ..." : ""})`,
+    objectName: valid.length > 1 ? `Ansamblu cu ${valid.length} piese` : (valid[0].objectName || null),
+    fileCount: valid.length,
+    triangleCount: Math.round(totalTriangles),
+    spanX: Math.round(maxSpanX),
+    spanY: Math.round(maxSpanY),
+    spanZ: Math.round(maxSpanZ),
+    bboxVolumeCm3: Math.round(totalBBoxCm3),
+    volumeCm3: Math.round(totalVolumeCm3),
+    areaCm2: Math.round(totalAreaCm2),
+    shapeHint: valid.length > 1
+      ? { key: "assembly", label: "Ansamblu multi-piesa", keywords: ["ansamblu", "piese multiple", ...firstShape.keywords] }
+      : firstShape,
+  };
+}
+
+async function parseModelFiles(files){
+  if (!files || !files.length) return null;
+  const parsedList = await Promise.all(Array.from(files).map((file) => parseModelFile(file)));
+  return aggregateModelData(parsedList.filter(Boolean));
+}
+
 function weightedChoice(items, rand){
   const total = items.reduce((s, it) => s + Math.max(0, it.weight || 0), 0);
   if (total <= 0) return items[0];
@@ -1123,14 +1164,17 @@ function init(){
 
   if (stlInput){
     stlInput.addEventListener("change", () => {
-      const file = stlInput.files?.[0];
-      if (!file){
+      const files = Array.from(stlInput.files || []);
+      if (!files.length){
         setUploadUi({ hidden: true });
         return;
       }
+      const totalKb = Math.max(1, Math.round(files.reduce((sum, f) => sum + (f.size || 0), 0) / 1024));
       setUploadUi({
         hidden: false,
-        label: `Fisier selectat: ${file.name} (${Math.max(1, Math.round(file.size / 1024))} KB).`,
+        label: files.length === 1
+          ? `Fisier selectat: ${files[0].name} (${totalKb} KB).`
+          : `${files.length} fisiere selectate (${totalKb} KB total).`,
         progress: 100,
       });
     });
@@ -1151,31 +1195,37 @@ function init(){
     const w = safeNum(wRaw, 40);
     const h = safeNum(hRaw, 20);
     const photos = $("q_photos")?.files || [];
-    const stlFile = $("q_stl")?.files?.[0] || null;
+    const stlFiles = $("q_stl")?.files || [];
 
-    if (!title && !description && !photos.length && !stlFile) {
-      alert("Adauga macar text scurt, poze sau fisier STL/3MF pentru estimare.");
+    if (!title && !description && !photos.length && !stlFiles.length) {
+      alert("Adauga macar text scurt, poze sau fisiere STL/3MF pentru estimare.");
       return;
     }
 
-    if (stlFile){
+    if (stlFiles.length){
       setUploadUi({
         hidden: false,
-        label: `Se analizeaza ${stlFile.name}...`,
+        label: stlFiles.length === 1
+          ? `Se analizeaza ${stlFiles[0].name}...`
+          : `Se analizeaza ${stlFiles.length} fisiere STL/3MF...`,
         progress: 25,
         indeterminate: true,
       });
     }
     const [meta, stlData] = await Promise.all([
       readImagesMeta(photos),
-      parseModelFile(stlFile),
+      parseModelFiles(stlFiles),
     ]);
-    if (stlFile){
+    if (stlFiles.length){
       setUploadUi({
         hidden: false,
         label: stlData
-          ? `Fisier incarcat si citit: ${stlFile.name}.`
-          : `Fisier incarcat, dar geometria nu a putut fi citita: ${stlFile.name}.`,
+          ? (stlFiles.length === 1
+            ? `Fisier incarcat si citit: ${stlFiles[0].name}.`
+            : `${stlData.fileCount || stlFiles.length}/${stlFiles.length} fisiere citite pentru ansamblu.`)
+          : (stlFiles.length === 1
+            ? `Fisier incarcat, dar geometria nu a putut fi citita: ${stlFiles[0].name}.`
+            : `Fisiere incarcate, dar geometria nu a putut fi citita corect.`),
         progress: 100,
         indeterminate: false,
       });
@@ -1194,8 +1244,10 @@ function init(){
       hasDimensions,
       stlData,
     });
-    if (stlFile && !stlData){
-      result.analysisSignals.stlAnalysis.parseError = `Am primit fisierul ${stlFile.name}, dar nu am putut extrage geometria. Incearca re-export STL Binary sau 3MF standard din slicer/CAD.`;
+    if (stlFiles.length && !stlData){
+      result.analysisSignals.stlAnalysis.parseError = stlFiles.length === 1
+        ? `Am primit fisierul ${stlFiles[0].name}, dar nu am putut extrage geometria. Incearca re-export STL Binary sau 3MF standard din slicer/CAD.`
+        : `Am primit ${stlFiles.length} fisiere, dar nu am putut extrage geometria valida. Incearca export STL Binary sau 3MF standard din slicer/CAD.`;
     }
 
     renderResult(result);
